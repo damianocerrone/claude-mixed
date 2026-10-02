@@ -21,6 +21,7 @@ const EPS = 0.002;
 
 const html = fs.readFileSync(path.join(GUIDE, 'index.html'), 'utf8');
 const files = [...html.matchAll(/<script src="(chapters\/[^"]+)"><\/script>/g)].map((m) => m[1]);
+const repeated = files.filter((f, i) => files.indexOf(f) !== i);
 
 global.window = { COPLAN_TUTORIAL: { chapters: [] } };
 for (const f of files) require(path.join(GUIDE, f));
@@ -85,6 +86,7 @@ for (const ch of chapters) {
   }
 }
 
+for (const f of repeated) err('index.html', `${f} is loaded more than once`);
 for (const [where, id] of links) if (!ids.has(id)) err(where, `link to #${id}, which is not a chapter or step id`);
 
 console.log(`${chapters.length} chapters, ${steps} steps, ${beats} beats`);

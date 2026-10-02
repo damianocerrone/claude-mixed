@@ -145,9 +145,10 @@ review, not into the guide's instructions (the guide may add a tip that helps pe
   verified as a product bug**. The guide's video was made with **Kling 2.6** (5 s, Drone View).
 - The finished video appears as a card on the Video page: title (the preset, "Drone View"), engine tag "Kling 2.6",
   before → after thumbnails, "5s", author and date, and the buttons **Download video**, **Edit video**, **Delete
-  video**. (7-03) Editing a video shows "NOW EDITING — Adjust the settings in the panel and regenerate — the result
-  replaces this video." and the button **Regenerate (overwrites)** with **+ New video** below
-  (explore/raw/7-03-raw.png). The run took several minutes.
+  video**. (7-03, taken later by reopening the page from its URL) Straight after generation, without **Edit video**
+  being clicked, the page showed the new video under "NOW EDITING — Adjust the settings in the panel and regenerate —
+  the result replaces this video." and the green button read **Regenerate (overwrites)** with **+ New video** below
+  (explore/raw/7-03-raw.png, written right after Generate in the flow's video stage). The run took several minutes.
 - **Sequence video**: "Chain up to six images into one continuous video with a camera move between each pair.";
   Default motion (Walkthrough), Segment length (5s), **Add image** ("Add 2 to 6 images…"), Generate sequence video
   ("Add at least two images to generate."). Not generated. (7-04)
