@@ -1,0 +1,83 @@
+{
+  "name": "7-05-upscale",
+  "image": "img/7-05-upscale.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/upscale",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T22:57:02.643Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "engine": {
+      "box": [0.0032, 0.1074, 0.1784, 0.3712],
+      "center": [0.0924, 0.293],
+      "zoom": [0, 0.0474, 0.4912, 0.4912],
+      "label": "Engine",
+      "css": [12, 108, 327, 340.5]
+    },
+    "source": {
+      "box": [0.0032, 0.4764, 0.1784, 0.3067],
+      "center": [0.0924, 0.6298],
+      "zoom": [0, 0.4164, 0.4267, 0.4267],
+      "label": "Source image",
+      "css": [12, 458.5, 327, 279.5]
+    },
+    "size": {
+      "box": [0.0032, 0.781, 0.1784, 0.1284],
+      "center": [0.0924, 0.8452],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Target size",
+      "css": [12, 748, 327, 110]
+    },
+    "go": {
+      "box": [0.0032, 0.9453, 0.1784, 0.0505],
+      "center": [0.0924, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Upscale",
+      "css": [12, 904, 327, 36]
+    }
+  },
+  "points": {
+    "go": [0.0924, 0.9705]
+  },
+  "beats": {
+    "engine": {
+      "highlight": {
+        "box": [0.0032, 0.1074, 0.1784, 0.3712],
+        "label": "Engine"
+      },
+      "zoom": [0, 0.0474, 0.4912, 0.4912]
+    },
+    "source": {
+      "highlight": {
+        "box": [0.0032, 0.4764, 0.1784, 0.3067],
+        "label": "Source image"
+      },
+      "zoom": [0, 0.4164, 0.4267, 0.4267]
+    },
+    "size": {
+      "highlight": {
+        "box": [0.0032, 0.781, 0.1784, 0.1284],
+        "label": "Target size"
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    },
+    "go": {
+      "highlight": {
+        "box": [0.0032, 0.9453, 0.1784, 0.0505],
+        "label": "Upscale"
+      },
+      "cursor": {
+        "at": [0.0924, 0.9705],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

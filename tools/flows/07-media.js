@@ -34,7 +34,7 @@ async function openSlot(page, slot) {
   throw new Error(`the ${slot} picker did not open`);
 }
 async function pickImage(page, tab, n = 0) {
-  const title = page.getByText(/^Pick the .* image$/).filter({ visible: true }).first();
+  const title = page.getByText(/^Pick the (before |after )?image/).filter({ visible: true }).first();
   const box = await card(title, { minWidth: 900 });                 // the whole picker
   if (tab !== 'Ideation') {                                          // Ideation is the tab it opens on
     const tabs = page.getByText(tab, { exact: true }).filter({ visible: true });
@@ -50,6 +50,17 @@ async function pickImage(page, tab, n = 0) {
   await page.waitForTimeout(1000);
   await raw(page, `7-pick-${tab}`);
   return page.getByRole('button', { name: 'Use image' }).filter({ visible: true }).first();
+}
+
+/* The rect of the nearest ancestor of `loc` that contains media (a <video>, or an <img> wider than 150 px): a result card. */
+async function mediaCard(loc) {
+  return loc.first().evaluate((el) => {
+    for (let e = el.parentElement; e && e !== document.body; e = e.parentElement) {
+      const hasMedia = e.querySelector('video') || [...e.querySelectorAll('img')].some((i) => i.getBoundingClientRect().width > 150);
+      if (hasMedia) { const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; }
+    }
+    return null;
+  });
 }
 
 async function waitDone(page, label, re, max = 600) {
@@ -102,12 +113,47 @@ const stages = {
       },
       points: { go: page.getByRole('button', { name: /^Generate video/ }) },
     });
+    if (process.env.NOGEN) return;                    // re-take the set-up plates without generating
     console.log('step: generate');
     await page.getByRole('button', { name: /^Generate video/ }).click();
     await waitDone(page, 'video', /\d+:\d\d|Download|Delete video|\.mp4|Couldn.t generate/i);     // also ends on the failure message
     await page.waitForTimeout(4000);
     await raw(page, '7-03-raw');
     await plate(page, '7-03-video-result', { highlights: { video: { locator: await stage(page), label: 'Your video' } } });
+  },
+
+  /* 7-03 the finished video as a card on the Video page (title, engine, before → after, length, actions). */
+  async videoresult(page) {
+    await go(page, `${SANDBOX}/video`, 8000);
+    await page.locator('video').filter({ visible: true }).first().waitFor({ timeout: 30000 });
+    await page.waitForTimeout(1500);
+    await raw(page, '7-03-raw2');
+    const dl = page.getByRole('button', { name: 'Download video' }).first();
+    await plate(page, '7-03-video-result', {
+      highlights: {
+        card: { locator: await mediaCard(dl), label: 'Your video' },
+        meta: { locator: await union(page.getByText('Drone View', { exact: true }).filter({ visible: true }).last(), page.getByText('Kling 2.6', { exact: true }).filter({ visible: true }).last()), label: 'Preset and engine' },
+        actions: { locator: await union(dl, page.getByRole('button', { name: 'Delete video' }).first()), label: 'Download, edit, delete' },
+      },
+      points: { actions: { locator: page.getByRole('button', { name: 'Edit video' }).first(), click: false } },
+    });
+  },
+
+  /* 7-06 the finished upscale as a card on the Upscale page. */
+  async upresult(page) {
+    await go(page, `${SANDBOX}/upscale`, 8000);
+    const dl = page.getByRole('button', { name: 'Download image' }).first();
+    await dl.waitFor({ timeout: 30000 });
+    await page.waitForTimeout(1500);
+    await raw(page, '7-06-raw2');
+    await plate(page, '7-06-upscale-result', {
+      highlights: {
+        card: { locator: await mediaCard(dl), label: 'Upscaled image' },
+        size: { locator: page.getByText(/^6144 × \d+$/).filter({ visible: true }).first(), label: 'Size' },
+        actions: { locator: await union(dl, page.getByRole('button', { name: 'Delete upscale' }).first()), label: 'Download or delete' },
+      },
+      points: { actions: { locator: dl, click: false } },
+    });
   },
 
   async sequence(page) {
@@ -128,7 +174,8 @@ const stages = {
   async upscale(page) {
     await fromProduction(page, 'Image Upscale');
     await raw(page, '7-05-open');
-    console.log('step: engine'); await page.getByRole('button', { name: /^Classic \(no AI\)/ }).filter({ visible: true }).first().click();
+    const engine = process.env.UPSCALE_ENGINE || 'Classic (no AI)';
+    console.log('step: engine', engine); await page.getByRole('button', { name: new RegExp('^' + engine.replace(/[()]/g, '\\$&')) }).filter({ visible: true }).first().click();
     await page.waitForTimeout(800);
     await openSlot(page, /Choose image|Source image/);
     await (await pickImage(page, 'Renders', 0)).click();
@@ -143,11 +190,10 @@ const stages = {
       },
       points: { go: page.getByRole('button', { name: /^Upscale to/ }) },
     });
+    if (process.env.NOGEN) return;
     await page.getByRole('button', { name: /^Upscale to/ }).click();
-    await waitDone(page, 'upscale', /6144|Download|View full size|Delete/i, 300);
-    await page.waitForTimeout(3000);
-    await raw(page, '7-06-raw');
-    await plate(page, '7-06-upscale-result', { highlights: { result: { locator: await stage(page), label: 'Upscaled image' } } });
+    await page.getByRole('button', { name: 'Download image' }).first().waitFor({ timeout: 300000 }).catch(() => {});
+    await raw(page, '7-06-raw');                      // the result card: plate it with `upresult`
   },
 };
 

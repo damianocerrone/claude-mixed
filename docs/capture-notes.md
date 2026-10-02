@@ -123,3 +123,38 @@ review, not into the guide's instructions (the guide may add a tip that helps pe
 - **Quirk:** no control to approve or lock a concept was found in Production or the Report builder. The preview counts
   "0 Concepts locked" and "0 Final views", yet Approved concepts is in the report by default and the audit's Lineage
   diagrams are "Per locked master". (6-04, 6-05)
+
+## Chapter 7 · Videos and upscales (opened from Production, so the project's images are offered)
+
+- **Video** opens "Video — Turn a before image and an after image into a short cinematic video." with the VIDEO
+  SETTINGS panel: **Before / after** | **Sequence video**; Engine: Kling 3.0 ("Best quality before-to-after
+  transitions"), Kling 2.6 ("Faster and cheaper AI generation"), Classic (no AI) ("Simple transition between the two
+  images"); Images: **Before (leading)** is pre-filled with the project's leading image when you come from Production;
+  **After (master)** "Choose image"; **Swap images**; upload note "Upload your architectural image, sketch, or 3D model
+  render. Supported formats: JPG, PNG, WebP. Max file size: 25MB." (7-01)
+- The image picker "Pick the after image — Choose an image from this Studio or upload a new one." has tabs Ideation,
+  Favorites, Renders, Uploads, an Upload image tile ("JPG, PNG or WebP · max 25 MB"), Cancel and **Use image**. It
+  took 5–8 s to open. The Ideation tab lists both top views and eye-level views. (7-01b; a top-view plan was chosen so
+  that before and after share the same frame)
+- Camera Movement: Quick Presets "Click to apply" (Walkthrough, Room Showcase, Drone View, Pull Back, Hero Shot,
+  Detail Focus); Drone View = Pedestal Up + Tilt Down; OR CUSTOMIZE "Click movements to combine (incompatible options
+  will gray out)": MOVE CAMERA, ROTATE CAMERA, ZOOM & EFFECTS; Prompt (optional) 0/2000; Duration 5s | 10s (Classic
+  offers 3s, 5s, 8s, 10s); **Generate video**, disabled with "Pick a before and an after image to generate." (7-02)
+- With the **Classic (no AI)** engine the video failed twice within 8 s: "Couldn't generate the video. Please try
+  again." This may be specific to our headless capture browser (Classic may render in the browser), so it is **not
+  verified as a product bug**. The guide's video was made with **Kling 2.6** (5 s, Drone View).
+- The finished video appears as a card on the Video page: title (the preset, "Drone View"), engine tag "Kling 2.6",
+  before → after thumbnails, "5s", author and date, and the buttons **Download video**, **Edit video**, **Delete
+  video**. (7-03) Editing a video shows "NOW EDITING — Adjust the settings in the panel and regenerate — the result
+  replaces this video." and the button **Regenerate (overwrites)** with **+ New video** below
+  (explore/raw/7-03-raw.png). The run took several minutes.
+- **Sequence video**: "Chain up to six images into one continuous video with a camera move between each pair.";
+  Default motion (Walkthrough), Segment length (5s), **Add image** ("Add 2 to 6 images…"), Generate sequence video
+  ("Add at least two images to generate."). Not generated. (7-04)
+- **Image Upscale**: "Upscale an image to 6K or 8K without changing its content." Engines SeedVR2 (Faithful;
+  "Faithful detail recovery — recommended"), Topaz (Faithful; "Faithful, up to 4×, optional face enhancement"),
+  Recraft Crisp (Faithful), Crystal (Tunable; "Can invent detail (tunable)"), Classic (no AI) ("Instant high-quality
+  resampling, free"); Source image (picker with the same tabs; the Renders tab held the two built renders); Target
+  size "6K · 6144 px" | "8K · 7680 px"; **Upscale to 6K**. (7-05, Classic, the Aerial · Day render)
+- While it runs: "Upscaling… this can take a moment. You can leave this page." The result is a card: "6K", "6144 ×
+  4588", "Classic (no AI)", author and date, **Download image**, **Delete upscale**. (7-06)
