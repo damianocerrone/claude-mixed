@@ -1,0 +1,7 @@
+node_modules/
+# Sign-in sessions and browser profiles hold live credentials. Never commit them.
+.auth/
+*.state.json
+storage-state*.json
+# Raw exploration captures stay local; only the finished plates in tutorial/studio/img are committed.
+explore/
