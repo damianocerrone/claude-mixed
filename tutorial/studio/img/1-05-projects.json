@@ -1,0 +1,109 @@
+{
+  "name": "1-05-projects",
+  "image": "img/1-05-projects.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T21:10:49.391Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "head": {
+      "box": [0.1947, 0.0705, 0.0428, 0.059],
+      "center": [0.2161, 0.1],
+      "zoom": [0.0078, 0, 0.4167, 0.4167],
+      "label": "Project count",
+      "css": [376, 73, 69.5, 44]
+    },
+    "search": {
+      "box": [0.1947, 0.1368, 0.1748, 0.0548],
+      "center": [0.2821, 0.1642],
+      "zoom": [0.0738, 0, 0.4167, 0.4167],
+      "label": "Search",
+      "css": [376, 136, 320, 40]
+    },
+    "status": {
+      "box": [0.3674, 0.1389, 0.0821, 0.1998],
+      "center": [0.4084, 0.2388],
+      "zoom": [0.2001, 0.0305, 0.4167, 0.4167],
+      "label": "Status",
+      "css": [704, 138, 144, 177.5]
+    },
+    "others": {
+      "box": [0.4474, 0.1389, 0.2421, 0.0506],
+      "center": [0.5684, 0.1642],
+      "zoom": [0.3601, 0, 0.4167, 0.4167],
+      "label": "Owner, process, sort",
+      "css": [856, 138, 448, 36]
+    },
+    "card": {
+      "box": [0.1947, 0.2137, 0.1911, 0.3624],
+      "center": [0.2903, 0.3949],
+      "zoom": [0.0491, 0.1537, 0.4824, 0.4824],
+      "label": "Project card",
+      "css": [376, 209, 351, 332.5]
+    }
+  },
+  "points": {
+    "search": [0.24, 0.1642],
+    "status": [0.4049, 0.3105],
+    "others": [0.5684, 0.1642]
+  },
+  "beats": {
+    "head": {
+      "highlight": {
+        "box": [0.1947, 0.0705, 0.0428, 0.059],
+        "label": "Project count"
+      },
+      "zoom": [0.0078, 0, 0.4167, 0.4167]
+    },
+    "search": {
+      "highlight": {
+        "box": [0.1947, 0.1368, 0.1748, 0.0548],
+        "label": "Search"
+      },
+      "cursor": {
+        "at": [0.24, 0.1642],
+        "click": true
+      },
+      "zoom": [0.0738, 0, 0.4167, 0.4167]
+    },
+    "status": {
+      "highlight": {
+        "box": [0.3674, 0.1389, 0.0821, 0.1998],
+        "label": "Status"
+      },
+      "cursor": {
+        "at": [0.4049, 0.3105],
+        "click": false
+      },
+      "zoom": [0.2001, 0.0305, 0.4167, 0.4167]
+    },
+    "others": {
+      "highlight": {
+        "box": [0.4474, 0.1389, 0.2421, 0.0506],
+        "label": "Owner, process, sort"
+      },
+      "cursor": {
+        "at": [0.5684, 0.1642],
+        "click": false
+      },
+      "zoom": [0.3601, 0, 0.4167, 0.4167]
+    },
+    "card": {
+      "highlight": {
+        "box": [0.1947, 0.2137, 0.1911, 0.3624],
+        "label": "Project card"
+      },
+      "zoom": [0.0491, 0.1537, 0.4824, 0.4824]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

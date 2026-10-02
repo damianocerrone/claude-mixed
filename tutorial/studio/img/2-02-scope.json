@@ -1,0 +1,114 @@
+{
+  "name": "2-02-scope",
+  "image": "img/2-02-scope.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:19:38.329Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "masterplan": {
+      "box": [0.2058, 0.88, 0.0656, 0.0463],
+      "center": [0.2386, 0.9032],
+      "zoom": [0.0303, 0.5833, 0.4167, 0.4167],
+      "label": "Master plan",
+      "css": [397, 842, 112.5, 32]
+    },
+    "single": {
+      "box": [0.2693, 0.88, 0.0937, 0.0463],
+      "center": [0.3162, 0.9032],
+      "zoom": [0.1078, 0.5833, 0.4167, 0.4167],
+      "label": "Single building or lot",
+      "css": [517.5, 842, 166, 32]
+    },
+    "singleHelp": {
+      "box": [0.2058, 0.92, 0.1851, 0.0274],
+      "center": [0.2984, 0.9337],
+      "zoom": [0.09, 0.5833, 0.4167, 0.4167],
+      "label": "What it does",
+      "css": [397, 880, 340, 14]
+    },
+    "drop": {
+      "box": [0.2058, 0.2021, 0.7737, 0.5853],
+      "center": [0.5926, 0.4947],
+      "zoom": null,
+      "label": "Site plan",
+      "css": [397, 198, 1458, 544]
+    },
+    "existing": {
+      "box": [0.2058, 0.1474, 0.1143, 0.0505],
+      "center": [0.2629, 0.1726],
+      "zoom": [0.0546, 0, 0.4167, 0.4167],
+      "label": "Choose from existing",
+      "css": [397, 146, 205, 36]
+    }
+  },
+  "points": {
+    "masterplan": [0.2386, 0.9032],
+    "single": [0.3162, 0.9032],
+    "drop": [0.5926, 0.5121],
+    "existing": [0.2629, 0.1726]
+  },
+  "beats": {
+    "masterplan": {
+      "highlight": {
+        "box": [0.2058, 0.88, 0.0656, 0.0463],
+        "label": "Master plan"
+      },
+      "cursor": {
+        "at": [0.2386, 0.9032],
+        "click": false
+      },
+      "zoom": [0.0303, 0.5833, 0.4167, 0.4167]
+    },
+    "single": {
+      "highlight": {
+        "box": [0.2693, 0.88, 0.0937, 0.0463],
+        "label": "Single building or lot"
+      },
+      "cursor": {
+        "at": [0.3162, 0.9032],
+        "click": true
+      },
+      "zoom": [0.1078, 0.5833, 0.4167, 0.4167]
+    },
+    "singleHelp": {
+      "highlight": {
+        "box": [0.2058, 0.92, 0.1851, 0.0274],
+        "label": "What it does"
+      },
+      "zoom": [0.09, 0.5833, 0.4167, 0.4167]
+    },
+    "drop": {
+      "highlight": {
+        "box": [0.2058, 0.2021, 0.7737, 0.5853],
+        "label": "Site plan"
+      },
+      "cursor": {
+        "at": [0.5926, 0.5121],
+        "click": true
+      }
+    },
+    "existing": {
+      "highlight": {
+        "box": [0.2058, 0.1474, 0.1143, 0.0505],
+        "label": "Choose from existing"
+      },
+      "cursor": {
+        "at": [0.2629, 0.1726],
+        "click": true
+      },
+      "zoom": [0.0546, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "hide: nothing matches \"[role=tooltip]\"",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

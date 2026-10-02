@@ -1,0 +1,55 @@
+{
+  "name": "5-02-top-eye-level",
+  "image": "img/5-02-top-eye-level.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:18:00.545Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "both": {
+      "box": [0.5908, 0.9126, 0.0231, 0.0463],
+      "center": [0.6024, 0.9358],
+      "zoom": [0.394, 0.5833, 0.4167, 0.4167],
+      "label": "Top & eye-level",
+      "css": [1128.5, 873, 32, 32]
+    },
+    "eye": {
+      "box": [0.5729, 0.9126, 0.0232, 0.0463],
+      "center": [0.5845, 0.9358],
+      "zoom": [0.3762, 0.5833, 0.4167, 0.4167],
+      "label": "Eye-level",
+      "css": [1094.5, 873, 32, 32]
+    }
+  },
+  "points": {
+    "both": [0.6024, 0.9358]
+  },
+  "beats": {
+    "both": {
+      "highlight": {
+        "box": [0.5908, 0.9126, 0.0231, 0.0463],
+        "label": "Top & eye-level"
+      },
+      "cursor": {
+        "at": [0.6024, 0.9358],
+        "click": true
+      },
+      "zoom": [0.394, 0.5833, 0.4167, 0.4167]
+    },
+    "eye": {
+      "highlight": {
+        "box": [0.5729, 0.9126, 0.0232, 0.0463],
+        "label": "Eye-level"
+      },
+      "zoom": [0.3762, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

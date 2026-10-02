@@ -1,0 +1,74 @@
+{
+  "name": "4-12-two-concepts",
+  "image": "img/4-12-two-concepts.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:14:26.988Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "chips": {
+      "box": [0.2074, 0.0747, 0.1303, 0.0432],
+      "center": [0.2725, 0.0963],
+      "zoom": [0.0642, 0, 0.4167, 0.4167],
+      "label": "Concepts",
+      "css": [400, 77, 235.5, 29]
+    },
+    "b": {
+      "box": [0.2074, 0.42, 0.1045, 0.0368],
+      "center": [0.2596, 0.4384],
+      "zoom": [0.0513, 0.2301, 0.4167, 0.4167],
+      "label": "Green streets",
+      "css": [400, 405, 186.5, 23]
+    },
+    "single": {
+      "box": [0.8118, 0.1242, 0.077, 0.0505],
+      "center": [0.8503, 0.1495],
+      "zoom": [0.5833, 0, 0.4167, 0.4167],
+      "label": "Pair or Single",
+      "css": [1548.5, 124, 134, 36]
+    }
+  },
+  "points": {
+    "chips": [0.3016, 0.0963],
+    "single": [0.8665, 0.1495]
+  },
+  "beats": {
+    "chips": {
+      "highlight": {
+        "box": [0.2074, 0.0747, 0.1303, 0.0432],
+        "label": "Concepts"
+      },
+      "cursor": {
+        "at": [0.3016, 0.0963],
+        "click": true
+      },
+      "zoom": [0.0642, 0, 0.4167, 0.4167]
+    },
+    "b": {
+      "highlight": {
+        "box": [0.2074, 0.42, 0.1045, 0.0368],
+        "label": "Green streets"
+      },
+      "zoom": [0.0513, 0.2301, 0.4167, 0.4167]
+    },
+    "single": {
+      "highlight": {
+        "box": [0.8118, 0.1242, 0.077, 0.0505],
+        "label": "Pair or Single"
+      },
+      "cursor": {
+        "at": [0.8665, 0.1495],
+        "click": true
+      },
+      "zoom": [0.5833, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

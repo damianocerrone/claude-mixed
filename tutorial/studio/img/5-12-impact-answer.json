@@ -1,0 +1,65 @@
+{
+  "name": "5-12-impact-answer",
+  "image": "img/5-12-impact-answer.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:45:58.349Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "summary": {
+      "box": [0.0032, 0.3263, 0.171, 0.6737],
+      "center": [0.0887, 0.6663],
+      "zoom": [0, 0.2063, 0.7937, 0.7937],
+      "label": "The assessment",
+      "css": [12, 316, 313, 737]
+    },
+    "plus": {
+      "box": [0.0226, 0.6, 0.1527, 0.0347],
+      "center": [0.0989, 0.6174],
+      "zoom": [0, 0.409, 0.4167, 0.4167],
+      "label": "Works for it",
+      "css": [49, 576, 278, 21]
+    },
+    "minus": {
+      "box": [0.0226, 0.7979, 0.1527, 0.0347],
+      "center": [0.0989, 0.8153],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Works against it",
+      "css": [49, 764, 278, 21]
+    }
+  },
+  "points": {},
+  "beats": {
+    "summary": {
+      "highlight": {
+        "box": [0.0032, 0.3263, 0.171, 0.6737],
+        "label": "The assessment"
+      },
+      "zoom": [0, 0.2063, 0.7937, 0.7937]
+    },
+    "plus": {
+      "highlight": {
+        "box": [0.0226, 0.6, 0.1527, 0.0347],
+        "label": "Works for it"
+      },
+      "zoom": [0, 0.409, 0.4167, 0.4167]
+    },
+    "minus": {
+      "highlight": {
+        "box": [0.0226, 0.7979, 0.1527, 0.0347],
+        "label": "Works against it"
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "highlight \"summary\": element is partly outside the viewport; the box was clipped"
+  ]
+}

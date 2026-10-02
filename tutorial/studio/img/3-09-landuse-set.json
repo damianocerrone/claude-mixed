@@ -1,0 +1,83 @@
+{
+  "name": "3-09-landuse-set",
+  "image": "img/3-09-landuse-set.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:44:13.603Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "status": {
+      "box": [0.0284, 0.2537, 0.0653, 0.0379],
+      "center": [0.0611, 0.2726],
+      "zoom": [0, 0.0643, 0.4167, 0.4167],
+      "label": "Set",
+      "css": [60, 247, 112, 24]
+    },
+    "actions": {
+      "box": [0.0032, 0.5147, 0.1593, 0.0948],
+      "center": [0.0829, 0.5621],
+      "zoom": [0, 0.3538, 0.4167, 0.4167],
+      "label": "Review, unmark, hide",
+      "css": [12, 495, 291, 78]
+    },
+    "uses": {
+      "box": [0.0032, 0.6053, 0.1789, 0.1684],
+      "center": [0.0926, 0.6895],
+      "zoom": [0, 0.4812, 0.4167, 0.4167],
+      "label": "Recognised land uses",
+      "css": [12, 581, 328, 148]
+    },
+    "view": {
+      "box": [0.0032, 0.7695, 0.0689, 0.0505],
+      "center": [0.0376, 0.7947],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "View plan",
+      "css": [12, 737, 119, 36]
+    }
+  },
+  "points": {
+    "view": [0.0376, 0.7947]
+  },
+  "beats": {
+    "status": {
+      "highlight": {
+        "box": [0.0284, 0.2537, 0.0653, 0.0379],
+        "label": "Set"
+      },
+      "zoom": [0, 0.0643, 0.4167, 0.4167]
+    },
+    "actions": {
+      "highlight": {
+        "box": [0.0032, 0.5147, 0.1593, 0.0948],
+        "label": "Review, unmark, hide"
+      },
+      "zoom": [0, 0.3538, 0.4167, 0.4167]
+    },
+    "uses": {
+      "highlight": {
+        "box": [0.0032, 0.6053, 0.1789, 0.1684],
+        "label": "Recognised land uses"
+      },
+      "zoom": [0, 0.4812, 0.4167, 0.4167]
+    },
+    "view": {
+      "highlight": {
+        "box": [0.0032, 0.7695, 0.0689, 0.0505],
+        "label": "View plan"
+      },
+      "cursor": {
+        "at": [0.0376, 0.7947],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

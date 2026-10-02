@@ -1,0 +1,97 @@
+{
+  "name": "5-10-prompt",
+  "image": "img/5-10-prompt.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:41:12.418Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.1271, 0.1621, 0.0285, 0.0463],
+      "center": [0.1413, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Prompt",
+      "css": [247.5, 160, 42.5, 32]
+    },
+    "text": {
+      "box": [0.0032, 0.2337, 0.1789, 0.0968],
+      "center": [0.0926, 0.2821],
+      "zoom": [0, 0.0738, 0.4167, 0.4167],
+      "label": "Your change",
+      "css": [12, 228, 328, 80]
+    },
+    "save": {
+      "box": [0.0032, 0.3868, 0.086, 0.0506],
+      "center": [0.0462, 0.4121],
+      "zoom": [0, 0.2037, 0.4167, 0.4167],
+      "label": "Save as quick action",
+      "css": [12, 373.5, 151.5, 36]
+    },
+    "recent": {
+      "box": [0.0137, 0.4332, 0.0662, 0.0284],
+      "center": [0.0468, 0.4474],
+      "zoom": [0, 0.239, 0.4167, 0.4167],
+      "label": "Recent prompts",
+      "css": [32, 417.5, 114, 15]
+    },
+    "generate": {
+      "box": [0.0032, 0.9211, 0.1789, 0.0547],
+      "center": [0.0926, 0.9484],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Generate",
+      "css": [12, 881, 328, 40]
+    }
+  },
+  "points": {
+    "generate": [0.0926, 0.9484]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.1271, 0.1621, 0.0285, 0.0463],
+        "label": "Prompt"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "text": {
+      "highlight": {
+        "box": [0.0032, 0.2337, 0.1789, 0.0968],
+        "label": "Your change"
+      },
+      "zoom": [0, 0.0738, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.0032, 0.3868, 0.086, 0.0506],
+        "label": "Save as quick action"
+      },
+      "zoom": [0, 0.2037, 0.4167, 0.4167]
+    },
+    "recent": {
+      "highlight": {
+        "box": [0.0137, 0.4332, 0.0662, 0.0284],
+        "label": "Recent prompts"
+      },
+      "zoom": [0, 0.239, 0.4167, 0.4167]
+    },
+    "generate": {
+      "highlight": {
+        "box": [0.0032, 0.9211, 0.1789, 0.0547],
+        "label": "Generate"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9484],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

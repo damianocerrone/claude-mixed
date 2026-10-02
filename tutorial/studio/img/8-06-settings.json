@@ -1,0 +1,107 @@
+{
+  "name": "8-06-settings",
+  "image": "img/8-06-settings.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/settings",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:20:17.524Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "source": {
+      "box": [0.1947, 0.0705, 0.7879, 0.1821],
+      "center": [0.5887, 0.1616],
+      "zoom": null,
+      "label": "Configuration source",
+      "css": [376, 73, 1485, 161]
+    },
+    "lists": {
+      "box": [0.1947, 0.3253, 0.7879, 0.4105],
+      "center": [0.5887, 0.5305],
+      "zoom": null,
+      "label": "Planning presets options",
+      "css": [376, 315, 1485, 378]
+    },
+    "row": {
+      "box": [0.5003, 0.4421, 0.0715, 0.0505],
+      "center": [0.5361, 0.4674],
+      "zoom": [0.3277, 0.259, 0.4167, 0.4167],
+      "label": "Edit, revert, delete",
+      "css": [956.5, 426, 124, 36]
+    },
+    "add": {
+      "box": [0.5352, 0.3811, 0.0474, 0.0505],
+      "center": [0.5589, 0.4063],
+      "zoom": [0.3505, 0.198, 0.4167, 0.4167],
+      "label": "+ Add",
+      "css": [1023, 368, 78, 36]
+    },
+    "save": {
+      "box": [0.899, 0.2568, 0.0915, 0.0506],
+      "center": [0.9447, 0.2821],
+      "zoom": [0.5833, 0.0737, 0.4167, 0.4167],
+      "label": "Save configuration",
+      "css": [1714, 250, 162, 36]
+    }
+  },
+  "points": {
+    "row": [0.5168, 0.4674],
+    "add": [0.5589, 0.4063],
+    "save": [0.9447, 0.2821]
+  },
+  "beats": {
+    "source": {
+      "highlight": {
+        "box": [0.1947, 0.0705, 0.7879, 0.1821],
+        "label": "Configuration source"
+      }
+    },
+    "lists": {
+      "highlight": {
+        "box": [0.1947, 0.3253, 0.7879, 0.4105],
+        "label": "Planning presets options"
+      }
+    },
+    "row": {
+      "highlight": {
+        "box": [0.5003, 0.4421, 0.0715, 0.0505],
+        "label": "Edit, revert, delete"
+      },
+      "cursor": {
+        "at": [0.5168, 0.4674],
+        "click": false
+      },
+      "zoom": [0.3277, 0.259, 0.4167, 0.4167]
+    },
+    "add": {
+      "highlight": {
+        "box": [0.5352, 0.3811, 0.0474, 0.0505],
+        "label": "+ Add"
+      },
+      "cursor": {
+        "at": [0.5589, 0.4063],
+        "click": false
+      },
+      "zoom": [0.3505, 0.198, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.899, 0.2568, 0.0915, 0.0506],
+        "label": "Save configuration"
+      },
+      "cursor": {
+        "at": [0.9447, 0.2821],
+        "click": false
+      },
+      "zoom": [0.5833, 0.0737, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

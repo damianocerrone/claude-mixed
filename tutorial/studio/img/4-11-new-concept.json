@@ -1,0 +1,83 @@
+{
+  "name": "4-11-new-concept",
+  "image": "img/4-11-new-concept.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:09:46.700Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "intro": {
+      "box": [0.3326, 0.2821, 0.0069, 0.0137],
+      "center": [0.3361, 0.2889],
+      "zoom": [0.1277, 0.0806, 0.4167, 0.4167],
+      "label": "New concept",
+      "css": [638, 274, 1, 1]
+    },
+    "name": {
+      "box": [0.3332, 0.3926, 0.3315, 0.0348],
+      "center": [0.4989, 0.41],
+      "zoom": [0.2732, 0.1843, 0.4515, 0.4515],
+      "label": "Concept name",
+      "css": [639, 379, 618, 21]
+    },
+    "changes": {
+      "box": [0.3332, 0.4316, 0.3315, 0.2263],
+      "center": [0.4989, 0.5447],
+      "zoom": [0.2732, 0.319, 0.4515, 0.4515],
+      "label": "What sets it apart",
+      "css": [639, 416, 618, 203]
+    },
+    "create": {
+      "box": [0.5849, 0.6621, 0.0819, 0.0547],
+      "center": [0.6259, 0.6895],
+      "zoom": [0.4175, 0.4811, 0.4167, 0.4167],
+      "label": "Create concept",
+      "css": [1117.5, 635, 143.5, 40]
+    }
+  },
+  "points": {
+    "create": [0.6259, 0.6895]
+  },
+  "beats": {
+    "intro": {
+      "highlight": {
+        "box": [0.3326, 0.2821, 0.0069, 0.0137],
+        "label": "New concept"
+      },
+      "zoom": [0.1277, 0.0806, 0.4167, 0.4167]
+    },
+    "name": {
+      "highlight": {
+        "box": [0.3332, 0.3926, 0.3315, 0.0348],
+        "label": "Concept name"
+      },
+      "zoom": [0.2732, 0.1843, 0.4515, 0.4515]
+    },
+    "changes": {
+      "highlight": {
+        "box": [0.3332, 0.4316, 0.3315, 0.2263],
+        "label": "What sets it apart"
+      },
+      "zoom": [0.2732, 0.319, 0.4515, 0.4515]
+    },
+    "create": {
+      "highlight": {
+        "box": [0.5849, 0.6621, 0.0819, 0.0547],
+        "label": "Create concept"
+      },
+      "cursor": {
+        "at": [0.6259, 0.6895],
+        "click": true
+      },
+      "zoom": [0.4175, 0.4811, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

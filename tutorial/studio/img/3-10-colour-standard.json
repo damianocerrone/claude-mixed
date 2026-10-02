@@ -1,0 +1,55 @@
+{
+  "name": "3-10-colour-standard",
+  "image": "img/3-10-colour-standard.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:44:34.072Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "standard": {
+      "box": [0.2832, 0.2432, 0.1421, 0.3563],
+      "center": [0.3542, 0.4213],
+      "zoom": [0.1161, 0.1832, 0.4763, 0.4763],
+      "label": "Colour standard",
+      "css": [544, 237, 258, 326.5]
+    },
+    "warn": {
+      "box": [0.2947, 0.5695, 0.1306, 0.03],
+      "center": [0.36, 0.5845],
+      "zoom": [0.1516, 0.3762, 0.4167, 0.4167],
+      "label": "Clash warning",
+      "css": [566, 547, 236, 16.5]
+    },
+    "save": null
+  },
+  "points": {
+    "save": null
+  },
+  "beats": {
+    "standard": {
+      "highlight": {
+        "box": [0.2832, 0.2432, 0.1421, 0.3563],
+        "label": "Colour standard"
+      },
+      "zoom": [0.1161, 0.1832, 0.4763, 0.4763]
+    },
+    "warn": {
+      "highlight": {
+        "box": [0.2947, 0.5695, 0.1306, 0.03],
+        "label": "Clash warning"
+      },
+      "zoom": [0.1516, 0.3762, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "highlight \"save\": element is outside the viewport (scroll it into view first)",
+    "point \"save\": element is outside the viewport (scroll it into view first)"
+  ]
+}

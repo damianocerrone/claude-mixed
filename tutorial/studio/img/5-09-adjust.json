@@ -1,0 +1,88 @@
+{
+  "name": "5-09-adjust",
+  "image": "img/5-09-adjust.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:40:16.102Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.1027, 0.1621, 0.0286, 0.0463],
+      "center": [0.117, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Adjust",
+      "css": [201, 160, 42.5, 32]
+    },
+    "sub": {
+      "box": [0.0053, 0.2168, 0.1668, 0.0411],
+      "center": [0.0887, 0.2374],
+      "zoom": [0, 0.029, 0.4167, 0.4167],
+      "label": "Adjust or Filters",
+      "css": [16, 212, 305, 27]
+    },
+    "filter": {
+      "box": [0.1211, 0.2621, 0.061, 0.1316],
+      "center": [0.1516, 0.3279],
+      "zoom": [0, 0.1195, 0.4167, 0.4167],
+      "label": "Golden",
+      "css": [236, 255, 104, 113]
+    },
+    "save": {
+      "box": [0.0032, 0.9211, 0.1789, 0.0547],
+      "center": [0.0926, 0.9484],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Save as new version",
+      "css": [12, 881, 328, 40]
+    }
+  },
+  "points": {
+    "filter": [0.1516, 0.3279],
+    "save": [0.0926, 0.9484]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.1027, 0.1621, 0.0286, 0.0463],
+        "label": "Adjust"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "sub": {
+      "highlight": {
+        "box": [0.0053, 0.2168, 0.1668, 0.0411],
+        "label": "Adjust or Filters"
+      },
+      "zoom": [0, 0.029, 0.4167, 0.4167]
+    },
+    "filter": {
+      "highlight": {
+        "box": [0.1211, 0.2621, 0.061, 0.1316],
+        "label": "Golden"
+      },
+      "cursor": {
+        "at": [0.1516, 0.3279],
+        "click": true
+      },
+      "zoom": [0, 0.1195, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.0032, 0.9211, 0.1789, 0.0547],
+        "label": "Save as new version"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9484],
+        "click": false
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

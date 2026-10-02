@@ -1,0 +1,126 @@
+{
+  "name": "3-01-site-tab",
+  "image": "img/3-01-site-tab.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:38:00.597Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.0053, 0.1621, 0.0285, 0.0463],
+      "center": [0.0195, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Site",
+      "css": [16, 160, 42.5, 32]
+    },
+    "boundary": {
+      "box": [0.0032, 0.2137, 0.0906, 0.0852],
+      "center": [0.0485, 0.2563],
+      "zoom": [0, 0.0479, 0.4167, 0.4167],
+      "label": "Site boundary",
+      "css": [12, 209, 160.5, 69]
+    },
+    "landuse": {
+      "box": [0.0032, 0.3, 0.0905, 0.3116],
+      "center": [0.0484, 0.4558],
+      "zoom": [0, 0.24, 0.4316, 0.4316],
+      "label": "Land use plan",
+      "css": [12, 291, 160, 284]
+    },
+    "legend": {
+      "box": [0.0126, 0.5368, 0.0743, 0.0285],
+      "center": [0.0498, 0.5511],
+      "zoom": [0, 0.3427, 0.4167, 0.4167],
+      "label": "Colour legend",
+      "css": [30, 516, 129, 15]
+    },
+    "pill": {
+      "box": [0.5244, 0.0968, 0.1507, 0.0285],
+      "center": [0.5997, 0.1111],
+      "zoom": [0.3914, 0, 0.4167, 0.4167],
+      "label": "Hint",
+      "css": [1002.5, 98, 274.5, 15]
+    },
+    "start": {
+      "box": [0.0032, 0.9432, 0.1789, 0.0547],
+      "center": [0.0926, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Start ideation",
+      "css": [12, 902, 328, 40]
+    }
+  },
+  "points": {
+    "tab": [0.0195, 0.1853],
+    "boundary": [0.0485, 0.2737],
+    "landuse": [0.0448, 0.5863],
+    "start": [0.0926, 0.9705]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.0053, 0.1621, 0.0285, 0.0463],
+        "label": "Site"
+      },
+      "cursor": {
+        "at": [0.0195, 0.1853],
+        "click": true
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "boundary": {
+      "highlight": {
+        "box": [0.0032, 0.2137, 0.0906, 0.0852],
+        "label": "Site boundary"
+      },
+      "cursor": {
+        "at": [0.0485, 0.2737],
+        "click": true
+      },
+      "zoom": [0, 0.0479, 0.4167, 0.4167]
+    },
+    "landuse": {
+      "highlight": {
+        "box": [0.0032, 0.3, 0.0905, 0.3116],
+        "label": "Land use plan"
+      },
+      "cursor": {
+        "at": [0.0448, 0.5863],
+        "click": true
+      },
+      "zoom": [0, 0.24, 0.4316, 0.4316]
+    },
+    "legend": {
+      "highlight": {
+        "box": [0.0126, 0.5368, 0.0743, 0.0285],
+        "label": "Colour legend"
+      },
+      "zoom": [0, 0.3427, 0.4167, 0.4167]
+    },
+    "pill": {
+      "highlight": {
+        "box": [0.5244, 0.0968, 0.1507, 0.0285],
+        "label": "Hint"
+      },
+      "zoom": [0.3914, 0, 0.4167, 0.4167]
+    },
+    "start": {
+      "highlight": {
+        "box": [0.0032, 0.9432, 0.1789, 0.0547],
+        "label": "Start ideation"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9705],
+        "click": false
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,121 @@
+{
+  "name": "8-04-team",
+  "image": "img/8-04-team.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:19:29.855Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "head": {
+      "box": [0.1947, 0.0705, 0.4056, 0.059],
+      "center": [0.3975, 0.1],
+      "zoom": [0.1347, 0, 0.5256, 0.5256],
+      "label": "Team & permissions",
+      "css": [376, 73, 758.5, 44]
+    },
+    "rule": {
+      "box": [0.1947, 0.1368, 0.7879, 0.059],
+      "center": [0.5887, 0.1663],
+      "zoom": null,
+      "label": "Who can edit",
+      "css": [376, 136, 1485, 44]
+    },
+    "card": {
+      "box": [0.1947, 0.2179, 0.7879, 0.3505],
+      "center": [0.5887, 0.3932],
+      "zoom": null,
+      "label": "A team",
+      "css": [376, 213, 1485, 321]
+    },
+    "members": {
+      "box": [0.2037, 0.2863, 0.1326, 0.1253],
+      "center": [0.27, 0.3489],
+      "zoom": [0.0617, 0.1406, 0.4167, 0.4167],
+      "label": "Members",
+      "css": [393, 278, 240, 107]
+    },
+    "projects": {
+      "box": [0.2037, 0.4253, 0.1326, 0.1252],
+      "center": [0.27, 0.4879],
+      "zoom": [0.0617, 0.2795, 0.4167, 0.4167],
+      "label": "Projects",
+      "css": [393, 410, 240, 107]
+    },
+    "new": {
+      "box": [0.9199, 0.0695, 0.0706, 0.0505],
+      "center": [0.9552, 0.0947],
+      "zoom": [0.5833, 0, 0.4167, 0.4167],
+      "label": "New team",
+      "css": [1754, 72, 122, 36]
+    }
+  },
+  "points": {
+    "members": [0.27, 0.3863],
+    "projects": [0.27, 0.5253],
+    "new": [0.9552, 0.0947]
+  },
+  "beats": {
+    "head": {
+      "highlight": {
+        "box": [0.1947, 0.0705, 0.4056, 0.059],
+        "label": "Team & permissions"
+      },
+      "zoom": [0.1347, 0, 0.5256, 0.5256]
+    },
+    "rule": {
+      "highlight": {
+        "box": [0.1947, 0.1368, 0.7879, 0.059],
+        "label": "Who can edit"
+      }
+    },
+    "card": {
+      "highlight": {
+        "box": [0.1947, 0.2179, 0.7879, 0.3505],
+        "label": "A team"
+      }
+    },
+    "members": {
+      "highlight": {
+        "box": [0.2037, 0.2863, 0.1326, 0.1253],
+        "label": "Members"
+      },
+      "cursor": {
+        "at": [0.27, 0.3863],
+        "click": false
+      },
+      "zoom": [0.0617, 0.1406, 0.4167, 0.4167]
+    },
+    "projects": {
+      "highlight": {
+        "box": [0.2037, 0.4253, 0.1326, 0.1252],
+        "label": "Projects"
+      },
+      "cursor": {
+        "at": [0.27, 0.5253],
+        "click": false
+      },
+      "zoom": [0.0617, 0.2795, 0.4167, 0.4167]
+    },
+    "new": {
+      "highlight": {
+        "box": [0.9199, 0.0695, 0.0706, 0.0505],
+        "label": "New team"
+      },
+      "cursor": {
+        "at": [0.9552, 0.0947],
+        "click": false
+      },
+      "zoom": [0.5833, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

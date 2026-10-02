@@ -1,0 +1,83 @@
+{
+  "name": "3-05-boundary-set",
+  "image": "img/3-05-boundary-set.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:41:34.999Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "status": {
+      "box": [0.0032, 0.2137, 0.0905, 0.1758],
+      "center": [0.0484, 0.3016],
+      "zoom": [0, 0.0932, 0.4167, 0.4167],
+      "label": "Boundary set",
+      "css": [12, 209, 160, 155]
+    },
+    "redraw": {
+      "box": [0.0032, 0.2484, 0.0993, 0.0505],
+      "center": [0.0528, 0.2737],
+      "zoom": [0, 0.0653, 0.4167, 0.4167],
+      "label": "Redraw",
+      "css": [12, 242, 177, 36]
+    },
+    "clear": {
+      "box": [0.0994, 0.2484, 0.0782, 0.0505],
+      "center": [0.1385, 0.2737],
+      "zoom": [0, 0.0653, 0.4167, 0.4167],
+      "label": "Clear",
+      "css": [195, 242, 136.5, 36]
+    },
+    "view": {
+      "box": [0.0032, 0.3389, 0.0889, 0.0506],
+      "center": [0.0476, 0.3642],
+      "zoom": [0, 0.1558, 0.4167, 0.4167],
+      "label": "View boundary",
+      "css": [12, 328, 157, 36]
+    }
+  },
+  "points": {
+    "view": [0.0476, 0.3642]
+  },
+  "beats": {
+    "status": {
+      "highlight": {
+        "box": [0.0032, 0.2137, 0.0905, 0.1758],
+        "label": "Boundary set"
+      },
+      "zoom": [0, 0.0932, 0.4167, 0.4167]
+    },
+    "redraw": {
+      "highlight": {
+        "box": [0.0032, 0.2484, 0.0993, 0.0505],
+        "label": "Redraw"
+      },
+      "zoom": [0, 0.0653, 0.4167, 0.4167]
+    },
+    "clear": {
+      "highlight": {
+        "box": [0.0994, 0.2484, 0.0782, 0.0505],
+        "label": "Clear"
+      },
+      "zoom": [0, 0.0653, 0.4167, 0.4167]
+    },
+    "view": {
+      "highlight": {
+        "box": [0.0032, 0.3389, 0.0889, 0.0506],
+        "label": "View boundary"
+      },
+      "cursor": {
+        "at": [0.0476, 0.3642],
+        "click": true
+      },
+      "zoom": [0, 0.1558, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

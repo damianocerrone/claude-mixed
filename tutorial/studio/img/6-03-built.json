@@ -1,0 +1,77 @@
+{
+  "name": "6-03-built",
+  "image": "img/6-03-built.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/production",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:56:59.404Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "aerial": {
+      "box": [0.1847, 0.14, 0.1737, 0.2009],
+      "center": [0.2716, 0.2405],
+      "zoom": [0.0632, 0.0321, 0.4167, 0.4167],
+      "label": "Aerial · Day",
+      "css": [357, 139, 318, 179]
+    },
+    "eye": {
+      "box": [0.7026, 0.14, 0.1737, 0.2009],
+      "center": [0.7895, 0.2405],
+      "zoom": [0.5811, 0.0321, 0.4167, 0.4167],
+      "label": "Eye-level · Day",
+      "css": [1341, 139, 318, 179]
+    },
+    "regen": {
+      "box": [0.0095, 0.3368, 0.1747, 0.0506],
+      "center": [0.0968, 0.3621],
+      "zoom": [0, 0.1537, 0.4167, 0.4167],
+      "label": "Regenerate from master",
+      "css": [24, 326, 320, 36]
+    },
+    "counter": {
+      "box": [0.0095, 0.0884, 0.1325, 0.0284],
+      "center": [0.0757, 0.1026],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Progress",
+      "css": [24, 90, 239.5, 15]
+    }
+  },
+  "points": {},
+  "beats": {
+    "aerial": {
+      "highlight": {
+        "box": [0.1847, 0.14, 0.1737, 0.2009],
+        "label": "Aerial · Day"
+      },
+      "zoom": [0.0632, 0.0321, 0.4167, 0.4167]
+    },
+    "eye": {
+      "highlight": {
+        "box": [0.7026, 0.14, 0.1737, 0.2009],
+        "label": "Eye-level · Day"
+      },
+      "zoom": [0.5811, 0.0321, 0.4167, 0.4167]
+    },
+    "regen": {
+      "highlight": {
+        "box": [0.0095, 0.3368, 0.1747, 0.0506],
+        "label": "Regenerate from master"
+      },
+      "zoom": [0, 0.1537, 0.4167, 0.4167]
+    },
+    "counter": {
+      "highlight": {
+        "box": [0.0095, 0.0884, 0.1325, 0.0284],
+        "label": "Progress"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,87 @@
+{
+  "name": "3-06-landuse-editor",
+  "image": "img/3-06-landuse-editor.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/land-use",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:41:54.821Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "header": {
+      "box": [0.0216, 0.0884, 0.9689, 0.644],
+      "center": [0.5061, 0.4104],
+      "zoom": null,
+      "label": "Instructions",
+      "css": [47, 90, 1829, 600]
+    },
+    "swatches": {
+      "box": [0.6247, 0.9274, 0.2106, 0.0505],
+      "center": [0.73, 0.9526],
+      "zoom": [0.5216, 0.5833, 0.4167, 0.4167],
+      "label": "Land uses",
+      "css": [1193, 887, 388, 36]
+    },
+    "tools": {
+      "box": [0.4595, 0.9253, 0.0716, 0.0547],
+      "center": [0.4953, 0.9526],
+      "zoom": [0.287, 0.5833, 0.4167, 0.4167],
+      "label": "Paint tools",
+      "css": [879, 885, 124, 40]
+    },
+    "save": {
+      "box": [0.0032, 0.9432, 0.1789, 0.0547],
+      "center": [0.0926, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Save land-use plan",
+      "css": [12, 902, 328, 40]
+    }
+  },
+  "points": {
+    "tools": [0.5184, 0.9526],
+    "swatches": [0.6374, 0.9526]
+  },
+  "beats": {
+    "header": {
+      "highlight": {
+        "box": [0.0216, 0.0884, 0.9689, 0.644],
+        "label": "Instructions"
+      }
+    },
+    "swatches": {
+      "highlight": {
+        "box": [0.6247, 0.9274, 0.2106, 0.0505],
+        "label": "Land uses"
+      },
+      "cursor": {
+        "at": [0.6374, 0.9526],
+        "click": true
+      },
+      "zoom": [0.5216, 0.5833, 0.4167, 0.4167]
+    },
+    "tools": {
+      "highlight": {
+        "box": [0.4595, 0.9253, 0.0716, 0.0547],
+        "label": "Paint tools"
+      },
+      "cursor": {
+        "at": [0.5184, 0.9526],
+        "click": true
+      },
+      "zoom": [0.287, 0.5833, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.0032, 0.9432, 0.1789, 0.0547],
+        "label": "Save land-use plan"
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

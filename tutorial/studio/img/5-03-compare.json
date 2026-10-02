@@ -1,0 +1,82 @@
+{
+  "name": "5-03-compare",
+  "image": "img/5-03-compare.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:18:13.627Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "compare": {
+      "box": [0.6445, 0.9126, 0.0231, 0.0463],
+      "center": [0.6561, 0.9358],
+      "zoom": [0.4477, 0.5833, 0.4167, 0.4167],
+      "label": "Compare",
+      "css": [1230.5, 873, 32, 32]
+    },
+    "slider": {
+      "box": [0.2074, 0.0789, 0.7742, 0.8927],
+      "center": [0.5945, 0.5253],
+      "zoom": null,
+      "label": "Original | Variant",
+      "css": [400, 81, 1459, 836]
+    },
+    "original": {
+      "box": [0.6266, 0.9126, 0.0231, 0.0463],
+      "center": [0.6382, 0.9358],
+      "zoom": [0.4298, 0.5833, 0.4167, 0.4167],
+      "label": "Original",
+      "css": [1196.5, 873, 32, 32]
+    },
+    "parent": {
+      "box": [0.6087, 0.9126, 0.0231, 0.0463],
+      "center": [0.6203, 0.9358],
+      "zoom": [0.4119, 0.5833, 0.4167, 0.4167],
+      "label": "Parent",
+      "css": [1162.5, 873, 32, 32]
+    }
+  },
+  "points": {
+    "compare": [0.6561, 0.9358]
+  },
+  "beats": {
+    "compare": {
+      "highlight": {
+        "box": [0.6445, 0.9126, 0.0231, 0.0463],
+        "label": "Compare"
+      },
+      "cursor": {
+        "at": [0.6561, 0.9358],
+        "click": true
+      },
+      "zoom": [0.4477, 0.5833, 0.4167, 0.4167]
+    },
+    "slider": {
+      "highlight": {
+        "box": [0.2074, 0.0789, 0.7742, 0.8927],
+        "label": "Original | Variant"
+      }
+    },
+    "original": {
+      "highlight": {
+        "box": [0.6266, 0.9126, 0.0231, 0.0463],
+        "label": "Original"
+      },
+      "zoom": [0.4298, 0.5833, 0.4167, 0.4167]
+    },
+    "parent": {
+      "highlight": {
+        "box": [0.6087, 0.9126, 0.0231, 0.0463],
+        "label": "Parent"
+      },
+      "zoom": [0.4119, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

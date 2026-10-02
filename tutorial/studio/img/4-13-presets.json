@@ -1,0 +1,74 @@
+{
+  "name": "4-13-presets",
+  "image": "img/4-13-presets.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:12:36.624Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.054, 0.1621, 0.0285, 0.0463],
+      "center": [0.0683, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Presets",
+      "css": [108.5, 160, 42.5, 32]
+    },
+    "empty": {
+      "box": [0.0194, 0.3063, 0.1465, 0.0284],
+      "center": [0.0926, 0.3205],
+      "zoom": [0, 0.1122, 0.4167, 0.4167],
+      "label": "No presets yet",
+      "css": [43, 297, 266.5, 15]
+    },
+    "save": {
+      "box": [0.1358, 0.1074, 0.0253, 0.0505],
+      "center": [0.1484, 0.1326],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Save as planning preset",
+      "css": [264, 108, 36, 36]
+    }
+  },
+  "points": {
+    "tab": [0.0683, 0.1853],
+    "save": [0.1484, 0.1326]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.054, 0.1621, 0.0285, 0.0463],
+        "label": "Presets"
+      },
+      "cursor": {
+        "at": [0.0683, 0.1853],
+        "click": true
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "empty": {
+      "highlight": {
+        "box": [0.0194, 0.3063, 0.1465, 0.0284],
+        "label": "No presets yet"
+      },
+      "zoom": [0, 0.1122, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.1358, 0.1074, 0.0253, 0.0505],
+        "label": "Save as planning preset"
+      },
+      "cursor": {
+        "at": [0.1484, 0.1326],
+        "click": false
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,68 @@
+{
+  "name": "3-04-boundary-closed",
+  "image": "img/3-04-boundary-closed.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/boundary",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:39:14.617Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "site": {
+      "box": [0.3313, 0.1242, 0.5263, 0.7516],
+      "center": [0.5945, 0.5],
+      "zoom": null,
+      "label": "Closed boundary",
+      "css": [635.5, 124, 988, 702]
+    },
+    "undo": {
+      "box": [0.3768, 0.9253, 0.0253, 0.0547],
+      "center": [0.3895, 0.9526],
+      "zoom": [0.1811, 0.5833, 0.4167, 0.4167],
+      "label": "Undo",
+      "css": [722, 885, 36, 40]
+    },
+    "save": {
+      "box": [0.0032, 0.9432, 0.1789, 0.0547],
+      "center": [0.0926, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Save boundary",
+      "css": [12, 902, 328, 40]
+    }
+  },
+  "points": {
+    "save": [0.0926, 0.9705]
+  },
+  "beats": {
+    "site": {
+      "highlight": {
+        "box": [0.3313, 0.1242, 0.5263, 0.7516],
+        "label": "Closed boundary"
+      }
+    },
+    "undo": {
+      "highlight": {
+        "box": [0.3768, 0.9253, 0.0253, 0.0547],
+        "label": "Undo"
+      },
+      "zoom": [0.1811, 0.5833, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.0032, 0.9432, 0.1789, 0.0547],
+        "label": "Save boundary"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9705],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

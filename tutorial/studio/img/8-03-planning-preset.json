@@ -1,0 +1,133 @@
+{
+  "name": "8-03-planning-preset",
+  "image": "img/8-03-planning-preset.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/library/directions",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:19:06.238Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "name": {
+      "box": [0.21, 0.1018, 0.5721, 0.2285],
+      "center": [0.4961, 0.2161],
+      "zoom": [0.15, 0, 0.6921, 0.6921],
+      "label": "Name and description",
+      "css": [405, 103, 1075, 205]
+    },
+    "available": {
+      "box": [0.21, 0.3497, 0.2124, 0.0879],
+      "center": [0.3162, 0.3937],
+      "zoom": [0.1078, 0.1853, 0.4167, 0.4167],
+      "label": "Available for",
+      "css": [405, 338.5, 391.5, 71.5]
+    },
+    "direction": {
+      "box": [0.21, 0.4613, 0.5721, 0.1869],
+      "center": [0.4961, 0.5547],
+      "zoom": [0.15, 0.2087, 0.6921, 0.6921],
+      "label": "Style, layout, creativity",
+      "css": [405, 444.5, 1075, 165.5]
+    },
+    "refs": {
+      "box": [0.21, 0.6676, 0.0927, 0.0732],
+      "center": [0.2563, 0.7042],
+      "zoom": [0.048, 0.4958, 0.4167, 0.4167],
+      "label": "Recommended references",
+      "css": [405, 640.5, 164, 57.5]
+    },
+    "descriptor": {
+      "box": [0.21, 0.7492, 0.5721, 0.1411],
+      "center": [0.4961, 0.8197],
+      "zoom": [0.15, 0.3079, 0.6921, 0.6921],
+      "label": "Descriptor text",
+      "css": [405, 718, 1075, 122]
+    },
+    "create": {
+      "box": [0.21, 0.9045, 0.58, 0.0505],
+      "center": [0.5, 0.9297],
+      "zoom": [0.15, 0.3, 0.7, 0.7],
+      "label": "Create planning preset",
+      "css": [405, 865.5, 1090, 36]
+    }
+  },
+  "points": {
+    "available": [0.3901, 0.4124],
+    "direction": [0.3545, 0.5197],
+    "refs": [0.2486, 0.7208],
+    "descriptor": [0.7588, 0.7745],
+    "create": [0.7363, 0.9297]
+  },
+  "beats": {
+    "name": {
+      "highlight": {
+        "box": [0.21, 0.1018, 0.5721, 0.2285],
+        "label": "Name and description"
+      },
+      "zoom": [0.15, 0, 0.6921, 0.6921]
+    },
+    "available": {
+      "highlight": {
+        "box": [0.21, 0.3497, 0.2124, 0.0879],
+        "label": "Available for"
+      },
+      "cursor": {
+        "at": [0.3901, 0.4124],
+        "click": false
+      },
+      "zoom": [0.1078, 0.1853, 0.4167, 0.4167]
+    },
+    "direction": {
+      "highlight": {
+        "box": [0.21, 0.4613, 0.5721, 0.1869],
+        "label": "Style, layout, creativity"
+      },
+      "cursor": {
+        "at": [0.3545, 0.5197],
+        "click": true
+      },
+      "zoom": [0.15, 0.2087, 0.6921, 0.6921]
+    },
+    "refs": {
+      "highlight": {
+        "box": [0.21, 0.6676, 0.0927, 0.0732],
+        "label": "Recommended references"
+      },
+      "cursor": {
+        "at": [0.2486, 0.7208],
+        "click": false
+      },
+      "zoom": [0.048, 0.4958, 0.4167, 0.4167]
+    },
+    "descriptor": {
+      "highlight": {
+        "box": [0.21, 0.7492, 0.5721, 0.1411],
+        "label": "Descriptor text"
+      },
+      "cursor": {
+        "at": [0.7588, 0.7745],
+        "click": false
+      },
+      "zoom": [0.15, 0.3079, 0.6921, 0.6921]
+    },
+    "create": {
+      "highlight": {
+        "box": [0.21, 0.9045, 0.58, 0.0505],
+        "label": "Create planning preset"
+      },
+      "cursor": {
+        "at": [0.7363, 0.9297],
+        "click": false
+      },
+      "zoom": [0.15, 0.3, 0.7, 0.7]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

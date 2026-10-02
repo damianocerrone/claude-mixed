@@ -1,0 +1,102 @@
+{
+  "name": "5-11-impact",
+  "image": "img/5-11-impact.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:44:58.725Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.1514, 0.1621, 0.0286, 0.0463],
+      "center": [0.1657, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Impact",
+      "css": [293.5, 160, 42.5, 32]
+    },
+    "question": {
+      "box": [0.0032, 0.2337, 0.1789, 0.0547],
+      "center": [0.0926, 0.2611],
+      "zoom": [0, 0.0527, 0.4167, 0.4167],
+      "label": "Your question",
+      "css": [12, 228, 328, 40]
+    },
+    "chips": {
+      "box": [0.0032, 0.2884, 0.1405, 0.0379],
+      "center": [0.0734, 0.3074],
+      "zoom": [0, 0.099, 0.4167, 0.4167],
+      "label": "Ready-made questions",
+      "css": [12, 280, 255, 24]
+    },
+    "note": {
+      "box": [0.0032, 0.3358, 0.1676, 0.0474],
+      "center": [0.087, 0.3595],
+      "zoom": [0, 0.1511, 0.4167, 0.4167],
+      "label": "Indicative only",
+      "css": [12, 325, 306.5, 33]
+    },
+    "analyse": {
+      "box": [0.0032, 0.9211, 0.1789, 0.0547],
+      "center": [0.0926, 0.9484],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Analyse",
+      "css": [12, 881, 328, 40]
+    }
+  },
+  "points": {
+    "chips": [0.1181, 0.3074],
+    "analyse": [0.0926, 0.9484]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.1514, 0.1621, 0.0286, 0.0463],
+        "label": "Impact"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "question": {
+      "highlight": {
+        "box": [0.0032, 0.2337, 0.1789, 0.0547],
+        "label": "Your question"
+      },
+      "zoom": [0, 0.0527, 0.4167, 0.4167]
+    },
+    "chips": {
+      "highlight": {
+        "box": [0.0032, 0.2884, 0.1405, 0.0379],
+        "label": "Ready-made questions"
+      },
+      "cursor": {
+        "at": [0.1181, 0.3074],
+        "click": true
+      },
+      "zoom": [0, 0.099, 0.4167, 0.4167]
+    },
+    "note": {
+      "highlight": {
+        "box": [0.0032, 0.3358, 0.1676, 0.0474],
+        "label": "Indicative only"
+      },
+      "zoom": [0, 0.1511, 0.4167, 0.4167]
+    },
+    "analyse": {
+      "highlight": {
+        "box": [0.0032, 0.9211, 0.1789, 0.0547],
+        "label": "Analyse"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9484],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

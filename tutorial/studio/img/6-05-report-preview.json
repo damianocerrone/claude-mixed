@@ -1,0 +1,49 @@
+{
+  "name": "6-05-report-preview",
+  "image": "img/6-05-report-preview.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/report",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:53:33.761Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "preview": {
+      "box": [0.0095, 0.0263, 0.9731, 0.4916],
+      "center": [0.4961, 0.2721],
+      "zoom": null,
+      "label": "Report preview",
+      "css": [24, 31, 1837, 455]
+    },
+    "audit": {
+      "box": [0.0095, 0.5221, 0.9731, 0.4779],
+      "center": [0.4961, 0.7642],
+      "zoom": null,
+      "label": "Process audit",
+      "css": [24, 502, 1837, 2173]
+    }
+  },
+  "points": {},
+  "beats": {
+    "preview": {
+      "highlight": {
+        "box": [0.0095, 0.0263, 0.9731, 0.4916],
+        "label": "Report preview"
+      }
+    },
+    "audit": {
+      "highlight": {
+        "box": [0.0095, 0.5221, 0.9731, 0.4779],
+        "label": "Process audit"
+      }
+    }
+  },
+  "warnings": [
+    "highlight \"audit\": element is partly outside the viewport; the box was clipped"
+  ]
+}

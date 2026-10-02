@@ -1,0 +1,60 @@
+{
+  "name": "4-02-density-creativity",
+  "image": "img/4-02-density-creativity.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:50:12.027Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "density": {
+      "box": [0.0032, 0.3453, 0.171, 0.1831],
+      "center": [0.0887, 0.4368],
+      "zoom": [0, 0.2285, 0.4167, 0.4167],
+      "label": "Density",
+      "css": [12, 334, 313, 162]
+    },
+    "creativity": {
+      "box": [0.0032, 0.5263, 0.171, 0.2048],
+      "center": [0.0887, 0.6287],
+      "zoom": [0, 0.4204, 0.4167, 0.4167],
+      "label": "Creativity",
+      "css": [12, 506, 313, 182.5]
+    }
+  },
+  "points": {
+    "density": [0.1131, 0.4368],
+    "creativity": [0.094, 0.6395]
+  },
+  "beats": {
+    "density": {
+      "highlight": {
+        "box": [0.0032, 0.3453, 0.171, 0.1831],
+        "label": "Density"
+      },
+      "cursor": {
+        "at": [0.1131, 0.4368],
+        "click": true
+      },
+      "zoom": [0, 0.2285, 0.4167, 0.4167]
+    },
+    "creativity": {
+      "highlight": {
+        "box": [0.0032, 0.5263, 0.171, 0.2048],
+        "label": "Creativity"
+      },
+      "cursor": {
+        "at": [0.094, 0.6395],
+        "click": true
+      },
+      "zoom": [0, 0.4204, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

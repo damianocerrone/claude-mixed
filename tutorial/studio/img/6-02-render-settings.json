@@ -1,0 +1,97 @@
+{
+  "name": "6-02-render-settings",
+  "image": "img/6-02-render-settings.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/production",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:49:35.205Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "views": {
+      "box": [0.3753, 0.2742, 0.186, 0.0737],
+      "center": [0.4683, 0.3111],
+      "zoom": [0.26, 0.1027, 0.4167, 0.4167],
+      "label": "Views",
+      "css": [719, 266.5, 341.5, 58]
+    },
+    "scenes": {
+      "box": [0.3921, 0.3742, 0.214, 0.0442],
+      "center": [0.4991, 0.3963],
+      "zoom": [0.2907, 0.1879, 0.4167, 0.4167],
+      "label": "Scene states",
+      "css": [751, 361.5, 394.5, 30]
+    },
+    "medium": {
+      "box": [0.3753, 0.4226, 0.2494, 0.1106],
+      "center": [0.5, 0.4779],
+      "zoom": [0.2916, 0.2695, 0.4167, 0.4167],
+      "label": "Deliverable medium",
+      "css": [719, 407.5, 462, 93]
+    },
+    "naming": {
+      "box": [0.3753, 0.6942, 0.2494, 0.0937],
+      "center": [0.5, 0.7411],
+      "zoom": [0.2916, 0.5327, 0.4167, 0.4167],
+      "label": "Export file naming",
+      "css": [719, 665.5, 462, 77]
+    },
+    "save": {
+      "box": [0.5536, 0.7921, 0.0711, 0.0505],
+      "center": [0.5892, 0.8174],
+      "zoom": [0.3808, 0.5833, 0.4167, 0.4167],
+      "label": "Save settings",
+      "css": [1058, 758.5, 123, 36]
+    }
+  },
+  "points": {
+    "save": [0.5892, 0.8174]
+  },
+  "beats": {
+    "views": {
+      "highlight": {
+        "box": [0.3753, 0.2742, 0.186, 0.0737],
+        "label": "Views"
+      },
+      "zoom": [0.26, 0.1027, 0.4167, 0.4167]
+    },
+    "scenes": {
+      "highlight": {
+        "box": [0.3921, 0.3742, 0.214, 0.0442],
+        "label": "Scene states"
+      },
+      "zoom": [0.2907, 0.1879, 0.4167, 0.4167]
+    },
+    "medium": {
+      "highlight": {
+        "box": [0.3753, 0.4226, 0.2494, 0.1106],
+        "label": "Deliverable medium"
+      },
+      "zoom": [0.2916, 0.2695, 0.4167, 0.4167]
+    },
+    "naming": {
+      "highlight": {
+        "box": [0.3753, 0.6942, 0.2494, 0.0937],
+        "label": "Export file naming"
+      },
+      "zoom": [0.2916, 0.5327, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.5536, 0.7921, 0.0711, 0.0505],
+        "label": "Save settings"
+      },
+      "cursor": {
+        "at": [0.5892, 0.8174],
+        "click": false
+      },
+      "zoom": [0.3808, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

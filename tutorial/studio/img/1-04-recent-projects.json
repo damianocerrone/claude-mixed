@@ -1,0 +1,96 @@
+{
+  "name": "1-04-recent-projects",
+  "image": "img/1-04-recent-projects.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T21:08:26.570Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "recent": {
+      "box": [0.1947, 0.5568, 0.7958, 0.4243],
+      "center": [0.5926, 0.7689],
+      "zoom": null,
+      "label": "Recent projects",
+      "css": [376, 535, 1500, 391]
+    },
+    "card": {
+      "box": [0.1947, 0.6074, 0.2011, 0.3737],
+      "center": [0.2953, 0.7942],
+      "zoom": [0.0484, 0.5063, 0.4937, 0.4937],
+      "label": "Project card",
+      "css": [376, 583, 370, 343]
+    },
+    "all": {
+      "box": [0.9273, 0.5568, 0.0632, 0.0506],
+      "center": [0.9589, 0.5821],
+      "zoom": [0.5833, 0.3737, 0.4167, 0.4167],
+      "label": "All projects",
+      "css": [1768, 535, 108, 36]
+    },
+    "more": {
+      "box": [0.3574, 0.8421, 0.0252, 0.0505],
+      "center": [0.37, 0.8674],
+      "zoom": [0.1616, 0.5833, 0.4167, 0.4167],
+      "shape": "circle",
+      "label": "More actions",
+      "css": [685, 806, 36, 36]
+    }
+  },
+  "points": {
+    "card": [0.2953, 0.7274],
+    "all": [0.9589, 0.5821],
+    "more": [0.37, 0.8674]
+  },
+  "beats": {
+    "recent": {
+      "highlight": {
+        "box": [0.1947, 0.5568, 0.7958, 0.4243],
+        "label": "Recent projects"
+      }
+    },
+    "card": {
+      "highlight": {
+        "box": [0.1947, 0.6074, 0.2011, 0.3737],
+        "label": "Project card"
+      },
+      "cursor": {
+        "at": [0.2953, 0.7274],
+        "click": true
+      },
+      "zoom": [0.0484, 0.5063, 0.4937, 0.4937]
+    },
+    "all": {
+      "highlight": {
+        "box": [0.9273, 0.5568, 0.0632, 0.0506],
+        "label": "All projects"
+      },
+      "cursor": {
+        "at": [0.9589, 0.5821],
+        "click": true
+      },
+      "zoom": [0.5833, 0.3737, 0.4167, 0.4167]
+    },
+    "more": {
+      "highlight": {
+        "box": [0.3574, 0.8421, 0.0252, 0.0505],
+        "shape": "circle",
+        "label": "More actions"
+      },
+      "cursor": {
+        "at": [0.37, 0.8674],
+        "click": false
+      },
+      "zoom": [0.1616, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

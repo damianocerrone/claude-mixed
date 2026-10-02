@@ -1,0 +1,107 @@
+{
+  "name": "8-08-settings-ideation",
+  "image": "img/8-08-settings-ideation.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/settings",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:20:50.230Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "head": {
+      "box": [0.2021, 0.0642, 0.0408, 0.0358],
+      "center": [0.2225, 0.0821],
+      "zoom": [0.0141, 0, 0.4167, 0.4167],
+      "label": "Ideation",
+      "css": [390, 67, 65.5, 22]
+    },
+    "batch": {
+      "box": [0.2037, 0.1284, 0.0802, 0.0905],
+      "center": [0.2438, 0.1737],
+      "zoom": [0.0354, 0, 0.4167, 0.4167],
+      "label": "Images per batch",
+      "css": [393, 128, 140.5, 74]
+    },
+    "toggles": {
+      "box": [0.5897, 0.1021, 0.3929, 0.4126],
+      "center": [0.7862, 0.3084],
+      "zoom": [0.4674, 0.0421, 0.5326, 0.5326],
+      "label": "Scene toggles",
+      "css": [1126.5, 103, 734.5, 380]
+    },
+    "steppers": {
+      "box": [0.1947, 0.5189, 0.7879, 0.2295],
+      "center": [0.5887, 0.6337],
+      "zoom": null,
+      "label": "Steppers and additive elements",
+      "css": [376, 499, 1485, 206]
+    },
+    "master": {
+      "box": [0.2037, 0.7747, 0.77, 0.139],
+      "center": [0.5887, 0.8442],
+      "zoom": null,
+      "label": "Master prompt",
+      "css": [393, 742, 1451, 120]
+    }
+  },
+  "points": {
+    "batch": [0.2405, 0.1916],
+    "toggles": [0.6432, 0.4579],
+    "master": [0.3596, 0.844]
+  },
+  "beats": {
+    "head": {
+      "highlight": {
+        "box": [0.2021, 0.0642, 0.0408, 0.0358],
+        "label": "Ideation"
+      },
+      "zoom": [0.0141, 0, 0.4167, 0.4167]
+    },
+    "batch": {
+      "highlight": {
+        "box": [0.2037, 0.1284, 0.0802, 0.0905],
+        "label": "Images per batch"
+      },
+      "cursor": {
+        "at": [0.2405, 0.1916],
+        "click": false
+      },
+      "zoom": [0.0354, 0, 0.4167, 0.4167]
+    },
+    "toggles": {
+      "highlight": {
+        "box": [0.5897, 0.1021, 0.3929, 0.4126],
+        "label": "Scene toggles"
+      },
+      "cursor": {
+        "at": [0.6432, 0.4579],
+        "click": false
+      },
+      "zoom": [0.4674, 0.0421, 0.5326, 0.5326]
+    },
+    "steppers": {
+      "highlight": {
+        "box": [0.1947, 0.5189, 0.7879, 0.2295],
+        "label": "Steppers and additive elements"
+      }
+    },
+    "master": {
+      "highlight": {
+        "box": [0.2037, 0.7747, 0.77, 0.139],
+        "label": "Master prompt"
+      },
+      "cursor": {
+        "at": [0.3596, 0.844],
+        "click": false
+      }
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

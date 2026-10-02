@@ -1,0 +1,69 @@
+{
+  "name": "3-07-landuse-painted",
+  "image": "img/3-07-landuse-painted.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/land-use",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:42:15.295Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "zones": {
+      "box": [0.3417, 0.1631, 0.4951, 0.4405],
+      "center": [0.5893, 0.3833],
+      "zoom": [0.2817, 0.0758, 0.6151, 0.6151],
+      "label": "Painted zones",
+      "css": [655, 161, 929, 406.5]
+    },
+    "recalc": {
+      "box": [0.0032, 0.7379, 0.1155, 0.0505],
+      "center": [0.0609, 0.7632],
+      "zoom": [0, 0.5548, 0.4167, 0.4167],
+      "label": "Recalculate",
+      "css": [12, 707, 207.5, 36]
+    },
+    "save": {
+      "box": [0.0032, 0.9432, 0.1789, 0.0547],
+      "center": [0.0926, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Save land-use plan",
+      "css": [12, 902, 328, 40]
+    }
+  },
+  "points": {
+    "save": [0.0926, 0.9705]
+  },
+  "beats": {
+    "zones": {
+      "highlight": {
+        "box": [0.3417, 0.1631, 0.4951, 0.4405],
+        "label": "Painted zones"
+      },
+      "zoom": [0.2817, 0.0758, 0.6151, 0.6151]
+    },
+    "recalc": {
+      "highlight": {
+        "box": [0.0032, 0.7379, 0.1155, 0.0505],
+        "label": "Recalculate"
+      },
+      "zoom": [0, 0.5548, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.0032, 0.9432, 0.1789, 0.0547],
+        "label": "Save land-use plan"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9705],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

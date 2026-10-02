@@ -1,0 +1,47 @@
+{
+  "name": "5-09b-adjust-saved",
+  "image": "img/5-09b-adjust-saved.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/04cb1986-d4a5-4d17-9329-c29e5ab76caf",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:40:46.173Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "image": {
+      "box": [0.2074, 0.0789, 0.7742, 0.8495],
+      "center": [0.5945, 0.5037],
+      "zoom": null,
+      "label": "New version",
+      "css": [400, 81, 1459, 795]
+    },
+    "recipe": {
+      "box": [0.2247, 0.9358, 0.7511, 0.0284],
+      "center": [0.6003, 0.95],
+      "zoom": null,
+      "label": "What was applied",
+      "css": [433, 895, 1415, 15]
+    }
+  },
+  "points": {},
+  "beats": {
+    "image": {
+      "highlight": {
+        "box": [0.2074, 0.0789, 0.7742, 0.8495],
+        "label": "New version"
+      }
+    },
+    "recipe": {
+      "highlight": {
+        "box": [0.2247, 0.9358, 0.7511, 0.0284],
+        "label": "What was applied"
+      }
+    }
+  },
+  "warnings": []
+}

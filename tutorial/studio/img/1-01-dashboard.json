@@ -1,0 +1,86 @@
+{
+  "name": "1-01-dashboard",
+  "image": "img/1-01-dashboard.webp",
+  "url": "coplanai.ikonai.app/coplanai",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T21:03:14.991Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "card": {
+      "box": [0.1768, 0.2674, 0.6464, 0.7326],
+      "center": [0.5, 0.6368],
+      "zoom": null,
+      "label": "Studio card",
+      "css": [342, 260, 1216, 1323]
+    },
+    "open": {
+      "box": [0.7272, 0.3011, 0.0791, 0.0505],
+      "center": [0.7668, 0.3263],
+      "zoom": [0.5584, 0.118, 0.4167, 0.4167],
+      "label": "Open Studio",
+      "css": [1387.5, 292, 138.5, 36]
+    },
+    "form": {
+      "box": [0.1937, 0.3642, 0.6126, 0.6358],
+      "center": [0.5, 0.6853],
+      "zoom": [0.1221, 0.2442, 0.7558, 0.7558],
+      "label": "New-project form",
+      "css": [374, 352, 1152, 653]
+    },
+    "icons": {
+      "box": [0.9084, 0, 0.0821, 0.0516],
+      "center": [0.9495, 0.0253],
+      "zoom": [0.5833, 0, 0.4167, 0.4167],
+      "label": "App icons",
+      "css": [1732, 5, 144, 38]
+    }
+  },
+  "points": {
+    "open": [0.7668, 0.3263]
+  },
+  "beats": {
+    "card": {
+      "highlight": {
+        "box": [0.1768, 0.2674, 0.6464, 0.7326],
+        "label": "Studio card"
+      }
+    },
+    "open": {
+      "highlight": {
+        "box": [0.7272, 0.3011, 0.0791, 0.0505],
+        "label": "Open Studio"
+      },
+      "cursor": {
+        "at": [0.7668, 0.3263],
+        "click": true
+      },
+      "zoom": [0.5584, 0.118, 0.4167, 0.4167]
+    },
+    "form": {
+      "highlight": {
+        "box": [0.1937, 0.3642, 0.6126, 0.6358],
+        "label": "New-project form"
+      },
+      "zoom": [0.1221, 0.2442, 0.7558, 0.7558]
+    },
+    "icons": {
+      "highlight": {
+        "box": [0.9084, 0, 0.0821, 0.0516],
+        "label": "App icons"
+      },
+      "zoom": [0.5833, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "highlight \"form\": element is partly outside the viewport; the box was clipped",
+    "highlight \"card\": element is partly outside the viewport; the box was clipped",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

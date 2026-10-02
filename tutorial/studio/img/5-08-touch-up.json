@@ -1,0 +1,97 @@
+{
+  "name": "5-08-touch-up",
+  "image": "img/5-08-touch-up.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/bec0cd09-d02c-483e-96d9-eaec7a38d425",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:27:52.337Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.0783, 0.1621, 0.0286, 0.0463],
+      "center": [0.0926, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Touch-up",
+      "css": [155, 160, 42.5, 32]
+    },
+    "tools": {
+      "box": [0.0079, 0.2642, 0.1137, 0.1095],
+      "center": [0.0647, 0.3189],
+      "zoom": [0, 0.1106, 0.4167, 0.4167],
+      "label": "Drawing tools",
+      "css": [21, 257, 204, 92]
+    },
+    "mask": {
+      "box": [0.4899, 0.3609, 0.1178, 0.2231],
+      "center": [0.5488, 0.4725],
+      "zoom": [0.3404, 0.2641, 0.4167, 0.4167],
+      "label": "Marked region",
+      "css": [937, 349, 212, 200]
+    },
+    "instruction": {
+      "box": [0.0032, 0.5032, 0.1789, 0.0968],
+      "center": [0.0926, 0.5516],
+      "zoom": [0, 0.3432, 0.4167, 0.4167],
+      "label": "Instruction",
+      "css": [12, 484, 328, 80]
+    },
+    "apply": {
+      "box": [0.0032, 0.9211, 0.1789, 0.0547],
+      "center": [0.0926, 0.9484],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Apply to mask",
+      "css": [12, 881, 328, 40]
+    }
+  },
+  "points": {
+    "apply": [0.0926, 0.9484]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.0783, 0.1621, 0.0286, 0.0463],
+        "label": "Touch-up"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "tools": {
+      "highlight": {
+        "box": [0.0079, 0.2642, 0.1137, 0.1095],
+        "label": "Drawing tools"
+      },
+      "zoom": [0, 0.1106, 0.4167, 0.4167]
+    },
+    "mask": {
+      "highlight": {
+        "box": [0.4899, 0.3609, 0.1178, 0.2231],
+        "label": "Marked region"
+      },
+      "zoom": [0.3404, 0.2641, 0.4167, 0.4167]
+    },
+    "instruction": {
+      "highlight": {
+        "box": [0.0032, 0.5032, 0.1789, 0.0968],
+        "label": "Instruction"
+      },
+      "zoom": [0, 0.3432, 0.4167, 0.4167]
+    },
+    "apply": {
+      "highlight": {
+        "box": [0.0032, 0.9211, 0.1789, 0.0547],
+        "label": "Apply to mask"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9484],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

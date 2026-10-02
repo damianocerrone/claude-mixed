@@ -1,0 +1,83 @@
+{
+  "name": "4-01-quick-actions",
+  "image": "img/4-01-quick-actions.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:50:05.189Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.0296, 0.1621, 0.0286, 0.0463],
+      "center": [0.0439, 0.1853],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Quick actions",
+      "css": [62.5, 160, 42.5, 32]
+    },
+    "pill": {
+      "box": [0.5332, 0.0968, 0.1331, 0.0285],
+      "center": [0.5997, 0.1111],
+      "zoom": [0.3914, 0, 0.4167, 0.4167],
+      "label": "Hint",
+      "css": [1019, 98, 241, 15]
+    },
+    "scope": {
+      "box": [0.0111, 0.2347, 0.1394, 0.0969],
+      "center": [0.0808, 0.2832],
+      "zoom": [0, 0.0748, 0.4167, 0.4167],
+      "label": "Scope",
+      "css": [27, 229, 253, 80]
+    },
+    "apply": {
+      "box": [0.0032, 0.9211, 0.1789, 0.0547],
+      "center": [0.0926, 0.9484],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Apply to current",
+      "css": [12, 881, 328, 40]
+    }
+  },
+  "points": {
+    "tab": [0.0439, 0.1853]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.0296, 0.1621, 0.0286, 0.0463],
+        "label": "Quick actions"
+      },
+      "cursor": {
+        "at": [0.0439, 0.1853],
+        "click": true
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "pill": {
+      "highlight": {
+        "box": [0.5332, 0.0968, 0.1331, 0.0285],
+        "label": "Hint"
+      },
+      "zoom": [0.3914, 0, 0.4167, 0.4167]
+    },
+    "scope": {
+      "highlight": {
+        "box": [0.0111, 0.2347, 0.1394, 0.0969],
+        "label": "Scope"
+      },
+      "zoom": [0, 0.0748, 0.4167, 0.4167]
+    },
+    "apply": {
+      "highlight": {
+        "box": [0.0032, 0.9211, 0.1789, 0.0547],
+        "label": "Apply to current"
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

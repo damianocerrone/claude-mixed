@@ -1,0 +1,120 @@
+{
+  "name": "3-02-boundary-editor",
+  "image": "img/3-02-boundary-editor.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/boundary",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:38:08.234Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "header": {
+      "box": [0.1984, 0.0611, 0.7921, 0.0621],
+      "center": [0.5945, 0.0921],
+      "zoom": null,
+      "label": "Instructions",
+      "css": [383, 64, 1493, 47]
+    },
+    "polygon": {
+      "box": [0.5753, 0.9253, 0.0252, 0.0547],
+      "center": [0.5879, 0.9526],
+      "zoom": [0.3796, 0.5833, 0.4167, 0.4167],
+      "label": "Polygon",
+      "css": [1099, 885, 36, 40]
+    },
+    "outline": {
+      "box": [0.5521, 0.9253, 0.0253, 0.0547],
+      "center": [0.5647, 0.9526],
+      "zoom": [0.3564, 0.5833, 0.4167, 0.4167],
+      "label": "Outline",
+      "css": [1055, 885, 36, 40]
+    },
+    "history": {
+      "box": [0.3768, 0.9253, 0.0948, 0.0547],
+      "center": [0.4242, 0.9526],
+      "zoom": [0.2159, 0.5833, 0.4167, 0.4167],
+      "label": "Undo, redo, zoom",
+      "css": [722, 885, 168, 40]
+    },
+    "back": {
+      "box": [0.9519, 0.9274, 0.0386, 0.0505],
+      "center": [0.9712, 0.9526],
+      "zoom": [0.5833, 0.5833, 0.4167, 0.4167],
+      "label": "Back",
+      "css": [1814.5, 887, 61.5, 36]
+    },
+    "save": {
+      "box": [0.0032, 0.9432, 0.1789, 0.0547],
+      "center": [0.0926, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Save boundary",
+      "css": [12, 902, 328, 40]
+    }
+  },
+  "points": {
+    "polygon": [0.5879, 0.9526],
+    "back": [0.9712, 0.9526],
+    "save": [0.0926, 0.9705]
+  },
+  "beats": {
+    "header": {
+      "highlight": {
+        "box": [0.1984, 0.0611, 0.7921, 0.0621],
+        "label": "Instructions"
+      }
+    },
+    "polygon": {
+      "highlight": {
+        "box": [0.5753, 0.9253, 0.0252, 0.0547],
+        "label": "Polygon"
+      },
+      "cursor": {
+        "at": [0.5879, 0.9526],
+        "click": true
+      },
+      "zoom": [0.3796, 0.5833, 0.4167, 0.4167]
+    },
+    "outline": {
+      "highlight": {
+        "box": [0.5521, 0.9253, 0.0253, 0.0547],
+        "label": "Outline"
+      },
+      "zoom": [0.3564, 0.5833, 0.4167, 0.4167]
+    },
+    "history": {
+      "highlight": {
+        "box": [0.3768, 0.9253, 0.0948, 0.0547],
+        "label": "Undo, redo, zoom"
+      },
+      "zoom": [0.2159, 0.5833, 0.4167, 0.4167]
+    },
+    "back": {
+      "highlight": {
+        "box": [0.9519, 0.9274, 0.0386, 0.0505],
+        "label": "Back"
+      },
+      "cursor": {
+        "at": [0.9712, 0.9526],
+        "click": false
+      },
+      "zoom": [0.5833, 0.5833, 0.4167, 0.4167]
+    },
+    "save": {
+      "highlight": {
+        "box": [0.0032, 0.9432, 0.1789, 0.0547],
+        "label": "Save boundary"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9705],
+        "click": false
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

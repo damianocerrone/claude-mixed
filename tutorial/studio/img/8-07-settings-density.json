@@ -1,0 +1,86 @@
+{
+  "name": "8-07-settings-density",
+  "image": "img/8-07-settings-density.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/settings",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:20:34.577Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "guide": {
+      "box": [0.1947, 0.0516, 0.7879, 0.1716],
+      "center": [0.5887, 0.1374],
+      "zoom": null,
+      "label": "Descriptor guidance",
+      "css": [376, 55, 1485, 151]
+    },
+    "preview": {
+      "box": [0.2037, 0.2158, 0.77, 0.1379],
+      "center": [0.5887, 0.2847],
+      "zoom": null,
+      "label": "PREVIEW",
+      "css": [393, 211, 1451, 119]
+    },
+    "density": {
+      "box": [0.1947, 0.4284, 0.7879, 0.3727],
+      "center": [0.5887, 0.6147],
+      "zoom": null,
+      "label": "Density bands",
+      "css": [376, 413, 1485, 342]
+    },
+    "required": {
+      "box": [0.1947, 0.8189, 0.7879, 0.1811],
+      "center": [0.5887, 0.9126],
+      "zoom": null,
+      "label": "Required elements",
+      "css": [376, 784, 1485, 166]
+    }
+  },
+  "points": {
+    "preview": [0.2266, 0.23],
+    "density": [0.4202, 0.7595]
+  },
+  "beats": {
+    "guide": {
+      "highlight": {
+        "box": [0.1947, 0.0516, 0.7879, 0.1716],
+        "label": "Descriptor guidance"
+      }
+    },
+    "preview": {
+      "highlight": {
+        "box": [0.2037, 0.2158, 0.77, 0.1379],
+        "label": "PREVIEW"
+      },
+      "cursor": {
+        "at": [0.2266, 0.23],
+        "click": false
+      }
+    },
+    "density": {
+      "highlight": {
+        "box": [0.1947, 0.4284, 0.7879, 0.3727],
+        "label": "Density bands"
+      },
+      "cursor": {
+        "at": [0.4202, 0.7595],
+        "click": false
+      }
+    },
+    "required": {
+      "highlight": {
+        "box": [0.1947, 0.8189, 0.7879, 0.1811],
+        "label": "Required elements"
+      }
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

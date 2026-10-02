@@ -1,0 +1,83 @@
+{
+  "name": "5-06-select",
+  "image": "img/5-06-select.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:24:56.000Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "mode": {
+      "box": [0.7931, 0.1242, 0.0447, 0.0505],
+      "center": [0.8154, 0.1495],
+      "zoom": [0.5833, 0, 0.4167, 0.4167],
+      "label": "Select",
+      "css": [1513, 124, 73, 36]
+    },
+    "ticks": {
+      "box": [0.2079, 0.2695, 0.3347, 0.1958],
+      "center": [0.3753, 0.3674],
+      "zoom": [0.1479, 0.1401, 0.4547, 0.4547],
+      "label": "2 selected",
+      "css": [401, 262, 624, 174]
+    },
+    "bar": {
+      "box": [0.4864, 0.1811, 0.1408, 0.0505],
+      "center": [0.5568, 0.2063],
+      "zoom": [0.3484, 0, 0.4167, 0.4167],
+      "label": "Bulk actions",
+      "css": [930, 178, 255.5, 36]
+    },
+    "compare": {
+      "box": [0.3798, 0.1811, 0.055, 0.0505],
+      "center": [0.4073, 0.2063],
+      "zoom": [0.199, 0, 0.4167, 0.4167],
+      "label": "Compare",
+      "css": [727.5, 178, 92.5, 36]
+    }
+  },
+  "points": {
+    "compare": [0.4073, 0.2063]
+  },
+  "beats": {
+    "mode": {
+      "highlight": {
+        "box": [0.7931, 0.1242, 0.0447, 0.0505],
+        "label": "Select"
+      },
+      "zoom": [0.5833, 0, 0.4167, 0.4167]
+    },
+    "ticks": {
+      "highlight": {
+        "box": [0.2079, 0.2695, 0.3347, 0.1958],
+        "label": "2 selected"
+      },
+      "zoom": [0.1479, 0.1401, 0.4547, 0.4547]
+    },
+    "bar": {
+      "highlight": {
+        "box": [0.4864, 0.1811, 0.1408, 0.0505],
+        "label": "Bulk actions"
+      },
+      "zoom": [0.3484, 0, 0.4167, 0.4167]
+    },
+    "compare": {
+      "highlight": {
+        "box": [0.3798, 0.1811, 0.055, 0.0505],
+        "label": "Compare"
+      },
+      "cursor": {
+        "at": [0.4073, 0.2063],
+        "click": true
+      },
+      "zoom": [0.199, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

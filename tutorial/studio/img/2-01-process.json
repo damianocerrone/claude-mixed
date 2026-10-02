@@ -1,0 +1,96 @@
+{
+  "name": "2-01-process",
+  "image": "img/2-01-process.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:19:30.981Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "conceptual": {
+      "box": [0.2058, 0.7916, 0.0796, 0.0463],
+      "center": [0.2456, 0.8147],
+      "zoom": [0.0373, 0.5833, 0.4167, 0.4167],
+      "label": "Conceptual Plan",
+      "css": [397, 758, 139.5, 32]
+    },
+    "help": {
+      "box": [0.2058, 0.8316, 0.1567, 0.0273],
+      "center": [0.2841, 0.8453],
+      "zoom": [0.0758, 0.5833, 0.4167, 0.4167],
+      "label": "What it does",
+      "css": [397, 796, 285.5, 14]
+    },
+    "master": {
+      "box": [0.2833, 0.7916, 0.0654, 0.0463],
+      "center": [0.316, 0.8147],
+      "zoom": [0.1077, 0.5833, 0.4167, 0.4167],
+      "label": "Master Plan",
+      "css": [544.5, 758, 112.5, 32]
+    },
+    "focus": {
+      "box": [0.3466, 0.7916, 0.063, 0.0463],
+      "center": [0.3781, 0.8147],
+      "zoom": [0.1697, 0.5833, 0.4167, 0.4167],
+      "label": "Focus Area",
+      "css": [664.5, 758, 107.5, 32]
+    }
+  },
+  "points": {
+    "conceptual": [0.2456, 0.8147],
+    "master": [0.316, 0.8147],
+    "focus": [0.3781, 0.8147]
+  },
+  "beats": {
+    "conceptual": {
+      "highlight": {
+        "box": [0.2058, 0.7916, 0.0796, 0.0463],
+        "label": "Conceptual Plan"
+      },
+      "cursor": {
+        "at": [0.2456, 0.8147],
+        "click": true
+      },
+      "zoom": [0.0373, 0.5833, 0.4167, 0.4167]
+    },
+    "help": {
+      "highlight": {
+        "box": [0.2058, 0.8316, 0.1567, 0.0273],
+        "label": "What it does"
+      },
+      "zoom": [0.0758, 0.5833, 0.4167, 0.4167]
+    },
+    "master": {
+      "highlight": {
+        "box": [0.2833, 0.7916, 0.0654, 0.0463],
+        "label": "Master Plan"
+      },
+      "cursor": {
+        "at": [0.316, 0.8147],
+        "click": false
+      },
+      "zoom": [0.1077, 0.5833, 0.4167, 0.4167]
+    },
+    "focus": {
+      "highlight": {
+        "box": [0.3466, 0.7916, 0.063, 0.0463],
+        "label": "Focus Area"
+      },
+      "cursor": {
+        "at": [0.3781, 0.8147],
+        "click": false
+      },
+      "zoom": [0.1697, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "hide: nothing matches \"[role=tooltip]\"",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

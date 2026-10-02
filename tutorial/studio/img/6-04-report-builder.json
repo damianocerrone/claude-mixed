@@ -1,0 +1,83 @@
+{
+  "name": "6-04-report-builder",
+  "image": "img/6-04-report-builder.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/report",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:53:28.262Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.5324, 0.0011, 0.055, 0.0473],
+      "center": [0.5599, 0.0247],
+      "zoom": [0.3515, 0, 0.4167, 0.4167],
+      "label": "Report",
+      "css": [1017.5, 7, 92.5, 33]
+    },
+    "sections": {
+      "box": [0.0095, 0.1495, 0.4855, 0.5252],
+      "center": [0.2522, 0.4121],
+      "zoom": [0, 0.0895, 0.6452, 0.6452],
+      "label": "Sections",
+      "css": [24, 148, 910.5, 487]
+    },
+    "contents": {
+      "box": [0.4971, 0.1495, 0.4855, 0.341],
+      "center": [0.7399, 0.32],
+      "zoom": [0.3945, 0.0172, 0.6055, 0.6055],
+      "label": "Contents",
+      "css": [950.5, 148, 910.5, 312]
+    },
+    "exports": {
+      "box": [0.8356, 0.0695, 0.147, 0.0505],
+      "center": [0.9091, 0.0947],
+      "zoom": [0.5833, 0, 0.4167, 0.4167],
+      "label": "Export",
+      "css": [1593.5, 72, 267.5, 36]
+    }
+  },
+  "points": {
+    "exports": [0.9563, 0.0947]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.5324, 0.0011, 0.055, 0.0473],
+        "label": "Report"
+      },
+      "zoom": [0.3515, 0, 0.4167, 0.4167]
+    },
+    "sections": {
+      "highlight": {
+        "box": [0.0095, 0.1495, 0.4855, 0.5252],
+        "label": "Sections"
+      },
+      "zoom": [0, 0.0895, 0.6452, 0.6452]
+    },
+    "contents": {
+      "highlight": {
+        "box": [0.4971, 0.1495, 0.4855, 0.341],
+        "label": "Contents"
+      },
+      "zoom": [0.3945, 0.0172, 0.6055, 0.6055]
+    },
+    "exports": {
+      "highlight": {
+        "box": [0.8356, 0.0695, 0.147, 0.0505],
+        "label": "Export"
+      },
+      "cursor": {
+        "at": [0.9563, 0.0947],
+        "click": false
+      },
+      "zoom": [0.5833, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

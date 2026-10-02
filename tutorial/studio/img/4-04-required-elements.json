@@ -1,0 +1,60 @@
+{
+  "name": "4-04-required-elements",
+  "image": "img/4-04-required-elements.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:50:29.170Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "required": {
+      "box": [0.0032, 0.4132, 0.171, 0.3073],
+      "center": [0.0887, 0.5668],
+      "zoom": [0, 0.3532, 0.4273, 0.4273],
+      "label": "Required elements",
+      "css": [12, 398.5, 313, 280]
+    },
+    "add": {
+      "box": [0.0121, 0.6626, 0.0574, 0.04],
+      "center": [0.0408, 0.6826],
+      "zoom": [0, 0.4742, 0.4167, 0.4167],
+      "label": "Add other",
+      "css": [29, 635.5, 97, 26]
+    }
+  },
+  "points": {
+    "required": [0.1295, 0.6489],
+    "add": [0.0408, 0.6826]
+  },
+  "beats": {
+    "required": {
+      "highlight": {
+        "box": [0.0032, 0.4132, 0.171, 0.3073],
+        "label": "Required elements"
+      },
+      "cursor": {
+        "at": [0.1295, 0.6489],
+        "click": true
+      },
+      "zoom": [0, 0.3532, 0.4273, 0.4273]
+    },
+    "add": {
+      "highlight": {
+        "box": [0.0121, 0.6626, 0.0574, 0.04],
+        "label": "Add other"
+      },
+      "cursor": {
+        "at": [0.0408, 0.6826],
+        "click": false
+      },
+      "zoom": [0, 0.4742, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

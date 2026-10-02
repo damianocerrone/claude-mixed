@@ -1,0 +1,119 @@
+{
+  "name": "2-08-details",
+  "image": "img/2-08-details.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:22:50.510Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tab": {
+      "box": [0.3354, 0.1316, 0.0584, 0.0505],
+      "center": [0.3646, 0.1568],
+      "zoom": [0.1562, 0, 0.4167, 0.4167],
+      "label": "Details",
+      "css": [643, 131, 99, 36]
+    },
+    "name": {
+      "box": [0.2832, 0.2168, 0.4236, 0.1221],
+      "center": [0.495, 0.2779],
+      "zoom": [0.2232, 0.0061, 0.5436, 0.5436],
+      "label": "Name and address",
+      "css": [544, 212, 793, 104]
+    },
+    "process": {
+      "box": [0.2832, 0.3495, 0.4236, 0.1105],
+      "center": [0.495, 0.4047],
+      "zoom": [0.2232, 0.133, 0.5436, 0.5436],
+      "label": "Process and scope",
+      "css": [544, 338, 793, 93]
+    },
+    "reference": {
+      "box": [0.2832, 0.4716, 0.4236, 0.3158],
+      "center": [0.495, 0.6295],
+      "zoom": [0.2232, 0.3577, 0.5436, 0.5436],
+      "label": "For reference",
+      "css": [544, 454, 793, 288]
+    },
+    "output": {
+      "box": [0.2832, 0.7979, 0.4236, 0.1105],
+      "center": [0.495, 0.8532],
+      "zoom": [0.2232, 0.4564, 0.5436, 0.5436],
+      "label": "Output",
+      "css": [544, 764, 793, 93]
+    },
+    "saves": {
+      "box": [0.4718, 0.1, 0.1263, 0.0295],
+      "center": [0.5349, 0.1147],
+      "zoom": [0.3266, 0, 0.4167, 0.4167],
+      "label": "Saves as you edit",
+      "css": [902.5, 101, 228, 16]
+    }
+  },
+  "points": {
+    "tab": [0.3646, 0.1568],
+    "name": [0.6995, 0.3116]
+  },
+  "beats": {
+    "tab": {
+      "highlight": {
+        "box": [0.3354, 0.1316, 0.0584, 0.0505],
+        "label": "Details"
+      },
+      "cursor": {
+        "at": [0.3646, 0.1568],
+        "click": true
+      },
+      "zoom": [0.1562, 0, 0.4167, 0.4167]
+    },
+    "name": {
+      "highlight": {
+        "box": [0.2832, 0.2168, 0.4236, 0.1221],
+        "label": "Name and address"
+      },
+      "cursor": {
+        "at": [0.6995, 0.3116],
+        "click": false
+      },
+      "zoom": [0.2232, 0.0061, 0.5436, 0.5436]
+    },
+    "process": {
+      "highlight": {
+        "box": [0.2832, 0.3495, 0.4236, 0.1105],
+        "label": "Process and scope"
+      },
+      "zoom": [0.2232, 0.133, 0.5436, 0.5436]
+    },
+    "reference": {
+      "highlight": {
+        "box": [0.2832, 0.4716, 0.4236, 0.3158],
+        "label": "For reference"
+      },
+      "zoom": [0.2232, 0.3577, 0.5436, 0.5436]
+    },
+    "output": {
+      "highlight": {
+        "box": [0.2832, 0.7979, 0.4236, 0.1105],
+        "label": "Output"
+      },
+      "zoom": [0.2232, 0.4564, 0.5436, 0.5436]
+    },
+    "saves": {
+      "highlight": {
+        "box": [0.4718, 0.1, 0.1263, 0.0295],
+        "label": "Saves as you edit"
+      },
+      "zoom": [0.3266, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "hide: nothing matches \"[role=tooltip]\"",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

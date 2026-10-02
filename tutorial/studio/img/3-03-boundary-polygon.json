@@ -1,0 +1,57 @@
+{
+  "name": "3-03-boundary-polygon",
+  "image": "img/3-03-boundary-polygon.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/boundary",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:39:07.933Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "tool": {
+      "box": [0.5753, 0.9253, 0.0252, 0.0547],
+      "center": [0.5879, 0.9526],
+      "zoom": [0.3796, 0.5833, 0.4167, 0.4167],
+      "label": "Polygon",
+      "css": [1099, 885, 36, 40]
+    },
+    "corners": {
+      "box": [0.3313, 0.1398, 0.5003, 0.2771],
+      "center": [0.5815, 0.2783],
+      "zoom": [0.2713, 0, 0.6203, 0.6203],
+      "label": "Corners so far",
+      "css": [635.5, 139, 938.5, 251.5]
+    }
+  },
+  "points": {
+    "next": [0.3466, 0.3124]
+  },
+  "beats": {
+    "tool": {
+      "highlight": {
+        "box": [0.5753, 0.9253, 0.0252, 0.0547],
+        "label": "Polygon"
+      },
+      "zoom": [0.3796, 0.5833, 0.4167, 0.4167]
+    },
+    "corners": {
+      "highlight": {
+        "box": [0.3313, 0.1398, 0.5003, 0.2771],
+        "label": "Corners so far"
+      },
+      "zoom": [0.2713, 0, 0.6203, 0.6203]
+    },
+    "next": {
+      "cursor": {
+        "at": [0.3466, 0.3124],
+        "click": false
+      }
+    }
+  },
+  "warnings": []
+}

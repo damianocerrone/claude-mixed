@@ -1,0 +1,97 @@
+{
+  "name": "6-01-render-set",
+  "image": "img/6-01-render-set.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/production",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:49:27.738Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "mode": {
+      "box": [0.4928, 0.0011, 0.0697, 0.0473],
+      "center": [0.5276, 0.0247],
+      "zoom": [0.3193, 0, 0.4167, 0.4167],
+      "label": "Production",
+      "css": [942.5, 7, 120.5, 33]
+    },
+    "counter": {
+      "box": [0.0095, 0.0611, 0.1325, 0.0557],
+      "center": [0.0757, 0.0889],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Render set",
+      "css": [24, 64, 239.5, 41]
+    },
+    "latest": {
+      "box": [0.0105, 0.2895, 0.1727, 0.0494],
+      "center": [0.0968, 0.3142],
+      "zoom": [0, 0.1058, 0.4167, 0.4167],
+      "label": "Latest iteration",
+      "css": [26, 281, 316, 35]
+    },
+    "views": {
+      "box": [0.1847, 0.14, 0.6916, 0.5986],
+      "center": [0.5305, 0.4393],
+      "zoom": [0.1247, 0.0335, 0.8116, 0.8116],
+      "label": "Views × scenes",
+      "css": [357, 139, 1302, 556.5]
+    },
+    "tools": {
+      "box": [0.6005, 0.0637, 0.3821, 0.0505],
+      "center": [0.7916, 0.0889],
+      "zoom": [0.4979, 0, 0.5021, 0.5021],
+      "label": "Production tools",
+      "css": [1147, 66.5, 714, 36]
+    }
+  },
+  "points": {
+    "tools": [0.8657, 0.0889]
+  },
+  "beats": {
+    "mode": {
+      "highlight": {
+        "box": [0.4928, 0.0011, 0.0697, 0.0473],
+        "label": "Production"
+      },
+      "zoom": [0.3193, 0, 0.4167, 0.4167]
+    },
+    "counter": {
+      "highlight": {
+        "box": [0.0095, 0.0611, 0.1325, 0.0557],
+        "label": "Render set"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "latest": {
+      "highlight": {
+        "box": [0.0105, 0.2895, 0.1727, 0.0494],
+        "label": "Latest iteration"
+      },
+      "zoom": [0, 0.1058, 0.4167, 0.4167]
+    },
+    "views": {
+      "highlight": {
+        "box": [0.1847, 0.14, 0.6916, 0.5986],
+        "label": "Views × scenes"
+      },
+      "zoom": [0.1247, 0.0335, 0.8116, 0.8116]
+    },
+    "tools": {
+      "highlight": {
+        "box": [0.6005, 0.0637, 0.3821, 0.0505],
+        "label": "Production tools"
+      },
+      "cursor": {
+        "at": [0.8657, 0.0889],
+        "click": true
+      },
+      "zoom": [0.4979, 0, 0.5021, 0.5021]
+    }
+  },
+  "warnings": []
+}

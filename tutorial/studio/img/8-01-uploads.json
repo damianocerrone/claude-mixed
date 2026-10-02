@@ -1,0 +1,131 @@
+{
+  "name": "8-01-uploads",
+  "image": "img/8-01-uploads.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:18:27.078Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "head": {
+      "box": [0.1947, 0.0705, 0.3633, 0.059],
+      "center": [0.3764, 0.1],
+      "zoom": [0.1347, 0, 0.4833, 0.4833],
+      "label": "Uploaded images",
+      "css": [376, 73, 678, 44]
+    },
+    "filters": {
+      "box": [0.1947, 0.1368, 0.7958, 0.0664],
+      "center": [0.5926, 0.17],
+      "zoom": null,
+      "label": "Filters and sort",
+      "css": [376, 136, 1500, 51]
+    },
+    "used": {
+      "box": [0.2021, 0.409, 0.0366, 0.0337],
+      "center": [0.2204, 0.4259],
+      "zoom": [0.0121, 0.2175, 0.4167, 0.4167],
+      "label": "Used",
+      "css": [393, 397.5, 51.5, 14]
+    },
+    "card": {
+      "box": [0.8322, 0.2253, 0.1583, 0.2406],
+      "center": [0.9114, 0.3456],
+      "zoom": [0.5833, 0.1373, 0.4167, 0.4167],
+      "label": "Unused",
+      "css": [1587, 220, 289, 216.5]
+    },
+    "view": {
+      "box": [0.9455, 0.2343, 0.0215, 0.043],
+      "center": [0.9563, 0.2558],
+      "zoom": [0.5833, 0.0475, 0.4167, 0.4167],
+      "shape": "circle",
+      "label": "View full size",
+      "css": [1802.5, 228.5, 29, 29]
+    },
+    "del": {
+      "box": [0.9635, 0.2343, 0.0215, 0.043],
+      "center": [0.9743, 0.2558],
+      "zoom": [0.5833, 0.0475, 0.4167, 0.4167],
+      "shape": "circle",
+      "label": "Delete",
+      "css": [1836.5, 228.5, 29, 29]
+    }
+  },
+  "points": {
+    "filters": [0.2374, 0.18],
+    "card": [0.8562, 0.4259],
+    "view": [0.9563, 0.2558],
+    "del": [0.9743, 0.2558]
+  },
+  "beats": {
+    "head": {
+      "highlight": {
+        "box": [0.1947, 0.0705, 0.3633, 0.059],
+        "label": "Uploaded images"
+      },
+      "zoom": [0.1347, 0, 0.4833, 0.4833]
+    },
+    "filters": {
+      "highlight": {
+        "box": [0.1947, 0.1368, 0.7958, 0.0664],
+        "label": "Filters and sort"
+      },
+      "cursor": {
+        "at": [0.2374, 0.18],
+        "click": true
+      }
+    },
+    "used": {
+      "highlight": {
+        "box": [0.2021, 0.409, 0.0366, 0.0337],
+        "label": "Used"
+      },
+      "zoom": [0.0121, 0.2175, 0.4167, 0.4167]
+    },
+    "card": {
+      "highlight": {
+        "box": [0.8322, 0.2253, 0.1583, 0.2406],
+        "label": "Unused"
+      },
+      "cursor": {
+        "at": [0.8562, 0.4259],
+        "click": false
+      },
+      "zoom": [0.5833, 0.1373, 0.4167, 0.4167]
+    },
+    "view": {
+      "highlight": {
+        "box": [0.9455, 0.2343, 0.0215, 0.043],
+        "shape": "circle",
+        "label": "View full size"
+      },
+      "cursor": {
+        "at": [0.9563, 0.2558],
+        "click": true
+      },
+      "zoom": [0.5833, 0.0475, 0.4167, 0.4167]
+    },
+    "del": {
+      "highlight": {
+        "box": [0.9635, 0.2343, 0.0215, 0.043],
+        "shape": "circle",
+        "label": "Delete"
+      },
+      "cursor": {
+        "at": [0.9743, 0.2558],
+        "click": false
+      },
+      "zoom": [0.5833, 0.0475, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "8-05-audit",
+  "image": "img/8-05-audit.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:20:00.882Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "head": {
+      "box": [0.1947, 0.0705, 0.2727, 0.059],
+      "center": [0.3311, 0.1],
+      "zoom": [0.1227, 0, 0.4167, 0.4167],
+      "label": "Audit log",
+      "css": [376, 73, 506, 44]
+    },
+    "rows": {
+      "box": [0.1953, 0.4316, 0.7868, 0.0779],
+      "center": [0.5887, 0.4705],
+      "zoom": null,
+      "label": "One action",
+      "css": [377, 416, 1483, 62]
+    },
+    "filter": {
+      "box": [0.1947, 0.1368, 0.099, 0.2949],
+      "center": [0.2442, 0.2843],
+      "zoom": [0.0359, 0.0759, 0.4167, 0.4167],
+      "label": "Filter",
+      "css": [376, 136, 176, 268]
+    },
+    "refresh": {
+      "box": [0.2916, 0.1368, 0.0617, 0.0506],
+      "center": [0.3225, 0.1621],
+      "zoom": [0.1141, 0, 0.4167, 0.4167],
+      "label": "Refresh",
+      "css": [560, 136, 105.5, 36]
+    },
+    "details": {
+      "box": [0.1947, 0.5042, 0.7879, 0.2505],
+      "center": [0.5887, 0.6295],
+      "zoom": null,
+      "label": "Details",
+      "css": [376, 485, 1485, 226]
+    }
+  },
+  "points": {
+    "filter": [0.2417, 0.3421],
+    "refresh": [0.3225, 0.1621],
+    "details": [0.9419, 0.5442]
+  },
+  "beats": {
+    "head": {
+      "highlight": {
+        "box": [0.1947, 0.0705, 0.2727, 0.059],
+        "label": "Audit log"
+      },
+      "zoom": [0.1227, 0, 0.4167, 0.4167]
+    },
+    "rows": {
+      "highlight": {
+        "box": [0.1953, 0.4316, 0.7868, 0.0779],
+        "label": "One action"
+      }
+    },
+    "filter": {
+      "highlight": {
+        "box": [0.1947, 0.1368, 0.099, 0.2949],
+        "label": "Filter"
+      },
+      "cursor": {
+        "at": [0.2417, 0.3421],
+        "click": true
+      },
+      "zoom": [0.0359, 0.0759, 0.4167, 0.4167]
+    },
+    "refresh": {
+      "highlight": {
+        "box": [0.2916, 0.1368, 0.0617, 0.0506],
+        "label": "Refresh"
+      },
+      "cursor": {
+        "at": [0.3225, 0.1621],
+        "click": false
+      },
+      "zoom": [0.1141, 0, 0.4167, 0.4167]
+    },
+    "details": {
+      "highlight": {
+        "box": [0.1947, 0.5042, 0.7879, 0.2505],
+        "label": "Details"
+      },
+      "cursor": {
+        "at": [0.9419, 0.5442],
+        "click": true
+      }
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

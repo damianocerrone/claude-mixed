@@ -1,0 +1,111 @@
+{
+  "name": "4-08-first-results",
+  "image": "img/4-08-first-results.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:04:08.578Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "variants": {
+      "box": [0.2079, 0.1474, 0.6674, 0.1958],
+      "center": [0.5416, 0.2453],
+      "zoom": [0.1479, 0, 0.7874, 0.7874],
+      "label": "Two variants",
+      "css": [401, 146, 1256, 174]
+    },
+    "top": {
+      "box": [0.2079, 0.1474, 0.1705, 0.1958],
+      "center": [0.2932, 0.2453],
+      "zoom": [0.0848, 0.037, 0.4167, 0.4167],
+      "label": "Top view",
+      "css": [401, 146, 312, 174]
+    },
+    "eye": {
+      "box": [0.3726, 0.1474, 0.17, 0.1958],
+      "center": [0.4576, 0.2453],
+      "zoom": [0.2493, 0.037, 0.4167, 0.4167],
+      "label": "Eye-level view",
+      "css": [714, 146, 311, 174]
+    },
+    "badge": {
+      "box": [0.5228, 0.3063, 0.0122, 0.0232],
+      "center": [0.5289, 0.3179],
+      "zoom": [0.3206, 0.1096, 0.4167, 0.4167],
+      "label": "Iteration 1",
+      "css": [999.5, 297, 11, 10]
+    },
+    "views": {
+      "box": [0.7162, 0.0811, 0.2643, 0.0505],
+      "center": [0.8483, 0.1063],
+      "zoom": [0.5833, 0, 0.4167, 0.4167],
+      "label": "Views",
+      "css": [1366.5, 83, 490.5, 36]
+    },
+    "fresh": {
+      "box": [0.2074, 0.3442, 0.0721, 0.0432],
+      "center": [0.2435, 0.3658],
+      "zoom": [0.0351, 0.1575, 0.4167, 0.4167],
+      "label": "New concept",
+      "css": [400, 333, 125, 29]
+    }
+  },
+  "points": {
+    "top": [0.2932, 0.2453]
+  },
+  "beats": {
+    "variants": {
+      "highlight": {
+        "box": [0.2079, 0.1474, 0.6674, 0.1958],
+        "label": "Two variants"
+      },
+      "zoom": [0.1479, 0, 0.7874, 0.7874]
+    },
+    "top": {
+      "highlight": {
+        "box": [0.2079, 0.1474, 0.1705, 0.1958],
+        "label": "Top view"
+      },
+      "cursor": {
+        "at": [0.2932, 0.2453],
+        "click": true
+      },
+      "zoom": [0.0848, 0.037, 0.4167, 0.4167]
+    },
+    "eye": {
+      "highlight": {
+        "box": [0.3726, 0.1474, 0.17, 0.1958],
+        "label": "Eye-level view"
+      },
+      "zoom": [0.2493, 0.037, 0.4167, 0.4167]
+    },
+    "badge": {
+      "highlight": {
+        "box": [0.5228, 0.3063, 0.0122, 0.0232],
+        "label": "Iteration 1"
+      },
+      "zoom": [0.3206, 0.1096, 0.4167, 0.4167]
+    },
+    "views": {
+      "highlight": {
+        "box": [0.7162, 0.0811, 0.2643, 0.0505],
+        "label": "Views"
+      },
+      "zoom": [0.5833, 0, 0.4167, 0.4167]
+    },
+    "fresh": {
+      "highlight": {
+        "box": [0.2074, 0.3442, 0.0721, 0.0432],
+        "label": "New concept"
+      },
+      "zoom": [0.0351, 0.1575, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

@@ -1,0 +1,60 @@
+{
+  "name": "4-03-style-references",
+  "image": "img/4-03-style-references.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:50:22.686Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "style": {
+      "box": [0.0032, 0.2426, 0.171, 0.2048],
+      "center": [0.0887, 0.345],
+      "zoom": [0, 0.1367, 0.4167, 0.4167],
+      "label": "Render Style",
+      "css": [12, 236.5, 313, 182.5]
+    },
+    "refs": {
+      "box": [0.0032, 0.4453, 0.171, 0.2689],
+      "center": [0.0887, 0.5797],
+      "zoom": [0, 0.3714, 0.4167, 0.4167],
+      "label": "Reference images",
+      "css": [12, 429, 313, 243.5]
+    }
+  },
+  "points": {
+    "style": [0.1184, 0.3558],
+    "refs": [0.0926, 0.6732]
+  },
+  "beats": {
+    "style": {
+      "highlight": {
+        "box": [0.0032, 0.2426, 0.171, 0.2048],
+        "label": "Render Style"
+      },
+      "cursor": {
+        "at": [0.1184, 0.3558],
+        "click": true
+      },
+      "zoom": [0, 0.1367, 0.4167, 0.4167]
+    },
+    "refs": {
+      "highlight": {
+        "box": [0.0032, 0.4453, 0.171, 0.2689],
+        "label": "Reference images"
+      },
+      "cursor": {
+        "at": [0.0926, 0.6732],
+        "click": true
+      },
+      "zoom": [0, 0.3714, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

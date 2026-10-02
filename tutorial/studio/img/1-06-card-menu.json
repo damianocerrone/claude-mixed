@@ -1,0 +1,69 @@
+{
+  "name": "1-06-card-menu",
+  "image": "img/1-06-card-menu.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T21:12:48.902Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "more": {
+      "box": [0.3474, 0.4372, 0.0252, 0.0505],
+      "center": [0.36, 0.4624],
+      "zoom": [0.1516, 0.2541, 0.4167, 0.4167],
+      "shape": "circle",
+      "label": "More actions",
+      "css": [666, 421.5, 36, 36]
+    },
+    "menu": null,
+    "open": null,
+    "change": null,
+    "area": {
+      "box": [0.3474, 0.4372, 0.0252, 0.0505],
+      "center": [0.36, 0.4624],
+      "zoom": [0.1516, 0.2541, 0.4167, 0.4167],
+      "label": "Card menu area",
+      "css": [666, 421.5, 36, 36]
+    }
+  },
+  "points": {
+    "more": [0.36, 0.4624],
+    "open": null,
+    "change": null
+  },
+  "beats": {
+    "more": {
+      "highlight": {
+        "box": [0.3474, 0.4372, 0.0252, 0.0505],
+        "shape": "circle",
+        "label": "More actions"
+      },
+      "cursor": {
+        "at": [0.36, 0.4624],
+        "click": true
+      },
+      "zoom": [0.1516, 0.2541, 0.4167, 0.4167]
+    },
+    "area": {
+      "highlight": {
+        "box": [0.3474, 0.4372, 0.0252, 0.0505],
+        "label": "Card menu area"
+      },
+      "zoom": [0.1516, 0.2541, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "highlight \"open\": no locator given",
+    "highlight \"change\": no locator given",
+    "highlight \"menu\": no element matches locator('.radix-popover__content[data-state=\"open\"]')",
+    "point \"open\": no element matches locator('.radix-popover__content[data-state=\"open\"]').getByRole('button', { name: 'Project setup', exact: true })",
+    "point \"change\": no element matches locator('.radix-popover__content[data-state=\"open\"]').getByRole('button', { name: 'Archive', exact: true })",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

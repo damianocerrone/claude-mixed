@@ -1,0 +1,83 @@
+{
+  "name": "4-09-iterate",
+  "image": "img/4-09-iterate.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation/019fad6e-4218-42e5-a6e7-c92b3cd02448",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:08:18.347Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "focus": {
+      "box": [0.0032, 0.0563, 0.0544, 0.0379],
+      "center": [0.0304, 0.0753],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Image in focus",
+      "css": [12, 59.5, 91.5, 24]
+    },
+    "choices": {
+      "box": [0.0111, 0.2111, 0.074, 0.3578],
+      "center": [0.0481, 0.39],
+      "zoom": [0, 0.1511, 0.4778, 0.4778],
+      "label": "New choices",
+      "css": [27, 206.5, 128.5, 328]
+    },
+    "tray": {
+      "box": [0.0032, 0.7905, 0.1789, 0.1369],
+      "center": [0.0926, 0.8589],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Pending",
+      "css": [12, 757, 328, 118]
+    },
+    "apply": {
+      "box": [0.0032, 0.9211, 0.1789, 0.0547],
+      "center": [0.0926, 0.9484],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Apply to current",
+      "css": [12, 881, 328, 40]
+    }
+  },
+  "points": {
+    "apply": [0.0926, 0.9484]
+  },
+  "beats": {
+    "focus": {
+      "highlight": {
+        "box": [0.0032, 0.0563, 0.0544, 0.0379],
+        "label": "Image in focus"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "choices": {
+      "highlight": {
+        "box": [0.0111, 0.2111, 0.074, 0.3578],
+        "label": "New choices"
+      },
+      "zoom": [0, 0.1511, 0.4778, 0.4778]
+    },
+    "tray": {
+      "highlight": {
+        "box": [0.0032, 0.7905, 0.1789, 0.1369],
+        "label": "Pending"
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    },
+    "apply": {
+      "highlight": {
+        "box": [0.0032, 0.9211, 0.1789, 0.0547],
+        "label": "Apply to current"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9484],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

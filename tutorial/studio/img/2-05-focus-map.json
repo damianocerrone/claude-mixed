@@ -1,0 +1,147 @@
+{
+  "name": "2-05-focus-map",
+  "image": "img/2-05-focus-map.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T20:42:00.418Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "focus": {
+      "box": [0.2058, 0.9211, 0.2097, 0.0684],
+      "center": [0.3106, 0.9553],
+      "zoom": [0.1023, 0.5833, 0.4167, 0.4167],
+      "label": "Focus Area",
+      "css": [397, 881, 386.5, 53]
+    },
+    "source": {
+      "box": [0.2074, 0.1505, 0.1864, 0.0548],
+      "center": [0.3006, 0.1779],
+      "zoom": [0.0922, 0, 0.4167, 0.4167],
+      "label": "Image source",
+      "css": [400, 149, 342, 40]
+    },
+    "search": {
+      "box": [0.2105, 0.2221, 0.7642, 0.0505],
+      "center": [0.5926, 0.2474],
+      "zoom": null,
+      "label": "Search",
+      "css": [406, 217, 1440, 36]
+    },
+    "marker": {
+      "box": [0.5737, 0.4232, 0.0337, 0.0673],
+      "center": [0.5905, 0.4568],
+      "zoom": [0.3822, 0.2485, 0.4167, 0.4167],
+      "label": "Photo marker",
+      "css": [1098, 410, 48, 48]
+    },
+    "photo": {
+      "box": [0.2105, 0.8274, 0.1605, 0.08],
+      "center": [0.2907, 0.8674],
+      "zoom": [0.0824, 0.5833, 0.4167, 0.4167],
+      "label": "Selected photo",
+      "css": [406, 792, 293, 64]
+    },
+    "explore": {
+      "box": [0.8105, 0.8421, 0.0605, 0.0505],
+      "center": [0.8407, 0.8674],
+      "zoom": [0.5833, 0.5833, 0.4167, 0.4167],
+      "label": "Explore",
+      "css": [1546, 806, 103, 36]
+    },
+    "start": {
+      "box": [0.871, 0.8421, 0.1037, 0.0505],
+      "center": [0.9229, 0.8674],
+      "zoom": [0.5833, 0.5833, 0.4167, 0.4167],
+      "label": "Use this photo & start",
+      "css": [1661, 806, 185, 36]
+    }
+  },
+  "points": {
+    "focus": [0.3781, 0.9442],
+    "search": [0.2743, 0.2474],
+    "marker": [0.5905, 0.4568],
+    "explore": [0.8407, 0.8674],
+    "start": [0.9229, 0.8674]
+  },
+  "beats": {
+    "focus": {
+      "highlight": {
+        "box": [0.2058, 0.9211, 0.2097, 0.0684],
+        "label": "Focus Area"
+      },
+      "cursor": {
+        "at": [0.3781, 0.9442],
+        "click": true
+      },
+      "zoom": [0.1023, 0.5833, 0.4167, 0.4167]
+    },
+    "source": {
+      "highlight": {
+        "box": [0.2074, 0.1505, 0.1864, 0.0548],
+        "label": "Image source"
+      },
+      "zoom": [0.0922, 0, 0.4167, 0.4167]
+    },
+    "search": {
+      "highlight": {
+        "box": [0.2105, 0.2221, 0.7642, 0.0505],
+        "label": "Search"
+      },
+      "cursor": {
+        "at": [0.2743, 0.2474],
+        "click": true
+      }
+    },
+    "marker": {
+      "highlight": {
+        "box": [0.5737, 0.4232, 0.0337, 0.0673],
+        "label": "Photo marker"
+      },
+      "cursor": {
+        "at": [0.5905, 0.4568],
+        "click": true
+      },
+      "zoom": [0.3822, 0.2485, 0.4167, 0.4167]
+    },
+    "photo": {
+      "highlight": {
+        "box": [0.2105, 0.8274, 0.1605, 0.08],
+        "label": "Selected photo"
+      },
+      "zoom": [0.0824, 0.5833, 0.4167, 0.4167]
+    },
+    "explore": {
+      "highlight": {
+        "box": [0.8105, 0.8421, 0.0605, 0.0505],
+        "label": "Explore"
+      },
+      "cursor": {
+        "at": [0.8407, 0.8674],
+        "click": false
+      },
+      "zoom": [0.5833, 0.5833, 0.4167, 0.4167]
+    },
+    "start": {
+      "highlight": {
+        "box": [0.871, 0.8421, 0.1037, 0.0505],
+        "label": "Use this photo & start"
+      },
+      "cursor": {
+        "at": [0.9229, 0.8674],
+        "click": false
+      },
+      "zoom": [0.5833, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "hide: nothing matches \"[role=tooltip]\"",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

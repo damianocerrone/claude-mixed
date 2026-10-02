@@ -1,0 +1,69 @@
+{
+  "name": "3-11-start-ideation",
+  "image": "img/3-11-start-ideation.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T19:44:51.441Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "boundary": {
+      "box": [0.0284, 0.2137, 0.0653, 0.0379],
+      "center": [0.0611, 0.2326],
+      "zoom": [0, 0.0243, 0.4167, 0.4167],
+      "label": "Boundary set",
+      "css": [60, 209, 112, 24]
+    },
+    "landuse": {
+      "box": [0.0284, 0.3905, 0.0653, 0.0379],
+      "center": [0.0611, 0.4095],
+      "zoom": [0, 0.2011, 0.4167, 0.4167],
+      "label": "Plan set",
+      "css": [60, 377, 112, 24]
+    },
+    "start": {
+      "box": [0.0032, 0.9432, 0.1789, 0.0547],
+      "center": [0.0926, 0.9705],
+      "zoom": [0, 0.5833, 0.4167, 0.4167],
+      "label": "Start ideation",
+      "css": [12, 902, 328, 40]
+    }
+  },
+  "points": {
+    "start": [0.0926, 0.9705]
+  },
+  "beats": {
+    "boundary": {
+      "highlight": {
+        "box": [0.0284, 0.2137, 0.0653, 0.0379],
+        "label": "Boundary set"
+      },
+      "zoom": [0, 0.0243, 0.4167, 0.4167]
+    },
+    "landuse": {
+      "highlight": {
+        "box": [0.0284, 0.3905, 0.0653, 0.0379],
+        "label": "Plan set"
+      },
+      "zoom": [0, 0.2011, 0.4167, 0.4167]
+    },
+    "start": {
+      "highlight": {
+        "box": [0.0032, 0.9432, 0.1789, 0.0547],
+        "label": "Start ideation"
+      },
+      "cursor": {
+        "at": [0.0926, 0.9705],
+        "click": true
+      },
+      "zoom": [0, 0.5833, 0.4167, 0.4167]
+    }
+  },
+  "warnings": []
+}

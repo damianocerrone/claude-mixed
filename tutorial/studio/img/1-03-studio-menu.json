@@ -1,0 +1,104 @@
+{
+  "name": "1-03-studio-menu",
+  "image": "img/1-03-studio-menu.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T21:05:45.426Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "general": {
+      "box": [0.0011, 0.1032, 0.1826, 0.2392],
+      "center": [0.0924, 0.2228],
+      "zoom": [0, 0.0144, 0.4167, 0.4167],
+      "label": "General",
+      "css": [8, 104, 335, 215.5]
+    },
+    "library": {
+      "box": [0.0011, 0.3466, 0.1826, 0.1152],
+      "center": [0.0924, 0.4042],
+      "zoom": [0, 0.1959, 0.4167, 0.4167],
+      "label": "Library",
+      "css": [8, 335.5, 335, 97.5]
+    },
+    "org": {
+      "box": [0.0011, 0.4661, 0.1826, 0.1565],
+      "center": [0.0924, 0.5443],
+      "zoom": [0, 0.336, 0.4167, 0.4167],
+      "label": "Organisation",
+      "css": [8, 449, 335, 137]
+    },
+    "move": {
+      "box": [0.1384, 0.05, 0.0253, 0.0505],
+      "center": [0.1511, 0.0753],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Move panel to the right side",
+      "css": [269, 53.5, 36, 36]
+    },
+    "collapse": {
+      "box": [0.1584, 0.05, 0.0253, 0.0505],
+      "center": [0.1711, 0.0753],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Collapse menu",
+      "css": [307, 53.5, 36, 36]
+    }
+  },
+  "points": {
+    "move": [0.1511, 0.0753],
+    "collapse": [0.1711, 0.0753]
+  },
+  "beats": {
+    "general": {
+      "highlight": {
+        "box": [0.0011, 0.1032, 0.1826, 0.2392],
+        "label": "General"
+      },
+      "zoom": [0, 0.0144, 0.4167, 0.4167]
+    },
+    "library": {
+      "highlight": {
+        "box": [0.0011, 0.3466, 0.1826, 0.1152],
+        "label": "Library"
+      },
+      "zoom": [0, 0.1959, 0.4167, 0.4167]
+    },
+    "org": {
+      "highlight": {
+        "box": [0.0011, 0.4661, 0.1826, 0.1565],
+        "label": "Organisation"
+      },
+      "zoom": [0, 0.336, 0.4167, 0.4167]
+    },
+    "move": {
+      "highlight": {
+        "box": [0.1384, 0.05, 0.0253, 0.0505],
+        "label": "Move panel to the right side"
+      },
+      "cursor": {
+        "at": [0.1511, 0.0753],
+        "click": false
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
+    "collapse": {
+      "highlight": {
+        "box": [0.1584, 0.05, 0.0253, 0.0505],
+        "label": "Collapse menu"
+      },
+      "cursor": {
+        "at": [0.1711, 0.0753],
+        "click": false
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}
