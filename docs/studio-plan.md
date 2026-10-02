@@ -53,8 +53,7 @@ The same method as the platform guide, which gave every step a real screen and e
 
 ## Blocked on
 
-- **Network access.** The cloud environment's network policy denies `coplanai.ikonai.app`. Add it to the
-  environment's allowed domains (Network access in the environment settings). The change may only reach a new
-  session.
+- **Network access.** The cloud environment needs `coplanai.ikonai.app` in its allowed domains (Network access →
+  Custom in the environment settings). Running sessions pick the change up within about a minute.
 - **Sign-in.** Email code: we type the owner account's address on the sign-in page and the code is pasted into the
   session. Nothing is stored except the browser profile in `tools/.auth/` (git-ignored), which is deleted afterwards.

@@ -67,10 +67,10 @@ async function snap(page, dir, label) {
 }
 
 async function signedIn(page, appUrl) {
-  // The sign-in card offers "Send code"; once signed in, the app shows the account avatar and the dashboard instead.
+  // The sign-in card offers Google, Microsoft and "Send code" (then "Verify"); once signed in, the app shows the account avatar and the dashboard instead.
   if (new URL(page.url()).host !== new URL(appUrl).host) return false;
-  const send = await firstVisible([page.getByRole('button', { name: /send code/i })]);
-  return !send && !/login|sign-?in|auth/i.test(new URL(page.url()).pathname);
+  const card = await firstVisible([page.getByRole('button', { name: /send code|verify|continue with google/i })]);
+  return !card && !/login|sign-?in|auth/i.test(new URL(page.url()).pathname);
 }
 
 async function main() {
