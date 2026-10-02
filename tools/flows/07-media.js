@@ -66,7 +66,8 @@ const stages = {
   async video(page) {
     await fromProduction(page, 'Video');
     await raw(page, '7-01-open');
-    console.log('step: engine'); await page.getByRole('button', { name: /^Classic \(no AI\)/ }).filter({ visible: true }).first().click();
+    const engine = process.env.ENGINE || 'Classic (no AI)';            // Classic failed in this headless browser; ENGINE='Kling 2.6' runs on the server
+    console.log('step: engine', engine); await page.getByRole('button', { name: new RegExp('^' + engine.replace(/[()]/g, '\\$&')) }).filter({ visible: true }).first().click();
     await page.waitForTimeout(800);
     console.log('step: after slot'); await openSlot(page, 'After (master)');
     const useAfter = await pickImage(page, 'Ideation', 1);
@@ -103,7 +104,7 @@ const stages = {
     });
     console.log('step: generate');
     await page.getByRole('button', { name: /^Generate video/ }).click();
-    await waitDone(page, 'video', /\d+:\d\d|Download|Delete video|\.mp4/i);
+    await waitDone(page, 'video', /\d+:\d\d|Download|Delete video|\.mp4|Couldn.t generate/i);     // also ends on the failure message
     await page.waitForTimeout(4000);
     await raw(page, '7-03-raw');
     await plate(page, '7-03-video-result', { highlights: { video: { locator: await stage(page), label: 'Your video' } } });
