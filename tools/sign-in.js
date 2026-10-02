@@ -109,7 +109,8 @@ async function main() {
       const single = n === 1 || (await inputs.first().getAttribute('maxlength')) !== '1';
       if (single) await inputs.first().fill(value);
       else { await inputs.first().click(); await page.keyboard.type(value, { delay: 60 }); }   // one box per digit
-      const submit = await firstVisible([page.getByRole('button', { name: /verify|sign in|log in|continue|submit|confirm/i })]);
+      // Exact names only: "Continue with Google" sits on the same card and must never be clicked here.
+      const submit = await firstVisible(['Verify', 'Sign in', 'Log in', 'Submit', 'Confirm'].map((name) => page.getByRole('button', { name, exact: true })));
       if (submit && (await submit.isEnabled())) await submit.click(); else await page.keyboard.press('Enter');
       await page.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {});
       await page.waitForTimeout(1500);
