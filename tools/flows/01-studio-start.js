@@ -261,14 +261,22 @@ const sections = {
 
   /* 1-06 A project card's ••• menu, opened on the sandbox card and closed with Escape. Nothing in it is clicked. */
   async cardmenu(page) {
-    await go(page, `${L.STUDIO}/projects`);
-    await page.mouse.move(1000, 30);
     const moreBtn = page.getByRole('button', { name: `More actions for ${SANDBOX_NAME}` });
-    const more = await box(moreBtn);
+    // Measured at shot time with a CSS locator: the open menu hides the rest of the page from role queries, and a
+    // rect measured before the click can be a few px off if the cards are still settling.
+    const more = page.locator(`button[aria-label="More actions for ${SANDBOX_NAME}"]`);
     const menu = page.locator('.radix-popover__content[data-state="open"]');
-    await moreBtn.click();
-    // The menu opens after a round trip to the server, which can take several seconds on a slow link.
-    await menu.getByRole('button', { name: 'Archive', exact: true }).waitFor({ timeout: 30000 });
+    // The menu opens after a round trip to the server. When the app's live connection has dropped (it then shows
+    // "You've been inactive for a while"), nothing opens: load the page again and retry.
+    for (let attempt = 1; ; attempt++) {
+      await go(page, `${L.STUDIO}/projects`);
+      await page.mouse.move(1000, 30);
+      await moreBtn.click();
+      const opened = await menu.getByRole('button', { name: 'Archive', exact: true }).waitFor({ timeout: 20000 }).then(() => true, () => false);
+      if (opened) break;
+      if (attempt === 3) throw new Error('the card menu did not open (connection dropped?)');
+      console.log(`card menu did not open (attempt ${attempt}); reloading`);
+    }
     await page.waitForTimeout(800);
     await page.mouse.move(1000, 30);
     const item = (name) => menu.getByRole('button', { name, exact: true });

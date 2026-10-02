@@ -3,7 +3,7 @@
   "image": "img/7-01-video-images.webp",
   "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/video",
   "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
-  "capturedAt": "2026-10-02T20:59:03.878Z",
+  "capturedAt": "2026-10-02T22:24:55.281Z",
   "viewport": {
     "width": 1900,
     "height": 950,
@@ -13,40 +13,51 @@
   "size": [2400, 1200],
   "pad": 6,
   "highlights": {
-    "mode": null,
+    "mode": {
+      "box": [0.0258, 0.1158, 0.1374, 0.0274],
+      "center": [0.0945, 0.1295],
+      "zoom": [0, 0, 0.4167, 0.4167],
+      "label": "Before / after",
+      "css": [55, 116, 249, 14]
+    },
     "engine": {
-      "box": [0.0032, 0.1495, 0.1705, 0.2731],
-      "center": [0.0884, 0.2861],
-      "zoom": [0, 0.0777, 0.4167, 0.4167],
+      "box": [0.0032, 0.1495, 0.1784, 0.2572],
+      "center": [0.0924, 0.2781],
+      "zoom": [0, 0.0698, 0.4167, 0.4167],
       "label": "Engine",
-      "css": [12, 148, 312, 247.5]
+      "css": [12, 148, 327, 232.5]
     },
     "images": {
-      "box": [0.0032, 0.4205, 0.1705, 0.2921],
-      "center": [0.0884, 0.5665],
-      "zoom": [0, 0.3582, 0.4167, 0.4167],
+      "box": [0.0032, 0.4046, 0.1784, 0.2965],
+      "center": [0.0924, 0.5528],
+      "zoom": [0, 0.3445, 0.4167, 0.4167],
       "label": "Before and after",
-      "css": [12, 405.5, 312, 265.5]
+      "css": [12, 390.5, 327, 269.5]
     }
   },
   "points": {},
   "beats": {
+    "mode": {
+      "highlight": {
+        "box": [0.0258, 0.1158, 0.1374, 0.0274],
+        "label": "Before / after"
+      },
+      "zoom": [0, 0, 0.4167, 0.4167]
+    },
     "engine": {
       "highlight": {
-        "box": [0.0032, 0.1495, 0.1705, 0.2731],
+        "box": [0.0032, 0.1495, 0.1784, 0.2572],
         "label": "Engine"
       },
-      "zoom": [0, 0.0777, 0.4167, 0.4167]
+      "zoom": [0, 0.0698, 0.4167, 0.4167]
     },
     "images": {
       "highlight": {
-        "box": [0.0032, 0.4205, 0.1705, 0.2921],
+        "box": [0.0032, 0.4046, 0.1784, 0.2965],
         "label": "Before and after"
       },
-      "zoom": [0, 0.3582, 0.4167, 0.4167]
+      "zoom": [0, 0.3445, 0.4167, 0.4167]
     }
   },
-  "warnings": [
-    "highlight \"mode\": no locator given"
-  ]
+  "warnings": []
 }

@@ -34,6 +34,14 @@ async function go(page, url, settle = 7000) {
   const textLength = () => page.evaluate(() => document.body.innerText.trim().length).catch(() => 0);   // may run mid-navigation
   for (let i = 0; i < 45 && (await textLength()) < 200; i++) await page.waitForTimeout(2000);
   await page.waitForTimeout(1500);
+  await noScrollbars(page);
+}
+
+/* capture.js hides scrollbars only while it shoots, which widens scrolling panels by the scrollbar's width (~15 CSS
+   px). Hide them for good after each page load, so rects measured by the flow (union, card, stage) match the plate. */
+async function noScrollbars(page) {
+  await page.addStyleTag({ content: '*{scrollbar-width:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}' }).catch(() => {});
+  await page.waitForTimeout(400);
 }
 
 /* A literal CSS-px rect covering several locators (for groups that have no single container). */
@@ -98,4 +106,4 @@ async function raw(page, name) {
   return text;
 }
 
-module.exports = { capture, ROOT, APP, STUDIO, SANDBOX, SANDBOX_SLUG, OUT, DEBUG, RAW, open, go, union, card, stage, plate, raw };
+module.exports = { capture, ROOT, APP, STUDIO, SANDBOX, SANDBOX_SLUG, OUT, DEBUG, RAW, open, go, noScrollbars, union, card, stage, plate, raw };

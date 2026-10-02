@@ -1,0 +1,86 @@
+{
+  "name": "2-11-team",
+  "image": "img/2-11-team.webp",
+  "url": "coplanai.ikonai.app/coplanai/studio/projects/conceptual-plan-2026-10-02/ideation",
+  "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
+  "capturedAt": "2026-10-02T22:04:57.476Z",
+  "viewport": {
+    "width": 1900,
+    "height": 950,
+    "deviceScaleFactor": 2
+  },
+  "screenshot": [3800, 1900],
+  "size": [2400, 1200],
+  "pad": 6,
+  "highlights": {
+    "dialog": {
+      "box": [0.3789, 0.3837, 0.2422, 0.2326],
+      "center": [0.5, 0.5],
+      "zoom": [0.2916, 0.2916, 0.4167, 0.4167],
+      "label": "Project team",
+      "css": [726, 370.5, 448, 209]
+    },
+    "title": {
+      "box": [0.3921, 0.4132, 0.166, 0.0663],
+      "center": [0.4751, 0.4463],
+      "zoom": [0.2668, 0.238, 0.4167, 0.4167],
+      "label": "Project team",
+      "css": [751, 398.5, 303.5, 51]
+    },
+    "member": {
+      "box": [0.3921, 0.4774, 0.1115, 0.06],
+      "center": [0.4479, 0.5074],
+      "zoom": [0.2395, 0.299, 0.4167, 0.4167],
+      "label": "Team",
+      "css": [751, 459.5, 200, 45]
+    },
+    "add": {
+      "box": [0.3921, 0.5395, 0.0751, 0.0505],
+      "center": [0.4297, 0.5647],
+      "zoom": [0.2213, 0.3564, 0.4167, 0.4167],
+      "label": "Add member",
+      "css": [751, 518.5, 131, 36]
+    }
+  },
+  "points": {
+    "add": [0.4297, 0.5647]
+  },
+  "beats": {
+    "dialog": {
+      "highlight": {
+        "box": [0.3789, 0.3837, 0.2422, 0.2326],
+        "label": "Project team"
+      },
+      "zoom": [0.2916, 0.2916, 0.4167, 0.4167]
+    },
+    "title": {
+      "highlight": {
+        "box": [0.3921, 0.4132, 0.166, 0.0663],
+        "label": "Project team"
+      },
+      "zoom": [0.2668, 0.238, 0.4167, 0.4167]
+    },
+    "member": {
+      "highlight": {
+        "box": [0.3921, 0.4774, 0.1115, 0.06],
+        "label": "Team"
+      },
+      "zoom": [0.2395, 0.299, 0.4167, 0.4167]
+    },
+    "add": {
+      "highlight": {
+        "box": [0.3921, 0.5395, 0.0751, 0.0505],
+        "label": "Add member"
+      },
+      "cursor": {
+        "at": [0.4297, 0.5647],
+        "click": false
+      },
+      "zoom": [0.2213, 0.3564, 0.4167, 0.4167]
+    }
+  },
+  "warnings": [
+    "hide: nothing matches \"[role=tooltip]\"",
+    "mask: nothing matches \"text=/@coplanai\\\\.com/\""
+  ]
+}

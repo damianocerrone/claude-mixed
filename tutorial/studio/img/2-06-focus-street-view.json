@@ -3,7 +3,7 @@
   "image": "img/2-06-focus-street-view.webp",
   "url": "coplanai.ikonai.app/coplanai/studio",
   "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
-  "capturedAt": "2026-10-02T20:43:09.209Z",
+  "capturedAt": "2026-10-02T22:01:47.788Z",
   "viewport": {
     "width": 1900,
     "height": 950,
@@ -14,11 +14,11 @@
   "pad": 6,
   "highlights": {
     "viewer": {
-      "box": [0.2058, 0.2811, 0.7658, 0.5852],
-      "center": [0.5887, 0.5737],
+      "box": [0.2058, 0.2811, 0.7737, 0.5852],
+      "center": [0.5926, 0.5737],
       "zoom": null,
       "label": "Street view",
-      "css": [397, 273, 1443, 544]
+      "css": [397, 273, 1458, 544]
     },
     "caption": {
       "box": [0.2058, 0.8621, 0.3297, 0.0274],
@@ -50,18 +50,18 @@
     }
   },
   "points": {
-    "viewer": [0.6801, 0.6028],
+    "viewer": [0.685, 0.6028],
     "back": [0.2456, 0.3116],
     "start": [0.9235, 0.9116]
   },
   "beats": {
     "viewer": {
       "highlight": {
-        "box": [0.2058, 0.2811, 0.7658, 0.5852],
+        "box": [0.2058, 0.2811, 0.7737, 0.5852],
         "label": "Street view"
       },
       "cursor": {
-        "at": [0.6801, 0.6028],
+        "at": [0.685, 0.6028],
         "click": false
       }
     },

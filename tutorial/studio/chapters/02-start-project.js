@@ -65,15 +65,15 @@ window.COPLAN_TUTORIAL.chapters.push({
       },
       beats: [
         {
-          html: "<strong>Master plan</strong> is selected at first. It lays out a complete site, with its streets, plots and open space: the choice for a district, a neighbourhood or a downtown like ours.",
+          html: "<strong>Master plan</strong> is the scope already selected when the form opens (here we have switched to Single building or lot to show the change). It lays out a complete site, with its streets, plots and open space: the choice for a district, a neighbourhood or a downtown like ours. For our downtown, click it anyway (see the warning below).",
           highlight: { box: [0.2058, 0.88, 0.0656, 0.0463], label: "Master plan" },
           cursor: { at: [0.2386, 0.9032], click: false },
           zoom: [0.0303, 0.5058, 0.4942, 0.4942]
         },
         {
-          html: "Choose <strong>Single building or lot</strong> to design one building or building complex on its parcel.",
+          html: "Choose <strong>Single building or lot</strong> when you design one building or building complex on its parcel.",
           highlight: { box: [0.2693, 0.88, 0.0937, 0.0463], label: "Single building or lot" },
-          cursor: { at: [0.3162, 0.9032], click: true },
+          cursor: { at: [0.3162, 0.9032], click: false },
           zoom: [0.0303, 0.5058, 0.4942, 0.4942]
         },
         {
@@ -97,7 +97,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "start-choose-existing",
       title: "Reuse an image from Studio",
-      lead: "<strong>Choose from existing</strong> opens a picker with the images already in this Studio. Picking one only fills in the form: nothing is created yet.",
+      lead: "Choose from existing opens a picker with the images already in this Studio. Picking one only fills in the form: nothing is created yet.",
       image: "img/2-03-choose-existing.webp",
       url: "coplanai.ikonai.app",
       alt: "The Choose from uploaded images dialog over Studio home: tabs Uploads (6) and Drawings (47), six thumbnails with the downtown land-use plan ticked, 1 selected, Cancel and Add 1.",
@@ -128,7 +128,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           html: "The footer now reads <strong>1 selected</strong>. Click <strong>Add 1</strong> to put the image in the form.",
           highlight: { box: [0.7183, 0.7557, 0.0412, 0.0505], label: "Add 1" },
           cursor: { at: [0.7389, 0.7809], click: true },
-          zoom: [0.5306, 0.5726, 0.4167, 0.4167]
+          zoom: [0.22, 0.45, 0.55, 0.55]
         }
       ]
     },
@@ -138,20 +138,20 @@ window.COPLAN_TUTORIAL.chapters.push({
       lead: "The plan now fills the form, and a scale setting appears under it. Check the scale and your choices, then create the project.",
       image: "img/2-04-create.webp",
       url: "coplanai.ikonai.app",
-      alt: "The new-project form with the downtown land-use plan as the leading image and Replace above it; under it the scale setting, Site size 7849.2 m with Scale detected from the plan, please verify; Conceptual Plan and Master plan selected; and an active Create project button.",
+      alt: "The new-project form with the downtown land-use plan as the leading image and Replace above it; under it the scale setting, Site size 4426 m with Scale detected from the plan, please verify; Conceptual Plan and Master plan selected; and an active Create project button.",
       note: {
         kind: "warning",
         title: "Always check the detected scale",
-        html: "Each time we added the same plan, Studio suggested a different site size: 1,810 m, 3,219 m, 4,023 m and 7,849 m. Twice it found no scale at all. Compare the value with the plan's own scale bar. You can correct it later in <strong>Project settings</strong>, on the <strong>Details</strong> tab."
+        html: "Each time we added the same plan, Studio suggested a different site size: 1,810 m, 3,219 m, 4,023 m, 4,426 m and 7,849 m. Twice it found no scale at all. Compare the value with the plan's own scale bar. You can correct it later in Project settings, on the Details tab (see <a href='#start-project-details'>Review the project details</a>)."
       },
       beats: [
         {
           html: "The plan is in place as the project's leading image. <strong>Replace</strong> swaps it for another one.",
-          highlight: { box: [0.2063, 0.1105, 0.7648, 0.5832], label: "Leading image" },
+          highlight: { box: [0.2058, 0.0547, 0.7731, 0.639], label: "Leading image" },
           cursor: { at: [0.2373, 0.08], click: false }
         },
         {
-          html: "Studio needs the plan's scale. <strong>Map scale</strong> is the ratio printed on a plan drawing, such as 1:1000. For an image with no printed scale, such as an aerial view or a sketch, use <strong>Site size</strong>: how far the site spans across its longest side, in m, km or ft. The AI uses either to keep buildings, streets and open spaces proportionate.",
+          html: "Studio needs the plan's scale. <strong>Map scale</strong> is the ratio printed on a plan drawing, such as 1:1000. For an image with no printed scale, such as an aerial view or a sketch, use <strong>Site size</strong>: how far the site spans across its longest side, in m, km or ft. The AI uses either to keep buildings, streets and open spaces proportionate. Hover the <em>i</em> icon at the end of the row to read this explanation in Studio.",
           highlight: { box: [0.2058, 0.6989, 0.252, 0.059], label: "Scale" },
           cursor: { at: [0.4483, 0.7284], click: false },
           zoom: [0.0733, 0.52, 0.48, 0.48]
@@ -169,7 +169,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         {
           html: "Click <strong>Create project</strong>. The new project opens in Ideation, on the Site tab, where the next chapter starts.",
           highlight: { box: [0.9055, 0.8905, 0.074, 0.0506], label: "Create project" },
-          cursor: { at: [0.9425, 0.9158], click: false },
+          cursor: { at: [0.9425, 0.9158], click: true },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
         },
         {
@@ -185,10 +185,10 @@ window.COPLAN_TUTORIAL.chapters.push({
       lead: "A Focus Area starts from a street-level photo instead of a site plan. You can pick one straight from the map: Studio shows where street photos have been taken.",
       image: "img/2-05-focus-map.webp",
       url: "coplanai.ikonai.app",
-      alt: "The new-project form with Focus Area selected: Image source set to From the map, a map of central Turin covered in round photo markers with one selected, and under the map the chosen street photo with its capture date and Mapillary credit, Explore and Use this photo & start.",
+      alt: "The new-project form with Focus Area selected: Image source set to From the map, a map of central Turin covered in photo-thumbnail markers with one selected, and under the map the chosen street photo with its capture date and Mapillary credit, Explore and Use this photo & start.",
       beats: [
         {
-          html: "Click <strong>Focus Area</strong>. The site-plan drop zone and <strong>SCOPE</strong> make way for <strong>Image source</strong>.",
+          html: "Click <strong>Focus Area</strong>. The site-plan drop zone and the SCOPE chips make way for <strong>Image source</strong>.",
           highlight: { box: [0.2058, 0.9211, 0.2097, 0.0684], label: "Focus Area" },
           cursor: { at: [0.3781, 0.9442], click: true },
           zoom: [0.1023, 0.5833, 0.4167, 0.4167]
@@ -204,24 +204,24 @@ window.COPLAN_TUTORIAL.chapters.push({
           cursor: { at: [0.2743, 0.2474], click: true }
         },
         {
-          html: "Round thumbnails are photo markers; a number on one shows how many photos are grouped there. Tap a photo to select it.",
-          highlight: { box: [0.5737, 0.4232, 0.0337, 0.0673], label: "Photo marker" },
-          cursor: { at: [0.5905, 0.4568], click: true },
-          zoom: [0.3822, 0.2485, 0.4167, 0.4167]
+          html: "Small photo thumbnails on the map are photo markers; a number on one shows how many photos are grouped there, and tapping it zooms in to split the group. Tap a marker without a number to select its photo.",
+          highlight: { box: [0.6126, 0.5, 0.0337, 0.0674], label: "Photo marker" },
+          cursor: { at: [0.6295, 0.5337], click: true },
+          zoom: [0.4211, 0.3253, 0.4167, 0.4167]
         },
         {
-          html: "The selected photo appears under the map, with the date it was captured and its credit: Mapillary, CC BY-SA 4.0.",
-          highlight: { box: [0.2105, 0.8274, 0.1605, 0.08], label: "Selected photo" },
-          zoom: [0.0824, 0.5833, 0.4167, 0.4167]
+          html: "The selected photo appears under the map, with the date it was captured and its credit: the photographer, Mapillary and the CC BY-SA 4.0 licence.",
+          highlight: { box: [0.2105, 0.8274, 0.1617, 0.08], label: "Selected photo" },
+          zoom: [0.083, 0.5833, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Explore</strong> opens it in street view, where you can frame your own view (next step). Double-tapping a street on the map does the same.",
+          html: "<strong>Explore</strong> opens it in street view, where you can frame your own view (next step). Double-tapping a street on the map also opens street view, at the nearest photo to where you tapped.",
           highlight: { box: [0.8105, 0.8421, 0.0605, 0.0505], label: "Explore" },
           cursor: { at: [0.8407, 0.8674], click: false },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Use this photo &amp; start</strong> starts the Focus Area project from this photo as it is.",
+          html: "Focus Area has no Create project button: <strong>Use this photo &amp; start</strong> creates the Focus Area project from this photo straight away.",
           highlight: { box: [0.871, 0.8421, 0.1037, 0.0505], label: "Use this photo & start" },
           cursor: { at: [0.9229, 0.8674], click: false },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
@@ -234,7 +234,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       lead: "Street view opens the nearest street photo inside the form. From here you choose exactly what the project starts from.",
       image: "img/2-06-focus-street-view.webp",
       url: "coplanai.ikonai.app",
-      alt: "Street view inside the new-project form: a street-level photo of a narrow Turin street with parked cars and a forward arrow, Back to map at the top left, the line Drag to look around, the Mapillary credit, and Use this view & start at the bottom right.",
+      alt: "Street view inside the new-project form: a street-level photo of a Turin street with parked cars, flags on a facade and a forward arrow, Back to map at the top left, the line Drag to look around, the Mapillary credit, and Use this view & start at the bottom right.",
       note: {
         kind: "tip",
         title: "No photos where you work?",
@@ -243,8 +243,8 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Drag the photo to look around, and follow the arrows to move along the street.",
-          highlight: { box: [0.2058, 0.2811, 0.7658, 0.5852], label: "Street view" },
-          cursor: { at: [0.6801, 0.6028], click: false }
+          highlight: { box: [0.2058, 0.2811, 0.7737, 0.5852], label: "Street view" },
+          cursor: { at: [0.685, 0.6028], click: false }
         },
         {
           html: "The line underneath sums it up: look around, move along the street, then capture the view you want.",
@@ -296,8 +296,8 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.5833, 0.0432, 0.4167, 0.4167]
         },
         {
-          html: "Until a photo is in, the form says <strong>Add a photo of the place to begin</strong>. Then <strong>Use this photo &amp; start</strong> appears at the bottom right and starts the project.",
-          highlight: { box: [0.8542, 0.9105, 0.1174, 0.0274], label: "Status" },
+          html: "Until a photo is in, the form says <strong>Add a photo of the place to begin</strong>. Then a Use this photo &amp; start button appears at the bottom right and starts the project.",
+          highlight: { box: [0.8621, 0.9105, 0.1174, 0.0274], label: "Status" },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
         }
       ]
@@ -305,7 +305,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "start-project-details",
       title: "Review the project details",
-      lead: "Everything you chose stays editable. In a project, click the sliders icon at the top right of the Actions panel (<strong>Project settings</strong>), or choose <strong>Project setup</strong> in the project card's <strong>&bull;&bull;&bull;</strong> menu. The dialog opens on <strong>Settings</strong>; start with <strong>Details</strong>.",
+      lead: "Everything you chose stays editable. In a project, click the sliders icon at the top right of the Actions panel (<strong>Project settings</strong>), or choose Project setup in the project card's &bull;&bull;&bull; menu. The dialog opens on <strong>Settings</strong>; start with <strong>Details</strong>.",
       image: "img/2-08-details.webp",
       url: "coplanai.ikonai.app",
       alt: "The Project settings dialog of the downtown project on the Details tab: Project name, URL slug with a regenerate button, Process Conceptual Plan, Scope Master plan, Location, Area, Project type, Section lead, Target deadline, Output quality 2K and Output format WebP.",
@@ -318,24 +318,24 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<strong>Project name</strong> is where you rename the project. The <strong>URL slug</strong> is its web address and keeps the name Studio first gave it; the button next to it regenerates the slug from the current name, which changes the link.",
-          highlight: { box: [0.2832, 0.2168, 0.4236, 0.1221], label: "Name and address" },
+          highlight: { box: [0.2832, 0.2168, 0.4315, 0.1221], label: "Name and address" },
           cursor: { at: [0.6995, 0.3116], click: false },
-          zoom: [0.2232, 0.0061, 0.5436, 0.5436]
+          zoom: [0.2232, 0.0021, 0.5515, 0.5515]
         },
         {
           html: "<strong>Process</strong> and <strong>Scope</strong> can be changed here too. Process offers only Conceptual Plan and Master Plan.",
-          highlight: { box: [0.2832, 0.3495, 0.4236, 0.1105], label: "Process and scope" },
-          zoom: [0.2232, 0.133, 0.5436, 0.5436]
+          highlight: { box: [0.2832, 0.3495, 0.4315, 0.1105], label: "Process and scope" },
+          zoom: [0.2232, 0.129, 0.5515, 0.5515]
         },
         {
           html: "<strong>Location</strong>, <strong>Area</strong>, <strong>Project type</strong>, <strong>Section lead</strong> and <strong>Target deadline</strong> are recorded for reference: they don't affect image generation.",
-          highlight: { box: [0.2832, 0.4716, 0.4236, 0.3158], label: "For reference" },
-          zoom: [0.2232, 0.3577, 0.5436, 0.5436]
+          highlight: { box: [0.2832, 0.4716, 0.4315, 0.3158], label: "For reference" },
+          zoom: [0.2232, 0.3538, 0.5515, 0.5515]
         },
         {
-          html: "<strong>Output quality</strong> (1K, 2K or 4K) and <strong>Output format</strong> (WebP, PNG or JPG) set the resolution and file type of the images. Further down, <strong>Site scale</strong> holds the scale you confirmed when you created the project.",
-          highlight: { box: [0.2832, 0.7979, 0.4236, 0.1105], label: "Output" },
-          zoom: [0.2232, 0.4564, 0.5436, 0.5436]
+          html: "<strong>Output quality</strong> (1K, 2K or 4K) and <strong>Output format</strong> (WebP, PNG or JPG) set the resolution and file type of the images. Scroll further down to find Site scale, which holds the scale you confirmed when you created the project.",
+          highlight: { box: [0.2832, 0.7979, 0.4315, 0.1105], label: "Output" },
+          zoom: [0.2232, 0.4485, 0.5515, 0.5515]
         },
         {
           html: "As the dialog says, <strong>Detail changes save as you edit</strong>. This tab has no Save button, so change only what you mean to.",
@@ -354,7 +354,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "warning",
         title: "This tab has its own Save",
-        html: "Unlike Details, this tab ends with a <strong>Save</strong> button, at the very bottom, below <strong>Touch-up color prompts</strong> and the <strong>Land-use colour standard</strong> (chapter 3). Click it to keep your changes."
+        html: "Unlike Details, this tab ends with a Save button, at the very bottom, below Touch-up color prompts and the Land-use colour standard (chapter 3). Scroll down and click it to keep your changes."
       },
       beats: [
         {
@@ -365,31 +365,31 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<strong>Scene toggles</strong> are groups of options where only one can be on, such as the time of day: <strong>Day</strong>, <strong>Dusk</strong> or <strong>Night</strong>. The option you select adds its line of prompt text to the generation.",
-          highlight: { box: [0.2832, 0.2368, 0.4236, 0.3632], label: "Scene toggles" },
-          zoom: [0.2232, 0.1466, 0.5436, 0.5436]
+          highlight: { box: [0.2832, 0.2368, 0.4315, 0.3632], label: "Scene toggles" },
+          zoom: [0.2232, 0.1427, 0.5515, 0.5515]
         },
         {
-          html: "Each option has its own icons. The eye (<strong>Hide in this project</strong>) hides it without deleting it; the pencil edits it and the bin removes it.",
-          highlight: { box: [0.5984, 0.3579, 0.0948, 0.0505], label: "Row actions" },
+          html: "Each option has four icons. The eye (its tooltip reads Hide in this project) hides it here without deleting it; the pencil edits it, the arrow (greyed out until you change something) undoes your edit, and the bin removes it.",
+          highlight: { box: [0.6063, 0.3579, 0.0948, 0.0505], label: "Row actions" },
           cursor: { at: [0.6189, 0.3832], click: false },
-          zoom: [0.4375, 0.1748, 0.4167, 0.4167]
+          zoom: [0.4453, 0.1748, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Area steppers</strong> add &plusmn; controls with several levels of intensity, such as <strong>Greenery</strong> with 3 levels. Its prompt text is added per level.",
-          highlight: { box: [0.2832, 0.6537, 0.4236, 0.1116], label: "Area steppers" },
+          html: "<strong>Area steppers</strong> become sliders with several levels in the Adjust card of Quick actions, such as <strong>Greenery</strong> with 3 levels. Each level adds its prompt text once more.",
+          highlight: { box: [0.2832, 0.6537, 0.4315, 0.1116], label: "Area steppers" },
           zoom: [0.2138, 0.4377, 0.5623, 0.5623]
         },
         {
           html: "<strong>Additive elements</strong> are one-tap chips that add a single element to the scene, such as a <strong>Water feature</strong>.",
-          highlight: { box: [0.2832, 0.8158, 0.4236, 0.1116], label: "Additive elements" },
+          highlight: { box: [0.2832, 0.8158, 0.4315, 0.1116], label: "Additive elements" },
           zoom: [0.2138, 0.4377, 0.5623, 0.5623]
         }
       ]
     },
     {
       id: "start-project-site-team",
-      title: "Check the site material and the team",
-      lead: "The <strong>Site</strong> tab holds the material the project started from, and <strong>Team</strong> lists who works on it.",
+      title: "Check the site material",
+      lead: "The <strong>Site</strong> tab holds the material the project started from. The <strong>Team</strong> button at the top right shows who works on the project.",
       image: "img/2-10-site.webp",
       url: "coplanai.ikonai.app",
       alt: "Project settings on the Site tab: Site context with a 1 files badge, the downtown land-use plan marked Leading, a Drop or add tile, and the Team button at the top right of the dialog.",
@@ -418,10 +418,41 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.1144, 0.0148, 0.5074, 0.5074]
         },
         {
-          html: "<strong>Team</strong> opens <strong>Project team</strong>: who leads and collaborates on this project, with <strong>+ Add member</strong> to bring in a colleague. Press <kbd>Esc</kbd> once to close it, and again to close Project settings.",
+          html: "Click <strong>Team</strong> to see who works on the project. It opens from any tab of Project settings.",
           highlight: { box: [0.6729, 0.1316, 0.0529, 0.0505], label: "Team" },
           cursor: { at: [0.6994, 0.1568], click: true },
           zoom: [0.491, 0, 0.4167, 0.4167]
+        }
+      ]
+    },
+    {
+      id: "start-project-team",
+      title: "See who is on the project",
+      lead: "The Team button opens a small dialog over Project settings with the project's own team.",
+      image: "img/2-11-team.webp",
+      url: "coplanai.ikonai.app",
+      alt: "The Project team dialog over the dimmed Project settings: the line Who leads and collaborates on this project, a TEAM list with one member, Damiano Cerrone, marked lead, and an Add member button.",
+      beats: [
+        {
+          html: "<strong>Project team</strong>: &ldquo;Who leads and collaborates on this project.&rdquo;",
+          highlight: { box: [0.3921, 0.4132, 0.166, 0.0663], label: "Project team" },
+          zoom: [0.2916, 0.2916, 0.4167, 0.4167]
+        },
+        {
+          html: "Under <strong>TEAM</strong>, each person is listed with their role. Our project has one member, Damiano Cerrone, its <strong>lead</strong>.",
+          highlight: { box: [0.3921, 0.4774, 0.1115, 0.06], label: "Team" },
+          zoom: [0.2916, 0.2916, 0.4167, 0.4167]
+        },
+        {
+          html: "<strong>Add member</strong> adds a colleague to this project's team.",
+          highlight: { box: [0.3921, 0.5395, 0.0751, 0.0505], label: "Add member" },
+          cursor: { at: [0.4297, 0.5647], click: false },
+          zoom: [0.2916, 0.2916, 0.4167, 0.4167]
+        },
+        {
+          html: "The dialog has no close button: press <kbd>Esc</kbd> to close it, and again to close Project settings.",
+          highlight: { box: [0.3789, 0.3837, 0.2422, 0.2326], label: "Project team" },
+          zoom: [0.2916, 0.2916, 0.4167, 0.4167]
         }
       ]
     }

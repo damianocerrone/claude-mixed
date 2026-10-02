@@ -112,4 +112,14 @@ review, not into the guide's instructions (the guide may add a tip that helps pe
   Deliverable medium (Photoreal; "Concepts drawn in another medium are realized into this medium once before
   rendering."), Output quality 2K (Resolution 2048px · Auto), Format PNG/WebP/JPG, Export file naming
   "{project}_{concept}_{view}_{state}"; Cancel / Save settings. (6-02, cancelled)
-- Built Aerial · Day and Eye-level · Day for Concept A (see 6-03). A built tile offers "Regenerate from master".
+- Built Aerial · Day and Eye-level · Day for Concept A (see 6-03). Once a render is built, "Regenerate from master"
+  appears under the concept's leading image (not on the built tile; explore/raw/6-03-building-EyelevelDay.txt). Not
+  clicked, so what "master" means and what it regenerates is unconfirmed.
+- **Quirk:** the report's generation counts contradict each other. PROCESS SUMMARY: "25 Total generations",
+  "12 / 13 Ideation / production"; System & reproducibility: "25 (12 ideation, 2 production); 25 retained"; yet only
+  2 renders were built and Production decisions lists 2 ("+ 0 more production decisions"). 12 + 2 is not 25, and 13
+  is not 2. (6-05, explore/raw/6-05-raw.txt; map.json reports the same in other projects: "6 / 13" vs "19 (6
+  ideation, 7 production)".)
+- **Quirk:** no control to approve or lock a concept was found in Production or the Report builder. The preview counts
+  "0 Concepts locked" and "0 Final views", yet Approved concepts is in the report by default and the audit's Lineage
+  diagrams are "Per locked master". (6-04, 6-05)

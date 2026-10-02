@@ -3,7 +3,7 @@
   "image": "img/2-07-focus-upload.webp",
   "url": "coplanai.ikonai.app/coplanai/studio",
   "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
-  "capturedAt": "2026-10-02T20:43:20.132Z",
+  "capturedAt": "2026-10-02T22:03:21.883Z",
   "viewport": {
     "width": 1900,
     "height": 950,
@@ -35,11 +35,11 @@
       "css": [1650, 221, 205, 36]
     },
     "status": {
-      "box": [0.8542, 0.9105, 0.1174, 0.0274],
-      "center": [0.9129, 0.9242],
+      "box": [0.8621, 0.9105, 0.1174, 0.0274],
+      "center": [0.9208, 0.9242],
       "zoom": [0.5833, 0.5833, 0.4167, 0.4167],
       "label": "Status",
-      "css": [1629, 871, 211, 14]
+      "css": [1644, 871, 211, 14]
     }
   },
   "points": {
@@ -82,7 +82,7 @@
     },
     "status": {
       "highlight": {
-        "box": [0.8542, 0.9105, 0.1174, 0.0274],
+        "box": [0.8621, 0.9105, 0.1174, 0.0274],
         "label": "Status"
       },
       "zoom": [0.5833, 0.5833, 0.4167, 0.4167]

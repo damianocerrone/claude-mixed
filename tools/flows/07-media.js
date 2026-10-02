@@ -34,18 +34,22 @@ async function openSlot(page, slot) {
   throw new Error(`the ${slot} picker did not open`);
 }
 async function pickImage(page, tab, n = 0) {
-  await page.getByRole('button', { name: tab, exact: true }).or(page.getByRole('tab', { name: tab, exact: true })).filter({ visible: true }).last().click();
-  await page.waitForTimeout(2500);
-  const box = await card(page.getByRole('button', { name: 'Use image' }), { minWidth: 600 });
+  const title = page.getByText(/^Pick the .* image$/).filter({ visible: true }).first();
+  const box = await card(title, { minWidth: 900 });                 // the whole picker
+  if (tab !== 'Ideation') {                                          // Ideation is the tab it opens on
+    const tabs = page.getByText(tab, { exact: true }).filter({ visible: true });
+    await tabs.last().click();
+    await page.waitForTimeout(3000);
+  }
   const thumbs = await page.locator('img').evaluateAll((els, bx) => els.map((e) => e.getBoundingClientRect())
-    .filter((r) => r.width > 60 && r.x >= bx.x && r.right <= bx.x + bx.width && r.y >= bx.y && r.bottom <= bx.y + bx.height)
+    .filter((r) => r.width > 100 && r.x >= bx.x && r.right <= bx.x + bx.width && r.y >= bx.y && r.bottom <= bx.y + bx.height)
+    .sort((a, b) => (a.y - b.y) || (a.x - b.x))
     .map((r) => ({ x: r.x + r.width / 2, y: r.y + r.height / 2 })), box);
-  console.log(`${tab}: ${thumbs.length} thumbnails`);
+  console.log(`${tab}: ${thumbs.length} thumbnails in view`);
   await page.mouse.click(thumbs[n].x, thumbs[n].y);
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(1000);
   await raw(page, `7-pick-${tab}`);
-  await page.getByRole('button', { name: 'Use image' }).filter({ visible: true }).first().click();
-  await page.waitForTimeout(2500);
+  return page.getByRole('button', { name: 'Use image' }).filter({ visible: true }).first();
 }
 
 async function waitDone(page, label, re, max = 600) {
@@ -65,7 +69,16 @@ const stages = {
     console.log('step: engine'); await page.getByRole('button', { name: /^Classic \(no AI\)/ }).filter({ visible: true }).first().click();
     await page.waitForTimeout(800);
     console.log('step: after slot'); await openSlot(page, 'After (master)');
-    await pickImage(page, 'Favorites', 1);
+    const useAfter = await pickImage(page, 'Ideation', 1);
+    await plate(page, '7-01b-pick-after', {
+      highlights: {
+        tabs: { locator: await union(page.getByText('Ideation', { exact: true }).filter({ visible: true }).last(), page.getByText('Uploads', { exact: true }).filter({ visible: true }).last()), label: 'Ideation, Favorites, Renders, Uploads' },
+        use: { locator: useAfter, label: 'Use image' },
+      },
+      points: { use: useAfter },
+    });
+    await useAfter.click();
+    await page.waitForTimeout(2500);
     await raw(page, '7-01-raw');
     await plate(page, '7-01-video-images', {
       highlights: {
@@ -74,7 +87,8 @@ const stages = {
         images: { locator: await card(page.getByText(/^Images$/).filter({ visible: true }).first(), { minWidth: 280 }), label: 'Before and after' },
       },
     });
-    console.log('step: preset'); await page.getByRole('button', { name: /Drone View/ }).filter({ visible: true }).first().click();
+    console.log('step: preset');
+    { const dv = page.getByText('Drone View', { exact: true }).filter({ visible: true }).first(); await dv.scrollIntoViewIfNeeded(); const b = await dv.boundingBox(); await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2); }
     await page.waitForTimeout(1000);
     await page.getByText(/^Duration$/).filter({ visible: true }).first().scrollIntoViewIfNeeded();
     await page.waitForTimeout(600);
@@ -87,6 +101,7 @@ const stages = {
       },
       points: { go: page.getByRole('button', { name: /^Generate video/ }) },
     });
+    console.log('step: generate');
     await page.getByRole('button', { name: /^Generate video/ }).click();
     await waitDone(page, 'video', /\d+:\d\d|Download|Delete video|\.mp4/i);
     await page.waitForTimeout(4000);
@@ -115,7 +130,8 @@ const stages = {
     console.log('step: engine'); await page.getByRole('button', { name: /^Classic \(no AI\)/ }).filter({ visible: true }).first().click();
     await page.waitForTimeout(800);
     await openSlot(page, /Choose image|Source image/);
-    await pickImage(page, 'Renders', 0);
+    await (await pickImage(page, 'Renders', 0)).click();
+    await page.waitForTimeout(2500);
     await raw(page, '7-05-raw');
     await plate(page, '7-05-upscale', {
       highlights: {

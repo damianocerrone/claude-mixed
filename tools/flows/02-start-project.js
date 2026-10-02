@@ -2,13 +2,14 @@
  * Capture flow for Studio guide chapter 2, "Start a project" (tutorial/studio/chapters/02-start-project.js).
  *
  *   node tools/flows/02-start-project.js            # all plates
- *   node tools/flows/02-start-project.js home focus # only some parts: home, dialog, create, focus, settings
+ *   node tools/flows/02-start-project.js home focus # only some parts: home, dialog, create, focus, upload, settings
  *
  * VIEW ONLY. On Studio home it only selects chips in the unsaved new-project form, picks an image in
  * "Choose from existing" and clicks "Add 1" (that only fills the unsaved form), searches the Focus Area map and
  * opens street view. It never clicks Create project, "Use this view & start" or "Use this photo & start"; leaving
  * the page discards the form. In the sandbox it opens Project settings, switches tabs and the Team dialog, and closes
- * them with Escape. It never types into Project settings (Details autosaves).
+ * them with Escape (plate 2-11 shows the Team dialog; Add member is only highlighted). It never types into Project
+ * settings (Details autosaves).
  */
 'use strict';
 
@@ -99,6 +100,24 @@ async function subTextRect(page, sub) {
   }, sub);
 }
 
+/*
+ * The tight box around the text of the first match of `loc` that has a real size. Skips visually hidden copies
+ * (1 px screen-reader titles, which Playwright counts as visible) and hugs the words of a full-width block.
+ */
+async function tight(loc) {
+  return loc.evaluateAll((els) => {
+    for (const e of els) {
+      const r = e.getBoundingClientRect();
+      if (r.width < 4 || r.height < 4 || r.bottom < 0 || r.top > innerHeight) continue;
+      const range = document.createRange();
+      range.selectNodeContents(e);
+      const t = range.getBoundingClientRect();
+      return { x: t.left, y: t.top, width: t.width, height: t.height };
+    }
+    return null;
+  });
+}
+
 /* L.union for a mix of Locators and CSS-px rects (from textRect). */
 async function join(...items) {
   const rects = [];
@@ -114,6 +133,18 @@ async function join(...items) {
 }
 
 const pressed = (loc) => loc.getAttribute('aria-pressed');
+
+/*
+ * capture.js hides scrollbars only for its own measuring and the screenshot. Literal rects (textRect, join, L.union)
+ * are measured here, before L.plate, so hide them first, or every right-aligned element (and the right edge of a
+ * full-width one) comes out one scrollbar width (about 15 CSS px) too far left. The tag lasts until the next navigation.
+ */
+async function hideBars(page) {
+  await page
+    .addStyleTag({ content: '*{scrollbar-width:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}' })
+    .catch((e) => console.warn('could not hide scrollbars:', e.message));
+  await page.waitForTimeout(500);
+}
 
 async function waitFor(page, fn, timeout = 40000, step = 1000) {
   const t0 = Date.now();
@@ -131,6 +162,7 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
     /* ---------------------------------------------------------------- Studio home: process and scope */
     const openForm = async () => {
       await L.go(page, L.STUDIO);
+      await hideBars(page);
       await chip('Conceptual Plan').click();
       await page.waitForTimeout(600);
       await scrollBottomTo(page, page.getByText('The project is named for you', { exact: false }));
@@ -248,7 +280,7 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
       await L.plate(page, '2-04-create', {
         mask: MASK,
         highlights: {
-          image: { locator: imgBox, label: 'Leading image' },
+          image: { locator: await join(page.getByRole('button', { name: 'Replace' }), imgBox), label: 'Leading image' },
           scale: { locator: await L.union(scaleMode, infoBtn), label: 'Scale' },
           detected: { locator: await textRect(page, /^(Scale detected from the plan|No printed scale found)/), label: 'Please verify' },
           choice: { locator: await L.union(chip('Conceptual Plan'), chip('Focus Area'), chip('Master plan'), chip('Single building or lot')), label: 'Process and scope' },
@@ -258,7 +290,7 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
         points: {
           image: { locator: page.getByRole('button', { name: 'Replace' }), click: false },
           scale: { locator: infoBtn, click: false },
-          create: { locator: page.getByRole('button', { name: 'Create project' }), click: false },
+          create: { locator: page.getByRole('button', { name: 'Create project' }) }, // tap animation only: the plate is static
         },
       });
       await page.mouse.move(10, 600);
@@ -267,6 +299,7 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
     /* ---------------------------------------------------------------- Focus Area: map, street view, upload */
     if (want('focus')) {
       await L.go(page, L.STUDIO);
+      await hideBars(page);
       await chip('Focus Area').click();
       // The map remembers the last place searched; search Turin so the plate shows street photos.
       const search = page.getByPlaceholder(/Search address or place/).filter({ visible: true }).first();
@@ -402,10 +435,21 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
       });
       await back.click();
       await page.waitForTimeout(1500);
+    }
 
-      // Upload an image.
+    /* ---------------------------------------------------------------- Focus Area: upload (also runs alone) */
+    if (want('focus') || want('upload')) {
+      if (!want('focus')) {
+        await L.go(page, L.STUDIO);
+        await hideBars(page);
+        await chip('Focus Area').click();
+        await page.getByRole('button', { name: 'Upload an image' }).waitFor({ timeout: 20000 });
+      }
       await page.getByRole('button', { name: 'Upload an image' }).click();
+      await page.getByText('Add a photo of the place to begin', { exact: true }).waitFor({ state: 'visible', timeout: 30000 });
       await page.waitForTimeout(1500);
+      // Street view left the page scrolled down; start from the top so the plate frames the form as on 2-05.
+      await scrollMain(page, 0);
       await scrollBottomTo(page, page.getByText('The project is named for you', { exact: false }), 24);
       const drop = page.getByRole('button', { name: /^Drop or add a photo of the place/ });
       await L.plate(page, '2-07-focus-upload', {
@@ -428,6 +472,7 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
     /* ---------------------------------------------------------------- Sandbox: Project settings */
     if (want('settings')) {
       await L.go(page, `${L.SANDBOX}/ideation`, 9000);
+      await hideBars(page);
       await page.getByTestId('studio-project-setup-open').click();
       const dlg = page.getByRole('dialog');
       await dlg.waitFor({ timeout: 15000 });
@@ -443,6 +488,9 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
       const nameIn = dlg.getByPlaceholder('Project name');
       const slugIn = dlg.getByPlaceholder('project-slug');
       const regen = slugIn.locator('xpath=following::button[1]');
+      // The tab's fields can take several seconds to appear; wait for the first and the last row before measuring.
+      for (const l of [label('Project name'), nameIn, regen, label('Output format')]) await l.waitFor({ state: 'visible', timeout: 60000 });
+      await page.waitForTimeout(1500);
       await L.plate(page, '2-08-details', {
         hide: HIDE,
         mask: MASK,
@@ -465,6 +513,8 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
       await page.mouse.move(1600, 600);
       await page.waitForTimeout(1500);
       const addBtns = dlg.getByRole('button', { name: /^Add$/ });
+      for (const l of [label('Scene toggles'), label('Water feature'), addBtns.nth(1)]) await l.waitFor({ state: 'visible', timeout: 60000 });
+      await page.waitForTimeout(1500);
       await L.plate(page, '2-09-settings', {
         hide: HIDE,
         mask: MASK,
@@ -487,6 +537,8 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
       await page.waitForTimeout(1500);
       const leading = dlg.getByText('Leading', { exact: true }).first().locator('xpath=ancestor::div[.//img][1]');
       const dropAdd = dlg.getByText('Drop or add', { exact: true }).first();
+      for (const l of [label('Site context'), leading, dropAdd]) await l.waitFor({ state: 'visible', timeout: 60000 });
+      await page.waitForTimeout(1500);
       await L.plate(page, '2-10-site', {
         hide: HIDE,
         mask: MASK,
@@ -505,15 +557,34 @@ async function waitFor(page, fn, timeout = 40000, step = 1000) {
         },
       });
 
-      // Team (check only), then close both dialogs with Escape.
+      // Team (view only: Add member is highlighted, never clicked), then close both dialogs with Escape.
       await team.click();
       await page.waitForTimeout(1500);
-      await L.raw(page, '2-check-team');
+      const teamDlg = page.getByRole('dialog').filter({ hasText: 'Who leads and collaborates on this project.' }).last();
+      const addMember = teamDlg.getByRole('button', { name: 'Add member' });
+      await addMember.waitFor({ timeout: 30000 });
+      await page.mouse.move(1600, 140);
+      await page.waitForTimeout(800);
+      await L.plate(page, '2-11-team', {
+        hide: HIDE,
+        mask: MASK,
+        highlights: {
+          dialog: { locator: teamDlg, label: 'Project team' },
+          title: { locator: await join(await tight(teamDlg.getByText('Project team', { exact: true })), await tight(teamDlg.getByText('Who leads and collaborates on this project.', { exact: true }))), label: 'Project team' },
+          member: { locator: await join(await tight(teamDlg.getByText(/^team$/i)), teamDlg.getByText('DC', { exact: true }), await tight(teamDlg.getByText('Damiano Cerrone', { exact: true })), await tight(teamDlg.getByText(/lead$/))), label: 'Team' },
+          add: { locator: addMember, label: 'Add member' },
+        },
+        points: {
+          add: { locator: addMember, click: false },
+        },
+      });
+      const openDialogs = async () => (await page.getByRole('dialog').allInnerTexts()).map((t) => t.split('\n')[0]).join(' + ') || 'none';
       await page.keyboard.press('Escape');
-      await page.waitForTimeout(700);
+      await page.waitForTimeout(1500);
+      console.log('after 1st Escape, open:', await openDialogs());
       await page.keyboard.press('Escape');
-      await page.waitForTimeout(700);
-      console.log('dialogs left open:', await page.getByRole('dialog').count());
+      await page.waitForTimeout(1500);
+      console.log('after 2nd Escape, open:', await openDialogs());
     }
   } finally {
     await close();

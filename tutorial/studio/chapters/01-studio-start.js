@@ -6,7 +6,9 @@
  *   zoom          = [x, y, w, h]   2:1 region to zoom into (w === h keeps the 2:1 aspect); omit for the full view
  *   highlight.side = "above" | "left below" | …   optional: the side(s) to try first for the label pill
  * Every box, cursor point and zoom comes from the capture JSON written by tools/capture.js
- * (flow: tools/flows/01-studio-start.js), and was checked on the debug image.
+ * (flow: tools/flows/01-studio-start.js), and was checked on the debug image. Where several beats of a step share
+ * one zoom (so the camera holds still), it is the JSON zoom of one of the step's highlights: the card's zoom in
+ * studio-recent, and the "area" highlight (button + menu) that the flow writes for studio-card-menu.
  */
 window.COPLAN_TUTORIAL.chapters.push({
   id: "studio-start",
@@ -37,12 +39,12 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.5584, 0.118, 0.4167, 0.4167]
         },
         {
-          html: "You can also start a project right here: <strong>Start a new project</strong> is the same form as on Studio home. <a href='#start-project'>Start a project</a> walks you through it.",
-          highlight: { box: [0.1897, 0.3642, 0.6127, 0.6358], label: "New project" }
+          html: "You can also start a project right here: <strong>Start a new project</strong> offers the same choices as the form on Studio home. <a href='#start-project'>Start a project</a> walks you through it.",
+          highlight: { box: [0.1937, 0.3642, 0.6126, 0.6358], label: "New-project form" }
         },
         {
           html: "The icons in the top-right corner (your gallery, app settings and your account) belong to the wider CoPlanAI app. The <a href='../'>platform guide</a> covers them.",
-          highlight: { box: [0.9005, 0, 0.0821, 0.0516], label: "App icons" },
+          highlight: { box: [0.9084, 0, 0.0821, 0.0516], label: "App icons" },
           zoom: [0.5833, 0, 0.4167, 0.4167]
         }
       ]
@@ -67,11 +69,11 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "Most of the page is the new-project form: you add the site plan, choose how the project starts and pick its scope. <a href='#start-project'>Start a project</a> explains each choice.",
-          highlight: { box: [0.2037, 0.1895, 0.77, 0.8105], label: "New project" },
+          highlight: { box: [0.2037, 0.1895, 0.7779, 0.8105], label: "New-project form" },
           cursor: { at: [0.5926, 0.5411], click: false }
         },
         {
-          html: "<strong>Create project</strong> stays grey, next to <strong>Add a site image to begin</strong>, until you add a site image. Studio names the project for you, and everything stays editable later in <strong>Project setup</strong>.",
+          html: "<strong>Create project</strong> stays grey until the form is complete. The text beside it tells you what is missing: <strong>Add a site image to begin</strong>, then <strong>Pick a planning process</strong>. Studio names the project for you, and everything stays editable later in <strong>Project setup</strong>.",
           highlight: { box: [0.9055, 0.9221, 0.074, 0.0505], label: "Create project" },
           cursor: { at: [0.9425, 0.9474], click: false },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
@@ -84,7 +86,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       lead: "The menu on the left of Studio's own pages takes you to every part of Studio. It has three groups, and two buttons at the top.",
       image: "img/1-03-studio-menu.webp",
       url: "coplanai.ikonai.app",
-      alt: "Studio home with the menu on the left: General (Home, Projects, Uploaded images, Videos, Upscale), Library (Mood boards & style refs, Planning presets) and Organisation (Team & permissions, Audit log, Settings). The pointer rests on the first of two buttons beside MENU, and its tooltip reads Move panel to the right side.",
+      alt: "Studio home with the menu on the left: General (Home, Projects, Uploaded images, Videos, Upscale), Library (Mood boards & style refs, Planning presets) and Organisation (Team & permissions, Audit log, Settings). Below the first of the two buttons beside MENU, a tooltip reads Move panel to the right side.",
       beats: [
         {
           html: "<strong>GENERAL</strong> is your everyday work: <strong>Home</strong>, <strong>Projects</strong>, the <strong>Uploaded images</strong> of your Studio, and the <strong>Videos</strong> and <strong>Upscale</strong> tools. The arrow on those two means the menu makes way for the tool's own settings panel. <a href='#media'>Videos and upscales</a> covers both tools.",
@@ -108,7 +110,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
-          html: "The second, <strong>Collapse menu</strong>, shows no name when you hover it. It folds the menu into a narrow strip of icons to give the page more room: hover an icon to see its page, and click <strong>Expand menu</strong> at the top of the strip to bring the full menu back.",
+          html: "The tooltip in the picture still belongs to the first button. The second, <strong>Collapse menu</strong>, shows no name of its own when you hover it. It folds the menu into a narrow strip of icons to give the page more room: hover an icon to see its page, and click <strong>Expand menu</strong> at the top of the strip to bring the full menu back.",
           highlight: { box: [0.1584, 0.05, 0.0253, 0.0505], label: "Collapse menu" },
           cursor: { at: [0.1711, 0.0753], click: false },
           zoom: [0, 0, 0.4167, 0.4167]
@@ -125,7 +127,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "<strong>Recent projects</strong> shows the three projects edited most recently, the latest first.",
-          highlight: { box: [0.1947, 0.5568, 0.7879, 0.4243], label: "Recent projects" }
+          highlight: { box: [0.1947, 0.5568, 0.7958, 0.4243], label: "Recent projects" }
         },
         {
           html: "Each card shows the project's image, its status, its process and how many people are on its team, then its name, who owns it and when it was last edited. Click the card to open the project.",
@@ -166,25 +168,19 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.0078, 0, 0.4167, 0.4167]
         },
         {
-          html: "To start a project from this page, use <strong>New project</strong>.",
-          highlight: { box: [0.9129, 0.0758, 0.0776, 0.0505], label: "New project" },
-          cursor: { at: [0.9517, 0.1011], click: false },
-          zoom: [0.5833, 0, 0.4167, 0.4167]
-        },
-        {
-          html: "Type part of a name into <strong>Search projects</strong>: the cards narrow down as you type.",
+          html: "Type part of a name into <strong>Search projects…</strong>: the cards narrow down as you type.",
           highlight: { box: [0.1947, 0.1368, 0.1748, 0.0548], label: "Search" },
           cursor: { at: [0.24, 0.1642], click: true },
           zoom: [0.0738, 0, 0.4167, 0.4167]
         },
         {
           html: "The first dropdown filters by status: <strong>Active</strong>, <strong>Completed</strong> or <strong>Archived</strong>. Archived projects show up only when you choose <strong>Archived</strong>.",
-          highlight: { box: [0.3674, 0.1389, 0.0821, 0.2], label: "Status" },
+          highlight: { box: [0.3674, 0.1389, 0.0821, 0.1998], label: "Status" },
           cursor: { at: [0.4049, 0.3105], click: false },
           zoom: [0.2001, 0.0305, 0.4167, 0.4167]
         },
         {
-          html: "The other three narrow the list to your own projects (<strong>Anyone</strong> is the default) or to one process (Conceptual Plan, Master Plan or Focus Area), and sort the cards by <strong>Newest</strong>, <strong>Oldest</strong> or <strong>Name</strong>.",
+          html: "The other three narrow the list to your own projects (<strong>Anyone</strong> is the default) or to one process (<strong>All processes</strong> by default, or <strong>Conceptual Plan</strong>, <strong>Master Plan</strong> or <strong>Focus Area</strong>), and sort the cards by <strong>Newest</strong>, <strong>Oldest</strong> or <strong>Name</strong>.",
           highlight: { box: [0.4474, 0.1389, 0.2421, 0.0506], label: "Owner, process, sort" },
           cursor: { at: [0.5684, 0.1642], click: false },
           zoom: [0.3601, 0, 0.4167, 0.4167]
@@ -213,24 +209,24 @@ window.COPLAN_TUTORIAL.chapters.push({
           html: "Click <strong>&bull;&bull;&bull;</strong> on a card to open its menu.",
           highlight: { box: [0.3474, 0.4372, 0.0252, 0.0505], shape: "circle", label: "More actions" },
           cursor: { at: [0.36, 0.4624], click: true },
-          zoom: [0.1227, 0.3476, 0.4167, 0.4167]
+          zoom: [0.1228, 0.3473, 0.4167, 0.4167]
         },
         {
-          html: "It has five items: <strong>Open project</strong>, <strong>Project setup</strong>, <strong>Report</strong>, <strong>Duplicate</strong> and <strong>Archive</strong>.",
+          html: "It has five items: <strong>Open project</strong>, <strong>Project setup</strong>, <strong>Report</strong>, <strong>Duplicate</strong> and <strong>Archive</strong>. The project's report is covered in <a href='#production'>Produce the render set</a>.",
           highlight: { box: [0.2897, 0.4826, 0.0829, 0.1916], label: "Card menu" },
-          zoom: [0.1227, 0.3476, 0.4167, 0.4167]
+          zoom: [0.1228, 0.3473, 0.4167, 0.4167]
         },
         {
           html: "<strong>Open project</strong> does the same as clicking the card. <strong>Project setup</strong> opens the project with its <strong>Project settings</strong> already open, ready to change its details, settings or site material.",
           highlight: { box: [0.2924, 0.4879, 0.0776, 0.08], label: "Open or set up" },
           cursor: { at: [0.3312, 0.5447], click: false },
-          zoom: [0.1227, 0.3476, 0.4167, 0.4167]
+          zoom: [0.1228, 0.3473, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Duplicate</strong> copies the project. <strong>Archive</strong> takes it off the list: from then on it appears only under the <strong>Archived</strong> status. Both change your Studio's project list, so use them with care.",
+          html: "<strong>Duplicate</strong> copies the project. <strong>Archive</strong> asks you to confirm first, then makes the project read-only: it stays viewable, you can still build reports from it, and from then on it appears only under the <strong>Archived</strong> status. Both change your Studio's project list, so use them with care.",
           highlight: { box: [0.2924, 0.5889, 0.0776, 0.08], label: "Duplicate or archive" },
           cursor: { at: [0.3312, 0.6458], click: false },
-          zoom: [0.1227, 0.3476, 0.4167, 0.4167]
+          zoom: [0.1228, 0.3473, 0.4167, 0.4167]
         }
       ]
     },
@@ -244,7 +240,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "tip",
         title: "Back to the CoPlanAI dashboard",
-        html: "Studio has no link back to your app dashboard: the breadcrumb starts at <strong>Studio</strong>, and the account menu holds only <strong>Profile</strong>, <strong>Language</strong>, <strong>Theme</strong> and <strong>Log out</strong>. Use your browser's Back button, or go to coplanai.ikonai.app/coplanai."
+        html: "Studio has no labelled link back to your app dashboard: the breadcrumb starts at <strong>Studio</strong>, and the account menu holds only <strong>Profile</strong>, <strong>Language</strong>, <strong>Theme</strong> and <strong>Log out</strong>. Use your browser's Back button, or go back to the address where you opened CoPlanAI (here coplanai.ikonai.app/coplanai)."
       },
       beats: [
         {
@@ -261,8 +257,13 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "The <strong>ACTIONS</strong> panel on the left holds the tools. Its icon tabs are, from left to right, <strong>Site</strong>, <strong>Quick actions</strong>, <strong>Presets</strong>, <strong>Touch-up</strong>, <strong>Adjust</strong>, <strong>Prompt</strong> and <strong>Impact</strong>: hover one to see its name. Above them sit <strong>All images</strong>, <strong>Save as planning preset</strong> and <strong>Project settings</strong>.",
-          highlight: { box: [0.0032, 0.1074, 0.1789, 0.101], label: "Actions panel" },
+          highlight: { box: [0.0032, 0.1074, 0.1789, 0.101], label: "Panel tabs" },
           cursor: { at: [0.0439, 0.1853], click: false },
+          zoom: [0, 0, 0.4167, 0.4167]
+        },
+        {
+          html: "The two buttons beside <strong>ACTIONS</strong> work like the Studio menu's: <strong>Move panel to the right side</strong> puts the panel on the other side of the screen, and <strong>Collapse panel</strong> folds it into a narrow strip of icons to give the images more room.",
+          highlight: { box: [0.1368, 0.05, 0.0453, 0.0505], label: "Panel layout" },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
@@ -270,7 +271,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           highlight: { box: [0.1989, 0.0747, 0.7911, 0.9137], label: "Images" }
         },
         {
-          html: "<strong>Apply to current</strong> runs what you set in the panel. As the blue hint says, first choose or select the images to work on; the button turns green once a change is waiting. <strong>Each run generates 2 variant(s)</strong>, so click it only when you mean to. <a href='#ideation'>Generate design options</a> explains it.",
+          html: "<strong>Apply to current</strong> runs what you set in the panel. As the blue hint says, first choose or select the images to work on; the button turns solid green once a change is waiting. Each click starts an AI generation and uses generation credits (<strong>Each run generates 2 variant(s)</strong>), so click it only when you mean to. <a href='#ideation'>Generate design options</a> explains it.",
           highlight: { box: [0.0032, 0.9211, 0.1789, 0.0768], label: "Apply" },
           cursor: { at: [0.0926, 0.9484], click: false },
           zoom: [0, 0.5833, 0.4167, 0.4167]

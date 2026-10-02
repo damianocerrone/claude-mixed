@@ -3,7 +3,7 @@
   "image": "img/8-08-settings-ideation.webp",
   "url": "coplanai.ikonai.app/coplanai/studio/settings",
   "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
-  "capturedAt": "2026-10-02T20:20:50.230Z",
+  "capturedAt": "2026-10-02T21:38:08.139Z",
   "viewport": {
     "width": 1900,
     "height": 950,
@@ -21,38 +21,38 @@
       "css": [390, 67, 65.5, 22]
     },
     "batch": {
-      "box": [0.2037, 0.1284, 0.0802, 0.0905],
-      "center": [0.2438, 0.1737],
-      "zoom": [0.0354, 0, 0.4167, 0.4167],
+      "box": [0.2037, 0.1284, 0.0933, 0.0905],
+      "center": [0.2504, 0.1737],
+      "zoom": [0.042, 0, 0.4167, 0.4167],
       "label": "Images per batch",
-      "css": [393, 128, 140.5, 74]
+      "css": [393, 128, 165.5, 74]
     },
     "toggles": {
-      "box": [0.5897, 0.1021, 0.3929, 0.4126],
-      "center": [0.7862, 0.3084],
+      "box": [0.5937, 0.1021, 0.3968, 0.4126],
+      "center": [0.7921, 0.3084],
       "zoom": [0.4674, 0.0421, 0.5326, 0.5326],
       "label": "Scene toggles",
-      "css": [1126.5, 103, 734.5, 380]
+      "css": [1134, 103, 742, 380]
     },
     "steppers": {
-      "box": [0.1947, 0.5189, 0.7879, 0.2295],
-      "center": [0.5887, 0.6337],
+      "box": [0.1947, 0.5189, 0.7958, 0.2295],
+      "center": [0.5926, 0.6337],
       "zoom": null,
       "label": "Steppers and additive elements",
-      "css": [376, 499, 1485, 206]
+      "css": [376, 499, 1500, 206]
     },
     "master": {
-      "box": [0.2037, 0.7747, 0.77, 0.139],
-      "center": [0.5887, 0.8442],
+      "box": [0.2037, 0.7747, 0.7779, 0.139],
+      "center": [0.5926, 0.8442],
       "zoom": null,
       "label": "Master prompt",
-      "css": [393, 742, 1451, 120]
+      "css": [393, 742, 1466, 120]
     }
   },
   "points": {
     "batch": [0.2405, 0.1916],
     "toggles": [0.6432, 0.4579],
-    "master": [0.3596, 0.844]
+    "master": [0.3612, 0.844]
   },
   "beats": {
     "head": {
@@ -64,18 +64,18 @@
     },
     "batch": {
       "highlight": {
-        "box": [0.2037, 0.1284, 0.0802, 0.0905],
+        "box": [0.2037, 0.1284, 0.0933, 0.0905],
         "label": "Images per batch"
       },
       "cursor": {
         "at": [0.2405, 0.1916],
         "click": false
       },
-      "zoom": [0.0354, 0, 0.4167, 0.4167]
+      "zoom": [0.042, 0, 0.4167, 0.4167]
     },
     "toggles": {
       "highlight": {
-        "box": [0.5897, 0.1021, 0.3929, 0.4126],
+        "box": [0.5937, 0.1021, 0.3968, 0.4126],
         "label": "Scene toggles"
       },
       "cursor": {
@@ -86,17 +86,17 @@
     },
     "steppers": {
       "highlight": {
-        "box": [0.1947, 0.5189, 0.7879, 0.2295],
+        "box": [0.1947, 0.5189, 0.7958, 0.2295],
         "label": "Steppers and additive elements"
       }
     },
     "master": {
       "highlight": {
-        "box": [0.2037, 0.7747, 0.77, 0.139],
+        "box": [0.2037, 0.7747, 0.7779, 0.139],
         "label": "Master prompt"
       },
       "cursor": {
-        "at": [0.3596, 0.844],
+        "at": [0.3612, 0.844],
         "click": false
       }
     }

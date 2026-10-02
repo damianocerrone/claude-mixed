@@ -3,7 +3,7 @@
   "image": "img/8-06-settings.webp",
   "url": "coplanai.ikonai.app/coplanai/studio/settings",
   "pageTitle": "CoPlanAI — AI-assisted urban planning and participation",
-  "capturedAt": "2026-10-02T20:20:17.524Z",
+  "capturedAt": "2026-10-02T21:37:35.752Z",
   "viewport": {
     "width": 1900,
     "height": 950,
@@ -13,32 +13,39 @@
   "size": [2400, 1200],
   "pad": 6,
   "highlights": {
+    "head": {
+      "box": [0.1947, 0.0705, 0.2384, 0.059],
+      "center": [0.3139, 0.1],
+      "zoom": [0.1056, 0, 0.4167, 0.4167],
+      "label": "Settings",
+      "css": [376, 73, 441, 44]
+    },
     "source": {
-      "box": [0.1947, 0.0705, 0.7879, 0.1821],
-      "center": [0.5887, 0.1616],
+      "box": [0.1947, 0.1547, 0.7958, 0.0979],
+      "center": [0.5926, 0.2037],
       "zoom": null,
       "label": "Configuration source",
-      "css": [376, 73, 1485, 161]
+      "css": [376, 153, 1500, 81]
     },
     "lists": {
-      "box": [0.1947, 0.3253, 0.7879, 0.4105],
-      "center": [0.5887, 0.5305],
+      "box": [0.1947, 0.3253, 0.7958, 0.4105],
+      "center": [0.5926, 0.5305],
       "zoom": null,
       "label": "Planning presets options",
-      "css": [376, 315, 1485, 378]
+      "css": [376, 315, 1500, 378]
     },
     "row": {
-      "box": [0.5003, 0.4421, 0.0715, 0.0505],
-      "center": [0.5361, 0.4674],
-      "zoom": [0.3277, 0.259, 0.4167, 0.4167],
+      "box": [0.5042, 0.4421, 0.0716, 0.0505],
+      "center": [0.54, 0.4674],
+      "zoom": [0.3317, 0.259, 0.4167, 0.4167],
       "label": "Edit, revert, delete",
-      "css": [956.5, 426, 124, 36]
+      "css": [964, 426, 124, 36]
     },
     "add": {
       "box": [0.5352, 0.3811, 0.0474, 0.0505],
       "center": [0.5589, 0.4063],
       "zoom": [0.3505, 0.198, 0.4167, 0.4167],
-      "label": "+ Add",
+      "label": "Add",
       "css": [1023, 368, 78, 36]
     },
     "save": {
@@ -55,33 +62,40 @@
     "save": [0.9447, 0.2821]
   },
   "beats": {
+    "head": {
+      "highlight": {
+        "box": [0.1947, 0.0705, 0.2384, 0.059],
+        "label": "Settings"
+      },
+      "zoom": [0.1056, 0, 0.4167, 0.4167]
+    },
     "source": {
       "highlight": {
-        "box": [0.1947, 0.0705, 0.7879, 0.1821],
+        "box": [0.1947, 0.1547, 0.7958, 0.0979],
         "label": "Configuration source"
       }
     },
     "lists": {
       "highlight": {
-        "box": [0.1947, 0.3253, 0.7879, 0.4105],
+        "box": [0.1947, 0.3253, 0.7958, 0.4105],
         "label": "Planning presets options"
       }
     },
     "row": {
       "highlight": {
-        "box": [0.5003, 0.4421, 0.0715, 0.0505],
+        "box": [0.5042, 0.4421, 0.0716, 0.0505],
         "label": "Edit, revert, delete"
       },
       "cursor": {
         "at": [0.5168, 0.4674],
         "click": false
       },
-      "zoom": [0.3277, 0.259, 0.4167, 0.4167]
+      "zoom": [0.3317, 0.259, 0.4167, 0.4167]
     },
     "add": {
       "highlight": {
         "box": [0.5352, 0.3811, 0.0474, 0.0505],
-        "label": "+ Add"
+        "label": "Add"
       },
       "cursor": {
         "at": [0.5589, 0.4063],

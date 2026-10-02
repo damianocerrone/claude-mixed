@@ -104,11 +104,53 @@ async function scrollTo(page, loc, y) {
   await page.waitForTimeout(900);
 }
 
+/* capture.shot() hides scrollbars while it measures and shoots, which widens the page content and the dialog bodies
+   by the scrollbar's width. Rects this flow measures itself (literal rects) must be taken in that same layout, or
+   they stop short on the right: so hide the scrollbars first, the same way, after every navigation. */
+async function noScrollbars(page) {
+  await page.evaluate(() => {
+    if (document.getElementById('guide-no-scrollbars')) return;
+    const st = document.createElement('style');
+    st.id = 'guide-no-scrollbars';
+    st.textContent = '*{scrollbar-width:none!important}*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}';
+    document.head.appendChild(st);
+  });
+  await page.waitForTimeout(400);
+}
+
+/* Go to a Studio URL and wait until `ready` (a locator) shows: the app's loader can outlast go()'s own wait. */
+async function goTo(page, url, ready) {
+  await L.go(page, url);
+  if (ready) await ready.first().waitFor({ state: 'visible', timeout: 120000 });
+  await page.waitForTimeout(1000);
+  await noScrollbars(page);
+}
+
 /* Open a page from the Studio menu (for the pages that have no URL of their own). */
 async function fromMenu(page, name) {
-  await L.go(page, L.STUDIO);
-  await page.getByRole('button', { name, exact: true }).click();
+  const item = page.getByRole('button', { name, exact: true });
+  await goTo(page, L.STUDIO, item);
+  await item.click();
   await page.waitForTimeout(5000);
+  await noScrollbars(page);
+}
+
+/* The rect of a label's text plus the small (i) info icon right after it, if there is one. */
+async function labelWithInfo(loc) {
+  const t = await textBox(loc);
+  if (!t) return null;
+  const icon = await loc.page().evaluate((t) => {
+    const cy = t.y + t.height / 2;
+    let best = null;
+    for (const el of document.querySelectorAll('svg')) {
+      const b = el.getBoundingClientRect();
+      if (!b.width || b.width > 30 || b.height > 30) continue;
+      if (Math.abs(b.y + b.height / 2 - cy) > 10 || b.x < t.x + t.width - 2 || b.x > t.x + t.width + 40) continue;
+      if (!best || b.x < best.x) best = { x: b.x, y: b.y, width: b.width, height: b.height };
+    }
+    return best;
+  }, t);
+  return rectUnion(t, icon);
 }
 
 /* The open dialog's scrolling body: { rect, scroll(to) }. */
@@ -203,7 +245,7 @@ const sections = {
 
   /* 8-02 Mood boards & style refs: the New preset dialog, scrolled to its sharing choices. Closed with Cancel. */
   async moodboard(page) {
-    await L.go(page, `${L.STUDIO}/library/presets`);
+    await goTo(page, `${L.STUDIO}/library/presets`, page.getByRole('button', { name: 'New preset' }));
     await L.raw(page, '8-02-moodboards-page');
     await page.getByRole('button', { name: 'New preset' }).first().click();
     await page.waitForTimeout(2000);
@@ -242,7 +284,7 @@ const sections = {
     const footer = await box(await textBox(dlg.getByText(/^Adding as /)), save);
     await L.plate(page, '8-02-mood-board', {
       highlights: {
-        images: { locator: clip(await box(dropZone, library)), label: 'Reference images' },
+        images: { locator: clip(await box(dropZone, library)), label: 'Images' },
         desc: { locator: clip(await field(dlg, 'Description', desc, genDesc)), label: 'Description' },
         tags: { locator: clip(await field(dlg, 'Tags', await optionCard(/^Select a tag…$/))), label: 'Tags' },
         share: { locator: clip(await box(await field(dlg, 'State', rc[0], rc[1]), await field(dlg, 'Scope', rc[2], rc[3]))), label: 'State and scope' },
@@ -261,7 +303,7 @@ const sections = {
 
   /* 8-03 Planning presets: the New planning preset dialog (top). Closed with Cancel. */
   async planning(page) {
-    await L.go(page, `${L.STUDIO}/library/directions`);
+    await goTo(page, `${L.STUDIO}/library/directions`, page.getByRole('button', { name: 'New planning preset' }));
     await L.raw(page, '8-03-planning-page');
     await page.getByRole('button', { name: 'New planning preset' }).first().click();
     await page.waitForTimeout(2000);
@@ -285,7 +327,7 @@ const sections = {
         name: { locator: clip(nameDesc), label: 'Name and description' },
         available: { locator: clip(await field(dlg, 'Available for', ...chips)), label: 'Available for' },
         direction: { locator: clip(await box(await textBox(dlg.getByText('Render style', { exact: true })), combos.nth(0), combos.nth(1), combos.nth(2))), label: 'Style, layout, creativity' },
-        refs: { locator: clip(await field(dlg, 'Recommended references', pick)), label: 'Recommended references' },
+        refs: { locator: clip(await box(await labelWithInfo(dlg.getByText('Recommended references', { exact: true })), pick)), label: 'Recommended references' },
         descriptor: { locator: clip(await field(dlg, 'Descriptor text', gen, textareas.nth(1))), label: 'Descriptor text' },
         create: { locator: footer, label: 'Create planning preset' },
       },
@@ -367,6 +409,8 @@ const sections = {
     const refresh = page.getByRole('button', { name: 'Refresh' });
     // Expand the first row whose Details button sits below the reach of the open filter list (~y 430).
     const details = page.getByRole('button', { name: 'Details', exact: true });
+    await details.first().waitFor({ state: 'visible', timeout: 90000 }); // the list loads after the page
+    await page.waitForTimeout(1500);
     const n = await details.count();
     let target = null;
     for (let i = 0; i < n; i++) {
@@ -425,7 +469,7 @@ const sections = {
 
   /* 8-06 Settings, top: Configuration source, Save configuration, the Planning presets lists and their row controls. */
   async settings(page) {
-    await L.go(page, `${L.STUDIO}/settings`);
+    await goTo(page, `${L.STUDIO}/settings`, page.getByRole('button', { name: 'Save configuration' }));
     await page.mouse.move(1000, 30);
     const head = await pageHead(page, 'Settings', /^Override the platform default Studio configuration/);
     const sourceTitle = page.getByText('Configuration source', { exact: true });
@@ -462,10 +506,11 @@ const sections = {
     const add = (await inMain(page.getByRole('button', { name: 'Add', exact: true }), 340, 420));
     await L.plate(page, '8-06-settings', {
       highlights: {
-        source: { locator: rectUnion(head, source, inherited), label: 'Configuration source' },
+        head: { locator: head, label: 'Settings' },
+        source: { locator: rectUnion(source, inherited), label: 'Configuration source' },
         lists: { locator: lists, label: 'Planning presets options' },
         row: { locator: rowIcons, label: 'Edit, revert, delete' },
-        add: { locator: add, label: '+ Add' },
+        add: { locator: add, label: 'Add' },
         save: { locator: save, label: 'Save configuration' },
       },
       points: {
@@ -479,7 +524,7 @@ const sections = {
 
   /* 8-07 Settings, further down: descriptor guidance (PREVIEW expanded), Density bands, Canvas > Required elements. */
   async density(page) {
-    await L.go(page, `${L.STUDIO}/settings`);
+    await goTo(page, `${L.STUDIO}/settings`, page.getByRole('button', { name: 'Save configuration' }));
     await page.mouse.move(1000, 30);
     const guideTitle = page.getByText('Planning preset descriptor guidance', { exact: true });
     const preview = page.getByText(/FULL DRAFTING PROMPT/i).first();
@@ -536,7 +581,7 @@ const sections = {
 
   /* 8-08 Settings, Ideation: Images per batch, Scene toggles, Area steppers, Additive elements, Master prompt. */
   async ideation(page) {
-    await L.go(page, `${L.STUDIO}/settings`);
+    await goTo(page, `${L.STUDIO}/settings`, page.getByRole('button', { name: 'Save configuration' }));
     await page.mouse.move(1000, 30);
     const ideationHead = await inMain(page.getByText('Ideation', { exact: true }));
     await scrollTo(page, ideationHead, 66);
@@ -569,7 +614,7 @@ const sections = {
     await L.plate(page, '8-08-settings-ideation', {
       highlights: {
         head: { locator: await textBox(ideationHead), label: 'Ideation' },
-        batch: { locator: rectUnion(await textBox(await inMain(page.getByText('Images per batch', { exact: true }))), batchField), label: 'Images per batch' },
+        batch: { locator: rectUnion(await labelWithInfo(await inMain(page.getByText('Images per batch', { exact: true }))), batchField), label: 'Images per batch' },
         toggles: { locator: toggles, label: 'Scene toggles' },
         steppers: { locator: rectUnion(steppers, additive), label: 'Steppers and additive elements' },
         master: { locator: rectUnion(masterLabel, masterArea), label: 'Master prompt' },
