@@ -31,7 +31,8 @@ async function go(page, url, settle = 7000) {
   await page.waitForTimeout(settle);
   // The app keeps a live connection; on a slow link it shows a blank page or "Connecting..." for a while.
   // Wait until real content is there (up to 90 s), then a little longer for images.
-  for (let i = 0; i < 45 && (await page.evaluate(() => document.body.innerText.trim().length)) < 200; i++) await page.waitForTimeout(2000);
+  const textLength = () => page.evaluate(() => document.body.innerText.trim().length).catch(() => 0);   // may run mid-navigation
+  for (let i = 0; i < 45 && (await textLength()) < 200; i++) await page.waitForTimeout(2000);
   await page.waitForTimeout(1500);
 }
 
