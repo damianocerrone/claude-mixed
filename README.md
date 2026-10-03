@@ -1,9 +1,9 @@
 # CoPlan Studio guide
 
 An animated, scrollable guide to **CoPlan Studio**, the desktop workspace in CoPlanAI where a planning team turns a
-site image and a brief into design options, renders, videos and a report. It is the sibling of the platform guide at
-[coplanai.com/tutorial](https://coplanai.com/tutorial/) (source: `damianocerrone/coplan-tutorials`) and is meant to be
-published at **coplanai.com/tutorial/studio/**.
+site plan or a street photo into design options, renders, videos and a report. It is the sibling of the platform
+guide at [coplanai.com/tutorial](https://coplanai.com/tutorial/) (source: `damianocerrone/coplan-tutorials`) and is
+meant to be published at **coplanai.com/tutorial/studio/**.
 
 It reuses the platform guide's engine unchanged. Each step shows a real Studio screen. As the reader scrolls through
 the numbered instructions, the screenshot zooms in, spotlights the exact button and plays a small click animation on it.
@@ -109,7 +109,7 @@ independent reviewer against the plates and the captured page text, fixed, and f
 What the work left on the platform:
 
 - The sandbox project, with a site boundary and land-use plan, two concepts (Concept A, 11 images; Green streets, 1
-  image), two favourites, two built renders (Concept A: Aerial · Day, Eye-level · Day), one 5 s Kling 2.6 video and
+  image), three favourites, two built renders (Concept A: Aerial · Day, Eye-level · Day), one 5 s Kling 2.6 video and
   one 6K upscale. Studio also created a team for it on Team & permissions.
 - About 28 new items under **Choose from existing › Drawings** (21 before, 49 after), saved by the boundary,
   land-use and mask editors during exploration and capture.
