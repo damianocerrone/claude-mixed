@@ -14,14 +14,14 @@ the numbered instructions, the screenshot zooms in, spotlights the exact button 
 |---|---|---|---|
 | 1 | Find your way into Studio | 7 | The Studio card on the dashboard, Studio home, the menu, Projects, a card's menu, inside a project |
 | 2 | Start a project | 11 | The three processes, scope, the site plan, Create project, Focus Area from the map or an upload, Project settings |
-| 3 | Prepare the site | 11 | Drawing and saving the site boundary, painting and saving a land-use plan, the colour standard, Start ideation |
+| 3 | Prepare the site | 11 | Drawing and saving the site boundary, painting and saving a land-use plan, the colour standard, checking the site is ready |
 | 4 | Generate design options | 13 | Quick actions, the PENDING tray, the first results, iterating, a new concept, presets |
 | 5 | Review and refine | 13 | Focus view, Compare, favourites, Select and Compare, Touch-up, Adjust, Prompt, Impact |
 | 6 | Produce the render set | 5 | Production, render settings, building renders, the Report builder |
 | 7 | Videos and upscales | 7 | A before/after video, camera moves, the result, Sequence video, upscaling to 6K |
 | 8 | Studio for your organisation | 8 | Uploaded images, mood boards, planning presets, teams, the audit log, Studio settings |
 
-75 steps and 309 animated beats in all. The example used throughout is a sandbox project, **"Downtown plan (Studio
+75 steps and 311 animated beats in all. The example used throughout is a sandbox project, **"Downtown plan (Studio
 tutorial demo)"**: a Conceptual Plan whose leading image is a downtown land-use plan.
 
 ## Open it
