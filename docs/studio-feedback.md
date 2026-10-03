@@ -7,7 +7,8 @@ Notes for the CoPlanAI product team, collected while we built the CoPlan Studio 
 - **When and where:** 2 October 2026, on the live platform (`coplanai.ikonai.app`, app "CoPlanAI"), in Studio.
 - **Who:** we were signed in as the owner account. We worked in a sandbox project, **"Downtown plan (Studio tutorial
   demo)"**, a Conceptual Plan started from a US downtown zoning plan. We only viewed other projects and the
-  Studio-wide settings.
+  Studio-wide settings. Our account also has platform-admin rights: it lands on the platform admin panel after
+  sign-in. We took no action there.
 - **Method:** an automated Chromium browser (Playwright) at 1900×950 explored Studio in seven parallel passes:
   starting a project and the project list; site setup; Quick actions and presets; the image grid and Focus view; the
   edit tabs; Production, video and upscale; and the Studio menu pages (uploads, library, team, audit log, settings).
@@ -19,10 +20,13 @@ Notes for the CoPlanAI product team, collected while we built the CoPlan Studio 
   duplicates across the passes, and removed anything that came from our own test setup or was only a matter of taste.
   The removed items are listed in [Appendix A](#appendix-a--excluded-observations). Where we could not tell the cause,
   we say so.
-- **Evidence:** paths are relative to the root of our guide repository. `explore/<area>/…` and `explore/raw/…` are
-  screenshots (`.png`) with matching page text (`.txt`) and, for most, element boxes (`.json`).
-  `tutorial/studio/img/…` are the guide's plates (`.webp`), and `tutorial/studio/chapters/…` is the guide's text. We
-  can share any of them on request.
+- **Evidence:** paths are relative to the root of our guide repository. `tutorial/studio/img/…` are the guide's
+  plates (`.webp`), `tutorial/studio/chapters/…` is the guide's text, and `docs/…` holds our notes; these are in the
+  repository. `explore/<area>/…` and `explore/raw/…` are the raw captures behind the review: screenshots (`.png`) with
+  matching page text (`.txt`) and, for most, element boxes (`.json`). They are not in the repository, because they
+  also show other projects, the platform admin panel and other people's account names and email addresses, and they
+  were kept only in the temporary workspace where the review was made. We kept their paths so that each claim says
+  what it rests on.
 
 **Severity**
 
@@ -38,29 +42,32 @@ to one screen or flow; **L** touches the data model or several screens.
 ## Summary
 
 In its first hour, Studio steers planners towards results they did not ask for and cannot easily correct. The platform
-default configuration, which every app inherits until an admin saves its own, is written for Dubai: its master prompt
-asks for "a hot-arid desert setting" with palm planting, and its land-use colour standard is "Dubai land use", so
-every run on our US downtown plan came back as a desert city with a lake. The site boundary a planner draws is not
-saved, although the Site tab says "Set", and the first run from any tab then locks the boundary and the land-use plan
-for good without asking. Land-use recognition reads the colours printed on the plan instead of the planner's paint,
-and Production renders whichever iteration is newest rather than the one the team chose. No run shows what it costs or
-how long it will take, and the report counts approvals and generations that don't add up.
+default configuration, which every app inherits until someone saves an app-specific configuration, is written for
+Dubai: its master prompt asks for "a hot-arid desert setting" with palm planting, and its land-use colour standard is
+"Dubai land use". Every run on our US downtown plan came back as a desert city, with a lake or canals that the
+land-use reading most likely added (SS-2). The site boundary a planner draws is not saved, although the Site tab says
+"Set", and the first run from any tab then locks the boundary and the land-use plan for good without asking. Land-use
+recognition counts the colours printed on the plan as well as the planner's paint, and dropped the painted Commercial
+zone. Production builds from each concept's newest iteration by default, and hides the renders already built when a
+newer iteration arrives. No run shows what it costs or how long it will take, and the client report's generation
+totals don't add up, while it includes an "Approved concepts" section by default although we found no way to approve a
+concept.
 
 | ID | Area | Severity | Issue |
 |---|---|---|---|
 | SS-1 | Site setup | High | The saved site boundary does not contain the drawn line, although the Site tab says "Set" |
-| SS-2 | Site setup | High | Land-use recognition reads the printed plan, not the paint: it adds Water, drops Commercial, and the plans then show a lake |
+| SS-2 | Site setup | High | Land-use recognition reads the printed plan as well as the paint: it adds Water, drops the painted Commercial zone, and the plans then show a lake |
 | SS-3 | Site setup | High | Site setup can be skipped, and the first run from any tab locks it for good without asking |
 | SS-4 | Site setup | High | "Save boundary" accepts an empty canvas or an open line and still says "Boundary set" |
 | ID-1 | Ideation controls & defaults | High | The inherited default prompts, required elements, density bands and colour standard are written for Dubai |
-| ID-2 | Ideation controls & defaults | High | The brief is not kept between runs: chips reset, required elements drop out, and the image in focus doesn't show its settings |
-| RE-1 | Reviewing & editing images | High | Generated plans copy the plan's legend with the wrong colours |
-| PR-1 | Production & report | High | Production renders whichever iteration is newest, and built renders disappear when a newer one arrives |
+| ID-2 | Ideation controls & defaults | High | The brief is not kept between runs: chips reset, required elements leave the tray, and the image in focus doesn't show its settings |
+| RE-1 | Reviewing & editing images | High | A generated plan copied the plan's legend with the wrong colours, and most edits of it kept the legend |
+| PR-1 | Production & report | High | Built renders disappear when a newer iteration arrives, and Production builds from the newest one by default |
 | PR-2 | Production & report | High | The report's figures and event labels contradict each other |
 | PR-3 | Production & report | High | "Approved concepts", "locked" and "master" appear everywhere, but nothing lets a team approve or lock a concept |
 | NA-1 | Navigation & organisation | High | Adding a site image silently switches the scope, and the detected scale varies more than fourfold |
 | CC-1 | Whole journey | High | coplanai.com promises Studio features that are missing or only partly there |
-| NA-2 | Organisation · privacy | Medium | "Add member…" lists 449 accounts with no search, repeated first names, a raw ID and an email address |
+| NA-2 | Organisation · privacy | Medium | "Add member…" lists 449 accounts with no search, repeated first names, a raw ID and email addresses |
 | NA-3 | Organisation · privacy | Medium | Studio never says who "everyone" is: other people can read every project, and new presets are shared by default |
 | SS-5 | Site setup | Medium | Picking a colour in the boundary editor erases the drawing, and Undo can't bring it back |
 | SS-6 | Site setup | Medium | Back discards unsaved drawing and painting without asking, and Clear boundary deletes at once |
@@ -75,20 +82,14 @@ how long it will take, and the report counts approvals and generations that don'
 | RE-3 | Reviewing & editing images | Medium | Tiles, Focus view and Compare don't say which image it is or how it was made |
 | RE-4 | Reviewing & editing images | Medium | The edit tabs ignore ticked images, and their hint doesn't say what to do |
 | RE-5 | Reviewing & editing images | Medium | Moving between images is hidden: invisible arrows, no arrow keys, and Escape doesn't go back |
-| RE-6 | Reviewing & editing images | Medium | One Apply to mask click produced two iterations (four images) |
 | RE-7 | Reviewing & editing images | Medium | Parent says "No parent image available" on first open, and toolbar buttons come and go |
 | RE-8 | Reviewing & editing images | Medium | The prompt strip shows only part of what was sent, so Copy prompt can't reproduce an image |
-| RE-9 | Reviewing & editing images | Medium | Touch-up keeps the previous tool or colour for 1–2 s after a switch, and colours have no stated meaning |
 | PR-4 | Production & report | Medium | The Report builder's "Report preview" never shows the report |
 | PR-5 | Production & report | Medium | A render in progress can look idle, which invites a second paid click |
 | PR-6 | Production & report | Medium | Renders can't be opened or acted on from the render set |
-| PR-7 | Production & report | Medium | Moving between Production, Video, Upscale and Report is inconsistent |
-| PR-8 | Production & report | Medium | The client-facing audit prints internal identifiers instead of plain names |
-| NA-4 | Navigation & organisation | Medium | Nothing leads back to the CoPlanAI dashboard, and the unlabelled logo opened the platform admin panel |
+| NA-4 | Navigation & organisation | Medium | Nothing leads back to the CoPlanAI dashboard, and for our platform-admin account the unlabelled logo opened the admin panel |
 | NA-5 | Navigation & organisation | Medium | Uploaded images, Team & permissions and Audit log have no address of their own |
 | NA-6 | Navigation & organisation | Medium | Nothing in Studio is a link, and the project-name breadcrumb opens settings |
-| NA-7 | Navigation & organisation | Medium | "8 projects" over 7 cards, and a "Completed" status that can't be set anywhere |
-| NA-8 | Navigation & organisation | Medium | Machine-made project and team names that drift apart |
 | NA-9 | Navigation & organisation | Medium | Save buttons sit at the far end of long pages, and Project settings mixes autosave with Save |
 | NA-10 | Navigation & organisation | Medium | Studio Settings and each project's settings edit the same lists, with no sign of which applies |
 | NA-11 | Navigation & organisation | Medium | Six image pickers with different names, tabs and contents, and every project's drawings pile up Studio-wide |
@@ -104,6 +105,8 @@ how long it will take, and the report counts approvals and generations that don'
 | ID-8 | Ideation controls & defaults | Low | Tray chips and "selected" styles are inconsistent |
 | ID-9 | Ideation controls & defaults | Low | In the grid the whole panel is locked, including controls that don't need an image |
 | ID-10 | Ideation controls & defaults | Low | "Choose from uploaded images" offers only the project's own site plan, and has no Cancel |
+| RE-6 | Reviewing & editing images | Low | One Apply to mask click produced two iterations (four images) |
+| RE-9 | Reviewing & editing images | Low | Touch-up keeps the previous tool or colour for 1–2 s after a switch, and colours have no stated meaning |
 | RE-10 | Reviewing & editing images | Low | The Focus toolbar is 15 unlabelled icons over the image, with look-alikes and an AI action mixed in |
 | RE-11 | Reviewing & editing images | Low | Compare drops eye-level views from pairs, and Focus view compares only against the Original |
 | RE-12 | Reviewing & editing images | Low | Grid filters, counts and headings disagree with what is shown |
@@ -114,14 +117,18 @@ how long it will take, and the report counts approvals and generations that don'
 | RE-17 | Reviewing & editing images | Low | The fullscreen viewer is a cut-down Focus view with no navigation |
 | RE-18 | Reviewing & editing images | Low | The collapsed panel rail drops three tabs, and its icons have no tooltips |
 | RE-19 | Reviewing & editing images | Low | In Top & eye-level, the boundary toggle stays on but no boundary is drawn |
-| PR-9 | Production & report | Low | Video slots "Before (leading)" and "After (master)" use internal terms, and the pre-fill comes and goes |
+| PR-7 | Production & report | Low | Moving between Production, Video, Upscale and Report is inconsistent |
+| PR-8 | Production & report | Low | The client-facing audit prints internal identifiers instead of plain names |
+| PR-9 | Production & report | Low | Video slots "Before (leading)" and "After (master)" use internal terms, and the pre-fill depends on how the page is opened |
 | PR-10 | Production & report | Low | Sequence video keeps the before/after wording |
 | PR-11 | Production & report | Low | Camera presets, durations and the prompt placeholder are unexplained or written for buildings |
 | PR-12 | Production & report | Low | Upscale's Crystal engine "can invent detail", against the page's "without changing its content" |
-| PR-13 | Production & report | Low | A failed video gives no reason, and the error banner comes back on later visits |
+| PR-13 | Production & report | Low | A failed video gives no reason |
 | PR-14 | Production & report | Low | Impact answers marked "Include in report" stay out of the report by default |
 | PR-15 | Production & report | Low | An empty Production page hides Upscale, the Report builder and Render settings |
 | PR-16 | Production & report | Low | Accessibility: 24 identical "Build" buttons, hidden reorder buttons, unnamed handles and info icons |
+| NA-7 | Navigation & organisation | Low | "8 projects" over 7 cards, and a "Completed" status that can't be set anywhere |
+| NA-8 | Navigation & organisation | Low | Machine-made project and team names that drift apart |
 | NA-13 | Navigation & organisation | Low | One dialog has two names; three things are called "Settings" and two are called "Site" |
 | NA-14 | Navigation & organisation | Low | Studio Settings uses different names from the controls it sets up |
 | NA-15 | Navigation & organisation | Low | Uploaded images shows a use count, not where each image is used |
@@ -133,7 +140,7 @@ how long it will take, and the report counts approvals and generations that don'
 | NA-21 | Navigation & organisation | Low | Studio home opens on a large upload box, and recent projects are below the fold |
 | NA-22 | Navigation & organisation | Low | Mixed British and American spelling, broken plurals and three date formats |
 
-**Totals:** 84 items: 12 high, 37 medium, 35 low.
+**Totals:** 84 items: 12 high, 31 medium, 41 low.
 
 ## Quick wins
 
@@ -145,21 +152,21 @@ what the full fix involves.
 | Ask before the first run locks the site: one sheet that shows what is set and says it can't be changed afterwards | SS-3 | The costliest trap of the first hour; today the only way back is a new project |
 | Keep Save boundary disabled until there is one closed outline, and open the editor on Polygon | SS-4 | A "Set" status that means nothing |
 | Replace the Dubai wording in the platform default prompts, required elements and colour standard with region-neutral text | ID-1 | Desert schemes for every app that has not written its own configuration |
-| Move the default Commercial and Water colours away from the boundary markers, and flag clashing swatches in the editor | SS-9 | The likely reason painted commercial zones go missing (SS-2) |
+| Drop Red and Blue from the boundary line colours, check the rest against the land-use colours, and flag clashing swatches in the editor | SS-9 | The likely reason painted commercial zones go missing (SS-2) |
 | Write a correct output line under each run button, and put a count and a confirmation on Build all missing | CC-2 | Clicks whose output and spend nobody can predict |
 | Ask before Back throws a drawing away, and offer Undo after Clear boundary | SS-6 | One click losing a painted land-use plan |
-| Show the storeys on each density chip and the prompt fragment in each ⓘ | ID-6 | Downtown teams choosing "High" and getting five storeys at most |
+| Show the storeys on each density chip and the prompt fragment in each ⓘ | ID-6 | Downtown teams choosing "High" and asking for five storeys at most |
 | Show the previous/next arrows, map the arrow keys, and make Escape go back to the grid | RE-5 | Opening and closing every image from the grid to compare options |
-| Point the logo to the CoPlanAI dashboard and add "CoPlanAI" to the breadcrumb | NA-4 | No way out of Studio, and accidental trips into the admin panel |
-| Count what is listed ("7 projects · 1 archived") and fix the status filter's wording | NA-7 | A wrong first number and archived work that quietly disappears |
-| Add a sticky "Unsaved changes · Save" bar to Project settings and Studio Settings | NA-9 | Settings changes lost because the only Save is 2,800 or 7,000 px away |
+| Point the logo to the CoPlanAI dashboard and add "CoPlanAI" to the breadcrumb | NA-4 | No way out of Studio, and accidental trips into the admin panel for admin accounts |
+| Count what is listed ("7 projects · 1 archived") and fix the status filter's wording | NA-7 | A wrong first number and an "All statuses" filter that isn't all |
+| Add a sticky "Unsaved changes · Save" bar to Project settings and Studio Settings | NA-9 | Settings changes lost because Save sits 2,800 px down, or back at the top of a 7,000 px page |
 | Load an image's lineage before drawing the toolbar, so Parent is right on first open | RE-7 | Planners being told an iteration has no parent |
 | Print names instead of raw IDs and model codes in the client-facing audit | PR-8 | An audit that reads like a system dump in front of a client |
 | Bring the Studio card on coplanai.com in line with what Studio does today | CC-1 | Buyers looking for planning-document checks and stored cameras that aren't there |
 
 ## Bigger changes
 
-The theme reviews proposed 28 structural changes. Many overlap, so we merged them into six.
+Our notes proposed 28 structural changes. Many overlap, so we merged them into six.
 
 ### A · A site step you can trust, ending in an explicit lock
 
@@ -201,10 +208,10 @@ The theme reviews proposed 28 structural changes. Many overlap, so we merged the
 
 - **Problem:** Quick actions puts project-level constraints (scope, density, required programme, style) and one-off
   changes (time of day, greenery, water, people) side by side as identical chips, with four different save rules
-  (ID-3). After each run the panel forgets the brief, required elements drop out, and the image in focus shows no
-  settings (ID-2, RE-8). The project's location does not reach generation, while the defaults that do are written for
-  Dubai and can only be changed by an admin (ID-1). New concept cannot change the brief at all (ID-4), and street
-  geometry can only be set through a preset (ID-5).
+  (ID-3). After each run the panel forgets the brief, required elements leave the tray, and the image in focus shows
+  no settings (ID-2, RE-8). Nothing shows whether the project's location reaches generation, while the defaults that
+  do are written for Dubai and can be changed only in Studio Settings, for the whole app (ID-1). New concept cannot
+  change the brief at all (ID-4), and street geometry can only be set through a preset (ID-5).
 - **Proposal:** Give each concept a **Brief**: scope, density, layout geometry, render style, creativity, required
   elements and references, plus the project's written brief and its location and climate. The brief is kept for every
   run of that concept until someone changes it. Below it sits **Change this run**: scene, adjust, add and free text,
@@ -229,36 +236,37 @@ The theme reviews proposed 28 structural changes. Many overlap, so we merged the
 
 - **Problem:** No run states its output, time or cost. The only caption, "Each run generates 2 variant(s)", is wrong
   under Adjust and Impact, and Build all missing shows no count (CC-2). Progress appears in three different ways,
-  Focus view opens mid-run, and Touch-up results land out of sight (CC-3). One Touch-up produced two iterations
-  (RE-6), and a render that is building can look idle (PR-5).
+  Focus view opens mid-run, and Touch-up results land out of sight (CC-3). One Touch-up click produced two iterations,
+  possibly from a retried request (RE-6), and a render that is building can look idle (PR-5).
 - **Proposal:** Work out each run's real output, typical duration and cost, and print them under its button. Ask for
   confirmation above a threshold, for example more than four generations. Keep one run queue on the server, visible to
   everyone on the project. Show each run in place as a new iteration row with one placeholder per expected image, and
   don't open Focus view by itself. End every run with a notice that says where the results went and reports anything
   missing, with Retry. Disable a run button from its first click until the run ends.
-- **On screen:** Under the bottom buttons: Quick actions and Prompt "2 images · about 2 min · 2 credits"; Touch-up "2
-  images · about 5 min · 2 credits"; Adjust "1 image · a few seconds · no credits"; Impact "Text answer · about 15 s".
-  On click the button turns into "Running… Cancel". A chip "Runs · 1" appears left of the account avatar and opens a
-  tray: "Concept A · Touch-up · image 1 of 2 · about 3 min left". In the grid: "I3 · generating — Variant 1 of 2 ·
-  about 2 min left" above two placeholder tiles. When it ends, a toast: "Touch-up finished: 2 new images in Concept A
-  · I3 · View", or "1 of 2 images couldn't be made · Retry". Build all missing opens "Build 22 renders?" with one row
-  per concept ("Concept A · from I2 · 10 renders"), a total ("about 25 min · 22 credits") and the buttons [Build 2 to
-  check first] and [Build all 22]. If the app meters usage, a "Credits" chip sits next to the avatar.
+- **On screen:** Under the bottom buttons, with <cost> in whatever unit the app bills in: Quick actions and Prompt "2
+  images · about 3 min · <cost>"; Touch-up "2 images · about 2 min · <cost>"; Adjust "1 image · a few seconds ·
+  <cost>"; Impact "Text answer · about 15 s · <cost>". On click the button turns into "Running… Cancel". A chip "Runs
+  · 1" appears left of the account avatar and opens a tray: "Concept A · Touch-up · image 1 of 2 · about 3 min left".
+  In the grid: "I3 · generating — Variant 1 of 2 · about 2 min left" above two placeholder tiles. When it ends, a
+  toast: "Touch-up finished: 2 new images in Concept A · I3 · View", or "1 of 2 images couldn't be made · Retry".
+  Build all missing opens "Build 22 renders?" with one row per concept ("Concept A · from I2 · 10 renders"), a total
+  ("about 25 min · <cost>") and the buttons [Build 2 to check first] and [Build all 22]. If the app meters usage, a
+  "Credits" chip sits next to the avatar.
 - **Covers:** CC-2, CC-3, RE-6, PR-5.
 - **Effort:** M.
 
 ### D · From shortlist to approved master, renders and report
 
 - **Problem:** Favourites lead nowhere. Compare is a bare dialog that shows favourites at mismatched framings (RE-11).
-  Production renders whichever iteration is newest and hides renders built from earlier ones (PR-1). "Approved",
-  "locked", "master" and "final" appear in Production, Video and the report, but no control sets them (PR-3). The
-  Report builder previews none of the report, and its figures disagree (PR-2, PR-4). Production views are prompt
-  sentences rather than stored cameras, although coplanai.com promises "Renders from stored cameras" (CC-1).
-- **Proposal:** Turn Favourites into a shortlist compared at the leading image's crop and scale. Let the team mark one
-  image per concept "Use for production"; that is the master. Production renders from it, keeps every built render
-  with its source, and says when Ideation has moved on. Store each production view as a camera set once per project,
-  so concepts and before/after pairs share a frame. Make the Report builder a paged preview with a status on each
-  section and a check before export, and write the audit in plain words.
+  Production defaults to the newest iteration and hides renders built from earlier ones (PR-1). "Approved", "locked",
+  "master" and "final" appear in Production, Video and the report, but no control sets them (PR-3). The Report builder
+  previews none of the report, and its figures disagree (PR-2, PR-4). Production views are prompt sentences rather
+  than stored cameras, although coplanai.com promises "Renders from stored cameras" (CC-1).
+- **Proposal:** Turn Favourites into a shortlist compared at the leading image's crop and scale. Turn Send to
+  production into "Use for production": the team marks one image per concept, and that is the master. Production
+  renders from it, keeps every built render with its source, and says when Ideation has moved on. Store each
+  production view as a camera set once per project, so concepts and before/after pairs share a frame. Make the Report
+  builder a paged preview with a status on each section and a check before export, and write the audit in plain words.
 - **On screen:** In the grid, Favourites gains "Compare shortlist": all favourites as top views at the leading image's
   crop, with the stored boundary and a scale bar ("0 — 250 m"), captioned "Concept A · I2 · image 1 · Dusk, Greenery 2
   of 3, Water feature", each with a heart, "★ Use for production" and "Open". The Production row header reads "Concept
@@ -300,12 +308,12 @@ The theme reviews proposed 28 structural changes. Many overlap, so we merged the
 
 ### F · A workspace that behaves like a website, with one settings page and clear access
 
-- **Problem:** The logo has no name and sent the owner to the admin panel; three menu pages have no address; nothing
-  in Studio is a link; Video and Upscale hang off Production with no way back (NA-4 to NA-6, PR-7). Project
-  configuration lives in a dialog with two names, a Save button 2,800 px down, and lists copied from Studio Settings
-  with no sign of which applies (NA-9, NA-10, NA-13). People are managed in two places that disagree, and "everyone"
-  is never defined (NA-2, NA-3, NA-16). Six pickers show the same images under different names (NA-11). The same idea
-  goes by several names, and one name covers several ideas (CC-5, NA-14, NA-19).
+- **Problem:** The logo has no name and sent our admin account to the platform admin panel; three menu pages have no
+  address; nothing in Studio is a link; Video and Upscale hang off Production with no way back (NA-4 to NA-6, PR-7).
+  Project configuration lives in a dialog with two names, a Save button 2,800 px down, and lists copied from Studio
+  Settings with no sign of which applies (NA-9, NA-10, NA-13). People are managed in two places that disagree, and
+  "everyone" is never defined (NA-2, NA-3, NA-16). Six pickers show the same images under different names (NA-11). The
+  same idea goes by several names, and one name covers several ideas (CC-5, NA-14, NA-19).
 - **Proposal:**
   - Replace the Ideation | Production switch with a project stepper: ① Site · ② Ideation · ③ Production · ④ Report,
     each with its state and the single next action. Video and Upscale open as sub-pages of Production.
@@ -341,19 +349,20 @@ explain a workaround: Back doesn't ask, press Esc because Undo is greyed out, ch
 starts empty, Clear doesn't ask, check the recognised list, everything locks after the first run. The guide is mostly
 working around the Site tab instead of teaching it.
 
-### SS-1 · The saved site boundary does not contain the drawn line, though the tab says "Set" (High)
+### SS-1 · The saved site boundary does not contain the drawn line, although the Site tab says "Set" (High)
 
 - **Where:** Ideation > Site tab > Draw boundary or Redraw boundary > Save boundary; afterwards Site tab > View
   boundary and Hide site boundary. In the sandbox, the land-use editor, Quick actions and Focus view's Original and
   Compare show no boundary either.
 - **What happens:** The user closes a polygon or outline and clicks Save boundary. The panel shows "Setting
   boundary…", then "● Set", and the toast says "Boundary set — Generations now stay inside the drawn site boundary."
-  But View boundary opens the plain leading image with no orange line. The "Site boundary" overlay holds nothing but a
-  few compression dots, and Hide site boundary changes nothing. The upload capture shows why: Save boundary sends two
-  images about 1 s apart. The first has the line. The second comes from a hidden second canvas on the editor page, has
-  no line, and is the one that is kept. It happened on every save: five explorer saves and the guide's own run, at
-  1900×950 and at narrower widths. In an older project ("Conceptual Plan 2026-09-28 2") View boundary does show the
-  orange line, so the feature has worked before.
+  But View boundary opens the plain leading image with no orange line. The "Site boundary" overlay is almost empty
+  when shown on its own (we isolated it in the page): scattered dots and a faint broken trace along the top-right
+  edge. Hide site boundary changes nothing. The upload capture shows why: Save boundary sends two images about 1 s
+  apart. The first has the line. The second comes from a hidden second canvas on the editor page, has no line, and is
+  the one that is kept. It happened on every save we made: five in the explorer pass and the guide's own run, all at
+  1900×950. The hidden second canvas is also there at widths from 1024 to 1440. In an older project ("Conceptual Plan
+  2026-09-28 2") View boundary does show the orange line, so the feature has worked before.
 - **Why it matters:** The boundary tells generation where it may design and what to keep as existing context. Planners
   believe it is set because the interface says so twice. After the first run it can't be changed (SS-3), so a team
   only finds out when outputs ignore the site. The guide has to tell readers to open View boundary and report a
@@ -362,32 +371,34 @@ working around the Site tab instead of teaching it.
   present) and `97c-save-upload-2-without-stroke.png` (no line), `97d-editor-canvas0-visible-with-stroke.png`,
   `97e-editor-canvas1-hidden-no-stroke.png`, `explore/site/49-after-save-boundary.png` ("● Set" and the toast, no line
   on the image), `explore/site/53-view-boundary.png`, `explore/raw/3-05b-view-boundary.png`,
-  `explore/site/55-overlay-only-local-debug.png` (overlay empty), `explore/site/61-cp-view-boundary.png` (older
-  project, line present), `tutorial/studio/img/3-07-landuse-painted.webp` and `3-11-start-ideation.webp` (no
-  boundary), `explore/site/06b-boundary-swatch-colours-and-canvas-layout.txt` (hidden canvas at widths 1024 to 1900)
+  `explore/site/55-overlay-only-local-debug.png` (overlay isolated by us: nearly empty),
+  `explore/site/61-cp-view-boundary.png` (older project, line present),
+  `tutorial/studio/img/3-07-landuse-painted.webp` and `3-11-start-ideation.webp` (no boundary),
+  `explore/site/06b-boundary-swatch-colours-and-canvas-layout.txt` (hidden canvas at widths 1024 to 1900)
 - **Suggestion:** Upload only the canvas the user drew on, and check that the saved image contains strokes before
   showing "Set". Then show the result where the user already is: a small preview of the stored boundary under "Site
   boundary" in place of the bare View boundary button, and the outline drawn over the leading image by default. If the
   stored image comes back empty, show "Boundary not saved — draw it again" in red instead of "● Set".
 - **Effort:** M
 
-### SS-2 · Land-use recognition reads the printed plan instead of the planner's paint (High)
+### SS-2 · Land-use recognition reads the printed plan as well as the paint: it adds Water, drops the painted Commercial zone, and the plans then show a lake (High)
 
 - **Where:** Site tab > Plan land use > Save land-use plan > the "Land-use plan recognised" review; Site tab >
   RECOGNISED LAND USES; the first generations afterwards.
 - **What happens:** In the sandbox we painted four zones: Open space, Mixed use, Residential and a red Commercial
   block. RECOGNISED LAND USES then listed Water 7.7%, Transport & roads 5.9%, Mixed use 2.4%, Residential 2.4% and
   Open space 2%. Water and Transport were never painted, and Commercial is missing although it is plainly visible in
-  the overlay. An earlier Master Plan on the same downtown plan shows the same pattern: its painted red area is
+  the overlay. The red Commercial paint sits partly over the plan's printed red C-1 zone, and neither was recognised
+  as Commercial. An earlier Master Plan on the same downtown plan shows the same pattern: its painted red area is
   missing, and it lists Water 6.9%, Transport & roads 6% and Residential 3.1%. Studio's own tooltip explains why:
   "each pixel is matched to the nearest standard colour". The plan's printed zoning colours (aqua MU-2 and MU-L, the
   grey base map) are matched along with the paint. The default standard flags Commercial #E53935 as "Too close to the
   red boundary marker" (SS-9), the likely reason red paint is dropped. Every generated plan in both projects contains
   a lake or canals, although the source plan shows no water, and the Water fragment the model receives is "water
   bodies". The Dubai-oriented prompts (ID-1) may add to the water, so the link is strong but not proven.
-- **Why it matters:** Zoning is the main brief for a master plan. Studio silently replaces the planner's zoning with a
-  misreading of the base map, then generates from it. A client can be shown a lakeside scheme for a downtown that has
-  no water. A planner would read that as Studio ignoring the brief, and would be right.
+- **Why it matters:** Zoning is the main brief for a master plan. Studio silently mixes a misreading of the base map
+  into the planner's zoning, drops part of that zoning, then generates from it. A client can be shown a lakeside
+  scheme for a downtown that has no water. A planner would read that as Studio ignoring the brief, and would be right.
 - **Evidence:** `tutorial/studio/img/3-07-landuse-painted.webp` (four painted zones, including red Commercial),
   `tutorial/studio/img/3-08-landuse-review.webp` and `3-11-start-ideation.webp` (list without Commercial, with Water
   and Transport), `explore/raw/3-08-after-save.txt`, `explore/site/80-mp-view-plan.png` and
@@ -403,7 +414,7 @@ working around the Site tab instead of teaching it.
   colour in the standard or repaint."
 - **Effort:** M
 
-### SS-3 · The first run from any tab locks the site for good, without asking (High)
+### SS-3 · Site setup can be skipped, and the first run from any tab locks it for good without asking (High)
 
 - **Where:** Site tab > Start ideation (enabled from the start); Quick actions > Apply to current; Prompt > Generate;
   Presets > Start ideation; Touch-up > Apply to mask (see RE-2). Afterwards, the Site tab of a generated project.
@@ -499,15 +510,15 @@ working around the Site tab instead of teaching it.
 
 - **Where:** Boundary editor > Polygon tool; Site tab > Redraw boundary.
 - **What happens:** While a polygon is open, Undo and Redo stay disabled. The only escape is Esc, which drops the
-  whole unfinished shape and isn't mentioned anywhere on screen. Once the shape is closed, a single Undo removes the
-  whole outline. Redraw boundary opens the editor on an empty canvas with the note "A boundary is already set — saving
-  a new drawing replaces it." The current boundary is not loaded for editing.
+  whole unfinished shape and isn't mentioned anywhere on screen. Redraw boundary opens the editor on an empty canvas
+  with the note "A boundary is already set — saving a new drawing replaces it." The current boundary is not loaded for
+  editing.
 - **Why it matters:** Site boundaries have many corners and are traced at map scale, so a misplaced click is common.
   Every slip costs the whole outline, and adjusting one edge after saving means retracing the entire site.
 - **Evidence:** `explore/site/12-polygon-3-points.txt`, `13-polygon-all-points-hover-first.png` and `.txt` (Undo
   disabled mid-polygon), `explore/site/17-polygon-in-progress-escape.png` (Esc drops the shape),
-  `explore/site/15-polygon-closed-undo.txt`, `explore/site/56-redraw-boundary-open.png` (empty canvas and replace
-  note), `tutorial/studio/img/3-03-boundary-polygon.webp` (Undo greyed)
+  `explore/site/56-redraw-boundary-open.png` (empty canvas and replace note),
+  `tutorial/studio/img/3-03-boundary-polygon.webp` (Undo greyed)
 - **Suggestion:** Let Undo and Backspace remove the last corner while drawing. Put a hint in the on-canvas pill:
   "Click to add corners · Backspace removes the last · click the first point to close · Esc cancels". Rename Redraw
   boundary to "Edit boundary" and open the saved outline with draggable corners: click an edge to add a corner, select
@@ -556,10 +567,12 @@ working around the Site tab instead of teaching it.
   `explore/site/88-edit-colours-in-project-settings.txt` (Commercial and Water warnings),
   `explore/site/66-land-use-editor-direct-url.txt` (Commercial swatch without a warning),
   `explore/site/06b-boundary-swatch-colours-and-canvas-layout.txt` (Orange against Community facilities),
-  `explore/entry/61-settings-tab-settings-scroll4.png` (the same at project set-up)
-- **Suggestion:** Change the default Commercial and Water colours so they clear the boundary markers, and check Orange
-  against Community facilities with the same rule. Mark any clashing swatch in the editor with a warning icon and a
-  tooltip. Show the standard under the legend: "Standard: Generic land use · Edit colours".
+  `explore/entry/61-settings-tab-settings-scroll4.png` (Water warning; Save at the bottom of the dialog)
+- **Suggestion:** Remove the boundary-marker colours that clash with conventional land-use colours (Red, Blue) instead
+  of moving Commercial and Water off red and blue, which most zoning plans use (this one prints C-1 in red). Check
+  Orange against Community facilities with the same rule (SS-5 proposes two line colours in all). Mark any clashing
+  swatch in the editor with a warning icon and a tooltip. Show the standard under the legend: "Standard: Generic land
+  use · Edit colours".
 - **Effort:** S
 
 ### SS-10 · Editor toolbars are unlabelled icons, and the two editors name the same tools differently (Low)
@@ -616,7 +629,7 @@ working around the Site tab instead of teaching it.
 
 ## Ideation controls & defaults
 
-### ID-1 · The inherited default configuration is written for Dubai (High)
+### ID-1 · The inherited default prompts, required elements, density bands and colour standard are written for Dubai (High)
 
 - **Where:** Studio Settings > the three master prompts (master plan, Focus Area, single building), Density bands,
   Canvas > Required elements, Land use > Land-use colour standard. Quick actions > Density and Required elements.
@@ -629,32 +642,35 @@ working around the Site tab instead of teaching it.
   colonnaded single-storey pavilion") is also on the list. The density bands run from "large detached villas" to
   "three- to five-storey apartment blocks", with nothing taller. The land-use standard is named "Dubai land use", and
   its Residential fragment asks for "residential neighbourhoods of villas and low-rise homes". Inside a project
-  nothing names these defaults. The master prompt is visible only to admins, on a Studio Settings page about 7,000 px
-  tall. The project's Location field carries the tooltip "Recorded for reference — does not affect image generation",
-  although the Settings preview lists a "site anchor from the brief — location, area, project type". The project's
-  Settings tab can't override the master prompt, the density bands or the required elements. Every run on our US
-  downtown zoning plan came back as a sand-coloured desert city with a lake, palms and sand-and-limestone blocks, and
-  the production renders have palms too.
+  nothing names these defaults. The master prompt is shown only in Studio Settings, on a page about 7,000 px tall. The
+  project's Location field carries the tooltip "Recorded for reference — does not affect image generation", although
+  the Settings preview lists a "site anchor from the brief — location, area, project type". We left the sandbox's
+  Location empty, so we couldn't tell which of the two is true. The project's Settings tab can't override the master
+  prompt, the density bands or the required elements. Every run on our US downtown zoning plan came back as a
+  sand-coloured desert city with a lake, palms and sand-and-limestone blocks, and the production renders have palms
+  too.
 - **Why it matters:** Any app that has not saved its own configuration starts every generation from this desert brief.
   A team outside the Gulf gets options in the wrong climate and building culture from the first click, and nothing in
   Quick actions says why. A client can be shown palm planting and a desert palette for a temperate city. The guide has
   to open chapter 4 with a warning ("Check the defaults for your region first") and add a tip for density ("Need
-  taller buildings?"). Even then, a project team can't fix it without an admin.
+  taller buildings?"). Even then, a project team can't override these defaults for one project. We checked Studio
+  Settings only with our owner account, so we don't know whether planners can open it.
 - **Evidence:** `explore/quick/62-settings-field-values.txt` (the three prompts, "Dubai land use"),
   `explore/quick/60-settings-top.txt` ("This app inherits the platform default configuration."),
   `explore/media-org/100-settings-top.txt` (density bands, majlis), `explore/quick/01-quick-top.txt` (Community mosque
   first), `explore/quick/65-settings-preview-generation-prompt.txt` (site anchor),
-  `explore/entry/69d-title-attributes.json` (Location tooltip), `explore/entry/60-settings-tab-settings.txt` (project
-  Settings tab), `explore/site/90b-project-settings-land-use-standard-values.txt`,
-  `tutorial/studio/img/4-08-first-results.webp`, `4-09-iterate.webp`, `4-10-timeline.webp`, `6-03-built.webp`,
-  `tutorial/studio/chapters/04-ideation.js` (warning and tip)
+  `explore/entry/69d-title-attributes.json` (Location tooltip), `explore/entry/62-settings-tab-details.txt` (Location
+  empty), `explore/entry/60-settings-tab-settings.txt` (project Settings tab),
+  `explore/site/90b-project-settings-land-use-standard-values.txt`, `tutorial/studio/img/4-08-first-results.webp`,
+  `4-09-iterate.webp`, `4-10-timeline.webp`, `6-03-built.webp`, `tutorial/studio/chapters/04-ideation.js` (warning and
+  tip)
 - **Suggestion:**
   - Make the platform default region-neutral: start the master prompt with "…a single development parcel at the
     location given in the project brief…", and remove "Dubai", "hot-arid desert", "palm" and "sand-and-limestone" from
     all three prompts. Ship Required elements empty, with today's list offered as suggestions. Rename the standard
     "Generic land use" and change Residential to "residential neighbourhoods".
-  - Make Location, and a new "Climate / region" choice, feed the site anchor, and drop the "does not affect image
-    generation" tooltip from those fields.
+  - Make the tooltip and the preview agree. If Location already feeds the site anchor, say so; if not, make it, with a
+    new "Climate / region" choice.
   - In Studio Settings, offer "Start from a regional pack" (Gulf, Europe, North America …) that fills the prompts,
     required elements, density bands and colour standard in one step.
   - In Project settings > Settings, allow per-project overrides: "Base prompt (this project)", a "Hide in this
@@ -663,7 +679,7 @@ working around the Site tab instead of teaching it.
     follow this app's master prompt, written for Dubai. Change it in Studio Settings."
 - **Effort:** S for the region-neutral default text; M for location, regional packs and per-project overrides.
 
-### ID-2 · The brief is not kept between runs (High)
+### ID-2 · The brief is not kept between runs: chips reset, required elements leave the tray, and the image in focus doesn't show its settings (High)
 
 - **Where:** Quick actions after Apply to current; Focus view with an image in focus; the toolbar's Prompt bubble.
 - **What happens:** After Apply to current, the chips reset. While run 1 was going, and after it finished, Day,
@@ -671,16 +687,17 @@ working around the Site tab instead of teaching it.
   Density, Creativity and Render Style show nothing selected, although that image's prompt strip shows it was made
   with Medium-high, Balanced and Illustrative. The required elements Public park and Transit stop are saved to the
   project and survive a reload, and they were in the tray for run 1. Before run 2, the tray listed only Dusk, Greenery
-  ↑↑ and + Water feature. Studio Settings says the opposite of all this: its tooltip says required elements are "held
+  ↑↑ and + Water feature, although both elements were still saved to the project. Nothing on screen says whether they
+  were sent with run 2. Studio Settings says the opposite of all this: its tooltip says required elements are "held
   constant across every planning preset", and its prompt preview files density and required elements under PERSISTENT
   CONSTRAINTS. Yet the prompt strip shows density sent as a one-off change ("Adjust the residential density to
   medium-high density …") and does not list the required elements (RE-8). Iteration 2 was staged on an Illustrative
   top view with only Dusk, Greenery and Water feature. It came back as two photoreal oblique aerials, one of them a
   close-up of a fountain plaza.
 - **Why it matters:** Planners iterate on the assumption that the brief holds: the density, the mandated school, park
-  or transit stop, the style. Instead, mandated facilities can drop out of later iterations without notice, and the
-  style and viewpoint drift. Because the panel never shows what the image in focus was made with, nobody can stage the
-  same settings again. These outputs end up in client decks.
+  or transit stop, the style. Instead, nobody can tell whether mandated facilities were sent with later iterations,
+  and the style and viewpoint drift. Because the panel never shows what the image in focus was made with, nobody can
+  stage the same settings again. These outputs end up in client decks.
 - **Evidence:** `tutorial/studio/img/4-07-generating.webp`, `explore/raw/4-run1-before.txt`,
   `explore/raw/4-run1-09.png`, `explore/raw/4-09-raw.txt` and `tutorial/studio/img/4-09-iterate.webp` (tray without
   the required elements), `explore/raw/5-04-raw.png` and `.txt`, `explore/quick/54-existing-focus-image-quick.png`,
@@ -721,11 +738,12 @@ working around the Site tab instead of teaching it.
   SCENE (Day, Dusk, Night), AREAS (Greenery as an on/off chip, where Quick actions has a three-step slider) and ADD
   (Water feature, People). It has no density, render style, creativity, layout geometry, required elements, references
   or text. It says "Without changes, the first image starts from the project defaults", but Studio never shows what
-  the project defaults are. There is no Cancel or close button, only Create concept. The concept's name is only a
-  label: "Green streets", created with Day and People, came back as another lakeside top view.
+  the project defaults are. There is no Cancel or close button, only Create concept. Nothing says whether the
+  concept's name reaches generation: a team that names a concept "Green streets" may expect greener streets without
+  ticking Greenery.
 - **Why it matters:** Planners compare alternatives by density, street layout and programme, and none of these can be
-  set here. The name suggests a direction that generation never receives. With no Cancel, users fear that closing the
-  dialog will create a concept and spend a run.
+  set here. The name suggests a direction that generation may never receive. With no Cancel, users fear that closing
+  the dialog will create a concept and spend a run.
 - **Evidence:** `tutorial/studio/img/4-11-new-concept.webp`, `explore/raw/4-11-newconcept-probe.txt`,
   `tutorial/studio/img/4-12-two-concepts.webp`
 - **Suggestion:** Start the dialog with "Start from: Project defaults / Concept A's brief / Image I2 of Concept A".
@@ -737,14 +755,15 @@ working around the Site tab instead of teaching it.
 ### ID-5 · The Presets tab is a dead end while the library is empty, and layout geometry needs a preset (Medium)
 
 - **Where:** Actions panel > Presets tab (compass icon); Quick actions; Studio Settings > Layout geometry.
-- **What happens:** In an empty project the pill on the image says "Start ideation from the Presets tab when ready".
-  The tab shows only "No planning presets for this plan type yet." and New planning preset. Start ideation stays
-  disabled even with a change pending ("Select a preset above to enable Start ideation."), while Apply to current in
-  Quick actions accepts the same change. Layout geometry (Linear, Organic, Hybrid) is set up in Studio Settings and
-  listed in the generation prompt under DIRECTION SETTINGS, but Quick actions has no card for it, so without a preset
-  it can't be set at all. The "+" in the Presets header and New planning preset have no tooltip.
-- **Why it matters:** The image sends new users to a tab where they can do nothing. Street geometry, a core planning
-  choice, is out of reach for every team that has not built presets yet.
+- **What happens:** On the Presets tab of an empty project the pill on the image reads "Start ideation from the
+  Presets tab when ready", but the tab shows only "No planning presets for this plan type yet." and New planning
+  preset. Start ideation stays disabled even with a change pending ("Select a preset above to enable Start
+  ideation."), while Apply to current in Quick actions accepts the same change. Layout geometry (Linear, Organic,
+  Hybrid) is set up in Studio Settings and listed in the generation prompt under DIRECTION SETTINGS, but Quick actions
+  has no card for it, so without a preset it can't be set at all. The "+" in the Presets header and New planning
+  preset have no tooltip.
+- **Why it matters:** The tab tells new users to start ideation from it, then offers nothing to start with. Street
+  geometry, a core planning choice, is out of reach for every team that has not built presets yet.
 - **Evidence:** `explore/quick/40-presets-tab-sandbox.png`,
   `explore/quick/44-presets-sandbox-start-ideation-disabled.png`, `explore/quick/45-presets-tab-with-pending.png`,
   `tutorial/studio/img/4-13-presets.webp`, `explore/quick/65-settings-preview-generation-prompt.txt`,
@@ -766,8 +785,8 @@ working around the Site tab instead of teaching it.
   change for the image in focus", even in an empty project. The circle-slash button beside Greenery ("Remove all
   Greenery") has no tooltip and stages "Greenery ✕". The custom-option dialogs ask planners for a "Prompt fragment …
   the model-facing phrasing".
-- **Why it matters:** Planners pick a density without knowing the storeys. A downtown team that chooses High gets
-  three to five storeys at most. The guide has to quote the fragments and add a tip ("Need taller buildings?").
+- **Why it matters:** Planners pick a density without knowing the storeys. A downtown team that chooses High asks for
+  three- to five-storey blocks at most. The guide has to quote the fragments and add a tip ("Need taller buildings?").
 - **Evidence:** `tutorial/studio/img/4-01-quick-actions.webp`, `explore/quick/05-tooltip-density.txt`,
   `explore/quick/logs/s2.log`, `explore/quick/15-hover-remove-all-greenery.txt`,
   `explore/quick/61-settings-scroll-02.png`, `explore/quick/17-required-add-other-open.txt`
@@ -850,21 +869,25 @@ them exist to work around behaviour listed below: "Open one image for the edit t
 "Comparing concepts?", "Can't find a favourite?", "Edits add images, they don't replace them" and "Save before you
 move on".
 
-### RE-1 · Generated plans copy the plan's legend with the wrong colours (High)
+### RE-1 · A generated plan copied the plan's legend with the wrong colours, and most edits of it kept the legend (High)
 
 - **Where:** Generated top views in Conceptual Plan projects whose leading image is a plan with a legend. Seen in
   Focus view, Compare and the grid thumbnails, and therefore in downloads.
-- **What happens:** Our leading image is a zoning plan with a legend box. Every lakeside variant reproduces that
-  legend box with the same labels, but the colours no longer match. On the plan, "Downtown" is the red dashed
-  boundary; on the variant it is a light-blue swatch, and light blue on the variant is the lake. The MU-2 and Open
-  Space swatches are recoloured too. Nothing on screen points this out.
+- **What happens:** Our leading image is a zoning plan with a legend box. One of the five independent generations in
+  the sandbox (I1, image 1) reproduced the legend box with the same labels, and six of the seven images later edited
+  from it (I3–I6) kept it. The colours no longer match. On the plan, "Downtown" is the red dashed boundary; on the
+  variant it is a light-blue swatch, and light blue on the variant is the lake. MU-2, MU-L and the Historic overlay
+  are recoloured too. Nothing on screen points this out.
 - **Why it matters:** Variants are shown to colleagues and clients. A legend that looks official but assigns the
-  colours wrongly misstates the land uses in a planning deliverable. The guide has to warn readers: "Don't read land
+  colours wrongly misstates the land uses in a planning deliverable. We rate it High on one occurrence because the
+  question is whether it can happen, not how often: unlike the storey count excluded in Appendix A, one false legend
+  that later edits keep is already a wrong output that looks right. The guide has to warn readers: "Don't read land
   uses from a variant's legend".
 - **Evidence:** `explore/edit-tabs/12-sandbox-touchup-brush-stroke.png` (original plan: Downtown is a red dashed
   line), `tutorial/studio/img/5-01-focus-view.webp` (variant: Downtown is a light-blue swatch), `5-03-compare.webp`,
-  `explore/raw/5-13-timeline.png` (every lakeside tile carries the copied legend),
-  `tutorial/studio/chapters/05-refine.js`
+  `explore/raw/5-13-timeline.png` (I3, I4, I5 and one I6 image, all edits of I1 image 1, carry the copied legend; the
+  other I6 image and the Green streets tile have none), `tutorial/studio/img/4-08-first-results.webp` and
+  `4-10-timeline.webp` (the other I1 image and both I2 images: no legend), `tutorial/studio/chapters/05-refine.js`
 - **Suggestion:** Add a "Mark legend" rectangle tool next to Draw boundary on the Site tab, and pre-detect legend
   boxes on uploaded plans. Keep that area out of what the model may redraw, and paste the original legend back onto
   every variant or leave the area blank. As a stopgap, add "do not reproduce legends, scale bars, north arrows or
@@ -959,21 +982,6 @@ move on".
   grid is showing.
 - **Effort:** S
 
-### RE-6 · One Apply to mask click produced two iterations (four images) (Medium)
-
-- **Where:** Touch-up > Apply to mask; the results in grid > Timeline and in Report builder > Ideation log.
-- **What happens:** Our flow clicked Apply to mask once; the script has no retry and only reads the page text while it
-  waits. Afterwards the Report builder's log listed a Touch-up entry for iteration v3 at 20:29 and two for v4 at
-  20:31. The lineage shows four touch-up nodes (#05 to #08), and the grid shows I4, I4, I3, I3. We saw this once.
-- **Why it matters:** It doubles the cost and the number of near-identical images to sort through, and contradicts the
-  "2 variant(s)" caption (CC-2).
-- **Evidence:** `explore/raw/6-04-raw.txt` (Touch-up v3 at 20:29, v4 twice at 20:31; lineage #05 to #08),
-  `explore/raw/5-13-timeline.png` and `.txt`, `tools/flows/05-refine.js` (one click on Apply to mask)
-- **Suggestion:** Disable Apply to mask from the first click until the run ends, and show the running state at once.
-  Reject a second identical Touch-up (same image, mask and instruction) while one is running. Check the logs for other
-  duplicate Touch-up runs.
-- **Effort:** M
-
 ### RE-7 · Parent says "No parent image available" on first open, and toolbar buttons come and go (Medium)
 
 - **Where:** The Focus view toolbar and the fullscreen viewer.
@@ -1010,17 +1018,36 @@ move on".
   these choices into Quick actions"). If required elements are sent separately, list them anyway.
 - **Effort:** M
 
-### RE-9 · Touch-up keeps the previous tool or colour for 1–2 s after a switch, and colours have no stated meaning (Medium)
+### RE-6 · One Apply to mask click produced two iterations (four images) (Low)
+
+- **Where:** Touch-up > Apply to mask; the results in grid > Timeline and in Report builder > Ideation log.
+- **What happens:** Our flow clicked Apply to mask once; the script has no retry and only reads the page text while it
+  waits. Afterwards the Report builder's log listed a Touch-up entry for iteration v3 at 20:29 and two for v4 at
+  20:31. The lineage shows four touch-up nodes (#05 to #08), and the grid shows I4, I4, I3, I3. We saw this once.
+  Other automated sessions were signed in to the same account at the time, over a proxy that was dropping connections
+  (Appendix A), so a retried request on our side can't be ruled out. Please check the server log for two Touch-up
+  requests on project conceptual-plan-2026-10-02 between 20:27 and 20:29 UTC on 2 Oct.
+- **Why it matters:** If Studio itself duplicated the run, it doubles the cost and the number of near-identical images
+  to sort through, and contradicts the "2 variant(s)" caption (CC-2).
+- **Evidence:** `explore/raw/6-04-raw.txt` (Touch-up v3 at 20:29, v4 twice at 20:31; lineage #05 to #08),
+  `explore/raw/5-13-timeline.png` and `.txt`, `tools/flows/05-refine.js` (one click on Apply to mask)
+- **Suggestion:** Disable Apply to mask from the first click until the run ends, and show the running state at once.
+  Reject a second identical Touch-up (same image, mask and instruction) while one is running. Check the logs for other
+  duplicate Touch-up runs.
+- **Effort:** M
+
+### RE-9 · Touch-up keeps the previous tool or colour for 1–2 s after a switch, and colours have no stated meaning (Low)
 
 - **Where:** The Touch-up tool card: Brush, Eraser, Text, Arrow, Polygon, Thin and Thick stroke, the colour swatches
   and the custom hex field.
 - **What happens:** Drawing straight after picking a tool or colour used the previous one. We got a thin red line
   instead of a thick yellow one, a red line instead of a green arrow, and a black polygon instead of a blue one. A
   Text click added a polygon corner, and a quick eraser drag removed only part of a stroke. With a 1–2 s wait after
-  each switch, every tool came out right. Separately, Studio Settings has "Touch-up color prompts": "Map touch-up
-  drawing colors to prompts (e.g. red = remove, green = add greenery)… each color's prompt is appended to the
-  instruction sent to the model." None were set, and the tab shows seven swatches and a hex field with no legend and
-  no hint that colour can matter.
+  each switch, every tool came out right. We saw this during the parallel exploration passes, on the same slow proxy
+  that delayed other controls (Appendix A), so it may be network latency; it matters only if tool state round-trips to
+  the server. Separately, Studio Settings has "Touch-up color prompts": "Map touch-up drawing colors to prompts (e.g.
+  red = remove, green = add greenery)… each color's prompt is appended to the instruction sent to the model." None
+  were set, and the tab shows seven swatches and a hex field with no legend and no hint that colour can matter.
 - **Why it matters:** A mask drawn with the wrong tool sends the wrong area for regeneration. In a Studio that has
   colour prompts set, a stroke in the lagging colour silently adds the wrong instruction.
 - **Evidence:** `explore/edit-tabs/88-sandbox-single-touchup-all-tools.png` (fast switching),
@@ -1206,35 +1233,42 @@ Chapter 6 of our guide, on Production and the report, has only 5 steps but needs
 steps: "Studio gives no warning", "the page shows no cost before you click", "We found no control … to approve or lock
 a concept" and "Check these figures before you rely on them". Video and upscale issues are in this section too.
 
-### PR-1 · Production renders whichever iteration is newest, and built renders disappear when a newer one arrives (High)
+### PR-1 · Built renders disappear when a newer iteration arrives, and Production builds from the newest one by default (High)
 
 - **Where:** Production > Render set (each concept's leading "Latest" tile, the render tiles, Build, Regenerate from
   master); compare Report builder > audit ⑤ Production decisions and the Renders tab of the Video and Upscale picker.
-- **What happens:** Each concept's newest iteration goes to Production by itself. In the sandbox, the team favourited
-  the fountain aerial (Concept A, I2) and the Green streets plan; the audit's lineage marks both "★ shortlisted". The
-  team then tried more ideas: a Touch-up (I3, I4), a Golden adjustment (I5) and a light-rail prompt (I6). Production's
-  leading tile reads "Concept A · I6", the last experiment rather than a favourite, and every Build renders from it.
-  In an older project, "Conceptual Plan 2026-09-28 2", the render set reads "2 concepts · 0 of 24 renders complete"
-  and every tile shows a Build button. Yet 7 built renders of Concept A exist: the picker's Renders tab shows aerials
-  and eye-level views at day, dusk and night, and the audit lists them as Production decisions at 09:17–09:19 on 28
-  Sep, including "View selected · Eye-level · chosen as final". The audit logs a Touch-up that made iteration v2 at
-  09:27, after the renders, and the Latest tile now reads "Concept A · I2". No banner, badge or link says that renders
-  exist, and Production offers no way to see or restore them.
+- **What happens:** Each concept's newest iteration goes to Production by itself. Studio says the latest iteration
+  "lands here automatically, and you can send more images from the grid" (Select > Send to production). We didn't
+  click Send to production (Appendix A), so we don't know whether a sent image replaces the Latest tile as the source
+  for Build or only adds to the set. Once concepts have arrived, nothing in Production says which image Build uses or
+  how to change it, and favouriting an image doesn't change it. In the sandbox, the team favourited the fountain
+  aerial (Concept A, I2) and the Green streets plan; the audit's lineage marks them, and one image from I1, "★
+  shortlisted". The team then tried more ideas: a Touch-up (I3, I4), a Golden adjustment (I5) and a light-rail prompt
+  (I6). Production's leading tile reads "Concept A · I6", the last experiment, although two favourites existed, and
+  every Build renders from it. In an older project, "Conceptual Plan 2026-09-28 2", the render set reads "2 concepts ·
+  0 of 24 renders complete" and every tile shows a Build button. Yet 7 built renders of Concept A exist: the picker's
+  Renders tab shows aerials and eye-level views at day, dusk and night, and the audit lists them as Production
+  decisions at 09:17–09:19 on 28 Sep, including "View selected · Eye-level · chosen as final". The audit logs a
+  Touch-up that made iteration v2 at 09:27, after the renders, and the Latest tile now reads "Concept A · I2". No
+  banner, badge or link says that renders exist, and Production offers no way to see or restore them.
 - **Why it matters:** Renders are paid AI outputs, and the "chosen as final" view is the deliverable. Iterating after
   a first round of renders is normal planning practice. When a team does, Production looks empty, the team may pay to
-  rebuild, and the next Build silently renders an experiment instead of the chosen design. The report's Render set
-  then stops matching its own decision log. The guide has to tell readers to "settle the design before you build".
+  rebuild, and the next Build renders the latest experiment rather than a favourite, with nothing on the page saying
+  so. The report's Render set then stops matching its own decision log. The guide has to tell readers to "settle the
+  design before you build".
 - **Evidence:** `tutorial/studio/img/6-01-render-set.webp` ("Concept A · I6"), `docs/capture-notes.md` (chapter 5: the
-  favourites), `explore/raw/6-05-raw.txt` ("★ shortlisted"), `explore/production/01-cp-production-top.png` and `.txt`
-  ("0 of 24 renders complete", Latest "Concept A · I2"), `explore/production/31-cp-video-after-picker-renders.png` (7
-  built renders), `explore/production/24-cp-report-more-production-decisions.png` ("Eye-level · chosen as final"),
+  favourites), `explore/raw/6-05-raw.txt` ("★ shortlisted"), `explore/production/50-sandbox-production.txt` ("lands
+  here automatically, and you can send more images from the grid"), `explore/images/09-cp-select-one.txt` (Send to
+  production), `explore/production/01-cp-production-top.png` and `.txt` ("0 of 24 renders complete", Latest "Concept A
+  · I2"), `explore/production/31-cp-video-after-picker-renders.png` (7 built renders),
+  `explore/production/24-cp-report-more-production-decisions.png` ("Eye-level · chosen as final"),
   `explore/production/20-cp-report-builder-open.txt` (renders 09:17–09:19, Touch-up 09:27, "Final views 1"),
   `tutorial/studio/chapters/06-production.js`
-- **Suggestion:** Let the team choose each concept's render source (see PR-3), and keep renders tied to the iteration
-  they were built from. When a newer iteration appears, leave the built tiles in place with an amber corner badge
-  "From I1", and show a strip above the row: "Concept A has a newer iteration (I2). 7 renders were built from I1.
-  [Keep I1 as render source] [Use I2 and rebuild]". Add "Show earlier renders (7)" under each row. A render marked
-  final must never drop out of the set.
+- **Suggestion:** Build on Send to production: make the image sent for a concept its render source, and offer it on
+  the Latest tile as "Change source…" (see PR-3). Keep renders tied to the iteration they were built from. When a
+  newer iteration appears, leave the built tiles in place with an amber corner badge "From I1", and show a strip above
+  the row: "Concept A has a newer iteration (I2). 7 renders were built from I1. [Keep I1 as render source] [Use I2 and
+  rebuild]". Add "Show earlier renders (7)" under each row. A render marked final must never drop out of the set.
 - **Effort:** M to keep renders visible with their source; L with a chosen render source (bigger change D).
 
 ### PR-2 · The report's figures and event labels contradict each other (High)
@@ -1242,14 +1276,16 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 - **Where:** Report builder > Report preview > PROCESS SUMMARY; Compliance & process audit > ② Inputs & sources, ③
   Ideation log, ⑤ Production decisions, ⑥ System & reproducibility.
 - **What happens:** In the sandbox, the summary says "25 Total generations" and "12 / 13 Ideation / production", while
-  System & reproducibility says "25 (12 ideation, 2 production)". Only 2 renders were built, and 12 plus 2 is not
-  25. The other projects show the same kind of mismatch: the older Conceptual Plan "6 / 13" against "19 (6 ideation, 7
-  production)", and a Master Plan "4 / 4" against "8 (4 ideation, 0 production)". The first build of each tile is
-  logged as "Production adjust · Aerial · Day regenerated", although nothing was rebuilt. "Site inputs" reads "1
-  initial massing" both for the sandbox, whose input is a land-use plan, and for a Focus Area project, whose input is
-  a street photo. The Ideation log shows only the first concept: in the sandbox, "Ideation log — Concept A (excerpt of
-  11 entries) … 12 ideation entries in total", with the Green streets entry nowhere; in the older Conceptual Plan,
-  Concept B's entries are missing in the same way.
+  System & reproducibility says "25 (12 ideation, 2 production)". Only 2 renders were built, and 12 plus 2 is not 25.
+  The other projects show the same kind of mismatch: the older Conceptual Plan "6 / 13" against "19 (6 ideation, 7
+  production)", and a Master Plan "4 / 4" against "8 (4 ideation, 0 production)". In all four projects we checked, the
+  summary's production figure equals the total minus ideation (13 = 25 − 12, 13 = 19 − 6, 4 = 8 − 4, 0 = 4 − 4), so
+  whatever makes up the difference isn't production renders. The first build of each tile is logged as "Production
+  adjust · Aerial · Day regenerated", although nothing was rebuilt. "Site inputs" reads "1 initial massing" both for
+  the sandbox, whose input is a land-use plan, and for a Focus Area project, whose input is a street photo. The
+  Ideation log shows only the first concept: in the sandbox, "Ideation log — Concept A (excerpt of 11 entries) … 12
+  ideation entries in total", with the Green streets entry nowhere; in the older Conceptual Plan, Concept B's entries
+  are missing in the same way.
 - **Why it matters:** The audit describes itself as a structured trace of how the deliverable was produced and carries
   a "tamper-evident audit signature". Teams hand it to clients and authorities. Figures that disagree and events that
   are mislabelled undermine the one part of the report meant to prove how the work was done. The guide has to tell
@@ -1258,11 +1294,10 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   `tutorial/studio/img/6-05-report-preview.webp`, `explore/production/20-cp-report-builder-open.txt`,
   `explore/production/62-mp-report-builder.txt`, `explore/production/62-fa-report-builder.txt` (street photo: "1
   initial massing"), `tutorial/studio/chapters/06-production.js`
-- **Suggestion:** Compute both totals from the same records, and show a split that adds up ("Total images 25 =
-  Ideation 12 + Production renders 2 + Edits 11"). Label a first build "Render built · Aerial · Day" and keep
-  "regenerated" for real re-runs. Derive Site inputs from the input type ("1 land-use plan", "1 street photo"). Show
-  the Ideation log per concept, each with a "Show all" expander. Before Build PDF, check consistency and warn when
-  totals disagree.
+- **Suggestion:** Compute both totals from the same records, and show a split that adds up, with each part labelled.
+  Label a first build "Render built · Aerial · Day" and keep "regenerated" for real re-runs. Derive Site inputs from
+  the input type ("1 land-use plan", "1 street photo"). Show the Ideation log per concept, each with a "Show all"
+  expander. Before Build PDF, check consistency and warn when totals disagree.
 - **Effort:** M
 
 ### PR-3 · "Approved concepts", "locked" and "master" appear everywhere, but nothing lets a team approve or lock a concept (High)
@@ -1277,20 +1312,21 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   build, "Regenerate from master" appears under the Latest tile, and nothing says what the master is or what it
   rebuilds. The video's second slot is "After (master)". The older Conceptual Plan's "Final views 1" shows that a
   "chosen as final" action exists somewhere, but we could not find where.
-- **Why it matters:** A client will read "Approved concepts" as the options the team signed off. Here the section is
-  filled without anyone approving anything. Teams can't tell which image is the "master" that rendering, regeneration
-  and video rely on.
+- **Why it matters:** A client will read "Approved concepts" as the options the team signed off. Here the section goes
+  into the report by default although nothing has been approved; we did not build the PDF, so we don't know what it
+  would contain. Teams can't tell which image is the "master" that rendering, regeneration and video rely on.
 - **Evidence:** `tutorial/studio/img/6-04-report-builder.webp` (Approved concepts on by default; "0 Concepts locked",
   "0 Final views"), `explore/raw/6-05-raw.txt` (Lineage "Per locked master"),
   `explore/production/23-cp-report-scroll-2.png` (no node highlighted), `tutorial/studio/img/6-03-built.webp`
   ("Regenerate from master"), `explore/production/70-sandbox-video-open.png` ("After (master)"),
-  `explore/production/120-production-testids-and-keyword-scan.txt` (no approve or lock control),
+  `explore/production/120-production-testids-and-keyword-scan.txt` (Production's test IDs in two older projects:
+  header tabs, account menu, Video, Upscale, Render settings and Build all missing; none for approving or locking),
   `tutorial/studio/chapters/06-production.js`
 - **Suggestion:** Add an explicit approval: "Approve as master" next to Mark as favorite in Focus view, and on the
   Production Latest tile. Once a concept is approved, show "Master · I2 · approved 2 Oct by <name>". Rename
   "Regenerate from master" to "Rebuild 12 renders from master (I2)" and give it a tooltip. While nothing is approved,
   the Report builder row should read "Approved concepts · none approved yet [Approve in Production]" and default to
-  off. Rename the video slot "After (proposal)", and highlight the master node in the lineage.
+  off. Rename the video slot as in PR-9, and highlight the master node in the lineage.
 - **Effort:** L
 
 ### PR-4 · The Report builder's "Report preview" never shows the report (Medium)
@@ -1332,12 +1368,12 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 ### PR-6 · Renders can't be opened or acted on from the render set (Medium)
 
 - **Where:** Production > the Latest tile; built render tiles.
-- **What happens:** The Latest tile ("Concept A · I6") has no click action and no hover menu, so the image the renders
-  are built from can't be inspected from Production. Built tiles show only the image and its caption, with no visible
-  View, Download, Regenerate or Mark as final. We have no hover capture of a built tile, so icon actions on hover
-  can't be ruled out. The older project's audit shows these actions exist somewhere: "Production adjust" with the
-  prompt "add a bike lane and a playground in the green area", and "chosen as final". To see a render full size we had
-  to use "View full size" in the audit.
+- **What happens:** The Latest tile shows no hover menu (captured on the older project's "Concept A · I2"), and we
+  found no click action, so the image the renders are built from can't be inspected from Production. Built tiles show
+  only the image and its caption, with no visible View, Download, Regenerate or Mark as final. We have no hover
+  capture of a built tile, so icon actions on hover can't be ruled out. The older project's audit shows these actions
+  exist somewhere: "Production adjust" with the prompt "add a bike lane and a playground in the green area", and
+  "chosen as final". To see a render full size we had to use "View full size" in the audit.
 - **Why it matters:** Reviewing a render set means opening renders, comparing them with their source, re-running one
   with a note and marking finals. When these actions can't be found, users get stuck or fall back on Ideation.
 - **Evidence:** `explore/production/03-cp-hover-latest-tile.png`, `tutorial/studio/img/6-03-built.webp`,
@@ -1349,33 +1385,34 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   hover, show labelled icons for the same actions. Mark final renders with a green "Final" badge.
 - **Effort:** M
 
-### PR-7 · Moving between Production, Video, Upscale and Report is inconsistent (Medium)
+### PR-7 · Moving between Production, Video, Upscale and Report is inconsistent (Low)
 
 - **Where:** The header switch (Ideation | Production); the project's Video and Image Upscale pages; the Studio menu's
   Videos and Upscale pages.
 - **What happens:** Opening the Report builder adds a third, highlighted header tab, "Report". Video and Image
   Upscale, opened from Production, highlight neither Ideation nor Production and have no back control, so the only way
-  back is to click Production. The Studio-level Videos and Upscale pages have a "Back to menu" arrow that always lands
-  on Projects (NA-5). Video and Upscale exist twice, once per project and once in the Studio menu, with different
-  pickers (NA-11) and no link between the two.
-- **Why it matters:** Users lose track of where they are and how to get back to the render set. Our own flow notes had
-  to spell out "return with the Production switch; there is no back button".
+  back is to click Production. The Studio-level Videos and Upscale pages have a "Back to menu" arrow; in our test it
+  opened Projects rather than the page we came from (NA-5). Video and Upscale exist twice, once per project and once
+  in the Studio menu, with different pickers (NA-11) and no link between the two.
+- **Why it matters:** Users lose track of where they are and how to get back to the render set. The guide needs a tip,
+  "Back to the project": "The Video page has no back button … Click Production there to go back to the render set."
 - **Evidence:** `explore/production/121-header-switch-states.txt`, `121-header-switch-video.png`,
   `explore/production/70-sandbox-video-open.png` (no back control), `explore/media-org/28-videos-back-to-menu.png`,
-  `explore/media-org/10-videos-before-after-top.txt`
+  `explore/media-org/10-videos-before-after-top.txt`, `tutorial/studio/chapters/07-media.js` (tip "Back to the
+  project")
 - **Suggestion:** First, keep Production highlighted on the Video and Upscale pages and add "← Render set" at the top
   of their panels (S). Then give Production sub-tabs, "Render set | Video | Upscale | Report", and drop the separate
   Report tab. On the Studio-level pages, list outputs by project with "Open in project" links.
 - **Effort:** M (the first step is S).
 
-### PR-8 · The client-facing audit prints internal identifiers instead of plain names (Medium)
+### PR-8 · The client-facing audit prints internal identifiers instead of plain names (Low)
 
 - **Where:** Report builder > Compliance & process audit (also exported with Download PDF + JSON).
 - **What happens:** In the new sandbox, before any generation, ① Project metadata showed "Section lead
   69c933ae029766b1f6606f8f" and "Team 69c933ae029766b1f6606f8f"; later the same project showed the name. Every report
-  prints "Model Gemini3ProImage" and "… · model: Gemini3ProImage". Lineage nodes read "◇ initial (quickaction) · entry
-  #01". Production entries read "Concept A concept · Eye-level · Day", and the summary says "1 final views". The
-  Refresh button uses an eye icon.
+  prints "Model Gemini3ProImage" and "… · model: Gemini3ProImage". Lineage nodes read "◇ initial (quickaction) — entry
+  #01". Production entries read "Concept A concept · Eye-level · Day", and the Production decisions footer says "1
+  final views". The Refresh button uses an eye icon.
 - **Why it matters:** This section goes to clients and reviewers. Raw IDs and code names read like a system dump and
   make an otherwise careful audit look unfinished.
 - **Evidence:** `explore/production/110-sandbox-report.txt` (raw ID), `tutorial/studio/img/6-05-report-preview.webp`
@@ -1387,19 +1424,20 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   Keep raw IDs for the JSON export.
 - **Effort:** S
 
-### PR-9 · Video slots "Before (leading)" and "After (master)" use internal terms, and the pre-fill comes and goes (Low)
+### PR-9 · Video slots "Before (leading)" and "After (master)" use internal terms, and the pre-fill depends on how the page is opened (Low)
 
 - **Where:** Video > Images card (project Video page and the Studio-level Videos page).
 - **What happens:** The slots are labelled "Before (leading)" and "After (master)", even on the Studio-level page,
   where there is no project, leading image or master. Opened from Production, Before is pre-filled with the project's
-  leading image, in the sandbox the coloured land-use plan. Opened from its address, both slots read "Choose image".
-  On later visits in our sessions both slots were empty again. The card says "Upload your architectural image, sketch,
-  or 3D model render. Supported formats: JPG, PNG, WebP. Max file size: 25MB." but has no upload control; uploading is
-  only possible inside the picker.
-- **Why it matters:** The terms mean nothing to a new user, a pre-fill that only sometimes appears makes the tool feel
+  leading image, in the sandbox the coloured land-use plan. Opened from its address, both slots read "Choose image",
+  as they also did on two later visits whose route we didn't record. The card says "Upload your architectural image,
+  sketch, or 3D model render. Supported formats: JPG, PNG, WebP. Max file size: 25MB." but has no upload control;
+  uploading is only possible inside the picker.
+- **Why it matters:** The terms mean nothing to a new user, a pre-fill that depends on the route makes the tool feel
   unpredictable, and the upload sentence points to a control that isn't there.
-- **Evidence:** `explore/production/70-sandbox-video-open.png`, `explore/production/72-sandbox-video-direct-url.txt`,
-  `explore/raw/7-video-state.txt`, `explore/raw/7-video-peek.txt`, `explore/media-org/10-videos-before-after-top.png`
+- **Evidence:** `explore/production/70-sandbox-video-open.png`, `explore/raw/7-01-open.png` (opened from Production:
+  Before pre-filled), `explore/production/72-sandbox-video-direct-url.txt`, `explore/raw/7-video-state.txt`,
+  `explore/raw/7-video-peek.txt`, `explore/media-org/10-videos-before-after-top.png`
 - **Suggestion:** Rename the slots "Before (existing site)" and "After (proposal)". Always pre-fill Before with the
   site image and After with the approved master or the concept's latest image, whichever route opened the page, with
   "Pre-filled from Concept A · I6 · Change". Replace the upload sentence with an "Upload image" link that opens the
@@ -1410,14 +1448,15 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 
 - **Where:** Video > Sequence video.
 - **What happens:** The subtitle changes correctly to "Chain up to six images into one continuous video with a camera
-  move between each pair." Everything else keeps the before/after wording. The empty state still says "Pick a before
-  and after image in the panel and generate your first video.", and the engines still read "Best quality
-  before-to-after transitions" and "Simple transition between the two images", although this mode chains 2 to 6
-  images.
+  move between each pair." The engine descriptions and the empty state keep the before/after wording. The empty state
+  still says "Pick a before and after image in the panel and generate your first video.", and the engines still read
+  "Best quality before-to-after transitions" and "Simple transition between the two images", although this mode chains
+  2 to 6 images.
 - **Why it matters:** The empty state asks for something this mode doesn't need.
 - **Evidence:** `explore/production/73-sandbox-video-sequence-tab.png`, `explore/media-org/20-videos-sequence-top.png`
 - **Suggestion:** Write copy for each mode. Empty state: "Add 2–6 images in the panel and generate your first
-  sequence." Kling 3.0: "Best quality camera moves between images". Classic: "Simple cross-fade between images, free".
+  sequence." Kling 3.0: "Best quality camera moves between images". Classic: "Simple transition between images, no AI,
+  free".
 - **Effort:** S
 
 ### PR-11 · Camera presets, durations and the prompt placeholder are unexplained or written for buildings (Low)
@@ -1430,7 +1469,7 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   "Circle around", and "counterclockwise" runs past the card edge. Duration is 5s or 10s with the Kling engines and
   3s, 5s, 8s or 10s with Classic, while Sequence offers 1s, 3s, 5s, 10s or Custom…, with no explanation. The prompt
   placeholder is "Describe your building: modern architecture, daylight, beige stone facade".
-- **Why it matters:** Each point is small, but there are many on a long panel (6 presets and 19 movement cards before
+- **Why it matters:** Each point is small, but there are many on a long panel (6 presets and 17 movement cards before
   Prompt and Duration), and the wording doesn't speak to planning teams.
 - **Evidence:** `explore/media-org/12-videos-scroll-0.png`,
   `explore/production/89-sandbox-video-camera-tooltips-and-presets.txt`,
@@ -1448,8 +1487,8 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 - **What happens:** The page subtitle says "Upscale an image to 6K or 8K without changing its content.", and the
   Source image tooltip says "Its content is preserved — only the resolution changes." The Crystal engine, however, is
   described as "Can invent detail (tunable)" with a "Tunable" badge, and selecting it shows no tuning control (checked
-  before a source was picked). Topaz says "Faithful, up to 4×, optional face enhancement", while the only targets are
-  6K and 8K and no face option appears.
+  before a source was picked). Topaz promises "optional face enhancement", but no face option appears (and "up to 4×"
+  can't reach 8K from a source under 1,920 px).
 - **Why it matters:** In a planning image, invented detail can add buildings or trees that are not in the design.
   Nothing warns against using Crystal for approval material, and the page promises the opposite.
 - **Evidence:** `explore/production/92-sandbox-upscale-engine-crystal.png`, `explore/media-org/30-upscale-panel.png`,
@@ -1459,21 +1498,18 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   real terms once a source is chosen ("2048 px → 6144 px · 3×"). Remove "face enhancement" or show its toggle.
 - **Effort:** S
 
-### PR-13 · A failed video gives no reason, and the error banner comes back on later visits (Low)
+### PR-13 · A failed video gives no reason (Low)
 
 - **Where:** Video > results area.
 - **What happens:** A Classic (no AI) run failed in our headless capture browser; the failure itself probably comes
   from that browser and is not reported here (Appendix A). Studio showed a red banner, "Couldn't generate the video.
   Please try again.", above "No videos yet", with no reason, no word on whether credits were used, and no record of
-  the attempt. The banner was still there when Video was opened again later from Production with fresh slots, and it
-  shows behind the picker on guide plate 7-01b.
-- **Why it matters:** Users can't tell what to change, so they may retry a paid engine blind. A stale banner with no
-  date suggests the last thing they did failed.
-- **Evidence:** `explore/raw/7-03-raw.png`, `explore/raw/7-01-open.png` (banner on a later visit),
-  `explore/raw/7-video-peek.txt`, `tutorial/studio/img/7-01b-pick-after.webp`
+  the attempt.
+- **Why it matters:** Users can't tell what to change, so they may retry a paid engine blind.
+- **Evidence:** `explore/raw/7-video-peek.png` and `.txt`
 - **Suggestion:** Say what failed and what to try ("The Classic engine couldn't render in this browser · try Kling 2.6
   · no credits used"). Show each failed attempt in the results as a card with the time, engine and images, plus Retry
-  and Dismiss. Once dismissed, the banner should not come back.
+  and Dismiss.
 - **Effort:** S
 
 ### PR-14 · Impact answers marked "Include in report" stay out of the report by default (Low)
@@ -1534,33 +1570,37 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   before adding the image kept it (3 of 3). For that same file, the automatic scale check gave 1,810.5 m, 3,219 m,
   4,023.4 m, 4,426 m and 7,849.2 m on different runs, and twice said "No printed scale found on the plan — please
   enter it." The sandbox made from that plan ended up at 4,828 m. The only caution is the grey line "Scale detected
-  from the plan — please verify." The plan's own scale bar reads 0 / 0.25 / 0.5 Miles.
+  from the plan — please verify." The plan's own scale bar reads 0 / 0.25 / 0.5 Miles; measured from it, the longest
+  side is about 2.55 km (1.6 mi), so every value was wrong and the sandbox is almost twice its real size. Our upload
+  is cropped just above the scale bar, so only its labels show; that may make detection harder, but one file should
+  give one answer.
 - **Why it matters:** Scope and scale both feed generation. Details says of the scale: "The AI uses it to keep
-  buildings, streets and open spaces proportionate." A downtown plan created as a single building, or at a fraction of
-  its real size, gives wrong designs from the first run, and nothing makes the user doubt the form. Scope and scale
-  are also what a team has to redo if the site lock forces a new project (SS-3). The guide needed two warnings at this
-  step ("Click the scope, even if it looks selected" and "Always check the detected scale").
+  buildings, streets and open spaces proportionate." A downtown plan created as a single building, or at the wrong
+  size, gives wrong designs from the first run, and nothing makes the user doubt the form. Scope and scale are also
+  what a team has to redo if the site lock forces a new project (SS-3). The guide needed two warnings at this step
+  ("Click the scope, even if it looks selected" and "Always check the detected scale").
 - **Evidence:** `explore/raw/2-check-scale-runs.txt`, `explore/raw/2-probe-form-filled-scrolled.png` (Single building
   or lot selected right after adding the plan), `explore/raw/2-probe-detected.png`,
-  `tutorial/studio/img/2-04-create.webp`, `explore/entry/62-settings-tab-details-scroll1.txt` (Site scale help),
-  `tutorial/studio/chapters/02-start-project.js`
+  `tutorial/studio/img/2-04-create.webp`, `explore/entry/62-settings-tab-details-scroll1.txt` (Site scale help;
+  "Longest side" 4828), `explore/site/97c-save-upload-2-without-stroke.png` (the plan at 1,920 px wide: scale labels 0
+  / 0.25 / 0.5 about 303 px apart, the bar itself cut off), `tutorial/studio/chapters/02-start-project.js`
 - **Suggestion:** Never change a visible choice without saying so. If Studio wants to suggest a scope from the image,
   show it under SCOPE: "This looks like a single building. Switch to Single building or lot? [Switch] [Keep Master
   plan]". Show the detected scale as a pre-filled field that still needs confirming, with its source ("Read from the
-  scale bar: 0.5 mi. Site width ≈ 4.0 km"), and keep Create project disabled until the user ticks "Scale checked". The
-  same file should always give the same value.
+  scale bar: 0.25 mi = 303 px · longest side ≈ 2.55 km"), and keep Create project disabled until the user ticks "Scale
+  checked". The same file should always give the same value.
 - **Effort:** M
 
-### NA-2 · "Add member…" lists 449 accounts with no search, repeated first names, a raw ID and an email address (Medium)
+### NA-2 · "Add member…" lists 449 accounts with no search, repeated first names, a raw ID and email addresses (Medium)
 
 - **Where:** Studio > Team & permissions > any team card > Add member…
 - **What happens:** The dropdown is a plain alphabetical list of 449 entries with no search box. It begins ":)", a
-  24-character raw ID, "A" and "Abby". Several first names appear twice with nothing to tell the two people apart
-  ("Alex", "Asal", "Barbara"). Most entries are a first name only, and one shows a person's municipal work email in
-  place of a name.
+  24-character raw ID, "A" and "Abby". Thirty names appear more than once with nothing to tell the people apart
+  ("Alex", "Asal", "Barbara"). Most entries are a first name only, and three show a person's email address in place of
+  a name (a municipal, a company and a university address).
 - **Why it matters:** Adding someone here gives them edit rights on every project linked to that team. With two "Alex"
   entries and no email shown, it is easy to pick the wrong person and hand a client project to a stranger. The list
-  also shows every account in the app, including an outside email address, to whoever manages teams.
+  also shows every account in the app, including outside email addresses, to whoever manages teams.
 - **Evidence:** `explore/media-org/83-team-add-member-open.png`, `83-team-add-member-open.txt` (449 options),
   `explore/media-org/80-team-top.txt`
 - **Suggestion:** Replace the dropdown with a search field, "Add a person by name or email…", that shows matches only
@@ -1577,7 +1617,8 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   everyone in the org" and "Shared — Usable across the studio and all projects", and its button reads "Save & make
   Active". New planning preset pre-selects "Public — Visible and usable by everyone." That is three phrases ("everyone
   in the org", "across the studio", "everyone") for what may be the same group of people. The Add member list on the
-  same page holds 449 accounts, some of which don't look like staff (NA-2).
+  same page holds 449 accounts, three of them shown by outside email addresses (a municipality, a company and a
+  university; NA-2).
 - **Why it matters:** Planning teams work with confidential sites and client material. If they can't tell who
   "everyone" is, they can't judge whether a draft masterplan, or a mood board of client photos, is visible outside the
   office. Pre-selecting the most open option makes over-sharing the default.
@@ -1591,17 +1632,18 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   access".
 - **Effort:** M
 
-### NA-4 · Nothing leads back to the CoPlanAI dashboard, and the unlabelled logo opened the platform admin panel (Medium)
+### NA-4 · Nothing leads back to the CoPlanAI dashboard, and for our platform-admin account the unlabelled logo opened the admin panel (Medium)
 
 - **Where:** The top bar on every Studio page: the logo at the far left, the breadcrumb and the account menu.
 - **What happens:** On the app dashboard the logo is a button named "Home". Inside Studio the same logo is a button
-  with no name and no tooltip. Clicked on Studio home, it took this owner account to `/admin/apps`, a page headed
-  "ADMIN PANEL" that lists every client app, instead of the CoPlanAI dashboard. The breadcrumb starts at "Studio". The
-  account menu holds only Profile, Language, Theme and Log out. So no visible control leads back to the dashboard, or
-  to the gallery and app settings that the dashboard's top bar offers.
+  with no name and no tooltip. Clicked on Studio home, it took our account, which has platform-admin rights, to
+  `/admin/apps` ("ADMIN PANEL") instead of the CoPlanAI dashboard. We couldn't check where it leads for planners
+  without admin rights. The breadcrumb starts at "Studio". The account menu holds only Profile, Language, Theme and
+  Log out. So no visible control leads back to the dashboard, or to the gallery and app settings that the dashboard's
+  top bar offers.
 - **Why it matters:** People who open Studio from the dashboard can only leave with the browser's Back button or by
-  typing the address; the guide had to add a tip ("Back to the CoPlanAI dashboard"). Landing in a platform admin area
-  from the logo is confusing, and puts platform-wide controls one accidental click away.
+  typing the address; the guide had to add a tip ("Back to the CoPlanAI dashboard"). For admins, landing in the
+  platform admin area from the logo is confusing and puts platform-wide controls one click away.
 - **Evidence:** `explore/entry/59b-logo-click-from-studio-home.txt`,
   `explore/entry/10-studio-home-after-open-studio.txt` (unnamed button), `explore/entry/01-dashboard-top.txt` (button
   "Home"; links "Open my gallery" and "Open app settings"), `explore/entry/57-account-menu-open.png`,
@@ -1616,10 +1658,10 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 - **Where:** Studio menu > Uploaded images, Team & permissions, Audit log; the Videos and Upscale panels > Back to
   menu.
 - **What happens:** On all three pages the address bar stays at `/coplanai/studio/projects`, while the breadcrumb
-  reads "Studio / Uploaded images" and so on. Reloading, bookmarking, sharing the link or pressing Back brings up
-  Projects instead. The other menu pages do have their own addresses (`/studio/videos`, `/studio/upscales`,
-  `/studio/library/presets`, `/studio/settings`). On the Videos and Upscale panels, "Back to menu" always opens
-  Projects, whichever page you came from.
+  reads "Studio / Uploaded images" and so on. Reloading, bookmarking or sharing the link brings up Projects instead.
+  The other menu pages do have their own addresses (`/studio/videos`, `/studio/upscales`, `/studio/library/presets`,
+  `/studio/settings`). On the Videos and Upscale panels, "Back to menu" opened Projects in our test rather than the
+  page we came from.
 - **Why it matters:** An admin reviewing the audit log or cleaning up uploads loses their place on every reload, and
   can't send a colleague a link to the page. The guide needed a warning ("Reloading takes you to Projects").
 - **Evidence:** `explore/media-org/40-uploads-page.txt`, `80-team-top.txt`, `90-audit-log-top.txt` (all at
@@ -1648,54 +1690,6 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 - **Suggestion:** Make project cards, breadcrumbs and menu items real links (for example
   `href="/coplanai/studio/projects/<slug>/ideation"`). Send the project-name breadcrumb to the project's Ideation page
   and leave Project settings on its sliders icon. Add "Open in new tab" and "Copy link" to the card's ••• menu.
-- **Effort:** M
-
-### NA-7 · "8 projects" over 7 cards, and a "Completed" status that can't be set anywhere (Medium)
-
-- **Where:** Studio > Projects (count, status filter, empty state, card ••• menu); Team & permissions > Link a
-  project…
-- **What happens:** The header says "8 projects" but 7 cards show: "All statuses" leaves archived projects out, while
-  the count includes them. The count stays at 8 under every search and filter (Archived shows 1 card; Completed and
-  the search "zzzz" show none). Filtering to Completed shows "No matching projects / Try a different search." although
-  nothing was typed. The filter offers Completed, but neither the card menu (Open project, Project setup, Report,
-  Duplicate, Archive) nor Project settings > Details can set a status. Restore only appears after switching the filter
-  to Archived. The archived "Master Plan 2026-09-28 2" is still offered, unmarked, in Link a project…, and still has
-  its team card.
-- **Why it matters:** The first number a team sees is wrong, and archived work quietly disappears from the default
-  view. A status you can filter by but never set makes the whole status system look broken. The guide needed a warning
-  ("All statuses isn't quite all") and a tip.
-- **Evidence:** `explore/entry/40-projects-page-from-all-projects.png`, `48-projects-filter-archived-selected.txt`,
-  `48b-projects-filter-completed-selected.txt`, `49b-projects-search-no-results.txt`,
-  `tutorial/studio/img/1-06-card-menu.webp`, `explore/entry/62-settings-tab-details-scroll1.txt` (no status field),
-  `explore/media-org/84-team-link-project-open.txt`, `tutorial/studio/chapters/01-studio-start.js`
-- **Suggestion:** Count what is listed: "7 projects · 1 archived", with "1 archived" switching the filter, and "2 of 8
-  projects" while filtered. Rename "All statuses" to "Active and completed", or add "All, including archived". Change
-  the empty state to "No projects match these filters [Clear filters]". Add "Mark as completed" and "Reopen" to the
-  card menu, or remove Completed from the filter until it exists. In Link a project…, hide archived projects or mark
-  them "(archived)".
-- **Effort:** S
-
-### NA-8 · Machine-made project and team names that drift apart (Medium)
-
-- **Where:** The Projects page and Recent projects cards; Team & permissions; Project settings > Details (Project
-  name, URL slug).
-- **What happens:** Studio names each new project "<Process> <date>" plus a counter ("The project is named for you"),
-  so the Projects page shows "Conceptual Plan 2026-09-28", "… 2" and "… 3", and "Master Plan 2026-09-28", "… 2" and "…
-  3", side by side, told apart only by their thumbnails. Renaming is only possible in Project settings > Details,
-  where the field is too narrow to show the name ("Downtown plan (Studio tutorial"). After the sandbox was renamed,
-  its team was still "Conceptual Plan 2026-10-02 team", and its slug and address still read
-  `conceptual-plan-2026-10-02`. Owner names on the cards are cut off ("Damiano Ce…").
-- **Why it matters:** Finding the right project or team starts every session. With near-identical names, people open
-  the wrong project or link the wrong team. The guide tells readers to check the PROJECTS list on each team card to
-  find the right one.
-- **Evidence:** `explore/entry/40-projects-page-from-all-projects.png`,
-  `explore/media-org/86-team-sandbox-auto-team.png`, `explore/media-org/80-team-top.txt`,
-  `tutorial/studio/img/2-08-details.webp`, `explore/entry/50-sandbox-opened-from-card.txt` (address unchanged),
-  `tutorial/studio/chapters/08-organisation.js` (tip "Renamed a project?")
-- **Suggestion:** Add a "Project name" field to the new-project form, pre-filled with the suggested name and selected
-  so typing replaces it. Allow renaming in place on the card title or the breadcrumb. Name the automatic team after
-  the project and update it on rename, or show the linked project's name as the team card title. Widen the name field
-  in Details, and on rename ask "Also update the web address?".
 - **Effort:** M
 
 ### NA-9 · Save buttons sit at the far end of long pages, and Project settings mixes autosave with Save (Medium)
@@ -1788,9 +1782,10 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   "QuickActionsUpdate project", "ImpactAnalysis project" and "Created studioconcept". The details show "(unnamed)" for
   concepts and images, the model ID "Gemini3ProImage", "1 items → 2 items", and "Aspect ratio 16:9 →" with no new
   value. Generate, Touch-up and boundary rows carry no project chip, so with several projects you can't tell which one
-  changed, and the chips that do appear are cut short ("Downtown plan (Studio tutorial …"). Every boundary save is
-  listed twice within the same minute. The only filter is activity type. There is no filter by project, person or
-  date, no search and no export.
+  changed, and the chips that do appear are cut short ("Downtown plan (Studio tutorial …"). Boundary rows come in
+  pairs within the same minute; because they name no project, we couldn't tell whether one save is logged twice or two
+  saves happened. The only filter is activity type. There is no filter by project, person or date, no search and no
+  export.
 - **Why it matters:** The page promises who did what, and when, across Studio. A lead checking what a colleague did on
   a client project, or which generations were run, has to guess. The guide had to translate the internal names.
 - **Evidence:** `tutorial/studio/img/8-05-audit.webp`, `explore/media-org/90-audit-log-top.txt` (boundary rows in
@@ -1799,8 +1794,58 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 - **Suggestion:** Write each row as a sentence that names the project: "<name> saved the site boundary · Downtown plan
   (Studio tutorial demo)". Replace the codes ("Saved site boundary", "Set land-use plan", "Changed quick actions",
   "Ran impact analysis", "Created concept"). Show concept names with a thumbnail instead of "(unnamed)", display names
-  for models, and "(empty)" when a value was cleared. Add Project, Person and Date filters and "Export CSV", and merge
-  duplicate events.
+  for models, and "(empty)" when a value was cleared. Add Project, Person and Date filters and "Export CSV", and, if a
+  save is logged twice, log it once.
+- **Effort:** M
+
+### NA-7 · "8 projects" over 7 cards, and a "Completed" status that can't be set anywhere (Low)
+
+- **Where:** Studio > Projects (count, status filter, empty state, card ••• menu); Team & permissions > Link a
+  project…
+- **What happens:** The header says "8 projects" but 7 cards show: "All statuses" leaves archived projects out, while
+  the count includes them. The count stays at 8 under every search and filter (Archived shows 1 card; Completed and
+  the search "zzzz" show none). Filtering to Completed shows "No matching projects / Try a different search." although
+  nothing was typed. The filter offers Completed, but neither the card menu (Open project, Project setup, Report,
+  Duplicate, Archive) nor Project settings > Details can set a status. Restore only appears after switching the filter
+  to Archived. The archived "Master Plan 2026-09-28 2" is still offered, unmarked, in Link a project…, and still has
+  its team card.
+- **Why it matters:** The first number a team sees is wrong, and "All statuses" quietly leaves archived projects out.
+  A status you can filter by but never set makes the whole status system look broken. The guide needed a warning ("All
+  statuses isn't quite all") and a tip.
+- **Evidence:** `explore/entry/40-projects-page-from-all-projects.png`, `48-projects-filter-archived-selected.txt`,
+  `48b-projects-filter-completed-selected.txt`, `49b-projects-search-no-results.txt`,
+  `tutorial/studio/img/1-06-card-menu.webp`, `explore/entry/62-settings-tab-details-scroll1.txt` (no status field),
+  `explore/media-org/84-team-link-project-open.txt`, `tutorial/studio/chapters/01-studio-start.js`
+- **Suggestion:** Count what is listed: "7 projects · 1 archived", with "1 archived" switching the filter, and "2 of 8
+  projects" while filtered. Rename "All statuses" to "Active and completed", or add "All, including archived". Change
+  the empty state to "No projects match these filters [Clear filters]". Add "Mark as completed" and "Reopen" to the
+  card menu, or remove Completed from the filter until it exists. In Link a project…, hide archived projects or mark
+  them "(archived)".
+- **Effort:** S
+
+### NA-8 · Machine-made project and team names that drift apart (Low)
+
+- **Where:** The Projects page and Recent projects cards; Team & permissions; Project settings > Details (Project
+  name, URL slug).
+- **What happens:** Studio names each new project "<Process> <date>" plus a counter ("The project is named for you"),
+  so the Projects page shows "Conceptual Plan 2026-09-28", "… 2" and "… 3", and "Master Plan 2026-09-28" and "… 3" ("…
+  2" is archived), side by side, told apart only by their thumbnails. Renaming is only possible in Project settings >
+  Details, where the field is too narrow to show the name ("Downtown plan (Studio tutorial"). After the sandbox was
+  renamed, its team was still "Conceptual Plan 2026-10-02 team", and its slug and address still read
+  `conceptual-plan-2026-10-02`: a ↻ button beside the field ("Regenerate the slug from the project name") updates it,
+  but nothing offers it on rename. Owner names on the cards are cut off ("Damiano Ce…").
+- **Why it matters:** Finding the right project or team starts every session. With near-identical names, people open
+  the wrong project or link the wrong team. The guide tells readers to check the PROJECTS list on each team card to
+  find the right one.
+- **Evidence:** `explore/entry/40-projects-page-from-all-projects.png`,
+  `explore/media-org/86-team-sandbox-auto-team.png`, `explore/media-org/80-team-top.txt`,
+  `tutorial/studio/img/2-08-details.webp`, `explore/entry/50-sandbox-opened-from-card.txt` (address unchanged),
+  `explore/entry/62-settings-tab-details.txt` (slug button), `tutorial/studio/chapters/08-organisation.js` (tip
+  "Renamed a project?")
+- **Suggestion:** Add a "Project name" field to the new-project form, pre-filled with the suggested name and selected
+  so typing replaces it. Allow renaming in place on the card title or the breadcrumb. Name the automatic team after
+  the project and update it on rename, or show the linked project's name as the team card title. Widen the name field
+  in Details, and on rename offer the existing slug regeneration as "Also update the web address?".
 - **Effort:** M
 
 ### NA-13 · One dialog has two names; three things are called "Settings" and two are called "Site" (Low)
@@ -1836,8 +1881,8 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   2K / 4K" in Details, Quick actions and Render settings. The batch size is "Images per batch", "variant(s)" or
   "images" depending on the screen. A section headed "Planning presets" holds Render styles, Layout geometry and
   Creativity, while "Planning presets" is also a library page. "Density bands" appears twice, and the section "Canvas"
-  contains only Required elements. Tooltips use developer language: "The prompt fragment is the model-facing phrase…",
-  "'Value' is the internal quality key", "an LLM rewrites the assembled prompt".
+  contains only Required elements. Tooltips use developer language: "The prompt fragment is the model-facing
+  phrasing.", "'Value' is the internal quality key", "an LLM rewrites the assembled prompt".
 - **Why it matters:** Admins who adapt the defaults (ID-1) can't match a setting to what planners see, and planners
   see placeholder labels.
 - **Evidence:** `explore/media-org/100-settings-top.txt`, `101-settings-scroll-01.png`, `101-settings-scroll-03.png`,
@@ -1899,12 +1944,11 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
   `title` attributes (invisible on touch screens), and every one of them says "Recorded for reference — does not
   affect image generation." The card ••• menu is announced as a dialog, not a menu. The drawing editors and image
   tiles have the same gaps (SS-10, RE-10, RE-14).
-- **Why it matters:** Planners guess what icons do, and screen-reader users hear "button" 175 times on one page. Our
-  capture scripts had to pick these buttons by their position on screen.
+- **Why it matters:** Planners guess what icons do, and screen-reader users hear "button" 175 times on one page.
 - **Evidence:** `explore/media-org/100-settings-top.txt`, `explore/media-org/80-team-top.txt`,
   `explore/entry/60-settings-tab-settings.txt`, `explore/media-org/104-settings-hover-edit-row.txt`,
   `explore/entry/69b-settings-tooltips-details-site.json`, `explore/entry/69d-title-attributes.json`,
-  `explore/raw/1-probe-card-menu.txt`
+  `explore/entry/45-projects-card-menu-sandbox.txt` (menu announced as a dialog)
 - **Suggestion:** Give every icon button an accessible name and the same text as a tooltip ("Edit", "Revert to
   default", "Delete", "Collapse menu", "Collapse panel", "Back to Projects", "Remove member", "Delete team"). Replace
   the `title` attributes with the styled tooltip, and write help that fits each field ("Section lead: the person
@@ -1913,15 +1957,21 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 
 ### NA-18 · Some actions appear only on hover, and several dialogs have no close button (Low)
 
-- **Where:** Uploaded images cards; the Project settings, Project team and full-size viewer dialogs.
+- **Where:** Uploaded images cards; the site thumbnails in Project settings > Site; the Project settings, Project team
+  and full-size viewer dialogs.
 - **What happens:** On upload cards, "View full size" and "Delete" are hidden by CSS (opacity 0 at widths of 64rem and
-  up) unless the device reports a pointer that can hover, so on a tablet in landscape they never appear. The Project
-  settings dialog, the Project team dialog and the full-size image viewer have no close button. The viewer also has no
-  title or file name and is announced only as "Dialog". All three close only with Escape or a click outside.
-- **Why it matters:** Touch users can't delete an unused upload. People who don't think of pressing Escape feel stuck.
+  up) unless the device reports a pointer that can hover, so on a tablet in landscape they never appear. The site
+  thumbnails in Project settings > Site (View full size, Mark as land-use plan, Remove) behave the same in our
+  browser, which reports no hover as a touch device does: they sit at opacity 0 and did not appear on hover. We did
+  not check whether the same CSS rule causes it. The Project settings dialog, the Project team dialog and the
+  full-size image viewer have no close button. The viewer also has no title or file name and is announced only as
+  "Dialog". All three close only with Escape or a click outside.
+- **Why it matters:** Touch users can't delete an unused upload, and may never find Mark as land-use plan. People who
+  don't think of pressing Escape feel stuck.
 - **Evidence:** `explore/media-org/44-uploads-unused-card-hover-crop.png`, `49-uploads-card-actions-revealed.txt`,
-  `46-uploads-view-full-size.png` and `.txt`, `tutorial/studio/img/2-10-site.webp` and `2-11-team.webp` (no close
-  button)
+  `46-uploads-view-full-size.png` and `.txt`, `explore/entry/64b-site-thumb-hover.txt` and
+  `64d-site-thumb-hover-zoom.png` (site thumbnail actions hidden), `tutorial/studio/img/2-10-site.webp` and
+  `2-11-team.webp` (no close button)
 - **Suggestion:** On devices without hover, and on keyboard focus, show the card actions all the time or behind a
   visible ••• button. Add a top-right × labelled "Close" to Project settings, Project team and the viewer, and show
   the file name and date in the viewer's header.
@@ -2026,22 +2076,25 @@ the site") rather than explain planning.
 - **What happens:** The card says Studio "turns a written brief into checked, rendered design options" and lists six
   lines. Against what we saw:
   - **"It starts with an image and your brief":** the new-project form takes an image, a process and a scope, with no
-    brief field. The report's PROJECT BRIEF lists only output quality, output format and aspect ratio.
-  - **"Twenty variations from one brief":** each run makes 2 images ("Images per batch" is 2, admin-only, range 1–8),
-    and a new concept made 1. Twenty means about ten separate runs of 1.5 to 3 minutes each.
+    brief field. The report's PROJECT BRIEF lists only output quality, output format and aspect ratio (see ID-1 and
+    bigger change B).
+  - **"Twenty variations from one brief":** each run makes 2 images ("Images per batch" is 2 in Studio Settings, range
+    1–8), and a new concept made 1. Twenty means about ten separate runs of 2 to 3 minutes each (see CC-2).
   - **"Checked against the planning documents":** there is nowhere to add a planning document. Impact says "Indicative
     AI assessment — not a professional or regulatory evaluation." and works from the picture.
   - **"Favourites compared at one scale":** Compare shows each image in its own framing. In plate 5-07 a close oblique
-    aerial of a few blocks sits next to a whole-site plan, both captioned only "Iteration 2", with no scale bar.
+    aerial of a few blocks sits next to a whole-site plan, both captioned only "Iteration 2", with no scale bar (see
+    RE-11).
   - **"Renders from stored cameras":** we found no camera feature. Production views are prompt sentences in Studio
     Settings (Aerial = "a high aerial bird's-eye view looking down over the whole site at an oblique angle"), and a
     scan of Production found no "camera" or "stored" text.
   - **"Before and after, same frame":** Focus view's Compare slider exists, but iterating on a top-view plan returned
     oblique aerials from a different camera (ID-2), and Video leaves the framing to the user: "Use two shots of the
     same scene with similar composition."
-- **Why it matters:** Clients buy Studio on these six lines. A team that looks for planning-document checks or stored
-  cameras in its first hour finds nothing, and reads the product as broken or unfinished.
-- **Evidence:** coplanai.com "Use CoPlanAI" page source (the CoPlan Studio card),
+- **Why it matters:** Buyers will read these six lines as what Studio does today. A team that looks for
+  planning-document checks or stored cameras in its first hour finds nothing, and reads the product as broken or
+  unfinished.
+- **Evidence:** coplanai.com/use-coplanai.html, the CoPlan Studio card (quoted in `docs/studio-plan.md`),
   `tutorial/studio/img/2-01-process.webp` and `2-04-create.webp` (no brief field),
   `tutorial/studio/img/6-05-report-preview.webp` (PROJECT BRIEF), `explore/quick/62-settings-field-values.txt` (Images
   per batch), `tutorial/studio/img/5-11-impact.webp` and `5-12-impact-answer.webp`,
@@ -2052,9 +2105,9 @@ the site") rather than explain planning.
 - **Suggestion:** Close the gap from both ends. Now, bring the card in line with today's product, for example "Two
   options per run, as many runs as you need", "An indicative impact reading beside each option", "Options side by
   side", "Renders in a fixed set of views", "Before and after, as a video". Then build towards the promise: a brief
-  and location that feed the prompt (bigger change B), "Images per run" in Quick actions instead of admin-only, a
-  "Planning documents" list in Project settings with an Impact mode that names what it checked, a shortlist compared
-  at one frame, and stored cameras (bigger change D).
+  and location that feed the prompt (bigger change B), "Images per run" in Quick actions instead of only in Studio
+  Settings, a "Planning documents" list in Project settings with an Impact mode that names what it checked, a
+  shortlist compared at one frame, and stored cameras (bigger change D).
 - **Effort:** S for the copy; L for the product changes.
 
 ### CC-2 · No run shows what it costs or how long it takes, and the one output caption is often wrong (Medium)
@@ -2068,13 +2121,13 @@ the site") rather than explain planning.
     engines, and "Adds latency and cost" on an admin setting.
   - Every bottom button carries "Each run generates 2 variant(s)". It also sits under Adjust's Save as new version,
     which made one image in seconds, and under Impact's Analyse, which returns text. Create concept made one image,
-    and one Apply to mask made four (RE-6).
+    and one Apply to mask click made four (RE-6, possibly a retried request).
   - The Build buttons have no tooltip. Build all missing would fill every empty tile of every concept, 22 in the
     sandbox after our two builds, with no count on the button and no cost on the page. We did not click it, so we
     don't know whether a confirmation follows.
-  - Run times we saw: first run 75–100 s, an iteration about 2.5 min, a Touch-up about 5 min, a prompt run about 3
-    min, Impact about 15 s, a video several minutes. None was announced before the run, and Apply to current has no
-    tooltip.
+  - Run times we saw: first run about 3 min (first image after about 110 s), an iteration about 2.5 min, a Touch-up
+    about 2 min per iteration, a prompt run about 3 min, Impact about 15 s, a video several minutes. None was
+    announced before the run, and Apply to current has no tooltip.
 - **Why it matters:** A team can't plan a session or a budget, or tell which actions are free. People either avoid
   exploring or overspend. The guide has to tell readers that "the page shows no cost before you click" and to "build a
   tile or two first".
@@ -2084,13 +2137,15 @@ the site") rather than explain planning.
   `tutorial/studio/img/4-12-two-concepts.webp` ("Green streets 1 images"),
   `explore/quick/06-hover-apply-to-current.txt`, `explore/quick/62-settings-field-values.txt`,
   `explore/production/70-sandbox-video-open.png` and `explore/media-org/30-upscale-panel.png` (engine copy),
-  `docs/capture-notes.md` (run times), `tutorial/studio/chapters/06-production.js`
-- **Suggestion:** Replace the caption with a line worked out for each button: Quick actions and Prompt "2 images ·
-  about 2 min · 2 credits"; Touch-up "2 images · about 5 min"; Adjust "1 image · a few seconds · no credits"; Impact
-  "Text answer · about 15 s"; Create concept with its real count. Label Build all missing with its count ("Build 22
-  missing renders") and open a confirmation that lists concepts × views × scene states, with Cancel focused and "Build
-  2 to check first" offered. Give each Build a tooltip ("Render Concept A · Aerial · Day"). Put the price beside each
-  video and upscale engine, and if the app meters usage, show the balance next to the account avatar.
+  `docs/capture-notes.md` and the file times of `explore/raw/4-run1-*` (run times),
+  `tutorial/studio/chapters/06-production.js`
+- **Suggestion:** Replace the caption with a line worked out for each button, with <cost> in whatever unit the app
+  bills in: Quick actions and Prompt "2 images · about 3 min · <cost>"; Touch-up "2 images · about 2 min · <cost>";
+  Adjust "1 image · a few seconds · <cost>"; Impact "Text answer · about 15 s · <cost>"; Create concept with its real
+  count. Label Build all missing with its count ("Build 22 missing renders") and open a confirmation that lists
+  concepts × views × scene states, with Cancel focused and "Build 2 to check first" offered. Give each Build a tooltip
+  ("Render Concept A · Aerial · Day"). Put the price beside each video and upscale engine, and if the app meters
+  usage, show the balance next to the account avatar.
 - **Effort:** S to correct the captions and add the count and confirmation; M for estimates and a credit balance.
 
 ### CC-3 · Long runs end without saying so, and results land out of sight (Medium)
@@ -2103,17 +2158,18 @@ the site") rather than explain planning.
     first variant, while "Generating variant 2 of 2…" was drawn underneath the floating toolbar and could barely be
     read; in one capture it was in the page text but not visible at all. The second variant arrived about 3 min after
     the click, with no notice. There is no time estimate.
-  - After a Touch-up of about 5 minutes, Studio stayed on the source image: the outline cleared, the instruction still
-    in the box, Apply to mask greyed. Nothing said that new images existed. They appeared only in the Timeline, as I3
-    and I4 tiles that look almost the same as their neighbours.
+  - After a Touch-up (two iterations here, about 2 min each; see RE-6), Studio stayed on the source image: the outline
+    cleared, the instruction still in the box, Apply to mask greyed. Nothing said that new images existed. They
+    appeared only in the Timeline, as I3 and I4 tiles that look almost the same as their neighbours.
   - Prompt's Generate ended on the new light-rail image, and Adjust's Save as new version jumped to the new version,
-    so the next edit lands on a different image unless the user goes back. Three tabs, three landing rules.
+    so the next edit lands on a different image unless the user goes back. Three tabs, two landing rules: Touch-up
+    stays on the source, Prompt and Adjust move to the result.
   - The New concept run showed clear placeholders, then returned "Green streets 1 images" instead of 2, with no error,
     and its eye-level slot stayed an empty tile that is not a button.
   - Upscale, by contrast, says "Upscaling… this can take a moment. You can leave this page."
-- **Why it matters:** Someone who waits five minutes and then sees the same image will think the run failed and start
-  it again, paying for another generation. Others take a run as finished and stage the next one on an incomplete set.
-  With three landing rules, users never learn where to look.
+- **Why it matters:** Someone who waits several minutes and then sees the same image will think the run failed and
+  start it again, paying for another generation. Others take a run as finished and stage the next one on an incomplete
+  set. With two landing rules, users never learn where to look.
 - **Evidence:** `tutorial/studio/img/4-07-generating.webp`, `explore/raw/4-run1-05.png`, `4-run1-09.png`,
   `4-run1-12.png` and `.txt`, `explore/raw/4-run1-15.txt`, `explore/raw/5-08-after.png` and `.txt` (source image,
   instruction still filled), `explore/raw/5-10-after.png` (new image), `explore/raw/5-09-after.txt` (new version),
@@ -2136,7 +2192,7 @@ the site") rather than explain planning.
   has been opened, and Video and Upscale leave neither tab highlighted (PR-7). The site step is the first of seven
   unlabelled icon tabs inside Ideation. An empty project offers five ways to start, each with its own label and pill:
   - Site: "Start ideation".
-  - Quick actions: "Apply to current", although there is no current image.
+  - Quick actions: "Apply to current", although the only image is the site plan.
   - Presets: "Start ideation", disabled under "No planning presets for this plan type yet." while the pill says "Start
     ideation from the Presets tab when ready" (ID-5).
   - Touch-up: "Touch up the photo to start ideating", with tools that look live but draw nothing (RE-2).
@@ -2166,16 +2222,18 @@ the site") rather than explain planning.
 - **What happens:** The same objects carry different names. One run is an "iteration": badges I1 and I2 have no
   tooltip or legend, Compare says "Iteration 2", and the audit says "iteration v6". Its outputs are "variants"
   ("Generating variant 2 of 2…"), "images" ("4 images", "1 images", "Images per batch") or a "version" ("Save as new
-  version"). Concept chips show a bare number ("Concept A 4"). "Master" has five meanings: the process "Master Plan —
-  Work linearly towards a defined outcome." sits directly above the scope "Master plan — Lay out a complete site" on
-  the new-project form, so our sandbox is "a Conceptual Plan with the scope Master plan"; "Master prompt" is the text
-  in front of every generation; "After (master)" is a video slot; "Regenerate from master" appears under the leading
-  render image; and the audit draws lineage "Per locked master". "Master", "locked", "approved" and "final" name
-  things no control sets (PR-3). The process chips promise that Conceptual Plan explores "multiple design variations
-  in parallel" and Master Plan works "linearly", but inside a project nothing shows what the choice changed.
+  version"). Concept chips show a bare number ("Concept A 4"). "Master" is used in six places with at least four
+  meanings: the process "Master Plan — Work linearly towards a defined outcome." sits directly above the scope "Master
+  plan — Lay out a complete site" on the new-project form, so our sandbox is "a Conceptual Plan with the scope Master
+  plan"; "Master prompt" is the text in front of every generation; "After (master)" is a video slot; "Regenerate from
+  master" appears under the leading render image; and the audit draws lineage "Per locked master". "Master", "locked",
+  "approved" and "final" name things no control sets (PR-3). The process chips promise that Conceptual Plan explores
+  "multiple design variations in parallel" and Master Plan works "linearly", but inside a project nothing shows what
+  the choice changed.
 - **Why it matters:** People can't tell where an edit will land, which image is "the" design, or what Production and
-  the report are counting. Each misunderstanding costs runs and time. The guide has to explain that "Edits add images,
-  they don't replace them".
+  the report are counting. Each misunderstanding costs runs and time: nothing says which image "Regenerate from
+  master" rebuilds from, for example, so a team can't predict what that paid click will produce (PR-3). The guide has
+  to explain that "Edits add images, they don't replace them".
 - **Evidence:** `explore/images/03-cp-hover-badge-i2.txt`, `explore/images/12-cp-compare-open.txt`,
   `explore/raw/6-04-raw.txt` ("iteration v6"), `tutorial/studio/img/5-09b-adjust-saved.webp`,
   `tutorial/studio/img/4-12-two-concepts.webp` ("Concept A 4", "1 images"),
@@ -2204,18 +2262,18 @@ without clicking something we chose not to click, or they were a matter of taste
   the page 1–2 s after Cancel or Escape; Escape sometimes needed several presses; the Details tab took over 4 s to
   fill; the Video button was ignored up to four times and the image picker took 5–8 s to open. All of this happened
   while several automated sessions shared one account over a proxy that was dropping connections, and an earlier run
-  saw normal behaviour.
+  saw normal behaviour. Two observations from that time are kept at Low with this caveat, because Studio could also be
+  the cause: the duplicated Touch-up (RE-6) and the tool lag in Touch-up (RE-9).
 - **Tooltips lingering or showing two texts at once** (Studio Settings info icons, Upscale's Target size, "Move panel
   to the right side" staying up over Collapse menu): seen only when our scripts hovered in quick succession. The
   single-tooltip captures (`explore/quick/63-settings-info-05` to `07`) show one tooltip each.
 - **The Classic (no AI) video engine failing twice within 8 s:** probably our headless browser, which may lack the
   codecs Classic needs. The Kling 2.6 run worked. The error messaging is kept as PR-13.
 - **The panel position syncing live across windows, and grid views changing for "other users":** we saw this only
-  because several of our agents were signed in to one account at once. The part that affects one user (the grid view
-  carries across projects) is kept in RE-12.
-- **Site thumbnail actions in Project settings > Site staying invisible on hover:** seen only in our headless browser.
-  The upload-card case is kept in NA-18 because the CSS hides those actions on devices without hover.
-- **Land-use swatches without tooltips:** they have native `title` attributes, which headless capture doesn't show.
+  because several automated sessions were signed in to one account at once. The part that affects one user (the grid
+  view carries across projects) is kept in RE-12.
+- **Land-use swatches without styled tooltips:** they carry native `title` text, which our capture can't show; the
+  touch-screen problem is the same as in NA-17.
 - **The sticky top bar covering headings in the Report builder:** only when our script scrolled headings into view.
 - **The Compare window's close × off-centre, and the panel narrowing by about 15 px when its scrollbar appears:**
   found by our capture tool's box measurements, with no visible effect in use.
@@ -2237,8 +2295,9 @@ without clicking something we chose not to click, or they were a matter of taste
 - **The eye-level view showing five storeys and more for "two- to three-storey townhouses":** one generation. Model
   variance can't be judged from a single sample. The interface side, density chips that hide their storeys, is kept in
   ID-6.
-- **The Master Plan report dated 2 October while its library snapshot says 28 September:** the project is a numbered
-  copy and may really have been created on 2 October.
+- **The Master Plan audit's "Created / completed 02 Oct" against a name and library snapshot dated 28 September:**
+  "Created" may mean first activity rather than creation (its first ideation entry is on 2 October); we can't tell
+  from outside.
 - **Deleting an upload can't be undone:** Delete was never clicked. Delete is offered only on unused uploads.
 - **The Map scale info icon not reachable by keyboard, and Focus Area photo markers without names:** no capture
   records the first, and the second is only indirectly evidenced (no markers appeared in the area we tried).
