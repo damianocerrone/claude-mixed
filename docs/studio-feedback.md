@@ -2064,8 +2064,8 @@ a concept" and "Check these figures before you rely on them". Video and upscale 
 ## Whole journey
 
 These items cut across the screens above: what the product promises, what a run costs, how a run ends, where to start
-and what the words mean. One measure of the load: our finished guide has 8 chapters, 75 steps, 309 numbered beats and
-about 14,500 words, plus 50 notes (17 warnings, 15 tips, 18 info boxes). Most of the warnings steer readers around
+and what the words mean. One measure of the load: our finished guide has 8 chapters, 75 steps, 311 numbered beats and
+about 15,900 words, plus 51 notes (17 warnings, 15 tips, 19 info boxes). Most of the warnings steer readers around
 product behaviour ("Click the scope, even if it looks selected", "Check that your line was kept", "The first run fixes
 the site") rather than explain planning.
 
