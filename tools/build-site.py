@@ -6,11 +6,13 @@
 
 Writes (into --out, default dist/, which git ignores):
 
-    tutorials/index.html     the page that lists the guides (tutorial/index.html here)
-    tutorials/assets/        the shared engine (tutorial/assets/ here)
+    tutorials/index.html     the page that lists the guides (tutorial/index.html here); public
+    tutorials/img/           its two card pictures, one from each guide; public
+    tutorials/assets/        the shared engine (tutorial/assets/ here); public, the list page needs it
     tutorials/general/       the platform guide, from the private damianocerrone/coplan-tutorials repository,
-                             re-pointed at ../assets/ and at its new address
-    tutorials/studio/        the Studio guide (tutorial/studio/ here), without the capture tools' .json files
+                             re-pointed at ../assets/ and at its new address; behind its own password
+    tutorials/studio/        the Studio guide (tutorial/studio/ here), without the capture tools' .json files;
+                             behind its own password
     tutorial/index.html      forwards the platform guide's old address to /tutorials/general/, keeping the #step
 
 The platform guide is for invited readers, so it is only ever copied into the build, never into this repository.
@@ -67,6 +69,11 @@ tut.mkdir(parents=True)
 # The shared engine and the page that lists the guides
 shutil.copytree(src_studio / 'assets', tut / 'assets')
 shutil.copy2(src_studio / 'index.html', tut / 'index.html')
+
+# The list page is public while each guide has its own password, so its card pictures sit in a public folder
+(tut / 'img').mkdir()
+shutil.copy2(src_general / 'img' / '6-01-gallery.webp', tut / 'img' / 'platform-guide.webp')
+shutil.copy2(src_studio / 'studio' / 'img' / '5-01-focus-view.webp', tut / 'img' / 'studio-guide.webp')
 
 # The Studio guide, without the measured-box .json files that only the capture tools read
 shutil.copytree(src_studio / 'studio', tut / 'studio', ignore=shutil.ignore_patterns('*.json', '*.debug.png'))
@@ -125,6 +132,6 @@ if missing:
 files = [p for p in out.rglob('*') if p.is_file()]
 size = sum(p.stat().st_size for p in files)
 print(f'built {len(files)} files ({size / 1e6:.1f} MB) in {out}')
-for d in ['tutorials', 'tutorials/assets', 'tutorials/general', 'tutorials/studio', 'tutorial']:
+for d in ['tutorials', 'tutorials/assets', 'tutorials/img', 'tutorials/general', 'tutorials/studio', 'tutorial']:
     n = sum(1 for p in (out / d).rglob('*') if p.is_file())
     print(f'  /{d}/  {n} files')

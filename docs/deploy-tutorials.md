@@ -2,13 +2,14 @@
 
 The guides move from one address to a small section:
 
-| Address | Before | After |
-|---|---|---|
-| `/tutorials/` | forwards to `/tutorial/` | the page that lists both guides |
-| `/tutorials/general/` | none | the platform guide |
-| `/tutorials/studio/` | none | the Studio guide |
-| `/tutorials/assets/` | none | the engine both guides share |
-| `/tutorial/` | the platform guide, behind the password gate | forwards to `/tutorials/general/`, keeping the `#step` |
+| Address | Before | After | Access |
+|---|---|---|---|
+| `/tutorials/` | forwards to `/tutorial/` | the page that lists both guides | public |
+| `/tutorials/assets/` | none | the engine both guides share | public (the list page needs it) |
+| `/tutorials/img/` | none | the list page's two card pictures | public |
+| `/tutorials/general/` | none | the platform guide | its own password |
+| `/tutorials/studio/` | none | the Studio guide | its own password |
+| `/tutorial/` | the platform guide, behind the password gate | forwards to `/tutorials/general/`, keeping the `#step` | public |
 
 Build the section first: `python3 tools/build-site.py --platform <checkout of damianocerrone/coplan-tutorials>`. It
 writes `dist/tutorials/` and `dist/tutorial/index.html` (see the README, "Publish it").
@@ -30,16 +31,25 @@ Checked on 3 October 2026, from outside the gate:
 ## What has to change on the Worker
 
 1. Serve `dist/tutorials/` at `/tutorials/`, and `dist/tutorial/index.html` at `/tutorial/` in place of the guide.
-2. Move the gate from `/tutorial/` to `/tutorials/` and everything under it. Keep the same password and the same cookie,
-   so readers who already entered it are not asked again. Leave `/tutorial/` itself ungated, so old links forward
-   first and the gate then asks at the new address. Reword the gate's eyebrow from "Platform guide · for invited
-   readers" to "CoPlanAI guides · for invited readers".
+2. Gate the two guides separately, each with its own password:
+   - `/tutorials/general/` and everything under it: the platform guide's password.
+   - `/tutorials/studio/` and everything under it: the Studio guide's password.
+   - Everything else stays public: `/tutorials/` itself, `/tutorials/assets/`, `/tutorials/img/`, and `/tutorial/`
+     (so old links forward first and the gate then asks at the new address).
+
+   The passwords are not written in this repository, which is public. They reach the deploy session as the
+   environment variables `TUTORIALS_PASSWORD_GENERAL` and `TUTORIALS_PASSWORD_STUDIO`; store them as Worker secrets
+   (`wrangler secret put`), never in the Worker's code or the built files. Give each guide its own cookie, scoped to
+   its folder, so one password never opens the other guide; keep the current 30-day memory. Each gate page names its
+   guide: "Platform guide · for invited readers" and "Studio guide · for invited readers", with the same text and
+   the info@coplanai.com line as today.
 3. Change nothing else on the site.
 
 ## Access
 
-The session needs `CLOUDFLARE_API_TOKEN` (permission to edit Workers scripts on the account; add Workers routes if a
-separate route is used) and `CLOUDFLARE_ACCOUNT_ID` as environment variables. The cloud environment already reaches
+The session needs, as environment variables: `CLOUDFLARE_API_TOKEN` (permission to edit Workers scripts on the
+account; add Workers routes if a separate route is used), `CLOUDFLARE_ACCOUNT_ID`, and the two guide passwords,
+`TUTORIALS_PASSWORD_GENERAL` and `TUTORIALS_PASSWORD_STUDIO`. The cloud environment already reaches
 `api.cloudflare.com` and npm, so `npx wrangler` works.
 
 ## Steps
@@ -61,7 +71,8 @@ separate route is used) and `CLOUDFLARE_ACCOUNT_ID` as environment variables. Th
      `coplanai.com/tutorials*` and `coplanai.com/tutorial*` with the gate copied over (first confirm that such a route
      wins over the main Worker's Custom Domain on the same hostname), or rebuild the full site from a verified copy.
 3. **Test before switching.** Upload a preview version (`wrangler versions upload`) or use the workers.dev address:
-   `/tutorials/` asks for the password and accepts it; the list page, both guides and their images load;
+   `/tutorials/` opens without a password, with both card pictures; each guide asks for its own password, accepts
+   it, and refuses the other guide's; both guides and their images load after the password;
    `/tutorial/#publish-and-share` lands on `/tutorials/general/#publish-and-share`; the home page and a few other
    pages still load.
 4. **Deploy and check again** on coplanai.com. Note the previous version id first, so `wrangler rollback` can restore

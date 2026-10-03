@@ -35,19 +35,20 @@ Every step has an anchor, e.g. `index.html#site-boundary-polygon`.
 
 The guides live together at **coplanai.com/tutorials/**:
 
-| Address | What | Source |
-|---|---|---|
-| `/tutorials/` | the page that lists both guides | `tutorial/index.html` here |
-| `/tutorials/assets/` | the shared engine, fonts and logo | `tutorial/assets/` here (the same files as in `coplan-tutorials`) |
-| `/tutorials/general/` | the platform guide, for people who run workshops | `damianocerrone/coplan-tutorials` (private) |
-| `/tutorials/studio/` | this guide | `tutorial/studio/` here |
-| `/tutorial/` | the platform guide's old address, forwarded to `/tutorials/general/` with its `#step` | made by the build |
+| Address | What | Source | Access |
+|---|---|---|---|
+| `/tutorials/` | the page that lists both guides | `tutorial/index.html` here | public |
+| `/tutorials/assets/` | the shared engine, fonts and logo | `tutorial/assets/` here (the same files as in `coplan-tutorials`) | public |
+| `/tutorials/img/` | the list page's two card pictures | copied from each guide by the build | public |
+| `/tutorials/general/` | the platform guide, for people who run workshops | `damianocerrone/coplan-tutorials` (private) | its own password |
+| `/tutorials/studio/` | this guide | `tutorial/studio/` here | its own password |
+| `/tutorial/` | the platform guide's old address, forwarded to `/tutorials/general/` with its `#step` | made by the build | public |
 
 `python3 tools/build-site.py` assembles all of it into `dist/`, which git ignores because it holds the private
 platform guide. It reads the platform guide from a checkout of `coplan-tutorials` next to this one (or `--platform`),
 re-points it at `../assets/` and its new address, leaves out the capture tools' `.json` files, and stops if a link
-breaks. The site is served by a Cloudflare Worker with a password gate for invited readers; how to deploy `dist/` to
-it is in `docs/deploy-tutorials.md`.
+breaks. The site is served by a Cloudflare Worker, which also asks for each guide's password; how to deploy `dist/`
+to it is in `docs/deploy-tutorials.md`. The passwords are never written in this repository.
 
 ## What's inside
 

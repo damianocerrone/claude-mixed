@@ -23,6 +23,8 @@
   The page that lists the guides, served at coplanai.com/tutorials/. It uses the guides' engine stylesheet
   (assets/guide.css) for the header, type and footer, and adds only the two guide cards below. Each guide
   lives in its own folder next to this page: general/ (the platform guide) and studio/ (the Studio guide).
+  This page is public and each guide has its own password, so the card pictures come from img/ beside this
+  page (tools/build-site.py copies them there), never from inside a guide's folder.
 -->
 <style>
 .guides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,3vw,44px);padding-bottom:var(--sp-section)}
@@ -37,6 +39,7 @@
 .guide .h2 a:focus-visible{outline:none}
 .guide:focus-within{outline:2px solid var(--focus);outline-offset:10px;border-radius:var(--r-img)}
 .guide p.desc{color:var(--text);max-width:34em}
+.hero .lede a{color:var(--amber);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .guide ol{margin:0;padding:0;list-style:none;display:grid;gap:6px;counter-reset:ch;font-size:16px;color:var(--ink-2)}
 .guide ol li{counter-increment:ch;display:grid;grid-template-columns:2.2em minmax(0,1fr);align-items:baseline}
 .guide ol li::before{content:counter(ch,decimal-leading-zero);font:500 12.5px/1 var(--ff-mono);color:var(--ink-4)}
@@ -63,14 +66,14 @@
         <p class="eyebrow">CoPlanAI · Guides</p>
         <h1 class="h1" id="hero-h">Learn CoPlanAI, <em>step by step</em>.</h1>
         <p class="say">Two guides to the real screens. Pick the one for your work.</p>
-        <p class="lede">Scroll at your own pace. Each step shows the real screen, zooms in on what matters and points to exactly where to click.</p>
+        <p class="lede">Scroll at your own pace. Each step shows the real screen, zooms in on what matters and points to exactly where to click. The guides are for invited readers: each one opens with the password we sent you. No password yet? Write to <a href="mailto:info@coplanai.com">info@coplanai.com</a>.</p>
       </div>
     </div>
   </section>
 
   <section class="wrap guides" aria-label="The guides">
     <article class="guide">
-      <a class="guide__plate" href="general/" tabindex="-1" aria-hidden="true"><img src="general/img/6-01-gallery.webp" alt="" width="2400" height="1200" loading="lazy"></a>
+      <a class="guide__plate" href="general/" tabindex="-1" aria-hidden="true"><img src="img/platform-guide.webp" alt="" width="2400" height="1200" loading="lazy"></a>
       <p class="eyebrow">For people who run workshops</p>
       <h2 class="h2"><a href="general/">Platform guide</a></h2>
       <p class="desc">For city teams, universities and agencies who run participation workshops on CoPlanAI: set up a workshop, run it with participants, and turn what they made into a report.</p>
@@ -83,12 +86,12 @@
         <li>After the workshop</li>
         <li>For organisation admins</li>
       </ol>
-      <p class="meta">7 chapters · 81 steps</p>
+      <p class="meta">7 chapters · 81 steps · password needed</p>
       <a class="link link--arrow" href="general/">Open the platform guide</a>
     </article>
 
     <article class="guide">
-      <a class="guide__plate" href="studio/" tabindex="-1" aria-hidden="true"><img src="studio/img/5-01-focus-view.webp" alt="" width="2400" height="1200" loading="lazy"></a>
+      <a class="guide__plate" href="studio/" tabindex="-1" aria-hidden="true"><img src="img/studio-guide.webp" alt="" width="2400" height="1200" loading="lazy"></a>
       <p class="eyebrow">For planning teams</p>
       <h2 class="h2"><a href="studio/">Studio guide</a></h2>
       <p class="desc">For planning teams in CoPlan Studio: turn a site plan or a street photo into design options, then into renders, videos and a report.</p>
@@ -102,7 +105,7 @@
         <li>Videos and upscales</li>
         <li>Studio for your organisation</li>
       </ol>
-      <p class="meta">8 chapters · 75 steps</p>
+      <p class="meta">8 chapters · 75 steps · password needed</p>
       <a class="link link--arrow" href="studio/">Open the Studio guide</a>
     </article>
   </section>
