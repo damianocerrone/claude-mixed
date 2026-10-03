@@ -5,3 +5,5 @@ node_modules/
 storage-state*.json
 # Raw exploration captures stay local; only the finished plates in tutorial/studio/img are committed.
 explore/
+# The assembled /tutorials/ section (tools/build-site.py); it includes the private platform guide.
+dist/

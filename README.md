@@ -2,8 +2,9 @@
 
 An animated, scrollable guide to **CoPlan Studio**, the desktop workspace in CoPlanAI where a planning team turns a
 site plan or a street photo into design options, renders, videos and a report. It is the sibling of the platform
-guide at [coplanai.com/tutorial](https://coplanai.com/tutorial/) (source: `damianocerrone/coplan-tutorials`) and is
-meant to be published at **coplanai.com/tutorial/studio/**.
+guide (source: `damianocerrone/coplan-tutorials`), and the two are published together: the Studio guide at
+**coplanai.com/tutorials/studio/**, the platform guide at **coplanai.com/tutorials/general/**, and a page listing both
+at **coplanai.com/tutorials/**.
 
 It reuses the platform guide's engine unchanged. Each step shows a real Studio screen. As the reader scrolls through
 the numbered instructions, the screenshot zooms in, spotlights the exact button and plays a small click animation on it.
@@ -32,16 +33,28 @@ Every step has an anchor, e.g. `index.html#site-boundary-polygon`.
 
 ## Publish it
 
-Copy `tutorial/studio/` into the `tutorial/` folder of the coplanai.com site, next to the platform guide, so it is
-served at `/tutorial/studio/`. It loads its engine from `../assets/`, which the platform guide already has (the files
-in `tutorial/assets/` here are the same). The plate `.json` files in `tutorial/studio/img/` are only used by the
-capture tools and need not be published. You may also want a link to the Studio guide from the platform guide's hero.
+The guides live together at **coplanai.com/tutorials/**:
+
+| Address | What | Source |
+|---|---|---|
+| `/tutorials/` | the page that lists both guides | `tutorial/index.html` here |
+| `/tutorials/assets/` | the shared engine, fonts and logo | `tutorial/assets/` here (the same files as in `coplan-tutorials`) |
+| `/tutorials/general/` | the platform guide, for people who run workshops | `damianocerrone/coplan-tutorials` (private) |
+| `/tutorials/studio/` | this guide | `tutorial/studio/` here |
+| `/tutorial/` | the platform guide's old address, forwarded to `/tutorials/general/` with its `#step` | made by the build |
+
+`python3 tools/build-site.py` assembles all of it into `dist/`, which git ignores because it holds the private
+platform guide. It reads the platform guide from a checkout of `coplan-tutorials` next to this one (or `--platform`),
+re-points it at `../assets/` and its new address, leaves out the capture tools' `.json` files, and stops if a link
+breaks. The site is served by a Cloudflare Worker with a password gate for invited readers; how to deploy `dist/` to
+it is in `docs/deploy-tutorials.md`.
 
 ## What's inside
 
 ```
-tutorial/
-  assets/                 the shared engine (guide.js, guide.css), fonts (OFL) and logo: the same files as /tutorial/assets/
+tutorial/                 published as coplanai.com/tutorials/
+  index.html              the page that lists both guides
+  assets/                 the shared engine (guide.js, guide.css), fonts (OFL) and logo, shared with the platform guide
   studio/
     index.html            the Studio guide page; loads ../assets/
     steps.js              creates the chapter list
@@ -52,6 +65,7 @@ tools/
   flows/NN-*.js           the capture flow behind each chapter: re-run one when Studio changes
   flows/lib.js            shared helpers for the flows (navigation, rects, plates)
   check-guide.js          static checks of every chapter: images, boxes, zooms, tags, ids and links
+  build-site.py           assembles /tutorials/ (both guides, the list page, the old-address redirect) into dist/
   cloud-browser.sh        a headless Chromium that stays signed in, for captures from a cloud container
   sign-in.js              signs that browser in with an email code
   compose-phone.py        puts phone screenshots on a wide plate
@@ -61,6 +75,7 @@ docs/
   studio-feedback.md      UX review of Studio: verified problems, quick wins and bigger changes
   review/                 the same review as a web page: build.py turns the report into index.html via page.html
   studio-plan.md          the plan written before the platform was reachable
+  deploy-tutorials.md     how to put the built /tutorials/ section on the site's Cloudflare Worker
 ```
 
 ## Edit the text
