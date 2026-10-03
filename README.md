@@ -59,6 +59,7 @@ docs/
   studio-outline.md       chapters, writing rules and plate rules
   capture-notes.md        what happened on each plate of chapters 3-7, including bugs found on the way
   studio-feedback.md      UX review of Studio: verified problems, quick wins and bigger changes
+  review/                 the same review as a web page: build.py turns the report into index.html via page.html
   studio-plan.md          the plan written before the platform was reachable
 ```
 
@@ -115,4 +116,6 @@ What the work left on the platform:
 - Audit log entries for all of the above. Nothing in other projects, the library, the app settings or Studio
   settings was changed.
 
-`docs/studio-feedback.md` lists the bugs and UX problems found along the way.
+`docs/studio-feedback.md` lists the bugs and UX problems found along the way, with suggested fixes; `docs/review/index.html`
+shows the same review as a page with screenshots and proposal sketches (rebuild it with `python3 docs/review/build.py`
+after editing the report).
