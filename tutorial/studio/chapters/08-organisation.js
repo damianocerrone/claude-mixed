@@ -6,7 +6,11 @@
  *   zoom          = [x, y, w, h]   2:1 region to zoom into (w === h keeps the 2:1 aspect); omit for the full view
  *   highlight.side = "above" | "left below" | …   optional: the side(s) to try first for the label pill
  * Every box, cursor point and zoom comes from the capture JSON written by tools/capture.js
- * (flow: tools/flows/08-organisation.js), and was checked on the debug image.
+ * (flow: tools/flows/08-organisation.js), and was checked on the debug image, with one exception:
+ *   - 8-06: the row and Add beats share one zoom, [0.19, 0.25, 0.42, 0.42], wider than the JSON "row" and "add" zooms
+ *     (w === h, inside 0..1, containing both boxes and their cursors), so the Render styles title and row names show.
+ * Label sides ("right", "below") keep the pill off a neighbouring control (the All activity select in 8-05, View full
+ * size in 8-01).
  * Everything here was captured VIEW ONLY: the two "New …" dialogs were closed with Cancel, nothing was deleted,
  * added, linked or saved. img/8-01-uploads.webp: the card's hover buttons are shown as a mouse user sees them
  * (the capture browser reports no hover, so they were revealed with a local style on that one card).
@@ -14,7 +18,7 @@
 window.COPLAN_TUTORIAL.chapters.push({
   id: "organisation",
   title: "Studio for your *organisation*",
-  summary: "Keep your Studio's images in order, build shared mood boards and planning presets, decide who can edit each project, follow every action in the audit log, and tailor your app's Studio settings.",
+  summary: "Keep your Studio's images in order, build shared mood boards and planning presets, decide who can edit each project, follow every action in the audit log, and tailor your app's Studio Settings. We took these screens with an owner account, so some of these pages may not be open to you.",
   steps: [
     {
       id: "org-uploads",
@@ -52,7 +56,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "An image nothing uses is marked <strong>Unused</strong>, and only those cards offer the red <strong>Delete</strong>. Look at the image full size before you remove it: nothing on this page brings a deleted image back.",
-          highlight: { box: [0.9635, 0.2343, 0.0215, 0.043], shape: "circle", label: "Delete" },
+          highlight: { box: [0.9635, 0.2343, 0.0215, 0.043], shape: "circle", label: "Delete", side: "below" },
           cursor: { at: [0.9743, 0.2558], click: false },
           zoom: [0.5833, 0.0475, 0.4167, 0.4167]
         }
@@ -61,7 +65,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "org-mood-boards",
       title: "Build a shared mood board",
-      lead: "Under <strong>LIBRARY</strong>, <strong>Mood boards &amp; style refs</strong> holds sets of reference images that steer the look of your planners' designs. Studio calls each set a <strong>preset</strong>. If the library is empty, it shows <strong>No presets yet</strong>: click <strong>New preset</strong> to make the first one.",
+      lead: "Under <strong>LIBRARY</strong>, <strong>Mood boards &amp; style refs</strong> holds sets of reference images that steer the look of your planners' designs. Studio calls each set a <strong>preset</strong>; these are not the planning presets of the next step, which a project's Presets tab lists. If the library is empty, it shows <strong>No presets yet</strong>: click <strong>New preset</strong> to make the first one.",
       image: "img/8-02-mood-board.webp",
       url: "coplanai.ikonai.app",
       alt: "The New preset dialog, scrolled down: the reference-image drop zone (0 of 5 used) with Choose from library, Description with a greyed-out Generate description button, Tags, State with Active selected and Draft, Scope with Shared selected and Project-only, and Cancel and a greyed-out Save & make Active at the bottom.",
@@ -112,7 +116,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "info",
         title: "Where planners find it",
-        html: "A planning preset appears in the <strong>Presets</strong> tab of a project's Actions panel (the third tab, or the second in Focus Area projects, which have no Site tab), in every type of project it is available for. Clicking it stages the whole bundle in the <strong>PENDING</strong> tray, where the planner can review or adjust it before generating. Until there is one, the tab says <strong>No planning presets for this plan type yet</strong>. See <a href='#ideation'>Generate design options</a>."
+        html: "A planning preset appears in the <strong>Presets</strong> tab of a project's Actions panel (the third tab, or the second in Focus Area projects, which have no Site tab), in every type of project it is available for. Clicking it stages the whole bundle in the <strong>PENDING</strong> tray, where the planner can review or adjust it before generating. Until there is one, the tab says <strong>No planning presets for this plan type yet</strong>. See <a href='#ideation-presets'>Find your planning presets</a>."
       },
       beats: [
         {
@@ -213,7 +217,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<strong>Refresh</strong> loads the latest actions.",
-          highlight: { box: [0.2916, 0.1368, 0.0617, 0.0506], label: "Refresh" },
+          highlight: { box: [0.2916, 0.1368, 0.0617, 0.0506], label: "Refresh", side: "right" },
           cursor: { at: [0.3225, 0.1621], click: false },
           zoom: [0.1141, 0, 0.4167, 0.4167]
         },
@@ -227,7 +231,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "org-settings",
       title: "Tailor Studio's settings",
-      lead: "<strong>Settings</strong>, the last item under <strong>ORGANISATION</strong>, holds your app's Studio configuration: the options offered to planners, and the prompt text each option sends to the image model.",
+      lead: "<strong>Settings</strong>, the last item under <strong>ORGANISATION</strong>, holds your app's Studio configuration (Studio calls your organisation's CoPlanAI space an app): the options offered to planners, and the prompt text each option sends to the image model.",
       image: "img/8-06-settings.webp",
       url: "coplanai.ikonai.app",
       alt: "The Studio Settings page: a Configuration source card marked Inherited, a greyed-out Save configuration button, and the Planning presets section with the Render styles list (Massing, Sketch, Illustrative, Photoreal) and the Layout geometry list (Linear, Organic, Hybrid), each row with edit, revert and delete buttons, and the start of the Creativity list below.",
@@ -249,13 +253,13 @@ window.COPLAN_TUTORIAL.chapters.push({
           html: "Each row has three buttons: the pencil edits it, the curved arrow undoes your changes to it, and the red bin removes it.",
           highlight: { box: [0.5042, 0.4421, 0.0716, 0.0505], label: "Edit, revert, delete" },
           cursor: { at: [0.5168, 0.4674], click: false },
-          zoom: [0.3317, 0.259, 0.4167, 0.4167]
+          zoom: [0.19, 0.25, 0.42, 0.42]
         },
         {
           html: "<strong>Add</strong> adds an option to its list, such as a render style in your own house style.",
           highlight: { box: [0.5352, 0.3811, 0.0474, 0.0505], label: "Add" },
           cursor: { at: [0.5589, 0.4063], click: false },
-          zoom: [0.3505, 0.198, 0.4167, 0.4167]
+          zoom: [0.19, 0.25, 0.42, 0.42]
         },
         {
           html: "Nothing changes until you click <strong>Save configuration</strong>. It is the only Save button on this long page, here at the top, and it stays grey until you change something.",
@@ -268,7 +272,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "org-settings-density",
       title: "Descriptors, density and required elements",
-      lead: "Scroll down Settings for the guidance that drafts planning-preset descriptors, the density bands and the facilities a brief can require.",
+      lead: "Scroll down Settings for the guidance that drafts planning-preset descriptors, the density bands and the facilities a planner can require.",
       image: "img/8-07-settings-density.webp",
       url: "coplanai.ikonai.app",
       alt: "Studio Settings scrolled down: the Planning preset descriptor guidance text with its Full drafting prompt preview opened, the Density bands list (Low, Medium, Medium-high, High) with a prompt fragment under each, and the start of the Canvas section with Required elements.",
@@ -288,7 +292,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           cursor: { at: [0.4202, 0.7595], click: false }
         },
         {
-          html: "<strong>Required elements</strong>, under <strong>Canvas</strong>, are the facilities a brief can require, from <strong>Community mosque</strong> down to Transit stop. The ones a planner selects go into every generation as one instruction, whatever planning preset is used.",
+          html: "<strong>Required elements</strong>, under <strong>Canvas</strong>, are the facilities a planner can require, from <strong>Community mosque</strong> down to Transit stop. The ones a planner ticks are added to the next generation as one instruction, the same whichever planning preset is used (see <a href='#ideation-required'>Require facilities</a>).",
           highlight: { box: [0.1947, 0.8189, 0.7958, 0.1811], label: "Required elements" }
         }
       ]
@@ -303,7 +307,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "info",
         title: "Further down the page",
-        html: "<strong>FULL GENERATION PROMPT — PREVIEW</strong> shows the order in which a prompt is put together, from the master prompt to the change being applied. Then come <strong>Dynamic prompt composition</strong> (switched On here: an AI rewrite of the whole prompt before each generation, which adds time and cost), <strong>Touch-up color prompts</strong>, the <strong>Land-use colour standard</strong> (see <a href='#site'>Prepare the site</a>) and <strong>Production</strong>: views, scene states, output quality, export file names and report sections."
+        html: "<strong>FULL GENERATION PROMPT — PREVIEW</strong> shows the order in which a prompt is put together, from the master prompt to the change being applied. Then come <strong>Dynamic prompt composition</strong> (switched On here: an AI rewrite of the whole prompt before each generation, which adds time and cost), <strong>Touch-up color prompts</strong>, the <strong>Land-use colour standard</strong> (see <a href='#site-colours'>Mind the colour standard</a>) and <strong>Production</strong>: views, scene states, output quality, export file names and report sections."
       },
       beats: [
         {
@@ -319,7 +323,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.4674, 0.0421, 0.5326, 0.5326]
         },
         {
-          html: "<strong>Area steppers</strong> become a slider with levels in the Adjust card of Quick actions, like <strong>Greenery</strong> with its <strong>3 levels</strong>. <strong>Additive elements</strong> are one-tap chips that add a single element, such as a <strong>Water feature</strong> or <strong>People</strong>.",
+          html: "<strong>Area steppers</strong> and <strong>Additive elements</strong> are the defaults behind the Adjust and Add cards of Quick actions, such as <strong>Greenery</strong> with its <strong>3 levels</strong> and <strong>Water feature</strong>. Each project can change its own copy: see <a href='#start-project-settings'>Tune the quick actions</a>.",
           highlight: { box: [0.1947, 0.5189, 0.7958, 0.2295], label: "Steppers and additive elements" }
         },
         {

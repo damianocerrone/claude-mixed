@@ -10,15 +10,18 @@
  * built only from JSON values: the panel cards on 4-02 to 4-06 measured about 15 px narrower than
  * they appear on the plates, so their highlights take x/w from the tray and Apply to current boxes
  * measured in the same panel column (x 0.0032, w 0.1789; 4-01, 4-06, 4-09) and keep the card's own
- * y/h; the Apply boxes on 4-01 and 4-09 are the Apply-plus-caption union measured on 4-06 (same panel
- * layout, same button position).
+ * y/h (the Scope card on 4-01 takes them in the same way); the Apply boxes on 4-01, 4-07 and 4-09 are the
+ * Apply-plus-caption union measured on 4-06 (same panel layout, same button position). Two more reuses,
+ * checked on the plates: 4-07 has no measured boxes, so its Concept A header takes the 4-09 "focus" box,
+ * and the two-chip tray on 4-02 takes the 4-09 "tray" box (both trays have two rows and sit above the
+ * same button).
  * Prompt text quoted for Density, Creativity, Render Style, Scene, Greenery, Add and Required
  * elements is the default Studio Settings text (explore/quick/60-settings-top.txt).
  */
 window.COPLAN_TUTORIAL.chapters.push({
   id: "ideation",
   title: "Generate *design options*",
-  summary: "Set up a generation in Quick actions, from density and render style to the facilities the plan must include, run it, read the results, build on one image and start a second concept.",
+  summary: "Set up a generation in Quick actions, from density and render style to the facilities the plan must include, run it, read the results, build on one image, start a second concept and find your organisation's planning presets.",
   steps: [
     {
       id: "ideation-quick",
@@ -30,12 +33,12 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "warning",
         title: "Check the defaults for your region first",
-        html: "Studio's default configuration is written for the Gulf. The master prompt that opens every generation describes a parcel in Dubai, in a hot-arid desert setting, and the default required elements include a Community mosque and a Majlis. Our US-style downtown came out as a desert city with a lake, as you'll see in the results. If your projects are elsewhere, ask whoever manages Studio Settings to adapt them before you generate: see <a href='#org-settings-ideation'>Ideation options and the master prompt</a>."
+        html: "Studio's default configuration is written for the Gulf. The master prompt that opens every generation describes a parcel in Dubai, in a hot-arid desert setting, and the default required elements include a Community mosque and a Majlis. Our US-style downtown came out as a desert city with a lake, as you'll see in the results. If your projects are elsewhere, ask whoever manages Studio Settings to adapt them before you generate: see <a href='#org-settings-ideation'>Ideation options and the master prompt</a> and <a href='#org-settings-density'>Descriptors, density and required elements</a>."
       },
       beats: [
         {
           html: "Click the lightning icon, the second of the icon tabs, to open Quick actions. Hover any tab to see its name.",
-          highlight: { box: [0.0296, 0.1621, 0.0286, 0.0463], label: "Quick actions" },
+          highlight: { box: [0.0296, 0.1621, 0.0286, 0.0463], label: "Quick actions", side: "above" },
           cursor: { at: [0.0439, 0.1853], click: true },
           zoom: [0, 0, 0.4167, 0.4167]
         },
@@ -46,7 +49,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<strong>Scope</strong> decides whether generations lay out the whole site (<strong>Master plan</strong>) or a single building on its parcel (<strong>Single building or lot</strong>). It applies to every following generation and is saved to the project as soon as you click. <strong>Single building or lot</strong> also removes the <strong>Density</strong> and Required elements cards.",
-          highlight: { box: [0.0111, 0.2347, 0.1394, 0.0969], label: "Scope" },
+          highlight: { box: [0.0032, 0.2347, 0.1789, 0.0969], label: "Scope" },
           zoom: [0, 0.0748, 0.4167, 0.4167]
         },
         {
@@ -59,7 +62,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "ideation-density",
       title: "Set density and creativity",
-      lead: "Each option in Quick actions adds a phrase to the brief that Studio turns into the prompt for the image model. The phrases quoted below are Studio's defaults, set in Studio Settings.",
+      lead: "Each option in Quick actions adds a phrase to the prompt that Studio composes for the image model. The phrases quoted below are Studio's defaults, set in Studio Settings.",
       image: "img/4-02-density-creativity.webp",
       url: "coplanai.ikonai.app",
       alt: "Quick actions with the Scope card, Master plan selected, at the top, then Medium-high selected under Density, Balanced under Creativity and the start of the Render Style card. At the bottom of the panel, the PENDING tray lists Density: Medium-high and Creativity: Balanced above a green Apply to current button. The land-use plan, with the pill Use the quick actions to start ideating, fills the right of the screen.",
@@ -76,12 +79,14 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.2285, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Creativity</strong> sets how freely the model interprets the brief. <strong>Conservative</strong> stays &ldquo;close to conventional solutions&rdquo;; <strong>Exploratory</strong> favours &ldquo;bold unconventional ideas within the constraints&rdquo;. We chose <strong>Balanced</strong>: &ldquo;recognisable logic plus a few distinctive moves&rdquo;.",
+          html: "<strong>Creativity</strong> sets how freely the model interprets your choices. <strong>Conservative</strong> stays &ldquo;close to conventional solutions&rdquo;; <strong>Exploratory</strong> favours &ldquo;bold unconventional ideas within the constraints&rdquo;. We chose <strong>Balanced</strong>: &ldquo;recognisable logic plus a few distinctive moves&rdquo;.",
           cursor: { at: [0.094, 0.6395], click: true },
           zoom: [0, 0.4204, 0.4167, 0.4167]
         },
         {
-          html: "Each choice lands as a chip in the <strong>PENDING</strong> tray above the button, here <strong>Density: Medium-high</strong> and <strong>Creativity: Balanced</strong>, and <strong>Apply to current</strong> turns green."
+          html: "Each choice lands as a chip in the <strong>PENDING</strong> tray above the button, here <strong>Density: Medium-high</strong> and <strong>Creativity: Balanced</strong>, and <strong>Apply to current</strong> turns green.",
+          highlight: { box: [0.0032, 0.7905, 0.1789, 0.1369], label: "PENDING" },
+          zoom: [0, 0.5833, 0.4167, 0.4167]
         }
       ]
     },
@@ -105,7 +110,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.3714, 0.4167, 0.4167]
         },
         {
-          html: "Upload your own with <strong>Drop or add</strong>, or click <strong>Choose from uploaded images</strong> to reuse an image already uploaded to the project. We left references out of this example.",
+          html: "Upload your own with <strong>Drop or add</strong>, or click <strong>Choose from uploaded images</strong> to reuse images already uploaded to this Studio, up to five. We left references out of this example.",
           cursor: { at: [0.0926, 0.6732], click: false },
           zoom: [0, 0.3714, 0.4167, 0.4167]
         }
@@ -126,7 +131,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.3532, 0.4273, 0.4273]
         },
         {
-          html: "Unlike the cards above, these are saved to the project as soon as you click them, so they survive a reload, and a second click removes them. They are listed in the tray too, after the staged choices. As the card's header says, they are applied to the next generation: after the run they are cleared, so tick them again whenever a later run needs them.",
+          html: "Unlike Density, Creativity and Render Style, these are saved to the project as soon as you click them, so they survive a reload, and a second click removes them. They are listed in the tray too, after the staged choices. As the card's header says, they are applied to the next generation: after the run they are cleared, so tick them again whenever a later run needs them.",
           highlight: { box: [0.0032, 0.4132, 0.1789, 0.3073], label: "Saved to the project" },
           zoom: [0, 0.405, 0.53, 0.53]
         },
@@ -180,11 +185,11 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "warning",
         title: "The first run fixes the site",
-        html: "Your first run fixes the boundary and the land-use plan for good, without asking. Check both on the Site tab first: see <a href='#site'>Prepare the site</a>."
+        html: "Your first run fixes the boundary and the land-use plan for good, without asking. Check both on the Site tab first: see <a href='#site-start-ideation'>Check that the site is ready</a>."
       },
       beats: [
         {
-          html: "Set the <strong>Aspect Ratio</strong> (here <strong>4:3 · Auto</strong>; the list runs from 21:9 to 9:16), the <strong>Output quality</strong> (1K, <strong>2K</strong> or 4K) and the <strong>Output format</strong> (<strong>WebP</strong>, PNG or JPG). Like Scope, the aspect ratio is saved to the project and doesn't go into the tray.",
+          html: "Set the <strong>Aspect Ratio</strong> (here <strong>4:3 · Auto</strong>; the list runs from 21:9 to 9:16), the <strong>Output quality</strong> (1K, <strong>2K</strong> or 4K) and the <strong>Output format</strong> (<strong>WebP</strong>, PNG or JPG). Like Scope, the aspect ratio is saved to the project and doesn't go into the tray. The same two settings appear on the Details tab of Project settings. Renders in Production take their quality and format from Render settings instead (see <a href='#production-settings'>Choose views, scenes and output</a>).",
           highlight: { box: [0.0032, 0.4216, 0.1789, 0.2489], label: "Output" },
           zoom: [0, 0.3377, 0.4167, 0.4167]
         },
@@ -208,6 +213,11 @@ window.COPLAN_TUTORIAL.chapters.push({
       image: "img/4-07-generating.webp",
       url: "coplanai.ikonai.app",
       alt: "The run in progress: the land-use plan is blurred, with a spinner and the words Composing prompt… in the middle. The panel's header reads Concept A, the PENDING tray has gone and Apply to current is greyed out.",
+      note: {
+        kind: "info",
+        title: "What costs credits, and how long it takes",
+        html: "Studio shows no credit balance and no price on any of its screens: ask whoever manages your CoPlanAI account how generations are billed. These start an AI generation: Start ideation, Apply to current (or Apply to N selected), Create concept, Regenerate, Apply to mask, Generate in the Prompt tab, every Build in Production, videos with a Kling engine and upscales with any engine but Classic (no AI). We couldn't tell whether Adjust's Save as new version or Impact's Analyse use credits. Our first run took about three minutes, an iteration two and a half, a Touch-up five and a Prompt run three."
+      },
       beats: [
         {
           html: "The plan blurs and Studio shows <strong>Composing prompt…</strong> while it puts your choices together into one prompt for the image model."
@@ -216,10 +226,17 @@ window.COPLAN_TUTORIAL.chapters.push({
           html: "Then it shows &ldquo;Generating variant 1 of 2…&rdquo;."
         },
         {
-          html: "The panel's header now reads <strong>Concept A</strong>, your first concept. The tray is empty again and <strong>Apply to current</strong> is grey."
+          html: "The panel's header now reads <strong>Concept A</strong>, your first concept.",
+          highlight: { box: [0.0032, 0.0563, 0.0544, 0.0379], label: "Concept A" },
+          zoom: [0, 0, 0.4167, 0.4167]
         },
         {
-          html: "After about a minute Studio opens the first variant in Focus view, which <a href='#refine'>Review and refine</a> explains, while the second variant is still being generated: our first run took about three minutes in all. To see both variants, go back to the grid with All images, the grid icon at the top left of the panel; a variant still on its way shows a spinner there."
+          html: "The tray is empty again and <strong>Apply to current</strong> is grey.",
+          highlight: { box: [0.0032, 0.9211, 0.1789, 0.0768], label: "Apply to current" },
+          zoom: [0, 0.5833, 0.4167, 0.4167]
+        },
+        {
+          html: "After about a minute Studio opens the first variant in Focus view (see <a href='#refine-focus'>Open an image in Focus view</a>), while the second variant is still being generated: our first run took about three minutes in all. To see both variants, go back to the grid with All images, the grid icon at the top left of the panel; a variant still on its way shows a spinner there."
         }
       ]
     },
@@ -258,7 +275,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.3206, 0.1096, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Latest</strong> shows each concept's newest iteration and <strong>Timeline</strong> all of them. <strong>Pair</strong> shows the eye-level views beside the top views; <strong>Single</strong> shows top views only. <strong>Select</strong> and <strong>Favorites</strong> are covered in <a href='#refine'>Review and refine</a>.",
+          html: "<strong>Latest</strong> shows each concept's newest iteration and <strong>Timeline</strong> all of them. <strong>Pair</strong> shows the eye-level views beside the top views; <strong>Single</strong> shows top views only. <strong>Select</strong> and <strong>Favorites</strong> are covered in <a href='#refine-select'>Select several images</a> and <a href='#refine-favourites'>Mark your favourites</a>.",
           highlight: { box: [0.7162, 0.0811, 0.2643, 0.0505], label: "Views" },
           zoom: [0.5833, 0, 0.4167, 0.4167]
         }
@@ -279,7 +296,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "The panel's header names the concept the image belongs to: <strong>Concept A</strong>.",
-          highlight: { box: [0.0032, 0.0563, 0.0544, 0.0379], label: "Image in focus" },
+          highlight: { box: [0.0032, 0.0563, 0.0544, 0.0379], label: "Concept A" },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
@@ -292,7 +309,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.5833, 0.4167, 0.4167]
         },
         {
-          html: "Click <strong>Apply to current</strong> to make the next iteration from the image in focus: two new variants, marked I2. Like the first run, it uses credits. We ran these three changes on the lakeside variant, the first of the pair, rather than the one shown here; ours took about two and a half minutes.",
+          html: "Click <strong>Apply to current</strong> to make the next iteration from the image in focus: two new variants, marked I2. Like the first run, it uses credits; ours took about two and a half minutes. For this guide we ran the same three changes on the other variant, the lakeside plan, so that is where the I2 images in the next step come from.",
           highlight: { box: [0.0032, 0.9211, 0.1789, 0.0768], label: "Apply to current" },
           cursor: { at: [0.0926, 0.9484], click: true },
           zoom: [0, 0.5833, 0.4167, 0.4167]
@@ -309,7 +326,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click <strong>Timeline</strong>.",
-          highlight: { box: [0.8877, 0.0811, 0.0928, 0.0505], label: "Latest or Timeline" },
+          highlight: { box: [0.8877, 0.0811, 0.0928, 0.0505], label: "Latest or Timeline", side: "below" },
           cursor: { at: [0.9544, 0.1063], click: true },
           zoom: [0.5833, 0, 0.4167, 0.4167]
         },
@@ -371,8 +388,8 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.0513, 0.2301, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Single</strong> shows only the top views, as here; <strong>Pair</strong> adds the eye-level views beside them. Our Green streets came back with a top view only, so in Pair its eye-level slot stays empty, as the next screenshot shows.",
-          highlight: { box: [0.8118, 0.1242, 0.077, 0.0505], label: "Pair or Single" },
+          html: "<strong>Single</strong> shows only the top views, as here; <strong>Pair</strong> adds the eye-level views beside them. Our Green streets came back with a top view only, so in Pair its eye-level slot stays empty, as you can see behind the Presets tab in the next step.",
+          highlight: { box: [0.8118, 0.1242, 0.077, 0.0505], label: "Pair or Single", side: "below" },
           cursor: { at: [0.8665, 0.1495], click: false },
           zoom: [0.5833, 0, 0.4167, 0.4167]
         }
@@ -380,7 +397,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     },
     {
       id: "ideation-presets",
-      title: "Start from a planning preset",
+      title: "Find your planning presets",
       lead: "The third tab lists your organisation's <strong>Planning presets</strong>, which its info tooltip describes as &ldquo;a bundle of settings and quick actions applied all at once&rdquo;; <a href='#org-planning-presets'>Bundle a planning preset</a> shows what goes into one, including the layout geometry that Quick actions can't set.",
       image: "img/4-13-presets.webp",
       url: "coplanai.ikonai.app",
@@ -388,12 +405,12 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click the compass icon, the third tab.",
-          highlight: { box: [0.054, 0.1621, 0.0285, 0.0463], label: "Presets" },
+          highlight: { box: [0.054, 0.1621, 0.0285, 0.0463], label: "Presets", side: "above" },
           cursor: { at: [0.0683, 0.1853], click: true },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
-          html: "Until your organisation has a preset for this kind of project, the tab says <strong>No planning presets for this plan type yet.</strong> and offers a <strong>New planning preset</strong> button.",
+          html: "Until your organisation has a preset for this kind of project, the tab says <strong>No planning presets for this plan type yet.</strong> and offers a <strong>New planning preset</strong> button. Once there is one, clicking it stages its whole bundle in the <strong>PENDING</strong> tray, where you check it before you run it.",
           highlight: { box: [0.0194, 0.3063, 0.1465, 0.0284], label: "No presets yet" },
           zoom: [0, 0.1122, 0.4167, 0.4167]
         },

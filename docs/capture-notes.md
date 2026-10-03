@@ -156,6 +156,6 @@ review, not into the guide's instructions (the guide may add a tip that helps pe
   "Faithful detail recovery — recommended"), Topaz (Faithful; "Faithful, up to 4×, optional face enhancement"),
   Recraft Crisp (Faithful), Crystal (Tunable; "Can invent detail (tunable)"), Classic (no AI) ("Instant high-quality
   resampling, free"); Source image (picker with the same tabs; the Renders tab held the two built renders); Target
-  size "6K · 6144 px" | "8K · 7680 px"; **Upscale to 6K**. (7-05, Classic, the Aerial · Day render)
+  size "6K · 6144 px" | "8K · 7680 px"; **Upscale to 6K**. (7-05, Classic, the Eye-level · Day render)
 - While it runs: "Upscaling… this can take a moment. You can leave this page." The result is a card: "6K", "6144 ×
   4588", "Classic (no AI)", author and date, **Download image**, **Delete upscale**. (7-06)

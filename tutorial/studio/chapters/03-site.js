@@ -9,6 +9,11 @@
  * (flow: tools/flows/03-site.js), and was checked on the debug image. Where a section's measured box covers only its
  * heading text, the box keeps the measured top and height and takes its left edge and width from the measured
  * panel-wide button at the bottom of the panel (css x 12, width 328), so that it also covers the status on the right.
+ * Two reuses, both checked on the plate: on 3-06 the Site boundary section (heading, greyed buttons and the note)
+ * takes the 3-05 section box [0.0032, 0.2137, 0.1789, 0.1758] and the 3-01 section zoom (same panel, same position);
+ * the editor headings on 3-02 and 3-08 have no highlight (the measured header box is too wide to zoom on), only a
+ * zoom [0.14, 0, 0.64, 0.64] that starts left of the measured header (x 0.1984) and is wide enough for the whole
+ * instruction line on a phone as well.
  */
 window.COPLAN_TUTORIAL.chapters.push({
   id: "site",
@@ -30,7 +35,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "The Site tab is the first of the icon tabs in the <strong>ACTIONS</strong> panel. If you've moved to another tab, click it to come back.",
-          highlight: { box: [0.0053, 0.1621, 0.0285, 0.0463], label: "Site" },
+          highlight: { box: [0.0053, 0.1621, 0.0285, 0.0463], label: "Site", side: "above" },
           cursor: { at: [0.0195, 0.1853], click: true },
           zoom: [0, 0, 0.4167, 0.4167]
         },
@@ -46,7 +51,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.24, 0.4316, 0.4316]
         },
         {
-          html: "<strong>Start ideation</strong> works already, even with nothing set, and it doesn't remind you. Leave it until the end of this chapter: once generation starts, the boundary and land-use plan can't be changed.",
+          html: "<strong>Start ideation</strong> works already, even with nothing set, and it doesn't remind you. Don't click it: once generation starts, the boundary and land-use plan can't be changed. The last step of this chapter explains how to start the first run.",
           highlight: { box: [0.0032, 0.9432, 0.1789, 0.0547], label: "Start ideation" },
           cursor: { at: [0.0926, 0.9705], click: false },
           zoom: [0, 0.5833, 0.4167, 0.4167]
@@ -73,8 +78,8 @@ window.COPLAN_TUTORIAL.chapters.push({
       },
       beats: [
         {
-          html: "Read the brief at the top, <strong>Set the site boundary</strong>: generations design inside your line and keep everything outside as existing context. Draw round the land that may change; its surroundings stay as they are.",
-          highlight: { box: [0.1984, 0.0611, 0.7921, 0.0621], label: "Instructions" }
+          html: "Read the instructions at the top, <strong>Set the site boundary</strong>: generations design inside your line and keep everything outside as existing context. Draw round the land that may change; its surroundings stay as they are.",
+          zoom: [0.14, 0, 0.64, 0.64]
         },
         {
           html: "The first four buttons undo, redo, zoom out and zoom in. Zoom in when you need to place corners precisely.",
@@ -83,12 +88,12 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "The lasso, Outline, closes itself: drag round the site, and when you let go the line joins back to where you started. It's quick, but the line follows your hand.",
-          highlight: { box: [0.5521, 0.9253, 0.0253, 0.0547], label: "Outline" },
+          highlight: { box: [0.5521, 0.9253, 0.0253, 0.0547], label: "Outline", side: "above" },
           zoom: [0.3564, 0.5833, 0.4167, 0.4167]
         },
         {
           html: "The pentagon, Polygon, gives you straight edges: you click each corner and close the shape on the first point. Click it: this guide draws the boundary with it.",
-          highlight: { box: [0.5753, 0.9253, 0.0252, 0.0547], label: "Polygon" },
+          highlight: { box: [0.5753, 0.9253, 0.0252, 0.0547], label: "Polygon", side: "above" },
           cursor: { at: [0.5879, 0.9526], click: true },
           zoom: [0.3796, 0.5833, 0.4167, 0.4167]
         },
@@ -116,7 +121,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "The pentagon, Polygon, stays selected while you draw.",
-          highlight: { box: [0.5753, 0.9253, 0.0252, 0.0547], label: "Polygon" },
+          highlight: { box: [0.5753, 0.9253, 0.0252, 0.0547], label: "Polygon", side: "above" },
           zoom: [0.3796, 0.5833, 0.4167, 0.4167]
         },
         {
@@ -176,12 +181,12 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<strong>Redraw boundary</strong> reopens the editor on an empty canvas. As the editor warns, saving a new drawing replaces the boundary, so draw the whole site again, not just the part you want to change.",
-          highlight: { box: [0.0032, 0.2484, 0.0993, 0.0505], label: "Redraw" },
+          highlight: { box: [0.0032, 0.2484, 0.0993, 0.0505], label: "Redraw", side: "above" },
           zoom: [0, 0.0653, 0.4167, 0.4167]
         },
         {
           html: "<strong>Clear boundary</strong> deletes the boundary straight away, without asking. Generations then use the full image again.",
-          highlight: { box: [0.0994, 0.2484, 0.0782, 0.0505], label: "Clear" },
+          highlight: { box: [0.0994, 0.2484, 0.0782, 0.0505], label: "Clear", side: "right" },
           zoom: [0, 0.0653, 0.4167, 0.4167]
         },
         {
@@ -207,18 +212,23 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "The swatches along the bottom are the nine land uses of the <strong>COLOUR LEGEND</strong>, in the same order, from <strong>Residential</strong> to <strong>Community facilities</strong>. Click one to paint with it; <strong>Residential</strong> is selected at first.",
-          highlight: { box: [0.6247, 0.9274, 0.2106, 0.0505], label: "Land uses" },
+          highlight: { box: [0.6247, 0.9274, 0.2106, 0.0505], label: "Land uses", side: "above" },
           cursor: { at: [0.6374, 0.9526], click: true },
           zoom: [0.5216, 0.5833, 0.4167, 0.4167]
         },
         {
           html: "Then choose how to paint. Freehand brushes the colour on, Fill outline fills an area you drag round, and Fill polygon fills the corners you click, closing on the first one, as with the boundary. The eraser beside them rubs paint out.",
-          highlight: { box: [0.4595, 0.9253, 0.0716, 0.0547], label: "Paint tools" },
+          highlight: { box: [0.4595, 0.9253, 0.0716, 0.0547], label: "Paint tools", side: "above" },
           cursor: { at: [0.5184, 0.9526], click: true },
           zoom: [0.287, 0.5833, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Save land-use plan</strong> is now the button at the bottom of the panel. While you paint, Redraw boundary, Hide site boundary and Plan land use are greyed out, with the note <strong>Finish or cancel drawing to change overlay visibility.</strong>",
+          html: "While you paint, Redraw boundary, Hide site boundary and Plan land use are greyed out, with the note <strong>Finish or cancel drawing to change overlay visibility.</strong>",
+          highlight: { box: [0.0032, 0.2137, 0.1789, 0.1758], label: "Site boundary" },
+          zoom: [0, 0.0479, 0.4167, 0.4167]
+        },
+        {
+          html: "<strong>Save land-use plan</strong> is now the button at the bottom of the panel.",
           highlight: { box: [0.0032, 0.9432, 0.1789, 0.0547], label: "Save land-use plan" },
           zoom: [0, 0.5833, 0.4167, 0.4167]
         }
@@ -265,7 +275,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "<strong>Land-use plan recognised</strong>: Studio has read the land uses from the plan's colours. Generations follow this zoning until the plan is unmarked.",
-          highlight: { box: [0.1984, 0.0611, 0.7921, 0.0621], label: "Recognised" }
+          zoom: [0.14, 0, 0.64, 0.64]
         },
         {
           html: "<strong>RECOGNISED LAND USES</strong> lists what was found, with a percentage for each. Compare it with what you painted: ours lists <strong>Water</strong> and <strong>Transport &amp; roads</strong>, which we never painted, and leaves out our red Commercial zone.",
@@ -279,7 +289,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "The plan already reads <strong>Set</strong> in the panel. We clicked <strong>Continue as land use</strong> to go on with this zoning and return to the Site tab. <strong>Draw land use</strong>, beside it, is the other way out of the review; we didn't try it.",
-          highlight: { box: [0.8904, 0.9389, 0.1001, 0.0506], label: "Continue as land use" },
+          highlight: { box: [0.8904, 0.9389, 0.1001, 0.0506], label: "Continue as land use", side: "above" },
           cursor: { at: [0.9405, 0.9642], click: true },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
         }
@@ -299,7 +309,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.0643, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Review land use</strong>, <strong>Unmark plan</strong> and <strong>Hide land use plan</strong> manage the plan. Generations follow the zoning until you unmark it, but only until the first generation: after that, Review land use and Unmark plan are gone. <strong>Hide land use plan</strong> turns the coloured overlay on the image off and on.",
+          html: "<strong>Review land use</strong> and <strong>Unmark plan</strong> are there only until the first generation. Until then you can review the zoning again, or unmark it so that generations run without it. After that the zoning is fixed. <strong>Hide land use plan</strong> turns the coloured overlay on the image off and on.",
           highlight: { box: [0.0032, 0.5147, 0.1593, 0.0948], label: "Review, unmark, hide" },
           zoom: [0, 0.3538, 0.4167, 0.4167]
         },
@@ -326,7 +336,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "tip",
         title: "Remember to save",
-        html: "Changes here are kept only when you click Save, at the very bottom of the dialog. Studio Settings has a land-use colour standard too: see <a href='#org-settings-ideation'>Ideation options and the master prompt</a>."
+        html: "Changes here are kept only when you click Save, at the very bottom of the dialog. Studio Settings has a land-use colour standard too: see the end of Studio Settings, listed in the note of <a href='#org-settings-ideation'>Ideation options and the master prompt</a>."
       },
       beats: [
         {
@@ -346,7 +356,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     },
     {
       id: "site-start-ideation",
-      title: "Start ideation when the site is ready",
+      title: "Check that the site is ready",
       lead: "When both sections read <strong>Set</strong> and you have checked them (your line in <strong>View boundary</strong>, your zones under <strong>RECOGNISED LAND USES</strong>), the site is ready for ideation.",
       image: "img/3-11-start-ideation.webp",
       url: "coplanai.ikonai.app",
@@ -359,7 +369,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "<strong>Site boundary</strong> is <strong>Set</strong>. If you haven't yet, check your line with <strong>View boundary</strong>.",
-          highlight: { box: [0.0032, 0.2137, 0.1789, 0.0379], label: "Boundary set", side: "above" },
+          highlight: { box: [0.0032, 0.2137, 0.1789, 0.0379], label: "Boundary set" },
           zoom: [0, 0.0243, 0.4167, 0.4167]
         },
         {
@@ -368,7 +378,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.2011, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Start ideation</strong> runs the project's first generation from the Site tab. In the next chapter we start from the Quick actions tab instead, to choose the density, creativity and style of the first run: see <a href='#ideation'>Generate design options</a>.",
+          html: "<strong>Start ideation</strong> runs the project's first generation straight away, from the Site tab. It is an AI generation, so it uses credits, and the Site tab has no density, creativity or render style to choose first. We didn't use it. In the next chapter we start the first run from Quick actions instead, where you choose them: see <a href='#ideation-quick'>Open Quick actions</a>.",
           highlight: { box: [0.0032, 0.9432, 0.1789, 0.0547], label: "Start ideation" },
           cursor: { at: [0.0926, 0.9705], click: false },
           zoom: [0, 0.5833, 0.4167, 0.4167]

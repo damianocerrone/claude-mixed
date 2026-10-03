@@ -19,8 +19,10 @@
  *   - Beats about the settings panel after a page was reopened (media-result, media-upscale-result) and the
  *     Generate sequence video beat (media-sequence) have no JSON box, so they show the whole plate.
  *   - 7-06: the "size" box is not used (with its padding it cuts through the Classic (no AI) line and runs well past
- *     the size); that beat keeps the JSON zoom without a highlight. The cursor is the JSON point for Download image
- *     (points.actions), not the centre of the actions box.
+ *     the size); that beat keeps the JSON zoom without a highlight.
+ *   - The icon-row beats (media-result, media-upscale-result) have no cursor: the pointer tip hid one of the icons, and
+ *     the highlight's label already names them all. Label sides ("below") keep the pill off the controls the beat
+ *     names (Cancel in media-pick, the author line in media-upscale-result).
  *   - 7-03 and 7-06 were taken by reopening the page from its URL (flow stages videoresult and upresult), not from
  *     Production, so their panels start empty.
  * <strong> marks labels printed on the step's own plate; <em> marks names that are only tooltips or aria labels, or
@@ -29,7 +31,7 @@
  * explore/production/71-, 89- and 91-*.txt and explore/media-org/21-*.txt, the sequence pickers and lists in
  * explore/media-org/23-, 24- and 25-*.txt, and the Studio-menu versions of both tools in explore/media-org/10-, 16-,
  * 30- and 32-*.txt. The guide's example video was made with Kling 2.6 (5 s, Drone View); the upscale with
- * Classic (no AI), from the Aerial · Day render.
+ * Classic (no AI), from the Eye-level · Day render.
  */
 window.COPLAN_TUTORIAL.chapters.push({
   id: "media",
@@ -55,7 +57,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Engine</strong> decides how the video is made. <strong>Kling 3.0</strong> (ticked when the page opens; here <strong>Kling 2.6</strong> is ticked because we chose it) gives the <strong>Best quality before-to-after transitions</strong>; <strong>Kling 2.6</strong> is <strong>Faster and cheaper AI generation</strong>. Both are AI engines, which, as the Engine card's info tooltip puts it, &ldquo;generate a smooth transformation&rdquo;. Studio doesn't call them free, so expect each video to use generation credits. <strong>Classic (no AI)</strong> builds a <strong>Simple transition between the two images</strong>, &ldquo;without AI and is free&rdquo;. The example in this guide uses <strong>Kling 2.6</strong>.",
+          html: "<strong>Engine</strong> decides how the video is made. <strong>Kling 3.0</strong>, ticked when the page opens, gives the <strong>Best quality before-to-after transitions</strong>; <strong>Kling 2.6</strong>, which we chose, is <strong>Faster and cheaper AI generation</strong>. As the info tooltip puts it, both AI engines &ldquo;generate a smooth transformation&rdquo;, so expect each video to use credits. <strong>Classic (no AI)</strong> makes a <strong>Simple transition between the two images</strong>, &ldquo;without AI and is free&rdquo;.",
           highlight: { box: [0.0032, 0.1495, 0.1784, 0.2572], label: "Engine" },
           zoom: [0, 0.0698, 0.4167, 0.4167]
         },
@@ -94,7 +96,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "Click <strong>Use image</strong>. The image goes into the <strong>After (master)</strong> slot, as in the previous step. <strong>Cancel</strong> closes the picker without changing anything.",
-          highlight: { box: [0.6998, 0.8332, 0.0597, 0.0505], label: "Use image" },
+          highlight: { box: [0.6998, 0.8332, 0.0597, 0.0505], label: "Use image", side: "below" },
           cursor: { at: [0.7296, 0.8584], click: true },
           zoom: [0.5213, 0.5833, 0.4167, 0.4167]
         }
@@ -131,7 +133,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.5833, 0.4167, 0.4167]
         },
         {
-          html: "With either Kling engine this is an AI generation that uses generation credits, and the panel shows no cost before you click. Click <strong>Generate video</strong>. It stays greyed out until both images are in place (&ldquo;Pick a before and an after image to generate.&rdquo;). Our 5-second video with <strong>Kling 2.6</strong> took several minutes. When it's ready, the panel switches to editing the new video and the button becomes <em>Regenerate (overwrites)</em>: read the warning in the next step before you click it again.",
+          html: "With either Kling engine this is an AI generation that uses credits, and no cost is shown before you click. Click <strong>Generate video</strong>; it stays greyed out until both images are in place. Our 5-second Kling 2.6 video took several minutes. When it's ready, the green button becomes <em>Regenerate (overwrites)</em>: read the warning in the next step first.",
           highlight: { box: [0.0032, 0.9453, 0.1784, 0.0505], label: "Generate video" },
           cursor: { at: [0.0924, 0.9705], click: true },
           zoom: [0, 0.5833, 0.4167, 0.4167]
@@ -148,7 +150,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "warning",
         title: "The green button now overwrites",
-        html: "As soon as our video was ready, Studio opened it under <em>NOW EDITING</em>: &ldquo;Adjust the settings in the panel and regenerate — the result replaces this video.&rdquo; The green button at the bottom of the panel then read <em>Regenerate (overwrites)</em>. <em>Edit video</em> on a card is labelled for the same job; we didn't click it. Clicking <em>Regenerate (overwrites)</em> makes a new video in place of this one, so the old one is gone, and with a Kling engine it is a new AI generation that uses credits again. To keep this video and make another, click <em>+ New video</em>, below that button, first. Before you click the green button, always read its label."
+        html: "As soon as a video is ready, the panel edits it (<em>NOW EDITING</em>: &ldquo;Adjust the settings in the panel and regenerate — the result replaces this video.&rdquo;) and the green button reads <em>Regenerate (overwrites)</em>. Clicking it replaces this video and, with a Kling engine, uses credits again. To make another video and keep this one, click <em>+ New video</em> below that button first. <em>Edit video</em> on a card is labelled for the same job; we didn't click it."
       },
       beats: [
         {
@@ -164,7 +166,6 @@ window.COPLAN_TUTORIAL.chapters.push({
         {
           html: "Three icons sit at the bottom right of the card: <em>Download video</em> (the arrow) saves the file for your presentation, <em>Edit video</em> (the pencil) opens it for editing, and <em>Delete video</em> (the red bin) removes it; we didn't try it, so download the video first if you might need it. Read the warning below before you edit.",
           highlight: { box: [0.3195, 0.4208, 0.0673, 0.0505], label: "Download, edit, delete" },
-          cursor: { at: [0.3532, 0.4461], click: false },
           zoom: [0.1448, 0.2377, 0.4167, 0.4167]
         },
         {
@@ -197,17 +198,17 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.4583, 0.4167, 0.4167]
         },
         {
-          html: "<strong>Generate sequence video</strong> stays greyed out until you have added at least two images (<strong>Add at least two images to generate.</strong>). The <strong>Engine</strong> card is the same as before: <strong>Kling 3.0</strong> and <strong>Kling 2.6</strong> are AI generations that use credits, and only <strong>Classic (no AI)</strong> is described as free. We didn't make a sequence for this guide."
+          html: "<strong>Generate sequence video</strong> stays greyed out until you have added at least two images (<strong>Add at least two images to generate.</strong>). The <strong>Engine</strong> card works as for a before/after video: see <a href='#media-video'>Set up a before/after video</a>. We didn't make a sequence for this guide."
         }
       ]
     },
     {
       id: "media-upscale",
       title: "Upscale an image",
-      lead: "<strong>Image Upscale</strong>, the second button at the top of Production (or <em>Upscale</em> in the Studio menu), makes a larger copy of an image: &ldquo;Upscale an image to 6K or 8K without changing its content.&rdquo; Use it when a render must stay sharp at a large size, on a print or a presentation board. Unlike the Video page, nothing is filled in for you. We upscaled the Aerial · Day render from <a href='#production-build'>Build renders</a>.",
+      lead: "<strong>Image Upscale</strong>, the second button at the top of Production (or <em>Upscale</em> in the Studio menu), makes a larger copy of an image: &ldquo;Upscale an image to 6K or 8K without changing its content.&rdquo; Use it when a render must stay sharp at a large size, on a print or a presentation board. Unlike the Video page, nothing is filled in for you. We upscaled the Eye-level · Day render from <a href='#production-build'>Build renders</a>.",
       image: "img/7-05-upscale.webp",
       url: "coplanai.ikonai.app",
-      alt: "The Image Upscale page inside the example project. The UPSCALE SETTINGS panel shows the Engine card, with SeedVR2, Topaz and Recraft Crisp tagged Faithful, Crystal tagged Tunable, and Classic (no AI) ticked; the Source image card with an aerial render of buildings along a lake and a Change label; Target size with 6K · 6144 px selected and 8K · 7680 px; and a green Upscale to 6K button. The main area reads No upscales yet.",
+      alt: "The Image Upscale page inside the example project. The UPSCALE SETTINGS panel shows the Engine card, with SeedVR2, Topaz and Recraft Crisp tagged Faithful, Crystal tagged Tunable, and Classic (no AI) ticked; the Source image card with the Eye-level · Day render, a street lined with palms and tiled-roof buildings running down to the lake, and a Change label; Target size with 6K · 6144 px selected and 8K · 7680 px; and a green Upscale to 6K button. The main area reads No upscales yet.",
       note: {
         kind: "warning",
         title: "Check the engine every time",
@@ -230,7 +231,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.5833, 0.4167, 0.4167]
         },
         {
-          html: "With <strong>Classic (no AI)</strong> it's free; Studio doesn't call the other four free, so expect them to use credits, and no cost is shown before you click. Then click <strong>Upscale to 6K</strong> (the label follows the target size). While it works, the page says &ldquo;Upscaling… this can take a moment. You can leave this page.&rdquo;",
+          html: "Click <strong>Upscale to 6K</strong> (the label follows the target size). While it works, the page says &ldquo;Upscaling… this can take a moment. You can leave this page.&rdquo; Our <strong>Classic (no AI)</strong> upscale was ready in under two minutes.",
           highlight: { box: [0.0032, 0.9453, 0.1784, 0.0505], label: "Upscale" },
           cursor: { at: [0.0924, 0.9705], click: true },
           zoom: [0, 0.5833, 0.4167, 0.4167]
@@ -243,7 +244,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       lead: "The finished upscale appears as a card on the Image Upscale page, ready to download.",
       image: "img/7-06-upscale-result.webp",
       url: "coplanai.ikonai.app",
-      alt: "The Image Upscale page with one result card: the aerial render marked 6K, a small thumbnail with an arrow to 6144 × 4588 and Classic (no AI), Damiano Cerrone · 2 with the rest of the date cut off, and download and red delete icons. In the panel, SeedVR2 is ticked, Source image reads Choose image, and Upscale to 6K is greyed out above the line Pick a source image to upscale.",
+      alt: "The Image Upscale page with one result card: the eye-level render marked 6K, a small thumbnail with an arrow to 6144 × 4588 and Classic (no AI), Damiano Cerrone · 2 with the rest of the date cut off, and download and red delete icons. In the panel, SeedVR2 is ticked, Source image reads Choose image, and Upscale to 6K is greyed out above the line Pick a source image to upscale.",
       note: {
         kind: "tip",
         title: "Keep plans and renders faithful",
@@ -261,8 +262,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<em>Download image</em> (the arrow) saves the large file; <em>Delete upscale</em> (the red bin) removes the card; we didn't try it, so download the file first if you might need it. On a card this narrow, the date after the author's name is cut off.",
-          highlight: { box: [0.2761, 0.3631, 0.0464, 0.0505], label: "Download or delete" },
-          cursor: { at: [0.2888, 0.3884], click: false },
+          highlight: { box: [0.2761, 0.3631, 0.0464, 0.0505], label: "Download or delete", side: "below" },
           zoom: [0.091, 0.18, 0.4167, 0.4167]
         },
         {

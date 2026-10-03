@@ -22,7 +22,9 @@
  *     their x and width.
  *   - 6-05 preview: the card's top runs under the sticky header, so the box starts below the header's bottom border
  *     (css 48, pixel scan of the plate) instead of at the JSON top (0.0263).
- * The cursor on Production (production-view) is the JSON centre of that highlight.
+ * The cursor on Production (production-view) is the JSON centre of that highlight. The Save settings beat of
+ * production-settings uses the JSON "naming" zoom, which contains the save box and point, so the camera holds still
+ * after the two beats before it.
  * Prompt text quoted for the views and scene states is the default Studio Settings text
  * (explore/scout/18-menu-settings.txt); the Deliverable medium and Output quality options come from
  * explore/production/11- and 12-cp-render-settings-*.png; the audit parts from explore/raw/6-05-raw.txt.
@@ -84,7 +86,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "tip",
         title: "Every tile is a render",
-        html: "Each view you keep adds one tile per scene state to every concept: 4 views &times; 3 scene states &times; 2 concepts make the 24 renders in the count. Switch off what your deliverable doesn't need before you build. The starting views and scene states are set for the whole Studio in Studio Settings: see <a href='#org-settings-ideation'>Ideation options and the master prompt</a>."
+        html: "Each view you keep adds one tile per scene state to every concept: 4 views &times; 3 scene states &times; 2 concepts make the 24 renders in the count. Switch off what your deliverable doesn't need before you build. The starting views and scene states are set for every project in your organisation: see the end of Studio Settings, listed in the note of <a href='#org-settings-ideation'>Ideation options and the master prompt</a>."
       },
       beats: [
         {
@@ -114,9 +116,9 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "Click <strong>Save settings</strong> to keep your choices for this project, or <strong>Cancel</strong> to close the dialog without changing anything.",
-          highlight: { box: [0.5536, 0.7921, 0.0711, 0.0505], label: "Save settings" },
+          highlight: { box: [0.5536, 0.7921, 0.0711, 0.0505], label: "Save settings", side: "below" },
           cursor: { at: [0.5892, 0.8174], click: false },
-          zoom: [0.3808, 0.5833, 0.4167, 0.4167]
+          zoom: [0.2916, 0.5327, 0.4167, 0.4167]
         }
       ]
     },
@@ -165,7 +167,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       note: {
         kind: "info",
         title: "Where the default sections come from",
-        html: "The <em>Report sections</em> list in Studio Settings sets which of Cover, Executive summary, Site context, Approved concepts, Render set and Process audit start switched on for the whole Studio (Impact analysis isn't listed there): see <a href='#org-settings-ideation'>Ideation options and the master prompt</a>. Change them there if every report in your organisation needs the same sections."
+        html: "The <em>Report sections</em> list in Studio Settings sets which of Cover, Executive summary, Site context, Approved concepts, Render set and Process audit start switched on for every project in your organisation (Impact analysis isn't listed there): see the end of Studio Settings, listed in the note of <a href='#org-settings-ideation'>Ideation options and the master prompt</a>. Change them there if every report in your organisation needs the same sections."
       },
       beats: [
         {
@@ -174,7 +176,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.3515, 0, 0.4167, 0.4167]
         },
         {
-          html: "<strong>SECTIONS</strong> lists the parts of the report, from <strong>Cover</strong> to <strong>Process audit</strong>. Click the square on the right to include a section (a tick) or leave it out (&minus;), and drag a row by the handle on its left to move it. <strong>Approved concepts</strong> has its own option, <strong>↳ Options considered · favorite runner-ups</strong>, for the runner-ups you marked as favourites. We found no control in Production to approve or lock a concept, and the preview below counts 0 concepts locked, so open the PDF you build and check what <strong>Approved concepts</strong> contains before you send it.",
+          html: "<strong>SECTIONS</strong> lists the parts of the report, from <strong>Cover</strong> to <strong>Process audit</strong>. Click the square on the right to include a section (a tick) or leave it out (&minus;), and drag a row by its handle to move it. <strong>Approved concepts</strong> has its own option, <strong>↳ Options considered · favorite runner-ups</strong>, for your favourites. We found no control to approve a concept (the preview counts 0 concepts locked), so check what this section holds in the PDF.",
           highlight: { box: [0.0095, 0.1495, 0.4894, 0.5252], label: "Sections" },
           zoom: [0, 0.0895, 0.6452, 0.6452]
         },
@@ -184,7 +186,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.3945, 0.0172, 0.6055, 0.6055]
         },
         {
-          html: "Two exports sit at the top right. <strong>Build PDF</strong> makes the report itself; <strong>Render pack</strong> is the set of render files, which Studio Settings arranges as a folder per concept. Check the contents and the preview below before you export.",
+          html: "Two exports sit at the top right. <strong>Build PDF</strong> makes the report itself; <strong>Render pack</strong> is the set of render files, which Studio Settings arranges as a folder per concept. We didn't build either for this guide, so check the contents and the preview below, then open whatever you export before you send it.",
           highlight: { box: [0.8434, 0.0695, 0.1471, 0.0505], label: "Export" },
           cursor: { at: [0.9563, 0.0947], click: false },
           zoom: [0.5833, 0, 0.4167, 0.4167]

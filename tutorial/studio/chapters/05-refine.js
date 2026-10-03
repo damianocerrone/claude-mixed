@@ -13,8 +13,11 @@
  * refine-prompt-used uses "prompt" widened to [0.2414, 0.5, 0.5, 0.5] so the prompt strip fits, and the
  * bulk-bar beat of refine-select uses "compare" widened to [0.199, 0, 0.45, 0.45] so the whole bar fits
  * (its highlight, the JSON "bar" box, covers Send to production and Select all only). The 5-12 "summary"
- * box was clipped at the viewport edge, so refine-impact-answer keeps its zoom but not its highlight; the
- * 5-07 close point sat off the X glyph, so refine-compare-side keeps the close box but not the cursor.
+ * box was clipped at the plate's bottom edge; refine-impact-answer uses it anyway, so that small plates keep
+ * the panel in frame (the engine trims the ring at the frame); the 5-07 close point sat off the X glyph, so
+ * refine-compare-side keeps the close box but not the cursor. side: "above" keeps a label pill off the
+ * toolbar or tab row next to its ring, where the beat names or counts the neighbouring buttons; Impact, the
+ * last tab, uses "right", where the pill covers nothing.
  * <strong> marks labels printed on the step's own plate; <em> marks names that are only tooltips or
  * off the plate. Facts not visible on a plate come from docs/capture-notes.md, explore/raw/5-*.txt,
  * explore/raw/6-04-raw.txt (report builder) and explore/map.json (images and edit-tabs areas).
@@ -78,12 +81,12 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "<em>Eye-level</em>, the second eye icon, swaps the top view for the eye-level view. While it's on, the same button reads <em>Top view</em>: click it to swap back.",
-          highlight: { box: [0.5729, 0.9126, 0.0232, 0.0463], label: "Eye-level" },
+          highlight: { box: [0.5729, 0.9126, 0.0232, 0.0463], label: "Eye-level", side: "above" },
           zoom: [0.37, 0.55, 0.45, 0.45]
         },
         {
           html: "<em>Top & eye-level</em>, next to it, shows both side by side, labelled <strong>TOP VIEW</strong> and <strong>EYE-LEVEL</strong>. Click it again to go back to the top view alone.",
-          highlight: { box: [0.5908, 0.9126, 0.0231, 0.0463], label: "Top & eye-level" },
+          highlight: { box: [0.5908, 0.9126, 0.0231, 0.0463], label: "Top & eye-level", side: "above" },
           cursor: { at: [0.6024, 0.9358], click: true },
           zoom: [0.37, 0.55, 0.45, 0.45]
         },
@@ -107,7 +110,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click <em>Compare</em>, the split-square icon. A slider divides the image: the original on the left, marked <strong>ORIGINAL</strong>, and the variant on the right, marked <strong>VARIANT</strong>.",
-          highlight: { box: [0.6445, 0.9126, 0.0231, 0.0463], label: "Compare" },
+          highlight: { box: [0.6445, 0.9126, 0.0231, 0.0463], label: "Compare", side: "above" },
           cursor: { at: [0.6561, 0.9358], click: true },
           zoom: [0.4119, 0.5833, 0.4167, 0.4167]
         },
@@ -117,12 +120,12 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "<em>Original</em>, the picture icon, shows the starting image on its own. While it's on, the button reads <em>Back to variant</em>.",
-          highlight: { box: [0.6266, 0.9126, 0.0231, 0.0463], label: "Original" },
+          highlight: { box: [0.6266, 0.9126, 0.0231, 0.0463], label: "Original", side: "above" },
           zoom: [0.4119, 0.5833, 0.4167, 0.4167]
         },
         {
           html: "<em>Parent</em>, the branch icon, shows the image this variant was generated from: once you have iterated, the image you built on. It also reads <em>Back to variant</em> while it's on. If it is greyed out as <em>No parent image available</em> on an image you know you iterated, switch <em>Original</em> on and off, then try again.",
-          highlight: { box: [0.6087, 0.9126, 0.0231, 0.0463], label: "Parent" },
+          highlight: { box: [0.6087, 0.9126, 0.0231, 0.0463], label: "Parent", side: "above" },
           zoom: [0.4119, 0.5833, 0.4167, 0.4167]
         }
       ]
@@ -152,7 +155,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "The strip ends with two buttons: the copy icon, <em>Copy prompt</em>, which copies these lines, and <strong>Reuse</strong>, which we didn't try. A copied prompt is a handy note of the choices behind an option you like, and a starting point for your own prompts.",
-          highlight: { box: [0.6598, 0.8642, 0.0231, 0.0463], label: "Copy prompt" },
+          highlight: { box: [0.6598, 0.8642, 0.0231, 0.0463], label: "Copy prompt", side: "above" },
           zoom: [0.2414, 0.5, 0.5, 0.5]
         }
       ]
@@ -210,8 +213,8 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0.1479, 0.1401, 0.4547, 0.4547]
         },
         {
-          html: "The bar above the images acts on the selection: <strong>Add to favorites</strong>, <strong>Remove from favorites</strong>, <strong>Compare</strong> and <strong>Download</strong>, then <strong>Send to production</strong>, which passes the selected images on to the Production workspace alongside each concept's latest iteration (see <a href='#production'>Produce the render set</a>), and <strong>Select all</strong>, which picks every image and then reads <em>Deselect all</em>.",
-          highlight: { box: [0.4864, 0.1811, 0.1408, 0.0505], label: "Send to production · Select all" },
+          html: "The bar above the images acts on the selection: <strong>Add to favorites</strong>, <strong>Remove from favorites</strong>, <strong>Compare</strong> and <strong>Download</strong>, then <strong>Send to production</strong>, which passes the selected images on to the Production workspace alongside each concept's latest iteration (see <a href='#production-view'>Open Production</a>), and <strong>Select all</strong>, which picks every image and then reads <em>Deselect all</em>.",
+          highlight: { box: [0.4864, 0.1811, 0.1408, 0.0505], label: "Send to production · Select all", side: "above" },
           zoom: [0.199, 0, 0.45, 0.45]
         },
         {
@@ -228,7 +231,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "refine-compare-side",
       title: "Compare images side by side",
-      lead: "<strong>Compare</strong> opens the selected images next to each other, across the whole window.",
+      lead: "<strong>Compare</strong> in the Select bar opens the selected images next to each other, across the whole window. It is not the toolbar's Compare, which slides one image against its original.",
       image: "img/5-07-compare-side-by-side.webp",
       url: "coplanai.ikonai.app",
       alt: "The Compare window: two images side by side, an aerial view of low, flat-roofed blocks around a fountain plaza on the left and a warm-lit top view of the lakeside plan on the right, each captioned Iteration 2, with a close button in the top-right corner.",
@@ -264,7 +267,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click the pencil, the fourth tab. The banner says what to do: <strong>Mask a region, then apply</strong>.",
-          highlight: { box: [0.0783, 0.1621, 0.0286, 0.0463], label: "Touch-up" },
+          highlight: { box: [0.0783, 0.1621, 0.0286, 0.0463], label: "Touch-up", side: "above" },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
@@ -293,7 +296,7 @@ window.COPLAN_TUTORIAL.chapters.push({
     {
       id: "refine-adjust",
       title: "Adjust light and colour",
-      lead: "Adjust makes photo-style corrections to the open image, from brightness and warmth to ready-made looks. It changes how the image looks, not the design in it.",
+      lead: "Adjust makes photo-style corrections to the open image, from brightness and warmth to ready-made looks. It changes how the image looks, not the design in it. It is not the Adjust card of Quick actions: that card's sliders, such as Greenery, change the design, and applying them starts a new generation.",
       image: "img/5-09-adjust.webp",
       url: "coplanai.ikonai.app",
       alt: "The Adjust tab on its Filters view: a grid of filter thumbnails (Original, Punch, Golden, Radiate, Warm Contrast, Calm, Cool Light, Vivid Cool, Dramatic Cool, B&W, B&W Cool, B&W Warm, B&W High Contrast, Burn, Film) with Golden ticked. The lakeside plan on the stage has turned warmer. Save as new version is green at the bottom of the panel.",
@@ -305,7 +308,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click the sliders icon, the fifth tab.",
-          highlight: { box: [0.1027, 0.1621, 0.0286, 0.0463], label: "Adjust" },
+          highlight: { box: [0.1027, 0.1621, 0.0286, 0.0463], label: "Adjust", side: "above" },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
@@ -320,7 +323,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.1195, 0.4167, 0.4167]
         },
         {
-          html: "Click <strong>Save as new version</strong>. Ours was ready in a few seconds and made a single image, despite the line under the button.",
+          html: "Click <strong>Save as new version</strong>. Ours was ready in a few seconds and made a single image, despite the line under the button, &ldquo;Each run generates 2 variant(s)&rdquo;.",
           highlight: { box: [0.0032, 0.9211, 0.1789, 0.0547], label: "Save as new version" },
           cursor: { at: [0.0926, 0.9484], click: true },
           zoom: [0, 0.5833, 0.4167, 0.4167]
@@ -355,7 +358,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click the speech bubble, the sixth tab.",
-          highlight: { box: [0.1271, 0.1621, 0.0285, 0.0463], label: "Prompt" },
+          highlight: { box: [0.1271, 0.1621, 0.0285, 0.0463], label: "Prompt", side: "above" },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
@@ -396,7 +399,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click the pulse icon, the last tab.",
-          highlight: { box: [0.1514, 0.1621, 0.0286, 0.0463], label: "Impact" },
+          highlight: { box: [0.1514, 0.1621, 0.0286, 0.0463], label: "Impact", side: "right" },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
@@ -416,7 +419,7 @@ window.COPLAN_TUTORIAL.chapters.push({
           zoom: [0, 0.1511, 0.4167, 0.4167]
         },
         {
-          html: "Click <strong>Analyse</strong>. Ours answered in about 15 seconds. Analysing makes no new images, despite the line under the button.",
+          html: "Click <strong>Analyse</strong>. Ours answered in about 15 seconds. Analysing makes no new images, despite the line under the button, &ldquo;Each run generates 2 variant(s)&rdquo;.",
           highlight: { box: [0.0032, 0.9211, 0.1789, 0.0547], label: "Analyse" },
           cursor: { at: [0.0926, 0.9484], click: true },
           zoom: [0, 0.5833, 0.4167, 0.4167]
@@ -433,6 +436,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "It repeats the question, then sums up. Ours found that the design &ldquo;strongly supports walkability in the central area&rdquo;, but that perimeter highways and large commercial blocks &ldquo;may create barriers for some trips&rdquo;.",
+          highlight: { box: [0.0032, 0.3263, 0.171, 0.6737], label: "The assessment" },
           zoom: [0, 0.2063, 0.7937, 0.7937]
         },
         {

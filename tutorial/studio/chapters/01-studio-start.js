@@ -30,7 +30,7 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "The <strong>Studio</strong> card is your way into CoPlan Studio, the workspace for your planning projects.",
-          highlight: { box: [0.1768, 0.2674, 0.6464, 0.7326], label: "Studio card" }
+          highlight: { box: [0.1768, 0.2674, 0.6464, 0.7326], label: "Studio" }
         },
         {
           html: "Click <strong>Open Studio</strong> to go to Studio home, where the rest of this guide begins.",
@@ -40,7 +40,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "You can also start a project right here: <strong>Start a new project</strong> offers the same choices as the form on Studio home. <a href='#start-project'>Start a project</a> walks you through it.",
-          highlight: { box: [0.1937, 0.3642, 0.6126, 0.6358], label: "New-project form" }
+          highlight: { box: [0.1937, 0.3642, 0.6126, 0.6358], label: "Form" }
         },
         {
           html: "The icons in the top-right corner (your gallery, app settings and your account) belong to the wider CoPlanAI app. The <a href='../'>platform guide</a> covers them.",
@@ -73,8 +73,8 @@ window.COPLAN_TUTORIAL.chapters.push({
           cursor: { at: [0.5926, 0.5411], click: false }
         },
         {
-          html: "<strong>Create project</strong> stays grey until the form is complete. The text beside it tells you what is missing: <strong>Add a site image to begin</strong>, then <strong>Pick a planning process</strong>. Studio names the project for you, and everything stays editable later in <strong>Project setup</strong>.",
-          highlight: { box: [0.9055, 0.9221, 0.074, 0.0505], label: "Create project" },
+          html: "<strong>Create project</strong> stays grey until the form is complete. The text beside it tells you what is missing: <strong>Add a site image to begin</strong>, then <strong>Pick a planning process</strong>. Studio names the project for you, and everything stays editable later in <strong>Project setup</strong>, the Project settings dialog (see <a href='#start-project-details'>Review the project details</a>).",
+          highlight: { box: [0.9055, 0.9221, 0.074, 0.0505], label: "Create project", side: "above" },
           cursor: { at: [0.9425, 0.9474], click: false },
           zoom: [0.5833, 0.5833, 0.4167, 0.4167]
         }
@@ -105,13 +105,13 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "The first button beside <strong>MENU</strong>, <strong>Move panel to the right side</strong>, puts the menu on the right of the screen, if you prefer it there.",
-          highlight: { box: [0.1384, 0.05, 0.0253, 0.0505], label: "Move panel" },
+          highlight: { box: [0.1384, 0.05, 0.0253, 0.0505], label: "Move panel", side: "below" },
           cursor: { at: [0.1511, 0.0753], click: false },
           zoom: [0, 0, 0.4167, 0.4167]
         },
         {
           html: "The tooltip in the picture still belongs to the first button. The second, <strong>Collapse menu</strong>, shows no name of its own when you hover it. It folds the menu into a narrow strip of icons to give the page more room: hover an icon to see its page, and click <strong>Expand menu</strong> at the top of the strip to bring the full menu back.",
-          highlight: { box: [0.1584, 0.05, 0.0253, 0.0505], label: "Collapse menu" },
+          highlight: { box: [0.1584, 0.05, 0.0253, 0.0505], label: "Collapse menu", side: "below" },
           cursor: { at: [0.1711, 0.0753], click: false },
           zoom: [0, 0, 0.4167, 0.4167]
         }
@@ -137,7 +137,7 @@ window.COPLAN_TUTORIAL.chapters.push({
         },
         {
           html: "The <strong>&bull;&bull;&bull;</strong> button opens the card's menu: see <a href='#studio-card-menu'>Use a project card's menu</a>.",
-          highlight: { box: [0.3574, 0.8421, 0.0252, 0.0505], shape: "circle", label: "More actions" },
+          highlight: { box: [0.3574, 0.8421, 0.0252, 0.0505], shape: "circle", label: "More actions", side: "above" },
           cursor: { at: [0.37, 0.8674], click: false },
           zoom: [0.0484, 0.5063, 0.4937, 0.4937]
         },
@@ -207,12 +207,12 @@ window.COPLAN_TUTORIAL.chapters.push({
       beats: [
         {
           html: "Click <strong>&bull;&bull;&bull;</strong> on a card to open its menu.",
-          highlight: { box: [0.3474, 0.4372, 0.0252, 0.0505], shape: "circle", label: "More actions" },
+          highlight: { box: [0.3474, 0.4372, 0.0252, 0.0505], shape: "circle", label: "More actions", side: "above" },
           cursor: { at: [0.36, 0.4624], click: true },
           zoom: [0.1228, 0.3473, 0.4167, 0.4167]
         },
         {
-          html: "It has five items: <strong>Open project</strong>, <strong>Project setup</strong>, <strong>Report</strong>, <strong>Duplicate</strong> and <strong>Archive</strong>. The project's report is covered in <a href='#production'>Produce the render set</a>.",
+          html: "It has five items: <strong>Open project</strong>, <strong>Project setup</strong>, <strong>Report</strong>, <strong>Duplicate</strong> and <strong>Archive</strong>. The project's report is put together in Production's Report builder: see <a href='#production-report'>Put the report together</a>.",
           highlight: { box: [0.2897, 0.4826, 0.0829, 0.1916], label: "Card menu" },
           zoom: [0.1228, 0.3473, 0.4167, 0.4167]
         },
