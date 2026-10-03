@@ -1,0 +1,521 @@
+<title>Studio Usability Review</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="What makes CoPlan Studio hard to use, verified on the live platform, and what would fix it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column (~46rem) with wide figures that break out to ~72rem; a sticky section index beside it on wide screens. */
+:root{
+  --ground:#F5F6F2; --surface:#FFFFFF; --sunk:#ECEEE8;
+  --ink:#16201B; --ink-2:#47524D; --ink-3:#6B7570;
+  --rule:rgba(22,32,27,.14); --rule-2:rgba(22,32,27,.08);
+  --accent:#0E5C4A; --accent-ink:#FFFFFF; --accent-soft:#E2EEE9;
+  --high:#B42318; --high-soft:#FBE9E7; --med:#A84B06; --med-soft:#FCEFE3; --low:#56636B; --low-soft:#ECEFF1;
+  --focus:#0E5C4A;
+  /* the product's own look, used only inside the proposal sketches (they show a light UI in both themes) */
+  --ui-bg:#F4F3EF; --ui-panel:#FFFFFF; --ui-line:#E3E1DA; --ui-text:#1D2420; --ui-muted:#6A716C; --ui-green:#0F5A3F; --ui-green-soft:#E6F0EA; --ui-amber:#B54708; --ui-amber-soft:#FFF4E5; --ui-red:#B42318; --ui-shade:rgba(10,14,12,.38);
+  --f-display:"Newsreader","Iowan Old Style",Georgia,serif;
+  --f-text:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --col:46rem; --wide:72rem; --gut:clamp(16px,4vw,48px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#101512; --surface:#171E1A; --sunk:#1D2621;
+  --ink:#E7EDE9; --ink-2:#B0BBB5; --ink-3:#8A958F;
+  --rule:rgba(231,237,233,.16); --rule-2:rgba(231,237,233,.08);
+  --accent:#62C7A6; --accent-ink:#0B1712; --accent-soft:#1B2B25;
+  --high:#FF8A7A; --high-soft:#3A1E1B; --med:#F5A55A; --med-soft:#36261A; --low:#A9B4BB; --low-soft:#232B2F;
+  --focus:#62C7A6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#101512; --surface:#171E1A; --sunk:#1D2621;
+  --ink:#E7EDE9; --ink-2:#B0BBB5; --ink-3:#8A958F;
+  --rule:rgba(231,237,233,.16); --rule-2:rgba(231,237,233,.08);
+  --accent:#62C7A6; --accent-ink:#0B1712; --accent-soft:#1B2B25;
+  --high:#FF8A7A; --high-soft:#3A1E1B; --med:#F5A55A; --med-soft:#36261A; --low:#A9B4BB; --low-soft:#232B2F;
+  --focus:#62C7A6; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:400 1rem/1.6 var(--f-text);padding-inline:var(--gut);padding-block:0 4rem;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:.18em}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
+code{font:500 .82em/1.4 var(--f-mono);background:var(--sunk);padding:.08em .35em;border-radius:4px;overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,5.2vw,3.9rem);line-height:1.04;letter-spacing:-.015em}
+h2{font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.12}
+h3{font-size:1.3rem;line-height:1.25}
+p{margin:0}
+.lab{font:600 .72rem/1.2 var(--f-text);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.mono{font-family:var(--f-mono)}
+.muted{color:var(--ink-2)}
+
+.page{max-width:var(--wide);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+@media (min-width:1200px){.page{grid-template-columns:12rem minmax(0,1fr);column-gap:3rem}}
+.toc{display:none}
+@media (min-width:1200px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 2rem);align-self:start;padding-top:9.5rem}
+  .toc ol{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.15rem}
+  .toc a{display:block;color:var(--ink-2);text-decoration:none;font-size:.9rem;padding:.3rem .6rem;border-left:2px solid transparent}
+  .toc a:hover{color:var(--ink);border-left-color:var(--rule)}}
+main{min-width:0}
+.col{max-width:var(--col)}
+section{padding-top:4.5rem;display:grid;gap:1.25rem}
+section > header{display:grid;gap:.6rem}
+
+/* hero */
+.hero{padding-top:clamp(2.5rem,7vw,5.5rem);display:grid;gap:1.4rem}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.6;color:var(--ink-2);max-width:var(--col)}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;font-size:.9rem;color:var(--ink-2)}
+.facts b{font-family:var(--f-mono);font-weight:500;color:var(--ink)}
+
+/* severity chips */
+.sev{display:inline-flex;align-items:center;gap:.35rem;font:600 .72rem/1 var(--f-text);letter-spacing:.06em;text-transform:uppercase;padding:.32rem .55rem;border-radius:999px;white-space:nowrap}
+.sev::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:currentColor}
+.sev.high{color:var(--high);background:var(--high-soft)} .sev.medium{color:var(--med);background:var(--med-soft)} .sev.low{color:var(--low);background:var(--low-soft)}
+.eff{font:500 .75rem/1 var(--f-mono);color:var(--ink-2);border:1px solid var(--rule);border-radius:4px;padding:.25rem .4rem;white-space:nowrap}
+.id{font:500 .8rem/1 var(--f-mono);color:var(--ink-3)}
+
+/* matrix */
+.matrix{overflow-x:auto}
+.matrix table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.92rem}
+.matrix th,.matrix td{padding:.55rem .6rem;border-bottom:1px solid var(--rule-2);text-align:left;font-variant-numeric:tabular-nums}
+.matrix th{font:600 .72rem/1.2 var(--f-text);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.matrix td.n{text-align:right;width:4.5rem;font-family:var(--f-mono)}
+.matrix td.n.z{color:var(--ink-3)}
+.bar{display:flex;height:.7rem;border-radius:2px;overflow:hidden;background:var(--sunk);min-width:6rem}
+.bar i{display:block;height:100%}
+.bar .h{background:var(--high)} .bar .m{background:var(--med)} .bar .l{background:var(--low);opacity:.55}
+.matrix tfoot td{font-weight:600;border-bottom:0}
+@media (max-width:620px){.matrix table{min-width:0}.matrix th:nth-child(2),.matrix td:nth-child(2){display:none}.matrix td.n{width:3.6rem}.matrix th.n{text-align:right}}
+
+/* high cards */
+.highs{display:grid;gap:2.2rem;max-width:var(--wide)}
+.hcard{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.hcard{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:1.8rem;align-items:start}.hcard figure{position:sticky;top:1.5rem}}
+.hcard figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--rule);background:var(--surface)}
+.hcard figure img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;object-position:top left;max-width:100%}
+.hcard figure.tall img{aspect-ratio:auto}
+.hcard figure button{all:unset;cursor:zoom-in;display:block}
+.hcard .meta{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.hcard h3{margin-top:.2rem}
+.hcard .body{display:grid;gap:.7rem;min-width:0}
+.hcard .fix{border-left:3px solid var(--accent);padding:.15rem 0 .15rem .9rem;color:var(--ink)}
+.hcard ul,.issue dd ul{margin:.45rem 0 0;padding-left:1.15rem;display:grid;gap:.35rem}
+.hcard .fix .lab{color:var(--accent);display:block;margin-bottom:.25rem}
+details.more summary{cursor:pointer;color:var(--accent);font-weight:500;font-size:.92rem;list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:" +";}
+details.more[open] summary::after{content:" −"}
+details.more .inner{display:grid;gap:.6rem;padding-top:.6rem;font-size:.95rem;color:var(--ink-2)}
+
+/* quick wins */
+.qw{overflow-x:auto}
+.qw table{border-collapse:collapse;width:100%;min-width:40rem}
+.qw th,.qw td{text-align:left;vertical-align:top;padding:.75rem .7rem;border-bottom:1px solid var(--rule-2)}
+.qw th{font:600 .72rem/1.2 var(--f-text);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.qw td:first-child{width:46%} .qw td.item{white-space:nowrap}
+.qw td.item a{font-family:var(--f-mono);font-size:.85rem}
+@media (max-width:620px){.qw table{min-width:0}.qw thead{display:none}.qw table,.qw tbody,.qw tr,.qw td{display:block;width:auto}.qw tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem .8rem;padding:.8rem 0;border-bottom:1px solid var(--rule-2)}.qw td{padding:0;border:0}.qw td:first-child{width:auto;font-weight:500}.qw td.item{grid-column:2;grid-row:1}.qw td:last-child{grid-column:1/-1;color:var(--ink-2);font-size:.92rem}}
+
+/* bigger changes */
+.big{display:grid;gap:1.1rem;max-width:var(--wide);padding-top:2.6rem;border-top:1px solid var(--rule)}
+.big:first-of-type{border-top:0}
+.big .head{display:flex;gap:1rem;align-items:baseline}
+.big .letter{font:400 2.6rem/1 var(--f-display);color:var(--accent);min-width:2.2rem}
+.big .text{display:grid;gap:.8rem;max-width:var(--col)}
+.big ul{margin:0;padding-left:1.1rem;display:grid;gap:.45rem;color:var(--ink-2)}
+.pair{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:start}
+@media (min-width:980px){.pair{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.pair figure{margin:0;display:grid;gap:.45rem;min-width:0}
+.pair figcaption{font-size:.85rem;color:var(--ink-3)}
+.pair .shot{border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+.pair .shot img{display:block;width:100%;height:auto;max-width:100%}
+.covers{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.88rem;color:var(--ink-2)}
+
+/* proposal sketches: a light product UI in both themes */
+.mock{background:var(--ui-bg);color:var(--ui-text);border:1px solid var(--rule);border-radius:10px;padding:14px;font:400 12.5px/1.45 var(--f-text);position:relative;overflow:hidden;min-height:100%}
+.mock .tag{position:absolute;top:8px;right:10px;font:600 9.5px/1 var(--f-text);letter-spacing:.12em;text-transform:uppercase;color:var(--ui-muted)}
+.mk-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mk-panel{background:var(--ui-panel);border:1px solid var(--ui-line);border-radius:10px;padding:10px 12px;display:grid;gap:8px}
+.mk-cap{font:600 9.5px/1.2 var(--f-text);letter-spacing:.12em;text-transform:uppercase;color:var(--ui-muted)}
+.mk-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:8px;padding:7px 11px;font-weight:600;font-size:12px;border:1px solid var(--ui-line);background:var(--ui-panel);color:var(--ui-text);white-space:nowrap}
+.mk-btn.pri{background:var(--ui-green);border-color:var(--ui-green);color:#fff}
+.mk-btn.wide{width:100%}
+.mk-chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--ui-line);border-radius:999px;padding:3px 9px;font-size:11.5px;background:var(--ui-panel)}
+.mk-chip.on{background:var(--ui-green);border-color:var(--ui-green);color:#fff}
+.mk-note{font-size:11px;color:var(--ui-muted)}
+.mk-ok{color:var(--ui-green);font-weight:600}
+.mk-warn{background:var(--ui-amber-soft);color:var(--ui-amber);border-radius:8px;padding:7px 9px;font-size:11.5px}
+.mk-step{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 0;border-top:1px solid var(--ui-line)}
+.mk-step:first-of-type{border-top:0}
+.mk-num{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font:600 11px/1 var(--f-text);background:var(--ui-green-soft);color:var(--ui-green)}
+.mk-num.done{background:var(--ui-green);color:#fff}
+.mk-thumb{width:58px;height:40px;border-radius:5px;border:1px solid var(--ui-line);background:#DCEFE8;display:block}
+.mk-dialog{position:relative;background:var(--ui-panel);border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.22);padding:14px;display:grid;gap:10px;border:1px solid var(--ui-line)}
+.mk-dialog h4{margin:0;font:600 14px/1.3 var(--f-text)}
+.mk-grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mk-tile{border:1px solid var(--ui-line);border-radius:8px;background:var(--ui-panel);overflow:hidden;display:grid}
+.mk-tile .pic{height:46px;background:linear-gradient(135deg,#CFE3D8,#E9DFC9)}
+.mk-tile .cap{padding:5px 7px;font-size:10.5px;display:flex;justify-content:space-between;gap:6px}
+.mk-state{font:600 9.5px/1 var(--f-text);letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 6px}
+.st-built{background:var(--ui-green-soft);color:var(--ui-green)} .st-final{background:var(--ui-green);color:#fff} .st-run{background:#E8EEF8;color:#2F5597} .st-queue{background:#EEF0F2;color:#5A6470} .st-out{background:var(--ui-amber-soft);color:var(--ui-amber)}
+.mk-strip{display:flex;gap:6px;overflow:hidden}
+.mk-strip span{flex:0 0 52px;height:34px;border-radius:5px;border:2px solid transparent;background:linear-gradient(135deg,#CFE3D8,#E9DFC9)}
+.mk-strip span.cur{border-color:var(--ui-green)} .mk-strip span.par{outline:1px dashed var(--ui-muted);outline-offset:1px}
+.mk-bar{display:flex;flex-wrap:wrap;gap:4px;background:rgba(20,24,22,.86);color:#fff;border-radius:10px;padding:6px 8px;font-size:11px}
+.mk-bar b{font-weight:500;padding:3px 7px;border-radius:6px;background:rgba(255,255,255,.08)}
+.mk-bar b.on{background:#fff;color:#111}
+.mk-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--ui-panel);border:1px solid var(--ui-line);border-radius:10px;padding:8px 10px}
+.mk-crumb{font-size:11.5px;color:var(--ui-muted)} .mk-crumb b{color:var(--ui-text);font-weight:600}
+.mk-stepper{display:flex;gap:4px;flex-wrap:wrap}
+.mk-stepper span{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--ui-line);border-radius:999px;padding:4px 10px;font-size:11.5px;background:var(--ui-panel)}
+.mk-stepper span.cur{background:var(--ui-green);border-color:var(--ui-green);color:#fff}
+.mk-stepper em{font-style:normal;color:var(--ui-muted);font-size:10.5px}
+.mk-stepper span.cur em{color:#D7EBE1}
+.mk-toast{background:#1F2723;color:#fff;border-radius:9px;padding:8px 10px;font-size:11.5px;display:flex;gap:10px;justify-content:space-between;align-items:center}
+.mk-toast a{color:#9FE3C8}
+
+/* issue index */
+.filters{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden;background:var(--surface)}
+.seg button{all:unset;cursor:pointer;padding:.42rem .8rem;font-size:.85rem;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+select,input[type=search]{font:inherit;font-size:.9rem;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:.42rem .6rem;min-width:0}
+input[type=search]{flex:1 1 14rem}
+.count{font-size:.88rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.issues{display:grid;gap:0;border-top:1px solid var(--rule)}
+.issue{border-bottom:1px solid var(--rule)}
+.issue > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:4.2rem minmax(0,1fr) auto;gap:.4rem .9rem;align-items:baseline;padding:.85rem .2rem}
+.issue > summary::-webkit-details-marker{display:none}
+.issue > summary .t{min-width:0}
+.issue > summary .r{display:flex;gap:.4rem;align-items:center;justify-self:end}
+.issue[open] > summary{background:var(--sunk)}
+.issue .d{display:grid;gap:.75rem;padding:.4rem .2rem 1.4rem 5.1rem;max-width:calc(var(--col) + 5.1rem);font-size:.95rem}
+@media (max-width:640px){.issue > summary{grid-template-columns:minmax(0,1fr) auto}.issue > summary .id{grid-column:1/-1}.issue .d{padding-left:.2rem}}
+.issue .d dt{font:600 .72rem/1.2 var(--f-text);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.2rem}
+.issue .d dd{margin:0;color:var(--ink-2)}
+.issue .d dd.sug{color:var(--ink)}
+.ev{display:flex;flex-wrap:wrap;gap:.3rem}
+.empty{padding:1.5rem .2rem;color:var(--ink-3)}
+
+.how{display:grid;gap:.8rem;max-width:var(--col);color:var(--ink-2)}
+.how dt{font-weight:600;color:var(--ink)} .how dd{margin:0 0 .4rem}
+footer{max-width:var(--wide);margin:4rem auto 0;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.88rem;color:var(--ink-3)}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(96vw,1400px)}
+dialog.lb::backdrop{background:rgba(8,10,9,.78)}
+dialog.lb img{display:block;max-width:100%;max-height:88vh;border-radius:8px}
+dialog.lb button{position:absolute;top:8px;right:8px;font:600 .85rem var(--f-text);background:#fff;color:#111;border:0;border-radius:999px;padding:.4rem .8rem;cursor:pointer}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="page">
+  <nav class="toc" aria-label="Sections">
+    <p class="lab">On this page</p>
+    <ol>
+      <li><a href="#glance">At a glance</a></li>
+      <li><a href="#first">Fix these first</a></li>
+      <li><a href="#quick">Quick wins</a></li>
+      <li><a href="#bigger">Bigger changes</a></li>
+      <li><a href="#all">Every issue</a></li>
+      <li><a href="#how">How we checked</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <p class="lab">CoPlan Studio · usability review · observed 2 October 2026</p>
+      <h1>Why Studio is hard to use, and what would fix it</h1>
+      <p class="lead" id="summary"></p>
+      <div class="facts" id="facts"></div>
+    </div>
+
+    <section id="glance" aria-labelledby="glance-h">
+      <header class="col"><p class="lab">At a glance</p><h2 id="glance-h">Where the problems are</h2>
+        <p class="muted">Every issue was seen on the live platform and checked against a screenshot or page capture. High means it misleads planners or their clients, or produces a wrong planning output that looks right.</p></header>
+      <div class="matrix"><table id="matrix"><thead><tr><th>Area</th><th></th><th class="n">High</th><th class="n">Medium</th><th class="n">Low</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+    </section>
+
+    <section id="first" aria-labelledby="first-h">
+      <header class="col"><p class="lab">Fix these first</p><h2 id="first-h">The high-severity problems</h2>
+        <p class="muted">Each one changes what a planning team gets out of Studio without telling them. The suggested fix is ours, from the outside; the effort is a rough guess (S: copy, a default or a confirmation; M: one screen or flow; L: the data model or several screens).</p></header>
+      <div class="highs" id="highs"></div>
+    </section>
+
+    <section id="quick" aria-labelledby="quick-h">
+      <header class="col"><p class="lab">Quick wins</p><h2 id="quick-h">Small fixes that remove the most friction</h2><p class="muted" id="quick-intro"></p></header>
+      <div class="qw"><table><thead><tr><th>Fix</th><th>Item</th><th>What it removes</th></tr></thead><tbody id="quickrows"></tbody></table></div>
+    </section>
+
+    <section id="bigger" aria-labelledby="bigger-h">
+      <header class="col"><p class="lab">Bigger changes</p><h2 id="bigger-h">Six changes to how Studio works</h2><p class="muted" id="bigger-intro"></p></header>
+      <div id="bigs"></div>
+    </section>
+
+    <section id="all" aria-labelledby="all-h">
+      <header class="col"><p class="lab">Every issue</p><h2 id="all-h">All verified issues</h2><p class="muted">Open any row for where it happens, what we saw, why it matters, our suggestion and the evidence files.</p></header>
+      <div class="filters" role="group" aria-label="Filter issues">
+        <div class="seg" id="sevseg" role="group" aria-label="Severity">
+          <button type="button" data-sev="all" aria-pressed="true">All</button><button type="button" data-sev="high" aria-pressed="false">High</button><button type="button" data-sev="medium" aria-pressed="false">Medium</button><button type="button" data-sev="low" aria-pressed="false">Low</button>
+        </div>
+        <label class="sr" for="area" hidden>Area</label>
+        <select id="area" aria-label="Area"><option value="">All areas</option></select>
+        <select id="effort" aria-label="Effort"><option value="">Any effort</option><option value="S">Effort S</option><option value="M">Effort M</option><option value="L">Effort L</option></select>
+        <input type="search" id="q" placeholder="Search issues, e.g. boundary, report, Dubai" aria-label="Search issues">
+        <span class="count" id="count" aria-live="polite"></span>
+      </div>
+      <div class="issues" id="issues"></div>
+    </section>
+
+    <section id="how" aria-labelledby="how-h">
+      <header class="col"><p class="lab">Method</p><h2 id="how-h">How we checked</h2></header>
+      <dl class="how" id="howlist"></dl>
+    </section>
+  </main>
+</div>
+<footer>Source: <code>docs/studio-feedback.md</code> and the capture set in the Studio guide's repository (<code>damianocerrone/claude-mixed</code>). The screenshots on this page are from the live platform; the proposal sketches are ours.</footer>
+
+<dialog class="lb" id="lb"><img alt="" id="lbimg"><button type="button" id="lbclose">Close</button></dialog>
+
+<!-- proposal sketches, one per bigger change -->
+<template id="mock-A">
+  <div class="mock" role="img" aria-label="Sketch: the Site tab as a three-step checklist, with a lock dialog before the first run">
+    <span class="tag">Proposal sketch</span>
+    <div class="mk-grid2" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));align-items:start;margin-top:14px">
+      <div class="mk-panel">
+        <span class="mk-cap">Site</span>
+        <div class="mk-step"><span class="mk-num done">1</span><span><b>Site boundary</b> <span class="mk-ok">✓ Set</span><br><span class="mk-note">Edit boundary · Clear</span></span><svg class="mk-thumb" viewBox="0 0 58 40" aria-hidden="true"><polygon points="4,14 22,12 34,4 52,5 54,16 50,22 30,28 12,36" fill="none" stroke="#E07A2F" stroke-width="2"/></svg></div>
+        <div class="mk-step"><span class="mk-num">2</span><span><b>Land use</b> · Not set <span class="mk-note">(optional)</span><br><span class="mk-note">Standard: Generic land use · Edit colours</span><br><span class="mk-btn" style="margin-top:6px">Plan land use</span></span><span></span></div>
+        <div class="mk-step"><span class="mk-num">3</span><span><b>Ready to start</b><br><span class="mk-note">2 images · about 2 min</span></span><span></span></div>
+        <span class="mk-btn pri wide">Start ideation…</span>
+      </div>
+      <div class="mk-dialog">
+        <h4>Lock the site and start ideation?</h4>
+        <div class="mk-row"><svg class="mk-thumb" viewBox="0 0 58 40" aria-hidden="true"><polygon points="4,14 22,12 34,4 52,5 54,16 50,22 30,28 12,36" fill="none" stroke="#E07A2F" stroke-width="2"/></svg><span class="mk-note">Boundary as stored · Scale 1 : 4 800</span></div>
+        <div class="mk-warn">No land-use plan: generations will ignore zoning, and you can't add one later.</div>
+        <p class="mk-note">After this, the boundary and land-use plan can't be changed in this project.</p>
+        <div class="mk-row" style="justify-content:flex-end"><span class="mk-btn">Back to Site</span><span class="mk-btn pri">Lock site and generate</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="mock-B">
+  <div class="mock" role="img" aria-label="Sketch: a Brief card kept for every run, separate changes for this run only, and a Made with strip in Focus view">
+    <span class="tag">Proposal sketch</span>
+    <div style="display:grid;gap:10px;margin-top:14px">
+      <div class="mk-panel">
+        <div class="mk-row" style="justify-content:space-between"><span class="mk-cap">Brief · kept for every run</span><span class="mk-btn">Edit brief</span></div>
+        <div class="mk-row"><span class="mk-chip">Master plan</span><span class="mk-chip">Medium-high · 2–3-storey townhouses</span><span class="mk-chip">Organic</span><span class="mk-chip">Illustrative</span><span class="mk-chip">Balanced</span></div>
+        <div class="mk-note">Requires: Public park, Transit stop · Location: from Project settings · Climate: from the location</div>
+      </div>
+      <div class="mk-panel">
+        <span class="mk-cap">Change this run</span>
+        <div class="mk-row"><span class="mk-chip">Day</span><span class="mk-chip on">Dusk</span><span class="mk-chip">Night</span><span class="mk-chip on">+ Water feature</span><span class="mk-chip">+ People</span><span class="mk-chip on">Greenery 2 of 3</span></div>
+      </div>
+      <div class="mk-panel" style="gap:6px">
+        <div class="mk-row" style="justify-content:space-between"><span class="mk-cap">Next run · brief + 3 changes</span><span class="mk-note">Clear this run</span></div>
+        <span class="mk-btn pri wide">Apply to current</span>
+        <span class="mk-note" style="text-align:center">2 images · about 2 min · 2 credits</span>
+      </div>
+      <div class="mk-bar"><b>Made with</b> Medium-high · Balanced · Illustrative · Dusk · Water feature · Public park, Transit stop <b class="on">Use these settings</b></div>
+    </div>
+  </div>
+</template>
+
+<template id="mock-C">
+  <div class="mock" role="img" aria-label="Sketch: every run states its output, time and cost; runs show in place and end with a notice; Build all missing asks first">
+    <span class="tag">Proposal sketch</span>
+    <div style="display:grid;gap:10px;margin-top:14px">
+      <div class="mk-grid2">
+        <div class="mk-panel" style="gap:5px"><span class="mk-btn pri wide">Apply to mask</span><span class="mk-note" style="text-align:center">2 images · about 5 min · 2 credits</span></div>
+        <div class="mk-panel" style="gap:5px"><span class="mk-btn pri wide">Save as new version</span><span class="mk-note" style="text-align:center">1 image · a few seconds · no credits</span></div>
+      </div>
+      <div class="mk-panel">
+        <div class="mk-row" style="justify-content:space-between"><b>I3 · generating</b><span class="mk-note">Variant 1 of 2 · about 2 min left</span></div>
+        <div class="mk-grid2"><div class="mk-tile"><div class="pic" style="opacity:.55"></div><div class="cap"><span>I3 · 1</span><span class="mk-state st-run">Running</span></div></div><div class="mk-tile"><div class="pic" style="opacity:.3"></div><div class="cap"><span>I3 · 2</span><span class="mk-state st-queue">Queued</span></div></div></div>
+      </div>
+      <div class="mk-toast"><span>Touch-up finished: 2 new images in Concept A · I3</span><a>View</a></div>
+      <div class="mk-dialog">
+        <h4>Build 22 renders?</h4>
+        <div class="mk-note">Concept A · from I2 · 10 renders<br>Green streets · from I1 · 12 renders<br><b style="color:var(--ui-text)">About 25 min · 22 credits</b></div>
+        <div class="mk-row" style="justify-content:flex-end"><span class="mk-btn">Build 2 to check first</span><span class="mk-btn pri">Build all 22</span></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="mock-D">
+  <div class="mock" role="img" aria-label="Sketch: Production renders from the image the team chose, keeps every built render, and warns when Ideation has moved on">
+    <span class="tag">Proposal sketch</span>
+    <div style="display:grid;gap:10px;margin-top:14px">
+      <div class="mk-panel" style="gap:6px">
+        <div class="mk-row" style="justify-content:space-between"><b>Concept A · uses I2</b><span class="mk-note">chosen by you, 2 Oct · <u>Change</u></span></div>
+        <div class="mk-warn">Concept A has newer iterations (I3–I6). Your renders stay on I2. <u>Compare</u> · <u>Rebuild from I6…</u></div>
+      </div>
+      <div class="mk-grid2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div class="mk-tile"><div class="pic"></div><div class="cap"><span>Aerial · Day</span><span class="mk-state st-final">Final</span></div></div>
+        <div class="mk-tile"><div class="pic"></div><div class="cap"><span>Eye-level · Day</span><span class="mk-state st-built">Built</span></div></div>
+        <div class="mk-tile"><div class="pic" style="opacity:.5"></div><div class="cap"><span>Plan · Day</span><span class="mk-state st-run">Building</span></div></div>
+        <div class="mk-tile"><div class="pic" style="opacity:.25"></div><div class="cap"><span>Aerial · Dusk</span><span class="mk-state st-queue">Queued</span></div></div>
+        <div class="mk-tile"><div class="pic"></div><div class="cap"><span>Section · Day</span><span class="mk-state st-out">Outdated</span></div></div>
+        <div class="mk-tile"><div class="pic" style="background:var(--ui-panel)"></div><div class="cap"><span>Plan · Night</span><span class="mk-state st-queue">Empty</span></div></div>
+      </div>
+      <div class="mk-panel" style="gap:6px"><span class="mk-cap">Report builder</span><div class="mk-note">Render set · 2 of 24 renders &nbsp;·&nbsp; <span style="color:var(--ui-amber)">● Approved concepts · none approved</span></div><div class="mk-warn">Approved concepts is empty · 22 renders missing · <u>Fix</u></div></div>
+    </div>
+  </div>
+</template>
+
+<template id="mock-E">
+  <div class="mock" role="img" aria-label="Sketch: a Working on card shows the edit target, a filmstrip shows lineage, and a labelled toolbar docks under the image">
+    <span class="tag">Proposal sketch</span>
+    <div style="display:grid;gap:10px;margin-top:14px">
+      <div class="mk-panel"><div class="mk-row"><span class="mk-thumb" style="background:linear-gradient(135deg,#CFE3D8,#E9DFC9)"></span><span><b>Working on: Concept A · I3 · image 1 of 2</b><br><span class="mk-note">Touch-up · “Turn these blocks into a tree-l…”</span></span><span class="mk-btn" style="margin-left:auto">Change</span></div></div>
+      <div style="height:92px;border-radius:8px;background:linear-gradient(135deg,#CFE3D8 0%,#E9DFC9 60%,#D9CDB3 100%);border:1px solid var(--ui-line)"></div>
+      <div class="mk-bar"><b class="on">Top</b><b>Eye-level</b><b>Side by side</b><span style="opacity:.5">|</span><b>Boundary</b><span style="opacity:.5">|</span><b>Compare: Original</b><b>Parent</b><span style="opacity:.5">|</span><b>♥</b><b>Download</b><b>Info</b></div>
+      <div class="mk-row" style="justify-content:space-between"><div class="mk-strip"><span></span><span></span><span class="par"></span><span class="cur"></span><span></span><span></span></div><span class="mk-note">3 / 11 · ← →</span></div>
+    </div>
+  </div>
+</template>
+
+<template id="mock-F">
+  <div class="mock" role="img" aria-label="Sketch: a top bar with a real breadcrumb back to CoPlanAI and a project stepper from Site to Report">
+    <span class="tag">Proposal sketch</span>
+    <div style="display:grid;gap:10px;margin-top:14px">
+      <div class="mk-top"><span class="mk-crumb">CoPlanAI / Studio / Projects / <b>Downtown plan (Studio tutorial demo)</b></span></div>
+      <div class="mk-stepper"><span>① Site ✓ <em>locked</em></span><span class="cur">② Ideation <em>2 concepts · 11 images</em></span><span>③ Production <em>2 of 24 renders</em></span><span>④ Report</span></div>
+      <div class="mk-panel" style="gap:6px"><span class="mk-cap">Next</span><div>Pick one image per concept for production · <u>Open shortlist</u></div></div>
+      <div class="mk-grid2">
+        <div class="mk-panel" style="gap:4px"><span class="mk-cap">Project settings · a page of its own</span><div class="mk-note">/studio/projects/downtown-plan/settings</div><div class="mk-row"><span class="mk-chip on">General</span><span class="mk-chip">Site files</span><span class="mk-chip">People</span><span class="mk-chip">Generation</span></div></div>
+        <div class="mk-panel" style="gap:4px"><span class="mk-cap">Visibility</span><div>🔒 Members only</div><div class="mk-note">Add a person by name or email…</div></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(function () {
+  'use strict';
+  var D = JSON.parse(document.getElementById('data').textContent);
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var SEVS = ['high', 'medium', 'low'];
+  var SEVNAME = { high: 'High', medium: 'Medium', low: 'Low' };
+  var IMAGES = {
+    'SS-1': ['img/ss-1.webp', 'Left: the closed outline in the boundary editor. Right: after Save boundary, View boundary shows the plan with no outline.', true],
+    'SS-2': ['img/ss-2.webp', 'The recognition review after saving the painted plan: Water and Transport & roads are listed, Commercial is missing.'],
+    'SS-3': ['img/ss-3.webp', 'Start ideation at the bottom of the Site tab: one click, no confirmation, and the boundary and land-use plan are fixed.'],
+    'SS-4': ['img/ss-4.webp', 'Save boundary on an empty canvas still reports "Boundary set".'],
+    'ID-1': ['img/id-1.webp', 'The first two variants for a US downtown zoning plan: a desert city with a lake.'],
+    'ID-2': ['img/id-2.webp', 'Iterating on an image: the panel shows only this run’s changes, not the brief the image was made with.'],
+    'RE-1': ['img/re-1.webp', 'A generated plan keeps the zoning plan’s legend, but the colours no longer match it.'],
+    'PR-1': ['img/pr-1.webp', 'Production builds from the newest iteration (Concept A · I6), not from one the team chose.'],
+    'PR-2': ['img/pr-2.webp', 'The report preview’s process summary: 25 total generations, 12 / 13 ideation / production.'],
+    'PR-3': ['img/pr-3.webp', 'The Report builder includes Approved concepts by default, but nothing in Studio approves a concept.'],
+    'NA-1': ['img/na-1.webp', 'The new-project form after adding a site image: the scope and the detected scale change by themselves.'],
+    'CC-1': ['img/cc-1.webp', 'Impact gives an indicative AI answer; coplanai.com describes Studio options as "checked against the planning documents".'],
+  };
+  var BIGIMG = { A: 'img/big-a.webp', B: 'img/big-b.webp', C: 'img/big-c.webp', D: 'img/big-d.webp', E: 'img/big-e.webp', F: 'img/big-f.webp' };
+  var BIGCAP = {
+    A: 'Today: the boundary editor is a general paint canvas with five tools, six colours and an eraser.',
+    B: 'Today: Quick actions mixes saved, staged and instant choices in one PENDING tray.',
+    C: 'Today: a run shows "Composing prompt…" over a blurred image, with no time or cost.',
+    D: 'Today: the render set builds from whichever iteration is newest.',
+    E: 'Today: Focus view with fifteen unlabelled icons over the image.',
+    F: 'Today: the top bar has an unlabelled logo, a two-step switch and no way back to the dashboard.',
+  };
+
+  /* hero */
+  $('#summary').innerHTML = D.summary;
+  var tot = { high: 0, medium: 0, low: 0 };
+  D.items.forEach(function (i) { tot[i.severity]++; });
+  $('#facts').innerHTML = '<span><b>' + D.items.length + '</b> verified issues</span><span><b>' + tot.high + '</b> high</span><span><b>' + tot.medium + '</b> medium</span><span><b>' + tot.low + '</b> low</span><span><b>' + D.quick.length + '</b> quick wins</span><span><b>' + D.bigger.length + '</b> bigger changes</span>';
+
+  /* matrix */
+  var max = 0;
+  D.areas.forEach(function (a) { var c = D.counts[a]; max = Math.max(max, c.high + c.medium + c.low); });
+  $('#matrix tbody').innerHTML = D.areas.map(function (a) {
+    var c = D.counts[a], n = c.high + c.medium + c.low, w = function (v) { return (100 * v / max).toFixed(2) + '%'; };
+    return '<tr><td>' + esc(a) + '</td><td style="width:40%"><div class="bar" aria-hidden="true"><i class="h" style="width:' + w(c.high) + '"></i><i class="m" style="width:' + w(c.medium) + '"></i><i class="l" style="width:' + w(c.low) + '"></i></div></td>' +
+      SEVS.map(function (s) { return '<td class="n' + (c[s] ? '' : ' z') + '">' + c[s] + '</td>'; }).join('') + '</tr>';
+  }).join('');
+  $('#matrix tfoot').innerHTML = '<tr><td>All areas</td><td class="muted" style="font-weight:400">' + D.items.length + ' issues</td>' + SEVS.map(function (s) { return '<td class="n">' + tot[s] + '</td>'; }).join('') + '</tr>';
+
+  /* lightbox */
+  var lb = $('#lb'), lbimg = $('#lbimg');
+  function zoom(src, alt) { lbimg.src = src; lbimg.alt = alt; if (lb.showModal) lb.showModal(); }
+  $('#lbclose').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+
+  /* high cards */
+  var highs = D.items.filter(function (i) { return i.severity === 'high'; });
+  $('#highs').innerHTML = highs.map(function (i) {
+    var im = IMAGES[i.id];
+    var fig = im ? '<figure class="' + (im[2] ? 'tall' : '') + '"><button type="button" data-zoom="' + im[0] + '" data-alt="' + esc(im[1]) + '" aria-label="Enlarge screenshot"><img src="' + im[0] + '" alt="' + esc(im[1]) + '" width="1400" height="' + (im[2] ? 567 : 700) + '"></button></figure>' : '<div></div>';
+    return '<article class="hcard" id="h-' + i.id + '">' + fig + '<div class="body"><div class="meta"><span class="id">' + i.id + '</span><span class="sev high">High</span><span class="eff" title="Effort">Effort ' + esc(i.effort) + '</span><span class="lab">' + esc(i.area) + '</span></div><h3>' + i.title + '</h3><div class="muted">' + i.what + '</div><div class="fix"><span class="lab">Suggestion</span>' + i.suggestion + '</div><details class="more"><summary>Where and why it matters</summary><div class="inner"><div><strong>Where:</strong> ' + i.where + '</div><div><strong>Why it matters:</strong> ' + i.why + '</div></div></details></div></article>';
+  }).join('');
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-zoom]'); if (b) zoom(b.getAttribute('data-zoom'), b.getAttribute('data-alt')); });
+
+  /* quick wins */
+  $('#quick-intro').innerHTML = D.quick_intro;
+  $('#quickrows').innerHTML = D.quick.map(function (q) {
+    var ids = q.item.split(/[,\s]+/).filter(Boolean);
+    return '<tr><td>' + q.fix + '</td><td class="item">' + ids.map(function (x) { return '<a href="#i-' + esc(x) + '" data-open="' + esc(x) + '">' + esc(x) + '</a>'; }).join(', ') + '</td><td class="muted">' + q.removes + '</td></tr>';
+  }).join('');
+
+  /* bigger changes */
+  $('#bigger-intro').innerHTML = D.bigger_intro;
+  var bigs = $('#bigs');
+  D.bigger.forEach(function (b) {
+    var el = document.createElement('article');
+    el.className = 'big'; el.id = 'big-' + b.letter;
+    el.innerHTML = '<div class="head"><span class="letter" aria-hidden="true">' + b.letter + '</span><h3>' + b.title + '</h3></div>' +
+      '<div class="text"><p><strong>Problem.</strong> ' + b.problem + '</p><p><strong>Proposal.</strong> ' + b.proposal + '</p>' + (b.points.length ? '<ul>' + b.points.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>' : '') + '</div>' +
+      '<div class="pair"><figure><div class="shot"><button type="button" style="all:unset;cursor:zoom-in;display:block" data-zoom="' + BIGIMG[b.letter] + '" data-alt="' + esc(BIGCAP[b.letter]) + '" aria-label="Enlarge screenshot"><img src="' + BIGIMG[b.letter] + '" alt="' + esc(BIGCAP[b.letter]) + '" width="1400" height="700"></button></div><figcaption>' + esc(BIGCAP[b.letter]) + '</figcaption></figure><figure class="mk-slot"></figure></div>' +
+      '<details class="more"><summary>What it would look like on screen</summary><div class="inner"><p>' + b.on_screen + '</p></div></details>' +
+      '<div class="covers"><span><strong>Covers:</strong> ' + b.covers + '</span><span><strong>Effort:</strong> ' + b.effort + '</span></div>';
+    var t = document.getElementById('mock-' + b.letter);
+    if (t) { var slot = el.querySelector('.mk-slot'); slot.appendChild(t.content.cloneNode(true)); var cap = document.createElement('figcaption'); cap.textContent = 'Proposed: a sketch of the change, not a finished design.'; slot.appendChild(cap); }
+    bigs.appendChild(el);
+  });
+
+  /* issue index */
+  var areaSel = $('#area');
+  D.areas.forEach(function (a) { var o = document.createElement('option'); o.value = a; o.textContent = a; areaSel.appendChild(o); });
+  var list = $('#issues');
+  list.innerHTML = D.items.map(function (i) {
+    var ev = i.evidence.length ? '<div><dt>Evidence</dt><dd class="ev">' + i.evidence.map(function (p) { return '<code>' + esc(p) + '</code>'; }).join('') + '</dd></div>' : '';
+    return '<details class="issue" id="i-' + i.id + '" data-sev="' + i.severity + '" data-area="' + esc(i.area) + '" data-effort="' + esc(i.effort) + '"><summary><span class="id">' + i.id + '</span><span class="t">' + i.title + '</span><span class="r"><span class="sev ' + i.severity + '">' + SEVNAME[i.severity] + '</span><span class="eff">' + esc(i.effort) + '</span></span></summary><dl class="d"><div><dt>Where</dt><dd>' + i.where + '</dd></div><div><dt>What happens</dt><dd>' + i.what + '</dd></div><div><dt>Why it matters</dt><dd>' + i.why + '</dd></div><div><dt>Suggestion</dt><dd class="sug">' + i.suggestion + '</dd></div>' + ev + '</dl></details>';
+  }).join('') + '<p class="empty" id="none" hidden>No issues match these filters.</p>';
+  var rows = [].slice.call(list.querySelectorAll('.issue'));
+  var text = rows.map(function (r) { return r.textContent.toLowerCase(); });
+  var state = { sev: 'all' };
+  function apply() {
+    var a = areaSel.value, ef = $('#effort').value, q = $('#q').value.trim().toLowerCase(), n = 0;
+    rows.forEach(function (r, k) {
+      var ok = (state.sev === 'all' || r.dataset.sev === state.sev) && (!a || r.dataset.area === a) && (!ef || r.dataset.effort === ef) && (!q || text[k].indexOf(q) >= 0);
+      r.hidden = !ok; if (ok) n++;
+    });
+    $('#none').hidden = n > 0;
+    $('#count').textContent = n + ' of ' + rows.length;
+  }
+  [].forEach.call($('#sevseg').querySelectorAll('button'), function (b) {
+    b.addEventListener('click', function () {
+      state.sev = b.dataset.sev;
+      [].forEach.call($('#sevseg').querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      apply();
+    });
+  });
+  areaSel.addEventListener('change', apply); $('#effort').addEventListener('change', apply); $('#q').addEventListener('input', apply);
+  apply();
+  function openIssue(id) { var el = document.getElementById('i-' + id); if (!el) return; if (el.hidden) { state.sev = 'all'; areaSel.value = ''; $('#effort').value = ''; $('#q').value = ''; [].forEach.call($('#sevseg').querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', String(x.dataset.sev === 'all')); }); apply(); } el.open = true; el.scrollIntoView({ block: 'start' }); }
+  document.addEventListener('click', function (e) { var a = e.target.closest('[data-open]'); if (a) { e.preventDefault(); openIssue(a.getAttribute('data-open')); } });
+  if (/^#i-[A-Z]{2}-\d+$/.test(location.hash)) openIssue(location.hash.slice(3));
+
+  /* method */
+  $('#howlist').innerHTML = Object.keys(D.how).map(function (k) { return '<div><dt>' + esc(k) + '</dt><dd>' + D.how[k] + '</dd></div>'; }).join('');
+})();
+</script>
